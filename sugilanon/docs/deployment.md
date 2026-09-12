@@ -36,9 +36,11 @@ Important variables:
 
 ## Production Notes
 
-- Production nginx config routes `sugilanon.philwatch.com` to the Sugilanon service.
+- Production nginx config routes `philwatch.com` to the Sugilanon service.
 - Production API traffic for Sugilanon should be proxied to the backend.
-- Before enabling SSL config, ensure a certificate exists for the Sugilanon domain.
+- On the current VPS, Caddy owns public ports `80` and `443` and should terminate TLS for `philwatch.com`.
+- Pushes to the `sugilanon` repository `main` branch dispatch `sugilanon-updated` to `jamesabilong/fpdocker`.
+- The `fpdocker` repository builds `ghcr.io/jamesabilong/sugilanon:latest`, pushes it to GHCR, and updates `freshprice_sugilanon` on the VPS.
 
 ## Verification Checklist
 

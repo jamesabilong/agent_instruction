@@ -4,6 +4,9 @@
 
 - Split Sugilanon documentation into `instructions/sugilanon`.
 - Documented Next.js frontend shape, content API routes, content models, and deployment notes separately from FreshPrice and portfolio docs.
+- Added Sugilanon GitHub Actions deploy trigger for `main` pushes to dispatch `sugilanon-updated` to `fpdocker`.
+- Corrected production routing expectation from `sugilanon.philwatch.com` to `philwatch.com`.
+- Documented that Caddy terminates TLS for `philwatch.com` on the VPS.
 
 ## Current State
 

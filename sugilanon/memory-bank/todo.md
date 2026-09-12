@@ -10,3 +10,4 @@
 
 - Add per-model field details for content tables if a content schema task is requested.
 - Add known admin workflow notes after the next admin feature change.
+- Confirm the first Sugilanon dispatch builds and pushes `ghcr.io/jamesabilong/sugilanon:latest`.

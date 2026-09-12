@@ -8,4 +8,4 @@
 ## Suggested Follow-Up
 
 - Add a page inventory after the next portfolio content update.
-- Document the production domain and deployment flow once confirmed.
+- Document the full deployment flow; the PhilWatch production domain is confirmed as `https://philwatch.com`.

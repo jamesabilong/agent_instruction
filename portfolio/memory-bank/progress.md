@@ -1,5 +1,9 @@
 # Portfolio Progress
 
+## 2026-09-06
+
+- Renamed the portfolio project card from `Sugilanon / PhilWatch` to `PhilWatch` and linked it to `https://philwatch.com`.
+
 ## 2026-07-01
 
 - Split portfolio documentation into `instructions/portfolio`.

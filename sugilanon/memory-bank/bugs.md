@@ -7,4 +7,5 @@
 
 ## Open Bugs
 
-- No reproducible Sugilanon runtime bugs were confirmed during the 2026-07-01 documentation pass.
+- 2026-07-01 FreshPrice deploy logs showed `freshprice_sugilanon` rejected because `ghcr.io/jamesabilong/sugilanon:latest` was missing or inaccessible.
+- 2026-07-01 frontend nginx logs showed the config was still pointing at `sugilanon.philwatch.com`; production should serve Sugilanon from `philwatch.com`.

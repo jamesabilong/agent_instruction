@@ -79,6 +79,13 @@ npm run dev
 ## Production Notes
 
 - Production Docker files and nginx configs live under `fpdocker`.
+- `fresh-price-front` pushes to `master` dispatch `frontend-updated` to `jamesabilong/fpdocker`.
+- `platform-backend` pushes to `master` dispatch `backend-updated` to `jamesabilong/fpdocker`.
+- The `fpdocker` repository handles the image build, GHCR push, VPS SSH deploy, and targeted service update for the dispatched app.
+- Backend production images include `sequelize-cli` and `.sequelizerc` so VPS migrations run from bundled image files instead of downloading tooling with `npx`.
+- Backend-only dispatches bootstrap the stack only when the Swarm network or `freshprice_backend` service is missing; otherwise they run migrations and update `freshprice_backend` directly.
+- On the current VPS, Caddy owns public ports `80` and `443`; the FreshPrice frontend container should serve HTTP on a non-public host port such as `8081`.
+- Caddy should reverse proxy `freshprice.philwatch.com` and `philwatch.com` to the frontend HTTP port.
 - Production deploys use:
 
 ```sh
@@ -86,6 +93,7 @@ cd fpdocker
 docker stack deploy -c docker-compose.prod.yml freshprice
 ```
 
+- Direct `fpdocker` pushes do not trigger the production deploy workflow unless a separate `repository_dispatch` event is sent.
 - Keep production PostgreSQL pinned to `postgres:14` unless a planned database upgrade is being performed.
 - Do not use `task restart` for the VPS production stack while the production network driver is `overlay`.
 
