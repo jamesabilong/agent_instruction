@@ -17,9 +17,12 @@
 - P0, reproduced with local mocks: `expenseController.createExpense` spreads `req.body` after the authenticated `userId`, allowing actor override (A02).
 - P1, source-confirmed risks: budget storage is shared across accounts without logout reset (A03); first-200 expense hydration can understate totals (A04); failed saves can resolve as success or retain unqueued optimistic state (A05).
 - P1, concurrency risk requiring database validation: sub-budget allocation checks and writes are not protected by a transaction/parent lock (A06).
-- See `docs/feature-audit-and-roadmap-2026-09-12.md` for evidence, scope, fixes, and verification limits. These findings remain unresolved; this task changed documentation only.
+- Follow-up 2026-09-12: A01–A05 repaired in local code with regression coverage; A06 now uses transactional parent locks, but real PostgreSQL concurrency/migration checks are still required because Docker's Linux engine was unavailable. Production remains unverified. See `docs/budget-updates-0-1-2026-09-12.md`; the bullets above preserve the original audit findings.
+- A08 wiki publication-quality gap remains open and is part of FP-55/M08. FP-56 must not auto-publish collected material before the review contract is implemented.
 
 ## Resolved Bugs
+
+- 2026-09-12 local: expense impersonation/unscoped member reads, cross-session budget cache retention, first-page-only summary calculations, swallowed save errors, and initial-load form/target defaults were repaired. Shared expense mutations now recheck membership, and a removed/unavailable expense target cannot silently become a personal expense. Release verification remains open as documented above.
 
 - 2026-08-13 FP-53 backend market-price POST/PUT tests failed with `toJSON is not a function`; fixed by reloading hydrated price rows and serializing Sequelize/plain records defensively.
 - 2026-08-13 FP-53 backend deploy image could not reliably run VPS migrations because `sequelize-cli` and `.sequelizerc` were not included in the production image; fixed by making the CLI a production dependency and copying `.sequelizerc`.

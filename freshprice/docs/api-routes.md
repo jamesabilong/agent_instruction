@@ -1,6 +1,6 @@
 # FreshPrice API Routes Investigation
 
-Last investigated: 2026-07-01
+Last investigated: 2026-09-12 (budget reliability additions; other inventory retained)
 
 FreshPrice uses `/api/freshprice/*` for app-owned APIs and `/api/platform/*` for shared auth, user, upload, community, and health APIs.
 
@@ -107,6 +107,7 @@ Budget and expense routes require auth.
 - `PUT /budget/sub-budgets/:subBudgetId?`
 - `DELETE /budget/sub-budgets/:subBudgetId`
 - `GET /expenses`
+- `GET /expenses/summary`
 - `POST /expenses`
 - `PUT /expenses/:id`
 - `DELETE /expenses/:id`
@@ -120,3 +121,17 @@ Budget and expense routes require auth.
 - `POST /scheduled-budget-invitations/:id/decline`
 - `POST /scheduled-budgets/:id/invitations`
 - `DELETE /scheduled-budgets/:id/collaborators/:userId`
+- `POST /scheduled-budgets/:id/leave`
+- `GET /scheduled-budgets/:id/activity`
+
+### Budget contract additions — 2026-09-12
+
+- Expense actor/ownership comes from authentication only. The create controller allowlists fields; supplied body/query `userId` cannot select another actor. Editing/deleting requires the original expense owner and continued access to its shared budget, even when moving the expense elsewhere.
+- `GET /expenses` returns `{ success, data, meta: { total, page, limit } }`; limit is capped at 200. Ordering is date, creation time, then ID. `GET /expenses/summary` returns `{ success, data: { total, count, groups } }`; each group contains category, current/scheduled sub-budget IDs, spent and count. Summary includes every matching row, independent of page/limit.
+- Both reads use the same scope/filter rules. `scope=current` includes only the actor's non-scheduled expenses. Default/`scope=all` returns the actor's own expenses in current and still-accessible scheduled budgets. `scheduledBudgetId` requires owner or accepted-member access and returns all members' expenses. `memberId` requires that authorized scheduled scope; an unscoped member filter returns 400. `scheduledSubBudgetId` requires its parent. Mixing scheduled scope with current-budget allocation filters is rejected.
+- Date filters accept inclusive `startDate`/`endDate`. If omitted, `period=daily&date=YYYY-MM-DD` or `period=monthly&year=YYYY&month=1..12` selects a period. Without date/period filters, all matching dates are included. Page and member filters never change the stored budget allocation.
+- `POST /expenses` accepts optional UUID `requestId`. Same actor/key/payload returns the existing expense; a changed payload for a used key returns 409. New clients preserve this key through failed retries. Older clients without a key remain supported but do not gain retry deduplication.
+- Scheduled budget responses include server `spent`, `remaining`, and `categoryTotals`, plus sub-budget totals and sharing metadata. Member responses include `expiresAt` and `expired`; new pending invitations expire after seven days. Expired response attempts return 410; removed/cancelled or unavailable invitations return 404.
+- Owners can invite, cancel pending invitations, and remove accepted members. Accepted contributors can `POST /scheduled-budgets/:id/leave`; owners must use the explicit budget-delete flow. Leaving/removal preserves expenses while removing access.
+- Activity requires current owner/accepted-member access, uses `page` (default 1), fixed limit 25, and returns `{ success, data: { rows, total, page, limit } }`. Rows identify actor/target usernames, action, and creation time; no expense notes or amounts are copied into event text. There is no historical event backfill.
+- Existing `/api/platform/notifications` responses may contain `type=budget_activity` and optional `href` for the relevant budget screen. Budget mutations record activity and notifications in the same database transaction. Notifications do not grant budget access.

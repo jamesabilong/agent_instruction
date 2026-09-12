@@ -1,6 +1,6 @@
 # FreshPrice Project Spec
 
-Last investigated: 2026-07-01
+Last investigated: 2026-09-12 (budget workflow update)
 
 ## Summary
 
@@ -44,6 +44,10 @@ FreshPrice is a produce and market price tracking platform with public price bro
 - Auth endpoints are under `/api/platform/auth`.
 
 ## Important Conventions
+
+Budget workflow additions (local Update 0/1 implementation): current budgets remain personal; scheduled budgets support owner-managed invitations, seven-day expiry, accepted contributors, self-service leave, and owner removal. Contributors can edit/delete only their own expenses while membership is active. Removal preserves historical expenses. Totals come from server aggregates and history is paginated. Private budget state is cleared across sessions; saves require a confirmed online response, with keyed retries and visible stale/offline status. Budget activity and notifications are recorded transactionally. Database migration and staging gates remain open in `docs/budget-updates-0-1-2026-09-12.md`.
+
+FP-64 wiki coverage, maintenance readiness and optional external ingestion are future scope in `docs/fp-64-sprint-review-2026-09-12.md`; they are not implemented by the budget update.
 
 - Use `VITE_API_BASE_URL` in the frontend instead of hardcoded backend URLs.
 - Keep frontend API behavior centralized through `fresh-price-front/src/api/client.ts`.

@@ -10,11 +10,11 @@
 ## Audit Follow-Up 2026-09-12
 
 - Use `docs/feature-audit-and-roadmap-2026-09-12.md` as the detailed mandatory/optional backlog.
-- Immediate: repair expense read/create authorization and isolate persisted budget data across account changes (M01/M02).
-- Next core update: accurate paginated budget totals, recoverable saves, allocation transactions, and shared-budget membership/UX/activity improvements (M03-M07).
+- Updates 0/1 (M01–M07) are implemented locally. Next: apply the additive migration in an isolated PostgreSQL test database, run budget concurrency integration tests, then perform staging access/retry/PWA checks and the normal release process. See `docs/budget-updates-0-1-2026-09-12.md`.
 - Wiki update: inventory live coverage, enforce publication quality, improve draft imports, and publish an initial reviewed content batch (M08-M10).
 - Add release regressions for cross-account access, 201+ expenses, failed saves, shared membership changes, and wiki publication (M11).
 - Optional later: seller profiles/offers and private text chat pilots, followed by advanced budget, offline, and wiki features.
+- FP-64 / sprint 335: define sprint goal, owner/reviewer, estimates and acceptance criteria. Map FP-55 to existing wiki quality/coverage work (M08–M10); deliver FP-43 maintenance readiness (M12); keep FP-56 one-source ingestion (O10) optional after draft review. Confirm wiki content versus market-price collection before implementing the collector. See `docs/fp-64-sprint-review-2026-09-12.md`.
 
 ## Suggested Follow-Up
 

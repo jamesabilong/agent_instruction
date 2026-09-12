@@ -39,6 +39,10 @@
 
 ## Current State
 
+- 2026-09-12 follow-up: implemented audit Updates 0/1 (M01–M07) locally: actor/scoped reads, session-isolated budgets, aggregate totals/pagination, confirmed retryable saves, allocation transactions, invitation expiry/leave, shared-budget UX, activity and notifications. See `docs/budget-updates-0-1-2026-09-12.md` for final checks and release gates; no commit, production migration or deployment.
+- 2026-09-12 planning follow-up: reviewed FP-64 and its three tasks through Atlassian Rovo; added `docs/fp-64-sprint-review-2026-09-12.md` and mapped FP-55 to M08–M10, FP-43 to new M12, and FP-56 to optional O10. Jira sprint 335 “Data proliferation” runs September 12–October 10 with an empty goal and three unassigned To Do items lacking descriptions. Jira was not modified.
+- 2026-09-12 final local verification: frontend 195 unit tests, backend 117 unit tests, 9 Chromium E2E tests (two workers), frontend lint/build and diff whitespace checks passed. Narrow mobile and desktop screenshots reviewed. PostgreSQL migration/concurrency, staging, deployment and metrics baselines remain open; Docker's Linux engine was unavailable.
+
 - FreshPrice frontend: `fresh-price-front`.
 - FreshPrice backend/API: `platform-backend`, especially `src/apps/freshprice` and shared platform routes.
 - FreshPrice orchestration: `fpdocker`.

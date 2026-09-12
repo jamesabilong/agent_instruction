@@ -2,6 +2,8 @@
 
 Date: 2026-09-12. Recommendation: repair budget access and data reliability first, improve shared-budget usability next, then expand sourced wiki coverage. Treat seller accounts and private messaging as optional product expansions.
 
+Implementation follow-up: Updates 0 and 1 have local code changes, with release verification in progress. Original audit findings and baseline results below describe the pre-change revisions. See [Update 0/1 implementation and release notes](budget-updates-0-1-2026-09-12.md) for current status. The new [FP-64 sprint review](fp-64-sprint-review-2026-09-12.md) maps the Jira plan into Update 2 and adds maintenance readiness (M12) and an optional ingestion pilot (O10).
+
 “Mandatory” means required for the next core update or to resolve an existing material defect. “Optional” means a later investment that can be deferred. An optional feature still has minimum requirements before it can launch.
 
 **Scope and confidence**
@@ -72,6 +74,7 @@ Sizes are relative scope, not delivery promises: S = focused change; M = coordin
 | M09 | Sourced wiki content expansion | M + editorial work | M08 | Publish an initial batch of 25 priority product pages, or all eligible products if fewer. Every page passes editorial review and source checks; report actual coverage after import. |
 | M10 | Wiki import and discovery improvements | M | M08 | Existing row preview gains new/update/unchanged/error classifications and meaningful change previews. Imports stage drafts, preserve revisions, and report per-row results. Product/wiki navigation preserves the user's return context. |
 | M11 | Release regression and measurement | M | Relevant deliverables | Unit/build/lint checks pass; staging checks cover cross-account denial, shared invite→expense→remove, large histories, failed saves, and wiki draft→review→publish. Record baseline product metrics without storing private content in analytics. |
+| M12 | Maintenance readiness — FP-43 | M | Release/deployment scope agreed | A static maintenance page is served by the frontend edge even when the API is unavailable; affected writes fail clearly; health checks remain usable; enable/disable and recovery are tested with PWA cache behavior. See the FP-64 review for the bounded first release. |
 
 For M04, the first release can use confirmed online saves with honest offline status. A durable offline mutation queue is an optional later investment; temporary optimistic state must not be presented as reliable offline persistence.
 
@@ -121,6 +124,7 @@ Proposed acceptance targets: 100% of newly published pages have traceable source
 | O07 | Rich messaging | Attachments, typing/read receipts, presence, push notifications | M–L after O02 | Text chat is useful and support capacity is proven; media access and lifecycle are enforced. |
 | O08 | Wiki enrichment | Local-language variants, richer recipe search, seasonal browsing, contribution recognition | M after M08–M10 | Core content quality is maintained; translations remain linked to reviewed source revisions. |
 | O09 | Shopping integrations | Recipe-to-shopping-list, budget-aware basket planning, favorites and price alerts | M–L after reliable budget totals | Suggestions retain market/unit/date context and distinguish estimates from actual expenses. |
+| O10 | Controlled external ingestion pilot — FP-56 | Reduce repetitive collection of wiki source material | M–L after M08/M10; one approved source and one bounded batch first | Source identity, retrieval date, product matching, deduplication, review staging, error reporting, and rerun behavior are verified. No automatic publication. Price ingestion, if intended, needs a separate unit/market/date/provenance contract. |
 
 Optional prioritization: seller profiles/offers first if marketplace participation is the product direction; private seller chat next if users need an in-app contact channel. Budget-scoped discussion can be prioritized independently if household coordination is the stronger need. Orders, payments, delivery, and a full commerce platform require separate scope.
 
@@ -146,7 +150,7 @@ Choose polling or a real-time transport after setting latency and concurrent-use
 | --- | --- | --- |
 | 0 — immediate repair | M01, M02 | Cross-account access and state isolation regressions pass. Verify deployment through the normal release process. |
 | 1 — dependable budgets | M03–M07 plus M11 | Large-history totals reconcile; save failures recover; two users complete invite→expense→remove without stale access. |
-| 2 — useful wiki coverage | M08–M10 plus M11 | Initial reviewed batch is published; quality and coverage reporting work. Content preparation may begin during budget work. |
+| 2 — useful wiki coverage / FP-64 | FP-55 → M08–M10; FP-43 → M12; M11; FP-56 → optional O10 | Initial reviewed batch is published; quality/coverage and maintenance recovery work. One-source ingestion is a stretch item after draft review is reliable. Content preparation may begin during budget work. |
 | 3 — optional seller pilot | O01 | Seller ownership, approval, suspension, offer freshness, and official-price separation pass staging checks. |
 | 4 — optional messaging pilot | O02, or O03 if household coordination takes priority | Private access, retry, unread, blocking/reporting, and removal behavior pass. |
 
@@ -168,4 +172,4 @@ Use additive Sequelize migrations and preserve current API contracts. Stage perm
 
 The reproductions evaluated the existing service/controller code with in-memory mocks; they did not read or modify user data. The test suites passed but lack coverage for the two reproduced cases. Tests/build initially hit the sandbox's process-spawn restriction and passed after approved execution outside that restriction.
 
-This update creates the audit and backlog only. Application fixes, content imports, seller onboarding, messaging, external tickets, and deployments remain future implementation work.
+The original audit was documentation only. Later Update 0/1 implementation and FP-64 planning are tracked in the linked follow-up documents; no production deployment or Jira mutation is implied by those local changes.
