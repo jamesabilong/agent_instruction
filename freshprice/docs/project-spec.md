@@ -1,5 +1,7 @@
 # FreshPrice Project Spec
 
+> Checkout update (2026-10-02): current frontend/backend `FP-64` checkouts contain the September budget reliability implementation. FP-56 now covers budget tightening, with remaining fixes implemented locally; see `fp-56-budget-tightening-2026-10-02.md`. Database/staging/production verification remains pending. Earlier master audit notes describe a different checkout.
+
 Last investigated: 2026-09-12 (budget workflow update)
 
 ## Summary

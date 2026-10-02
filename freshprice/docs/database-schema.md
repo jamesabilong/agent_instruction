@@ -1,5 +1,7 @@
 # FreshPrice Database Schema Investigation
 
+> Checkout caveat (2026-10-02): September budget reliability additions below describe imported implementation notes; the current frontend/backend master checkout still has the older expense ownership/cache/pagination paths. Verify the corresponding implementation commits before relying on those additions as available APIs or schema.
+
 Last investigated: 2026-09-12 (budget reliability migration; other inventory retained)
 
 FreshPrice uses Sequelize models under `platform-backend/src/models` and migrations under `platform-backend/src/migrations`. PostgreSQL is the target database.
@@ -15,6 +17,11 @@ FreshPrice uses Sequelize models under `platform-backend/src/models` and migrati
 | `MarketProductPriceHistory` | `market_product_price_history` | Historical price snapshots |
 | `PriceSubmission` | `price_submissions` | User-submitted daily prices pending moderation |
 | `PriceModerationAudit` | `price_moderation_audits` | Audit trail for accepted/rejected/published prices |
+| `ProductWikiPage` | `product_wiki_pages` | Current approved product wiki content and source links |
+| `ProductWikiEditSuggestion` | `product_wiki_edit_suggestions` | User-submitted wiki edits pending admin review |
+| `ProductWikiRevision` | `product_wiki_revisions` | Append-only approved wiki version history |
+| `ProductRecipe` | `product_recipes` | Published or draft recipe subwiki entries linked to products |
+| `ProductRecipeSuggestion` | `product_recipe_suggestions` | User-submitted recipe suggestions pending admin review |
 | `Budget` | `budgets` | User daily/monthly budget |
 | `BudgetSubBudget` | `budget_sub_budgets` | User budget buckets |
 | `Expense` | `expenses` | User expense records |
@@ -50,7 +57,11 @@ The down migration drops activity history and the added columns/index; use appli
 ## Notable Relationships
 
 - Products and markets are joined by `market_product_prices`.
-- Historical prices are stored in `market_product_price_history`.
+- Products can have one current wiki page, many wiki revisions, many wiki edit suggestions, many recipes, and many recipe suggestions.
+- Wiki edit suggestions store `changed_fields` so approving a partial proposal does not erase untouched page sections; only one pending wiki suggestion per product/user is allowed.
+- Wiki revisions snapshot slug, publication state, content, and source links and enforce unique positive revision numbers per wiki page.
+- Wiki/recipe suggestion statuses are constrained to pending, approved, or rejected; recipe time and serving values have non-negative/positive constraints.
+- Historical prices are stored in `market_product_price_history`; one daily snapshot is allowed per market/product/unit via `unique_market_product_unit_date`.
 - Price submissions connect users, products, markets, unit type, date, status, and moderation decisions.
 - Budgets, sub-budgets, expenses, and scheduled budgets are user-owned, with collaborator support through scheduled budget members.
 - Community posts belong to users and can have tags, comments, and votes.

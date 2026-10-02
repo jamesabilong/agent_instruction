@@ -26,7 +26,7 @@ If the work affects multiple apps, repeat the read/update steps for each affecte
 Use this section for:
 
 - `fresh-price-front`
-- `platform-backend` FreshPrice APIs, shared auth/user/community APIs used by FreshPrice, Sequelize models, migrations, tests
+- `platform-backend` FreshPrice APIs, shared auth/user/community/upload/notification APIs used by FreshPrice, Sequelize models, migrations, tests
 - `fpdocker` when the change affects FreshPrice local or production deployment
 
 Read before changes:
@@ -100,3 +100,11 @@ Keep current when relevant:
 - Preserve app boundaries. Do not change another app just because it is nearby unless the task requires it.
 - Do not stage, commit, or push unless the user explicitly asks.
 - Keep memory-bank entries brief and dated.
+
+## Production Deployment Triggers
+
+- `fresh-price-front` pushes to `master` dispatch `frontend-updated` to `jamesabilong/fpdocker`.
+- `platform-backend` pushes to `master` dispatch `backend-updated` to `jamesabilong/fpdocker`.
+- `sugilanon` pushes to `main` or `master` dispatch `sugilanon-updated` to `jamesabilong/fpdocker` with the pushed ref.
+- `fpdocker` itself deploys from `repository_dispatch` events, not direct push. When Docker, Compose, nginx, or deploy workflow files change, push `fpdocker` `master` first so the VPS deploy step can `git pull --ff-only origin master` before the next app dispatch.
+- Manual dispatches use GitHub's repository dispatch API against `https://api.github.com/repos/jamesabilong/fpdocker/dispatches` with one of the event types above. Use a token with permission to dispatch workflows in `jamesabilong/fpdocker`.

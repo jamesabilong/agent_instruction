@@ -1,6 +1,6 @@
 # FreshPrice Deployment And Local Operations
 
-Last investigated: 2026-07-01
+Last investigated: 2026-07-02
 
 ## Local Docker Development
 
@@ -85,8 +85,9 @@ npm run dev
 - Backend production images include `sequelize-cli` and `.sequelizerc` so VPS migrations run from bundled image files instead of downloading tooling with `npx`.
 - Backend-only dispatches bootstrap the stack only when the Swarm network or `freshprice_backend` service is missing; otherwise they run migrations and update `freshprice_backend` directly.
 - On the current VPS, Caddy owns public ports `80` and `443`; the FreshPrice frontend container should serve HTTP on a non-public host port such as `8081`.
-- Caddy should reverse proxy `freshprice.philwatch.com` and `philwatch.com` to the frontend HTTP port.
-- Production deploys use:
+- Route `freshprice.philwatch.com` through Caddy to the frontend HTTP port. For `philwatch.com`, either use the frontend nginx host routing or the documented direct Sugilanon port `3001`; verify the active Caddy configuration before choosing a path.
+- The production frontend nginx config also routes `philwatch.com` to the Sugilanon service in the shared Swarm stack. Sugilanon is not intended to run on `sugilanon.philwatch.com`.
+- Production deploys use Docker Swarm:
 
 ```sh
 cd fpdocker
@@ -94,8 +95,24 @@ docker stack deploy -c docker-compose.prod.yml freshprice
 ```
 
 - Direct `fpdocker` pushes do not trigger the production deploy workflow unless a separate `repository_dispatch` event is sent.
+
+- For backend releases, run Sequelize migrations with the newly pulled backend
+  image before forcing `freshprice_backend` onto that image. If the Swarm network
+  does not exist yet, create the stack first, then run migrations, then force the
+  backend service update.
 - Keep production PostgreSQL pinned to `postgres:14` unless a planned database upgrade is being performed.
 - Do not use `task restart` for the VPS production stack while the production network driver is `overlay`.
+- Keep `/assets/` content-hashed files immutable, but serve `/sw.js` with
+  `Cache-Control: no-store` and matching CDN cache-control headers. A cached
+  service worker can continue serving an obsolete application shell on devices
+  that visited FreshPrice before a release.
+- When `fpdocker` nginx files change, push `fpdocker` `master` before triggering
+  the frontend deployment so the frontend image is built with the new config.
+- After deploying a service-worker cache fix, purge the exact Cloudflare URLs
+  `https://freshprice.philwatch.com/sw.js` and
+  `https://freshprice.philwatch.com/manifest.webmanifest`. Verify `/sw.js` no
+  longer returns a positive `max-age` before testing on a previously affected
+  device.
 
 ## Verification Checklist
 
@@ -103,3 +120,8 @@ docker stack deploy -c docker-compose.prod.yml freshprice
 - Frontend E2E/protected route change: also `npm run test:e2e:chromium`.
 - Backend normal change: `npm run test`, or scoped `npm run test:unit` / `npm run test:integration`.
 - Schema change: run migrations against a local database and add/update migration tests when practical.
+
+
+## FP-43 maintenance and recovery (2026-10-02)
+
+The frontend now uses `/healthz` for container readiness and supports `FRESHPRICE_MAINTENANCE=true`. See `fp-43-recovery-runbook.md` for the independent Caddy fallback, targeted enable/disable commands, validation and rollback. These changes have been verified locally and are not deployed.
