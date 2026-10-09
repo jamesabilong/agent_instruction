@@ -1,5 +1,11 @@
 # FreshPrice Bugs
 
+## FP-64 pre-merge findings — 2026-10-09
+
+- P2, reproduced: budget write promises can resolve in a new account when the session changes during post-save hydration; old form success callbacks can still run. Add the missing final generation guard.
+- P2, reproduced: `.env` maintenance=true renders frontend maintenance=false through the current deploy parser/stack-config path because the flag is not exported. Dispatches can reverse maintenance.
+- Both remain unfixed; see `docs/fp-64-premerge-review-2026-10-09.md`. Existing suites pass but do not cover these timing/configuration combinations.
+
 ## FP-43 post-commit audit findings — 2026-10-02
 
 - P1: Open Headless UI portal dialogs remain visible and make recovery controls inaccessible.

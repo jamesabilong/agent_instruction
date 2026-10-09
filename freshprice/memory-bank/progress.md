@@ -1,5 +1,11 @@
 # FreshPrice Progress
 
+## FP-64 pre-merge review — 2026-10-09
+
+- Refreshed remote refs and reviewed frontend `5a5d58ee`, backend `56d4142`, Docker `a459648` against master. Confirmed two P2 gaps: post-save hydration can resolve an old session's write in a new account, and the VPS deploy parser omits the maintenance flag, rendering frontend maintenance false despite `.env=true`.
+- Frontend lint/build, 240 unit tests and 17 Chromium flows pass; backend 128 unit and 30 real PostgreSQL integration checks pass. All migrations applied in a disposable database; 130-page wiki population/revision integrity and idempotency checks pass. Findings and release requirements: `docs/fp-64-premerge-review-2026-10-09.md`.
+- Application code remains unchanged; temporary reproduction removed. Audit documentation is local and uncommitted. Earlier unpushed statements are historical: reviewed heads now match fetched `origin/FP-64`; live deployment was not inspected.
+
 ## Worker cache headers — 2026-10-09
 
 - Reapplied the missing nginx worker/manifest rules and proxy regressions at the user's request. Confirmed Sugilanon's recovery route/layout helper remained intact. HTTP/TLS cache checks, nginx syntax and the maintenance suite pass again; no commit, push or deployment.

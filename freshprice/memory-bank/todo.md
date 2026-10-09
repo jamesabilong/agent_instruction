@@ -1,5 +1,11 @@
 # FreshPrice Todo
 
+## FP-64 pre-merge gaps — 2026-10-09
+
+- [ ] Recheck the budget write generation after post-save hydration; regress an account switch after write confirmation while hydration is pending.
+- [ ] Export `FRESHPRICE_MAINTENANCE` from the VPS `.env` in the deployment workflow; verify enabled/disabled stack configuration so dispatches preserve the intended state.
+- [ ] Complete the release requirements in `docs/fp-64-premerge-review-2026-10-09.md`, including backend-first rollout, starter-content publication awareness, host Caddy installation and targeted CDN purge.
+
 ## Worker cache release — 2026-10-09
 
 - [x] Restore and verify worker/manifest browser/CDN headers in both production nginx variants; expand proxy regressions while preserving immutable asset caching. Reapplied the missing Docker edits and reran nginx/HTTP/TLS/maintenance checks on October 9; Sugilanon's recovery changes remained present.
