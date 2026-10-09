@@ -1,5 +1,11 @@
 # Sugilanon Progress
 
+## 2026-10-09
+
+- Investigated PhilWatch's reported FreshPrice first-load display. Live homepage is already no-store/Cloudflare DYNAMIC; apex `/sw.js` returns 404. Reproduced the same symptom with an old navigation-caching worker, which remains active when its script is removed. The affected device's actual registration remains uninspected.
+- Added a no-store retirement worker at the legacy URL and an existing-registration update check in the layout. Chromium verifies automatic recovery, subsequent normal reloads, selective precache removal, storage preservation, clean visitors, separate-origin isolation, and recovery after a hard refresh. Lint/build pass.
+- Committed as `b15da39` on Sugilanon `main`; the companion Docker cache fix is `a459648` on `FP-64`. Neither commit has been pushed or deployed. Release and targeted Cloudflare purge steps are in `docs/cache-recovery-2026-10-09.md`.
+
 ## 2026-09-15
 
 - Fixed the production Sugilanon health-check design: `/` renders content API data and intermittently exceeded Docker Swarm's five-second probe timeout, causing Swarm to terminate otherwise healthy Next.js tasks. Added a dependency-free `/health` route, pointed the production probe at it, and documented diagnosis, temporary recovery, deployment order, and verification in both deployment READMEs.

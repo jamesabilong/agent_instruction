@@ -1,5 +1,11 @@
 # FreshPrice Todo
 
+## Worker cache release — 2026-10-09
+
+- [x] Restore and verify worker/manifest browser/CDN headers in both production nginx variants; expand proxy regressions while preserving immutable asset caching. Reapplied the missing Docker edits and reran nginx/HTTP/TLS/maintenance checks on October 9; Sugilanon's recovery changes remained present.
+- [x] Commit the Docker cache fixes (`a459648` on `FP-64`, October 9).
+- [ ] Publish Docker configuration and rebuild/release the frontend image, then purge the exact FreshPrice worker/manifest URLs and require `/sw.js` no-store. Coordinate the PhilWatch legacy-worker release and affected-device checks in `instructions/sugilanon/docs/cache-recovery-2026-10-09.md`. Live FreshPrice worker headers were still four-hour max-age on October 9.
+
 - [x] FP-43 audit fixes verified locally: suspend dialog portals/focus traps during recovery, scope recovery/probe promises to the current view/session, exempt optional layout calls from global outage handling, and restore immutable caching for hashed assets. Added passing regressions for the confirmed cases in `docs/fp-43-audit-2026-10-02.md`.
 
 - [x] FP-43: implement and locally verify recovery screens and deployment fallback; see `docs/fp-43-recovery-runbook.md`.

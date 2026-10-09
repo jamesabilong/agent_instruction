@@ -1,5 +1,11 @@
 # Sugilanon Todo
 
+## Cache recovery — 2026-10-09
+
+- [x] Implement and locally verify the legacy `/sw.js` retirement route and layout update check without clearing user storage or registering a worker for new visitors.
+- [x] Commit the PhilWatch legacy-worker recovery (`b15da39` on `main`, October 9).
+- [ ] Release the Sugilanon fix, purge `https://philwatch.com/sw.js`, and confirm normal revisits recover on an affected device. Coordinate the FreshPrice nginx release and worker/manifest purge; see `docs/cache-recovery-2026-10-09.md`.
+
 ## Ongoing
 
 - Keep `instructions/sugilanon/docs/project-spec.md` updated when frontend or content API architecture changes.

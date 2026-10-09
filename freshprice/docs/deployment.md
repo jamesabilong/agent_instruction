@@ -113,6 +113,7 @@ docker stack deploy -c docker-compose.prod.yml freshprice
   `https://freshprice.philwatch.com/manifest.webmanifest`. Verify `/sw.js` no
   longer returns a positive `max-age` before testing on a previously affected
   device.
+- The October 9 production check still found four-hour FreshPrice worker caching. Both nginx variants now have locally verified exact worker/manifest locations. Coordinate the frontend image rebuild with PhilWatch's separate legacy-worker retirement release; see `instructions/sugilanon/docs/cache-recovery-2026-10-09.md` for evidence, targeted URL purges and affected-device verification.
 
 ## Verification Checklist
 

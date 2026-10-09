@@ -34,6 +34,8 @@ Current `FP-64` source contains the prior expense ownership, account isolation a
 
 ## Open Bugs
 
+- 2026-10-09: Reconfirmed `https://freshprice.philwatch.com/sw.js` returns `Cache-Control: max-age=14400`. Both nginx variants now have locally verified browser/CDN no-store rules; frontend image rebuild, targeted Cloudflare purge and live verification remain pending. PhilWatch's separate apex-worker recovery is documented in `instructions/sugilanon/docs/cache-recovery-2026-10-09.md`.
+
 - 2026-07-01 deploy logs showed `freshprice_sugilanon` rejected with `No such image: ghcr.io/jamesabilong/sugilanon:latest`; frontend/backend deploys can still surface this because the stack includes the Sugilanon service.
 - 2026-07-01 deploy logs showed `freshprice_backend` repeatedly failing health checks with exit 137 after startup; live VPS memory/healthcheck state still needs confirmation.
 - 2026-07-01 frontend nginx logs showed the config was still pointing Sugilanon at `sugilanon.philwatch.com`; production should serve Sugilanon from `philwatch.com`.

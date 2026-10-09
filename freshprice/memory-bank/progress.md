@@ -1,5 +1,12 @@
 # FreshPrice Progress
 
+## Worker cache headers — 2026-10-09
+
+- Reapplied the missing nginx worker/manifest rules and proxy regressions at the user's request. Confirmed Sugilanon's recovery route/layout helper remained intact. HTTP/TLS cache checks, nginx syntax and the maintenance suite pass again; no commit, push or deployment.
+- Live FreshPrice `/sw.js` still returns a four-hour max-age. Restored exact worker/manifest locations in both production nginx variants: worker browser/CDN no-store, manifest MIME type/revalidation, and CDN no-store. Hashed assets remain immutable.
+- Both nginx variants pass syntax and HTTP/TLS cache-header checks. Expanded maintenance regression suite passes, including deep links, immutable/missing assets, planned maintenance, Caddy fallback and API failures. Sugilanon independently retires any old apex worker; see the [recovery runbook](../../sugilanon/docs/cache-recovery-2026-10-09.md).
+- Committed as `a459648` on `fpdocker` branch `FP-64`; the companion Sugilanon recovery is `b15da39` on `main`. Neither commit has been pushed or deployed. Rebuild the frontend image after publishing Docker configuration, then purge exact worker/manifest URLs and verify production headers.
+
 ## FP-43 audit fixes — 2026-10-02
 
 - Resolved all four audit findings: suspended portal dialogs preserve form inputs during recovery; route/session resets detach stale readiness/retry promises with identity-safe cleanup; optional market loading preserves missing-page UI; hashed assets retain immutable nginx caching.

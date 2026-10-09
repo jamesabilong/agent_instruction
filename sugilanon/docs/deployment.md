@@ -49,6 +49,7 @@ Important variables:
   health-check timeout even when the Next.js server is healthy.
 - Production nginx config routes `philwatch.com` to the Sugilanon service.
 - Production API traffic for Sugilanon should be proxied to the backend.
+- Keep the no-store legacy `/sw.js` retirement endpoint available for returning devices. PhilWatch does not register a new offline worker. Release, targeted CDN purge and affected-device checks are in `cache-recovery-2026-10-09.md`.
 - Before enabling `nginx.prod.ssl.conf`, ensure this certificate exists:
   `/etc/letsencrypt/live/philwatch.com/fullchain.pem`.
 
