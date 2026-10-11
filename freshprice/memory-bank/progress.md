@@ -1,5 +1,16 @@
 # FreshPrice Progress
 
+## FP-64 gap fixes — 2026-10-11
+
+- Fixed post-hydration session generation checking so old budget saves cannot run form success callbacks in a later session. Added regressions for account switch, logout and token renewal, all failing before the fix and passing afterward.
+- Exported the persisted maintenance flag in the VPS workflow. Actual Bash-parser/stack-rendering regressions pass for true, false and omitted settings; enabled maintenance failed before the fix.
+- Frontend lint/build and all 243 unit tests pass. All 17 Chromium flows pass on a complete two-worker rerun after one initial loading timeout. No commit, push or deployment. Details: `docs/fp-64-gap-fixes-2026-10-11.md`.
+
+## FP-64 recheck — 2026-10-11
+
+- Rechecked the unchanged frontend/backend/Docker FP-64 heads against current Jira scope. Freshly reproduced both unresolved P2 findings: old-session budget save success after delayed hydration, and maintenance=true becoming false through the deployment key list and stack config.
+- Frontend lint/build, 240 unit tests, 17 Chromium flows, and 128 backend unit tests pass. Docker engine unavailable; database/proxy runtime and production checks were not rerun. Application code unchanged; temporary reproduction removed. See `docs/fp-64-recheck-2026-10-11.md`.
+
 ## FP-64 pre-merge review — 2026-10-09
 
 - Refreshed remote refs and reviewed frontend `5a5d58ee`, backend `56d4142`, Docker `a459648` against master. Confirmed two P2 gaps: post-save hydration can resolve an old session's write in a new account, and the VPS deploy parser omits the maintenance flag, rendering frontend maintenance false despite `.env=true`.

@@ -1,5 +1,7 @@
 # FP-64 pre-merge review — 2026-10-09
 
+Follow-up (2026-10-11): both P2 findings below are fixed locally with passing regressions; see `fp-64-gap-fixes-2026-10-11.md`. This document preserves the original review and release requirements. Deployment remains pending.
+
 Reviewed the complete branch diffs against freshly fetched `origin/master`:
 
 | Repository | FP-64 head | Master base |

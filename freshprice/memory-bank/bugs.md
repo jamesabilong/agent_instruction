@@ -1,5 +1,13 @@
 # FreshPrice Bugs
 
+## FP-64 resolved locally — 2026-10-11
+
+- Both P2 findings recorded below are fixed: post-save hydration now rejects a stale session before success callbacks, and the deploy parser exports the persisted maintenance flag. Three session regressions and three actual parser/stack-rendering regressions pass. Historical findings below preserve pre-fix evidence; deployment remains pending. See `docs/fp-64-gap-fixes-2026-10-11.md`.
+
+## FP-64 reconfirmed — 2026-10-11
+
+- Both October 9 P2 findings still reproduce on the current heads. The budget save promise resolves after an account switch during hydration; the deployment key list renders persisted maintenance=true as frontend maintenance=false. No application fix applied. Evidence: `docs/fp-64-recheck-2026-10-11.md`.
+
 ## FP-64 pre-merge findings — 2026-10-09
 
 - P2, reproduced: budget write promises can resolve in a new account when the session changes during post-save hydration; old form success callbacks can still run. Add the missing final generation guard.

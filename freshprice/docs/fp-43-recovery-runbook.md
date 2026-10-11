@@ -42,7 +42,7 @@ Restore service with:
 docker service update --env-add FRESHPRICE_MAINTENANCE=false freshprice_frontend
 ```
 
-Keep the deployment environment/Compose value consistent with the intended state so the next stack deploy does not reverse it. Verify `/healthz`, a public deep link and API readiness after restoration. Existing installed PWAs may retain the app shell during maintenance; API requests still return 503 and the in-app recovery UI handles them.
+Persist the same `FRESHPRICE_MAINTENANCE=true` or `false` value in the VPS `fpdocker/.env` when changing the service setting. The deployment workflow exports that key before stack rendering, so subsequent frontend/Sugilanon dispatches retain the intended state. An absent flag defaults to false. Verify `/healthz`, a public deep link and API readiness after restoration. Existing installed PWAs may retain the app shell during maintenance; API requests still return 503 and the in-app recovery UI handles them.
 
 For release, push the fpdocker configuration before the normal app dispatch, as required by its deployment workflow. Deploy the additive backend readiness header and updated frontend image through the normal process. Do not enable the maintenance flag on an old image/healthcheck. Roll back a broken frontend deployment through the existing Swarm rollback procedure; remove the Caddy import and reload its backed-up configuration if the edge customization causes problems.
 

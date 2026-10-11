@@ -1,9 +1,15 @@
 # FreshPrice Todo
 
+## FP-64 recheck — 2026-10-11
+
+- [x] Reproduce both October 9 findings on the current unchanged heads and rerun available unit/browser/build checks; see `docs/fp-64-recheck-2026-10-11.md`.
+- [x] Resolve both P2 findings with passing regressions (2026-10-11); see `docs/fp-64-gap-fixes-2026-10-11.md`.
+- [ ] Complete staging/production release verification. Database/proxy runtime checks could not be repeated because the Docker engine is unavailable.
+
 ## FP-64 pre-merge gaps — 2026-10-09
 
-- [ ] Recheck the budget write generation after post-save hydration; regress an account switch after write confirmation while hydration is pending.
-- [ ] Export `FRESHPRICE_MAINTENANCE` from the VPS `.env` in the deployment workflow; verify enabled/disabled stack configuration so dispatches preserve the intended state.
+- [x] Recheck the budget write generation after post-save hydration; regress an account switch after write confirmation while hydration is pending (fixed and verified 2026-10-11).
+- [x] Export `FRESHPRICE_MAINTENANCE` from the VPS `.env` in the deployment workflow; verify enabled/disabled stack configuration so dispatches preserve the intended state (fixed and verified 2026-10-11).
 - [ ] Complete the release requirements in `docs/fp-64-premerge-review-2026-10-09.md`, including backend-first rollout, starter-content publication awareness, host Caddy installation and targeted CDN purge.
 
 ## Worker cache release — 2026-10-09

@@ -126,3 +126,5 @@ docker stack deploy -c docker-compose.prod.yml freshprice
 ## FP-43 maintenance and recovery (2026-10-02)
 
 The frontend now uses `/healthz` for container readiness and supports `FRESHPRICE_MAINTENANCE=true`. See `fp-43-recovery-runbook.md` for the independent Caddy fallback, targeted enable/disable commands, validation and rollback. These changes have been verified locally and are not deployed.
+
+The deployment workflow now exports `FRESHPRICE_MAINTENANCE` from the VPS `.env` before rendering the Swarm stack (2026-10-11 fix). Persist `true` or `false` there when changing the frontend service setting so later frontend/Sugilanon dispatches retain the intended state. An absent flag defaults to false. Verify the parser without a daemon or production access with `node --test fpdocker/tests/deploy-maintenance.test.mjs`; on Windows set `DEPLOY_TEST_SHELL` to the Git Bash executable. The regression executes the workflow's actual parser and renders synthetic enabled, disabled and default settings through `docker stack config`.
