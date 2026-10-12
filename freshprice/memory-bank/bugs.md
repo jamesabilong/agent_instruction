@@ -1,5 +1,9 @@
 # FreshPrice Bugs
 
+## FP-64 fix verification — 2026-10-12
+
+- Both prior P2 fixes are present in pushed FP-64 heads and their regressions pass. Fresh migrated PostgreSQL and production nginx/Caddy/PWA checks pass; no new merge-blocking code findings. Host fallback installation and live cache/recovery verification remain operational release risks. Historical findings below describe earlier revisions; see `docs/fp-64-merge-readiness-2026-10-12.md`.
+
 ## FP-64 resolved locally — 2026-10-11
 
 - Both P2 findings recorded below are fixed: post-save hydration now rejects a stale session before success callbacks, and the deploy parser exports the persisted maintenance flag. Three session regressions and three actual parser/stack-rendering regressions pass. Historical findings below preserve pre-fix evidence; deployment remains pending. See `docs/fp-64-gap-fixes-2026-10-11.md`.

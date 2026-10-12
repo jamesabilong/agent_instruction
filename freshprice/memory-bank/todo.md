@@ -1,10 +1,22 @@
 # FreshPrice Todo
 
+## VPS deployment verification — 2026-10-12
+
+- [x] Document backend-only and full-release VPS check commands, expected successful results and failure diagnostics in `docs/deployment.md`.
+- [ ] Run the documented checks on the VPS after each deployment phase and complete browser smoke checks; local syntax validation does not establish a live successful deployment.
+
+## FP-64 merge readiness — 2026-10-12
+
+- [x] Confirm both P2 fixes are committed/pushed and all three FP-64 branches merge cleanly with freshly fetched master; rerun frontend/backend/browser checks.
+- [x] Repeat all migrations, 30 database integration checks, 130-page wiki population/revision/idempotency/draft preservation, maintenance parser, nginx/Caddy runtime and production PWA checks in disposable local environments.
+- [ ] Complete the ordered Docker → backend/migrations → frontend release; confirm actual-host Caddy and staging recovery before the frontend production release, then purge exact CDN URLs and verify live services/returning browsers. See `docs/fp-64-merge-readiness-2026-10-12.md`.
+
 ## FP-64 recheck — 2026-10-11
 
 - [x] Reproduce both October 9 findings on the current unchanged heads and rerun available unit/browser/build checks; see `docs/fp-64-recheck-2026-10-11.md`.
 - [x] Resolve both P2 findings with passing regressions (2026-10-11); see `docs/fp-64-gap-fixes-2026-10-11.md`.
-- [ ] Complete staging/production release verification. Database/proxy runtime checks could not be repeated because the Docker engine is unavailable.
+- [x] Repeat database/proxy runtime checks after Docker becomes available (2026-10-12).
+- [ ] Complete staging/production release verification.
 
 ## FP-64 pre-merge gaps — 2026-10-09
 

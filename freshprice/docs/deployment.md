@@ -2,6 +2,8 @@
 
 Last investigated: 2026-07-02
 
+VPS deployment verification added: 2026-10-12
+
 ## Local Docker Development
 
 Local orchestration is in `fpdocker`.
@@ -114,6 +116,78 @@ docker stack deploy -c docker-compose.prod.yml freshprice
   longer returns a positive `max-age` before testing on a previously affected
   device.
 - The October 9 production check still found four-hour FreshPrice worker caching. Both nginx variants now have locally verified exact worker/manifest locations. Coordinate the frontend image rebuild with PhilWatch's separate legacy-worker retirement release; see `instructions/sugilanon/docs/cache-recovery-2026-10-09.md` for evidence, targeted URL purges and affected-device verification.
+
+## Verify deployment on the VPS
+
+Wait for **fpdocker → Build and Deploy** to finish, then SSH into the Swarm manager on the single-node VPS and paste this read-only command. It requires Bash, Docker access and curl. It does not restart services, apply migrations or read/source the VPS `.env`.
+
+Use `DEPLOY_CHECK_PHASE=backend` after the backend deploy, before merging the frontend. Use `DEPLOY_CHECK_PHASE=full` after the frontend deploy and targeted Cloudflare purge. The full check expects normal traffic with maintenance disabled.
+
+```bash
+DEPLOY_CHECK_PHASE=full bash <<'CHECK'
+set -euo pipefail
+cd /var/projects/freshprice/fpdocker
+
+case "${DEPLOY_CHECK_PHASE:-full}" in
+  backend) deployment_services=(freshprice_backend) ;;
+  full) deployment_services=(freshprice_backend freshprice_frontend) ;;
+  *) printf 'Use DEPLOY_CHECK_PHASE=backend or full\n' >&2; exit 1 ;;
+esac
+
+docker stack services freshprice
+for deployment_service in "${deployment_services[@]}"; do
+  docker service inspect "$deployment_service" --format \
+    '{{.Spec.Name}} image={{.Spec.TaskTemplate.ContainerSpec.Image}} update={{if .UpdateStatus}}{{.UpdateStatus.State}}{{else}}none{{end}}'
+  docker service ps "$deployment_service" --no-trunc
+done
+docker ps --filter label=com.docker.stack.namespace=freshprice \
+  --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}'
+
+# Inspect migration status in the running release; db:migrate:status is read-only.
+deployment_backend="$(docker ps -q --filter label=com.docker.swarm.service.name=freshprice_backend)"
+if [[ -z "$deployment_backend" || "$deployment_backend" == *$'\n'* ]]; then
+  printf 'Expected one active backend container; wait for rollout convergence and retry.\n' >&2
+  exit 1
+fi
+docker exec "$deployment_backend" ./node_modules/.bin/sequelize-cli db:migrate:status
+
+curl --fail --silent --show-error --connect-timeout 5 --max-time 20 \
+  -H 'Cache-Control: no-cache' \
+  "https://freshprice.philwatch.com/api/platform/db/health?_deploy_check=$(date +%s)"
+printf '\n'
+
+if [[ "${DEPLOY_CHECK_PHASE:-full}" == full ]]; then
+  curl --fail --silent --show-error --connect-timeout 5 --max-time 20 \
+    https://freshprice.philwatch.com/healthz
+  printf '\n'
+  curl --fail --silent --show-error --connect-timeout 5 --max-time 20 \
+    --output /dev/null --write-out 'Frontend HTTP: %{http_code}\n' \
+    https://freshprice.philwatch.com/
+  for deployment_path in sw.js manifest.webmanifest; do
+    curl --fail --silent --show-error --head --connect-timeout 5 --max-time 20 \
+      "https://freshprice.philwatch.com/$deployment_path"
+  done
+fi
+CHECK
+```
+
+Confirm these results before proceeding:
+
+- Selected services have their desired replicas (`1/1` in the current configuration), current tasks are Running, and their local containers report `(healthy)`. Old Shutdown/Failed entries in task history alone do not indicate a failed current release.
+- The selected service's update is `completed`, or `none` on an initial deployment. `updating` means wait and rerun; `paused`, `rollback_started`, `rollback_paused` or `rollback_completed` means the intended rollout has not succeeded. Compare the displayed image digest with the image published by the intended Actions run: a healthy old/rolled-back release is insufficient.
+- All migrations shipped in the running backend image show `up`; FP-64 includes `20260912000001-budget-reliability.cjs` and `20260912000002-populate-product-wiki-catalogue.cjs`. Public API readiness returns `{"status":"ok","database":"ready"}`.
+- For the full check, `/healthz` returns `{"status":"ok"}`, the frontend reports HTTP 200, `/sw.js` has `Cache-Control: no-store`, and the manifest has `Cache-Control: no-cache` with `Content-Type: application/manifest+json`. Both worker/manifest responses should have `CDN-Cache-Control: no-store`. The origin also sets `Cloudflare-CDN-Cache-Control: no-store`; its absence from public responses is expected because [Cloudflare consumes that header without forwarding it downstream](https://developers.cloudflare.com/cache/concepts/cdn-cache-control/).
+
+The block prints evidence for inspection; exit code zero alone does not confirm migration, rollout or header correctness. A failed curl stops the block. Once these checks pass, smoke-test login, budget saves, wiki/recipe pages and a previously affected returning browser. This HTTP check does not exercise the host's frontend-down Caddy fallback; verify that through the [recovery runbook](fp-43-recovery-runbook.md).
+
+For a failure, inspect the current task errors and recent logs on the VPS:
+
+```bash
+docker service ps freshprice_backend --no-trunc
+docker service ps freshprice_frontend --no-trunc
+docker service logs --tail 100 freshprice_backend
+docker service logs --tail 100 freshprice_frontend
+```
 
 ## Verification Checklist
 

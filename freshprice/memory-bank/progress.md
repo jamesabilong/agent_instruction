@@ -1,5 +1,16 @@
 # FreshPrice Progress
 
+## VPS deployment check instructions — 2026-10-12
+
+- Added a copy/paste read-only VPS check to `docs/deployment.md`, with backend-only and full-release phases, Swarm rollout/image/health output, migration status, bounded public HTTP/cache probes, success criteria and failure diagnostics.
+- Shell syntax verified locally; no VPS commands or deployment performed. Live release verification remains open.
+
+## FP-64 merge readiness — 2026-10-12
+
+- Fresh remote refs confirm all three clean FP-64 heads are pushed and merge without conflicts: frontend `60d65371`, backend `56d4142`, Docker `9f7f26e`. Both prior P2 findings are fixed; no new code blockers found. No FP-64 PRs or branch CI runs were returned.
+- Fresh verification passes: frontend lint/build, 243 unit tests, 17 development Chromium flows, 128 backend unit tests plus 13 API checks, all 32 migrations and 30 database integration checks in disposable PostgreSQL 14, 130-page wiki revision/idempotency/draft preservation, three deploy parser regressions, nginx/Caddy HTTP checks and one production PWA Chromium flow.
+- Merge order remains Docker → backend/migrations → frontend. Actual VPS Caddy installation, staging recovery, targeted CDN purge and live verification remain open. Test containers/image removed; application code, Git branches, Jira and production unchanged. See `docs/fp-64-merge-readiness-2026-10-12.md`.
+
 ## FP-64 gap fixes — 2026-10-11
 
 - Fixed post-hydration session generation checking so old budget saves cannot run form success callbacks in a later session. Added regressions for account switch, logout and token renewal, all failing before the fix and passing afterward.
