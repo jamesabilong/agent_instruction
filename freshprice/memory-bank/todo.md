@@ -1,5 +1,14 @@
 # FreshPrice Todo
 
+## Seeded feature verification — 2026-10-15
+
+- [x] Add a repeatable migrated PostgreSQL seeder and real browser/API feature suite: `npm run test:e2e:seeded` from `fresh-price-front`.
+- [x] Execute all 9 scenarios without skips: import review/normalization, typo/row review, duplicate confirmation, replay/lost response, corrections/audit, statistics/units/markets/pagination, permissions and public/member/admin trend views. Result: 8 pass and 1 archived-market regression fails.
+- [x] Keep the existing mocked Chromium suite isolated and passing (19 tests); add a manual CI workflow accepting a matching backend ref.
+- [ ] Fix archived-market identity, rendering and correction/exclusion, then rerun the complete seeded suite to green; retain the prior correction-picker investigation until its React reproduction is resolved.
+- [ ] Publish both matching repository changes before running the new remote workflow; local verification does not establish remote CI or staging success. This suite does not measure 100% code/branch coverage.
+
+
 ## VPS deployment verification — 2026-10-12
 
 - [x] Document backend-only and full-release VPS check commands, expected successful results and failure diagnostics in `docs/deployment.md`.

@@ -1,5 +1,12 @@
 # FreshPrice Progress
 
+## Seeded FP-65 E2E suite — 2026-10-15
+
+- Added a disposable PostgreSQL runner, guarded transactional seeder, dedicated Chromium config and manual CI workflow with an explicit matching backend ref. Real password-based login, API routes and migrated persistence replace response mocks in this suite; a lost-response test interrupts delivery only after the real import commits.
+- All 9 seeded scenarios executed with no skips/retries: 8 pass; the archived-market regression fails on missing historical identity and rejected exclusion. The quick clear/reselect/save browser path passes; this does not resolve the earlier React render-loop reproduction. Application source was not changed.
+- Verified frontend lint/build, 255 frontend unit tests, 137 backend unit tests and all 19 existing Chromium flows. Coverage matrix, command, realistic fixture data, limitations and CI prerequisites: `docs/seeded-e2e-2026-10-15.md`. Runner-owned containers/volumes removed; app data and deployment untouched. Test-suite changes committed separately at the user’s request; earlier feature changes remain uncommitted. No push.
+
+
 ## VPS deployment check instructions — 2026-10-12
 
 - Added a copy/paste read-only VPS check to `docs/deployment.md`, with backend-only and full-release phases, Swarm rollout/image/health output, migration status, bounded public HTTP/cache probes, success criteria and failure diagnostics.
