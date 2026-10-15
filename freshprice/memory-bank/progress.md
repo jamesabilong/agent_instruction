@@ -1,5 +1,10 @@
 # FreshPrice Progress
 
+## Whole-app and FP-65 suite audit — 2026-10-15
+
+- Reviewed all 39 real-data cases, fixtures, branch selection/completion guard, auth helpers, reports and isolation. Runner/generator checks: 27 pass. No application or test implementation changes made during this review.
+- Found three test-confidence issues: setup failures retain older HTML/XML reports; some whole-app routes assert only page shells; FP-65 auth headers use the `cookie-session` marker and depend on implicit mutable cookie state (direct middleware check: header alone 401, real cookie accepted). Audit: `docs/testing-suite-audit-2026-10-15.md`. Fresh full default run passes feature 9/9 and whole-app 30/30, zero errors/failures/skips; disposable containers removed. No new app failure detected within this registered scope. Audit documentation only, no commit/push.
+
 ## Requested commits and branch pushes — 2026-10-15
 
 - Committed and pushed frontend `9ddf4dc0` and backend `af93cfd` on `FP-65`; deployment-test relocation is `fpdocker` `42fd3fb` on its existing `FP-64` branch. These pushes do not target app deployment branches; no deployment or database migration was run.

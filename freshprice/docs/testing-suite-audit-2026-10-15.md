@@ -1,0 +1,27 @@
+# Whole-app and FP-65 suite audit — 2026-10-15
+
+Scope: local `testing/run.mjs`, group selection/completion gate, fixtures and generator, all six seeded spec files (nine FP-65 feature cases plus 30 whole-app cases), report commands and production-preview boundaries. Application source was not changed during this audit.
+
+## Findings
+
+1. **P2 — Setup failures can leave an older green report available.** `testing/run.mjs:41–56` performs database creation, migrations, seeding and frontend build before Playwright starts; reports are replaced only by Playwright. A failure before that point records `failed` in the new run summary but leaves prior `reports/<group>/html` and `results.xml` intact. `testing/package.json:10` opens that fixed whole-app HTML path without checking the latest summary or an execution ID. This can display an earlier success after a failed current attempt. The command exit code/completion gate is correct; the report provenance is not reliable for setup failures. Create a timestamped execution identity, mark each selected group as running before setup, and make report opening verify the matching completed execution (or invalidate/archive old artifacts before setup). Top-level argument/branch validation failures do not rewrite the summary either. A CLI diagnostic reproduced this: `node testing/run.mjs --grep` correctly exited 1, but left the previous summary unchanged with both groups marked `passed`. This does not mean the latest passing execution is invalid.
+
+2. **P2 — Part of the whole-app test proves only the page shell.** `testing/tickets/FP-65/whole-app/wiki-community.spec.ts:90–103` checks URL, a visible `main` and absence of selected error headings for shopping/contact/activity pages, then checks only a visible `main` for admin community. A shared layout or unfinished loading state can satisfy these checks without the feature data or controls being correct; the final admin check can also pass after a redirect/error page containing `main`. This is useful navigation smoke coverage but cannot establish complete workflow coverage. Assert a feature-specific loaded landmark/content, expected seeded data where applicable, and the final protected URL. Existing dedicated wiki/community/budget cases do have persisted-data assertions.
+
+3. **P2 — FP-65 auth helper returns an invalid bearer token and relies on implicit cookie state.** `testing/tickets/FP-65/observations.spec.ts:5–8` converts the login JSON `token` marker into `Authorization: Bearer cookie-session`. `platform-backend/src/controllers/authController.js` deliberately returns the literal marker; the real session is in `freshprice_session`. The cases pass because Playwright's request context retains that cookie and backend auth prioritizes it. Returned headers do not capture a role-specific session, so reusing them in another request context fails and a later login on the same context can silently change their identity. Use the cookie-capture strategy already implemented in `whole-app/helpers.ts:13–17`, and verify the captured identity independently of the mutable login cookie jar. Current cases' login sequencing explains why this has not failed the complete run. A direct middleware diagnostic confirmed that the helper's header alone returns 401, whereas the same header plus a real signed session cookie is accepted.
+
+## Confirmed strengths
+
+- Matching frontend/backend ticket branches are required; unknown or ambiguous tickets fail before setup. No broad-suite fallback or grep/config/file overrides are accepted.
+- Exactly nine feature and 30 whole-app cases are registered. One Chromium worker, zero retries and forbidden focused tests; skipped/missing/failing/expected-failure results cannot qualify as green. Soft assertions still fail their test.
+- Separate migrated disposable PostgreSQL instances per group, actual bcrypt login/cookie sessions, real API/model persistence and synthetic valid Cebu fixtures. Seeders are regenerated locally from requirements and refuse the wrong database/port/ticket or nonempty baseline tables.
+- Recovery routes interrupt transport; successful API responses are not fulfilled with mocks. FP-65 lost-response coverage lets the real server commit before delivery is aborted and verifies replay without duplicate observations.
+- Normal pass/failure cleanup removes owned containers/volumes. Forced parent-process termination is not handled explicitly; do not assume Ctrl-C/SIGTERM cleanup is guaranteed.
+
+## Limits
+
+The whole-app name denotes its mapped primary journeys, not exhaustive input or code/branch coverage. Chromium is the only seeded browser. Production checks use a local production build/Vite preview, not deployed nginx/CDN/maintenance proxies. Legacy database-gated/concurrency suites, other browsers and staging/production behavior are not established by these 39 cases. Local-only tests are intentionally absent from app remote checkouts and require a local backup.
+
+## Fresh verification
+
+Fresh complete default execution: feature 9/9 pass (1.8 minutes), whole-app 30/30 pass (4.2 minutes), zero failures/errors/skips. Runner/generator guards: 27 pass, zero skips. Both groups used newly migrated disposable PostgreSQL databases; normal cleanup removed both containers. No new application regression was detected by the registered scenarios. The three findings above remain test-confidence issues despite this green run. No application/test implementation changes, commits, pushes or deployment were performed during this audit.

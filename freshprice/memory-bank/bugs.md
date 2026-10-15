@@ -1,5 +1,9 @@
 # FreshPrice Bugs
 
+## Test-suite confidence gaps — 2026-10-15
+
+- Review found stale report artifacts on pre-Playwright setup failure, weak page-shell assertions in part of whole-app navigation, and FP-65 auth headers that send the literal `cookie-session` marker while real authentication comes from the request context’s cookie jar. No current app regression is established by these findings; they are test/report reliability issues. Evidence and corrective scope: `docs/testing-suite-audit-2026-10-15.md`.
+
 ## Seeded regression fixes implemented locally — 2026-10-15
 
 - Fixed all five failures documented below: correction picker uses nullable empty ID; archived observation markets load with `paranoid:false` and may be retained on correction; upload multipart part-count permits the first valid image while preserving file/field limits; community junction associations disable absent timestamps; invalid product create/update data returns 400. No schema changes.

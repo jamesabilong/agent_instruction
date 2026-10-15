@@ -1,5 +1,12 @@
 # FreshPrice Todo
 
+## Suite audit follow-up — 2026-10-15
+
+- [ ] Give test artifacts an execution identity and prevent report commands from showing stale successes after setup failures.
+- [ ] Strengthen whole-app shopping/contact/activity/admin-community smoke checks with feature-specific loaded content and final protected URLs.
+- [ ] Replace the FP-65 marker bearer header with captured real session cookies and verify role identity independently of a mutable request cookie jar.
+- [ ] Add interruption cleanup if guaranteed Ctrl-C/SIGTERM cleanup is required; current cleanup covers normal pass/failure.
+
 ## Requested publication — 2026-10-15
 
 - [x] Commit and push FP-65 frontend/backend changes and current-branch Docker test relocation; preserve local-only testing and generated seeders.
