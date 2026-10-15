@@ -1,11 +1,77 @@
 # FreshPrice Progress
 
+## Requested commits and branch pushes — 2026-10-15
+
+- Committed and pushed frontend `9ddf4dc0` and backend `af93cfd` on `FP-65`; deployment-test relocation is `fpdocker` `42fd3fb` on its existing `FP-64` branch. These pushes do not target app deployment branches; no deployment or database migration was run.
+- Preserved all 92 relocated files in the standalone local `testing/` workspace. Local test suites, generated seeders, fixture files and reports were not added to app repositories. The previously removed backend seeder-only commit remains excluded.
+- Validation before publication: 39/39 seeded E2E, 255 frontend unit checks, 152 ordinary backend checks, 19 mocked browser cases and 27 runner/generator checks pass; frontend lint/build pass. Existing backend DB-gated checks remain separate.
+
+## Five seeded regression fixes — 2026-10-15
+
+- Corrected product clearing now keeps an explicit empty selection and blocks saving until reselection. Historical observation reads/trends include archived market identity; corrections may retain the original archived market, while new imports and moves still require an active market. The correction form preserves an archived market option.
+- Single-image multipart uploads now complete without hitting Busboy’s first-part limit; one-file/zero-field bounds remain. Community post/tag associations match the existing timestamp-free junction schema. Product create/update model-validation errors now return 400 instead of 500. No schema migration required.
+- Expanded real-data checks for forbidden extra upload fields/files, invalid updates with unchanged persistence, rejection of imports into archived markets and reloaded tagged posts. Fixed a disposable-DB startup race by waiting for TCP readiness rather than the temporary initialization server’s Unix socket. Frontend lint/build/255 unit tests, 152 ordinary backend tests and 19 mocked browser checks pass. Final complete default seeded run passes all 39 cases (nine feature + 30 whole-app), zero skips/failures; 27 runner/generator checks also pass. Both runner-owned PostgreSQL containers were removed. No commit/push/deployment.
+
+## All-suite local relocation and whole-app coverage — 2026-10-15
+
+- Relocated all 92 existing test/support/workflow paths into local `testing/legacy/` or dedicated FP-65 folders, with a checked migration map. Updated app configs/imports/commands; archived manual test CI locally. No business-logic changes, new commit or push.
+- Added 30 real-data whole-app cases under FP-65 alongside nine feature cases. Seeds regenerate from local JSON requirements; every group uses fresh migrated PostgreSQL, actual auth/API and isolated uploads/cache. Default execution runs both groups, with no skipped/filtered/expected-failure escape. Coverage and limitations: `testing/tickets/FP-65/whole-app/COVERAGE.md`.
+- Verification: frontend lint/build and 255 unit tests pass; ordinary backend 150 pass / 23 database-gated skips; mocked Chromium 19 pass; Docker parser 3 pass; runner/generator 27 pass. Legacy database-gated and production-host suites were not rerun. Latest complete group results: feature 7/9 pass and whole-app 27/30 pass, zero skips (34 passes, five active app regressions across 39 cases). The combined run also proved whole-app execution continues after feature failures; an offline startup timing race from that run was corrected and the complete 30-case group rerun. All runner-owned databases were removed.
+
+## Isolated local testing workspace — 2026-10-15
+
+- Moved ticket E2E specs, runner, selection/completion checks and config to workspace `testing/`, outside app Git repositories. Frontend commands are thin local wrappers; existing unit/integration and broad mocked regression suites stay in the apps.
+- Replaced the maintained backend seeder with local `fixtures.json` / data-requirement notes and a generator writing `testing/.local/seeders/<TICKET>.mjs`. Each run recreates the seed from E2E requirements before using disposable PostgreSQL; no app-repository ticket seed is needed.
+- With explicit user approval removed unpushed backend seeder-only commit `888ff3d`, restoring HEAD to `56d4142` and preserving the existing backend diff exactly. Removed the repository seeded CI workflow; no push or new commits. Setup: `testing/README.md`. Verification: 24 generator/selection checks pass; isolated real E2E executes all nine FP-65 scenarios with eight passes and the unchanged archived-market failure. Frontend lint/build and 255 unit tests pass. Generated seed and reports stay in `testing`; the disposable database was removed.
+
+## Ticket-scoped seeded E2E — 2026-10-15
+
+- Default E2E commands now resolve the ticket from frontend/backend branch names and run only explicitly registered ticket specs and that ticket’s seeder. FP-65 owns nine scenarios; unknown/ambiguous tickets, branch mismatches, missing files and partial/filter overrides fail before database setup. Direct Playwright defaults require the seeded config; broad mocked regressions have explicit commands/config/workflow.
+- Added a completion gate rejecting skipped, missing or failing scenarios; `--list` previews ticket scope without Docker. Manual ticket CI checks out the backend branch matching the workflow branch. Only FP-65 is registered; future tickets require a suite, seeder, expected count and acceptance mapping.
+- Verification: 19 scope/completion checks and frontend lint/build/255 unit tests pass. Branch-selected real seeded run executes exactly nine FP-65 scenarios, with eight passes and the existing archived-market failure; no temporary review or unrelated specs run. The separate 19-test mocked Chromium suite passes on a stable run; preliminary attempts were interrupted by Vite file reloads. Earlier feature source remains untouched; ticket-scoping changes are local and uncommitted. See `docs/seeded-e2e-2026-10-15.md`.
+
+## Seeded E2E review — 2026-10-15
+
+- Re-ran all nine seeded scenarios: eight pass, archived-market identity/exclusion fails as documented. Confirmed a false negative in the picker regression: two frames followed by immediate reselection escapes the loop; a temporary 1.5-second empty-state diagnostic triggers the depth warning and fails against the real browser.
+- Existing Chromium suite: all 19 pass; runner/seeder syntax and diff whitespace checks pass.
+- Review evidence and required coverage improvement: `docs/seeded-e2e-review-2026-10-15.md`. Diagnostic copy and both disposable databases removed; source unchanged, no commit/push/deployment.
+
 ## Seeded FP-65 E2E suite — 2026-10-15
 
 - Added a disposable PostgreSQL runner, guarded transactional seeder, dedicated Chromium config and manual CI workflow with an explicit matching backend ref. Real password-based login, API routes and migrated persistence replace response mocks in this suite; a lost-response test interrupts delivery only after the real import commits.
 - All 9 seeded scenarios executed with no skips/retries: 8 pass; the archived-market regression fails on missing historical identity and rejected exclusion. The quick clear/reselect/save browser path passes; this does not resolve the earlier React render-loop reproduction. Application source was not changed.
 - Verified frontend lint/build, 255 frontend unit tests, 137 backend unit tests and all 19 existing Chromium flows. Coverage matrix, command, realistic fixture data, limitations and CI prerequisites: `docs/seeded-e2e-2026-10-15.md`. Runner-owned containers/volumes removed; app data and deployment untouched. Test-suite changes committed separately at the user’s request; earlier feature changes remain uncommitted. No push.
 
+## FP-65 sample data verification — 2026-10-15
+
+- Exercised the supplied notes through Chromium, the production frontend build, real API and disposable PostgreSQL: 38 parsed quotes, 31 reviewed/saved, seven held for unclear product identity. Dates/units and the half-kilo interpretation were explicit test assumptions.
+- Verified replay without duplicates, raw daily/weekly statistics, exclusion/restoration audit and repeated/tied modes; browser mean/median/no-mode/tie displays passed. Official prices/history stayed untouched. See `docs/fp-65-sample-data-test-2026-10-15.md`.
+- Temporary data/services removed; no commit/push/deployment. Both prior P2 review fixes and staging verification remain pending.
+
+## FP-65 review — 2026-10-15
+
+- Fresh frontend lint/build, 255 unit tests, 19 Chromium flows, 150 ordinary backend checks and 36 integration checks with both PostgreSQL gates pass.
+- Reproduced two P2 gaps outside current coverage: correction-product clearing becomes numeric zero and causes a picker render loop; soft-deleted markets leave null associations that crash the observation list. Two UI reproductions and one database reproduction confirmed them. See `docs/fp-65-review-2026-10-15.md`.
+- Review only: source unchanged, temporary reproductions removed, disposable PostgreSQL removed. Both fixes and regressions remain pending; no commit/push/deployment.
+
+## FP-65 initial implementation — 2026-10-15
+
+- Created local `FP-65` frontend/backend branches from the current FP-64 heads, preserving the earlier note-import edits. Added separate observations, transactional migration, exact quantity normalization, idempotent imports with duplicate-content confirmation, paginated correction/exclusion and revision/audit history.
+- Expanded paste review to retain every quote and preview server statistics. Added median/mean/mode observation trends with units, day/week grouping, missing/tied mode behavior, counts and market comparisons; official prices/budgets and legacy API behavior remain separate. Community ingestion is follow-up.
+- Frontend lint/build, 255 unit tests and 19 Chromium flows pass. Backend ordinary suite 150 tests and all 36 integration checks with both database gates pass; six final observation database checks verify the transactional migration and replay/correction behavior on disposable PostgreSQL 14. See `docs/fp-65-implementation-2026-10-15.md`.
+- No commit, push, app/production migration or deployment. Test database/container removed after verification; staging and ordered release remain pending.
+
+## Multiple prices and statistical trends plan — 2026-10-15
+
+- Planned separate quote observation storage, idempotent multi-price imports and mean/median/mode trends, with explicit no-mode/tie behavior and observation-weighted aggregation. Recommended median default; preserved official history/current-price semantics and existing client compatibility.
+- Delivery sequence, provenance/backfill rules, quality/unit comparability, community-source deduplication and database/browser acceptance checks are in `docs/multiple-price-observations-plan-2026-10-15.md`. Documentation only; implementation and verification remain pending.
+
+## Friendly price-note imports — 2026-10-15
+
+- Added operator-only paste/review entry points in Price Management and Price History, preserving the CSV path. Notes support ISO date headings, local-name/alias matching, typo suggestions requiring selection, explicit price/unit/quantity review, half-kilo normalization, row duplication/removal and duplicate product/date/unit blocking.
+- Reuses the historical bulk API: existing history keys are replaced; current market prices are unchanged. Multiple seller observations for the same key remain outside the current schema. Ambiguous numbers/weights/fractions remain visible for manual interpretation.
+- Normalized backend `result` and legacy `results` bulk envelopes in the shared service; CSV now reports saved counts without assuming unsupported created/updated flags. Confirmed saves are removed from the review; uncertain responses retain notes and prevent blind resubmission.
+- Verification: lint, production build, 252 unit tests and all 18 Chromium flows pass (mocked APIs, including the actual backend bulk-response envelope). A new-test mock was corrected and one unrelated recipe timeout during dev-server reloads passed on the final stable full run. No actual price data imported, commit, push or deployment.
 
 ## VPS deployment check instructions — 2026-10-12
 

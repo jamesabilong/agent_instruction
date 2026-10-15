@@ -1,5 +1,10 @@
 # Sugilanon Todo
 
+## Shared backend test relocation — 2026-10-15
+
+- [x] Relocate existing shared backend suites/support to local `testing/legacy/backend/` and verify ordinary backend checks.
+- [ ] Keep local testing-folder backups; app-only remote checkouts no longer contain these suites.
+
 ## Cache recovery — 2026-10-09
 
 - [x] Implement and locally verify the legacy `/sw.js` retirement route and layout update check without clearing user storage or registering a worker for new visitors.

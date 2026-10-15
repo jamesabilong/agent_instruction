@@ -1,5 +1,9 @@
 # Sugilanon Progress
 
+## Shared backend test relocation — 2026-10-15
+
+- Moved all existing shared backend test/support files, including content/Sugilanon checks, to local `testing/legacy/backend/`; dedicated FP-65 checks are separate. Updated backend test configuration; Sugilanon application source is unchanged. Ordinary backend run: 150 pass, 23 database-gated skips; gated model/concurrency suites were not rerun in this relocation.
+
 ## 2026-10-09
 
 - Investigated PhilWatch's reported FreshPrice first-load display. Live homepage is already no-store/Cloudflare DYNAMIC; apex `/sw.js` returns 404. Reproduced the same symptom with an old navigation-caching worker, which remains active when its script is removed. The affected device's actual registration remains uninspected.

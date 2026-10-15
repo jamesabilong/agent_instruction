@@ -15,6 +15,8 @@ FreshPrice uses Sequelize models under `platform-backend/src/models` and migrati
 | `Market` | `markets` | Market catalog |
 | `MarketProductPrice` | `market_product_prices` | Current market/product/unit price |
 | `MarketProductPriceHistory` | `market_product_price_history` | Historical price snapshots |
+| `PriceObservation` | `price_observations` | Individual reviewed operator quotes, corrections and exclusion audit |
+| `PriceObservationBatch` | `price_observation_batches` | Immutable import identities, content hashes and replayable per-row outcomes |
 | `PriceSubmission` | `price_submissions` | User-submitted daily prices pending moderation |
 | `PriceModerationAudit` | `price_moderation_audits` | Audit trail for accepted/rejected/published prices |
 | `ProductWikiPage` | `product_wiki_pages` | Current approved product wiki content and source links |
@@ -73,3 +75,14 @@ The down migration drops activity history and the added columns/index; use appli
 - Update services/controllers that shape request and response data.
 - Add or update tests for model constraints, API behavior, and frontend consumers when applicable.
 - Update this document and `instructions/freshprice/docs/api-routes.md` if the change affects API contracts.
+
+## FP-65 observation migration — 20261015000001
+
+The additive, transactional migration creates `price_observation_batches` and `price_observations` without altering official history/current-price rows. Tested locally against disposable PostgreSQL 14; not applied to an app or production database.
+
+- Batches: UUID primary key, nullable creator FK (SET NULL on user deletion), SHA-256 request hash, JSONB per-row result, timestamps. Creator/hash lookup index supports duplicate-content warnings.
+- Quotes: UUID primary key, required batch FK, quote key, product/market FKs, DATEONLY price date, supported unit, normalized/original price DECIMAL(10,2), quantity DECIMAL(14,6), original note, optional seller (120)/quality (300) text, available/excluded flags, nullable creator FK, revision and JSONB correction audit, timestamps.
+- Unique batch/quote identity prevents ingest duplicates. Market/product/date/unit/price combinations are deliberately non-unique. Trend index covers product/unit/date/market. Database checks enforce nonnegative prices, positive quantity and supported units.
+- Product/market hard deletion cascades quotes consistently with existing historical-price ownership. User deletion nulls creator FKs without blocking account deletion or discarding observations. Batch identity/outcomes remain retained.
+- Import transactions use PostgreSQL advisory locks for actor/content and batch identity, ensuring concurrent retries return one immutable result. Correction transactions lock the observation and require a matching revision. No published daily summary or community submission is counted as an additional observation.
+- The down migration removes collected quotes and batch/audit history. Use application rollback with the additive schema retained after real data collection; export first if schema removal is intentional.

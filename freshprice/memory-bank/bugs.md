@@ -1,5 +1,34 @@
 # FreshPrice Bugs
 
+## Seeded regression fixes implemented locally — 2026-10-15
+
+- Fixed all five failures documented below: correction picker uses nullable empty ID; archived observation markets load with `paranoid:false` and may be retained on correction; upload multipart part-count permits the first valid image while preserving file/field limits; community junction associations disable absent timestamps; invalid product create/update data returns 400. No schema changes.
+- Existing failing E2E assertions remain enabled. Added adjacent checks for malformed/excess multipart data, invalid update persistence, archived-market import rejection and tagged-post reload. Final real-data run results are recorded in progress. Earlier bug entries are historical reproductions.
+
+## Whole-app real-data regressions — 2026-10-15
+
+- Invalid catalogue categories return HTTP 500 from the real product controller instead of a client validation error (400/422); no product is persisted. The old `status != 201` assertion hid this. A separate strict validation case now remains active.
+
+- Valid authenticated single-image upload returns 400 “Upload requests may only include the image file.” Reproduced with a real 192×192 PNG confirmed by Sharp metadata and the normal `image` multipart field. `uploadController.js` has `parts: 1`; old unit/controller checks do not exercise the real parser. The new whole-app upload case remains failing; no business-logic fix made.
+- Valid tagged community posts return 500 on freshly migrated PostgreSQL: `community_post_tags` association queries request `createdAt`/`updatedAt` columns absent from the join table. Untagged posts/comments/votes/moderation work; a separate positive tagged-post regression remains failing. Backend log and fresh real HTTP runs confirm this is not invalid fixture input.
+- The FP-65 picker regression now deliberately pauses with an empty selection and captures the maximum-depth warning. The former two-frame/immediate-reselection check was a false negative; the strengthened case remains failing alongside archived-market handling.
+- All suites are local under `testing`; coverage mapping is `testing/tickets/FP-65/whole-app/COVERAGE.md`. No application bug fixes or production actions were included.
+
+## Seeded picker regression false negative — 2026-10-15
+
+- P2 test gap: `tests/e2e/seeded/observations.spec.ts:177–180` reselects after only two frames and passes with the correction render loop still present. Replacing that wait in a temporary diagnostic with a 1.5-second empty-state pause reproduces the depth warning in Chromium. Preserve empty-state coverage and deterministic effect-settling assertions; see `docs/seeded-e2e-review-2026-10-15.md`. Test source was left unchanged.
+
+## FP-65 confirmed review findings — 2026-10-15
+
+- P2: `ObservationManager.tsx:62` converts cleared product IDs to numeric zero, passes the truthy string `"0"` to the shared picker, and triggers an unbounded reset/state-update loop. Reproduced with the real React picker.
+- P2: normal market soft deletion retains quotes but list reads return `market: null`; `ObservationManager.tsx:54` dereferences the market name and crashes. Confirmed in disposable PostgreSQL plus a UI reproduction; public market comparisons also lose the market label.
+- Neither is fixed in application source. The new seeded suite actively checks both paths: quick browser clear/reselect/save passes, while archived market identity and exclusion fail against real PostgreSQL. The earlier React loop reproduction remains open. Evidence and fix requirements: `docs/fp-65-review-2026-10-15.md`; seeded coverage: `docs/seeded-e2e-2026-10-15.md`.
+
+## Bulk import response compatibility — 2026-10-15
+
+- Resolved locally: historical bulk controller returns `{ success, result }`, while frontend CSV expected `{ success, message, results }`. Shared service now normalizes both envelopes with regression coverage. CSV saved counts no longer rely on a `created` flag absent from this backend.
+- Original note-import limitation: official history permits one market/product/date/unit value. Superseded locally by FP-65 separate observation storage on 2026-10-15; official-history uniqueness remains intentional, while the note importer now retains every quote independently.
+
 ## FP-64 fix verification — 2026-10-12
 
 - Both prior P2 fixes are present in pushed FP-64 heads and their regressions pass. Fresh migrated PostgreSQL and production nginx/Caddy/PWA checks pass; no new merge-blocking code findings. Host fallback installation and live cache/recovery verification remain operational release risks. Historical findings below describe earlier revisions; see `docs/fp-64-merge-readiness-2026-10-12.md`.

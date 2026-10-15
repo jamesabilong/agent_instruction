@@ -182,3 +182,27 @@ Public wiki responses include `recipeCount` for all published recipes while reta
 
 
 FP-43: public database readiness at `/api/platform/db/health` returns `Cache-Control: no-store` on both ready (200) and unavailable (503) responses. Response bodies and authorization behavior are unchanged.
+
+## FP-65 price observations (local, 2026-10-15)
+
+Under `/api/freshprice/market-prices`:
+
+| Method/path | Access | Behavior |
+| --- | --- | --- |
+| `POST /observations/preview` | Operator | Validate up to 500 reviewed quotes and return normalized per-product/market/date/unit count, min/max, mean, median, modes and mode frequency; no writes. |
+| `POST /observations/import` | Operator | Transactionally store independent quotes with a UUID batch ID; return stable per-input-row outcomes. |
+| `GET /observations` | Operator | Paginated admin records including original quote/note, seller/quality context, revision and audit data. Filters: productId, marketId, unitType, fromDate, toDate, page, limit (max 200). |
+| `PATCH /observations/:id` | Operator | Correct or exclude a quote with required current revision, reviewed=true and reason. Stale revisions return 409. Original source note remains immutable; audit retains previous values and actor/reason. |
+| `GET /trends/:productId?basis=observations` | Public | Observation-based statistics; official prices remain the default API basis when omitted. |
+
+Import request: `{ batchId: UUID, records: [...], allowDuplicateBatch?: boolean }`. Each quote uses `{ quoteKey, productId, marketId, price, quantity, priceDate, unitType, originalNote?, sellerLabel?, qualityNote?, reviewed: true, isAvailable?: boolean }`. `price` is the original quoted amount; the server computes the normalized price using exact arithmetic. Price accepts up to two decimals and quantity up to six decimals. Dates are valid Philippine calendar dates no later than today. No uniqueness is imposed on the product/date/unit/market/price combination; identical prices with different quote identities are retained.
+
+Response: `{ success: true, results: { success: [{row,id}], errors: [{row,error}], replayed } }`, with one-based input row numbers. Replaying the same actor/batch/payload returns the original result without adding quotes; changing a used batch payload returns 409 (`batch_conflict`). Reusing identical content as a new batch requires explicit confirmation (`duplicate_batch` otherwise). Partial validation errors are stored with the batch outcome; correct failed rows using a fresh batch after removing confirmed successes. A transaction failure saves no part of a batch. Maximum 500 quotes per batch.
+
+Observation trends accept `statistic=median|mean|mode` (default median), `interval=daily|weekly` (default daily), `unitType=per_kilo|per_piece|per_sack`, marketId and days (7–365). Range contains exactly the requested number of Philippine business dates through today. Weekly buckets start Sunday and mark partial edge weeks. Buckets include missing periods with null values. Summary and market comparisons calculate statistics from raw eligible quotes, with first/latest period values and direction using the selected method/granularity. Repeated tied modes are returned as a list, but chart/direction scalar values are null unless there is a unique mode. Units never mix; unavailable/excluded quotes never count. Queries over 50,000 eligible quotes return 422 with guidance to narrow the filters rather than silently truncate. Public responses omit original notes, seller labels and creator/audit identities.
+
+Existing official current-price/history/import/publication endpoints and legacy trend fields retain their contracts. Community submissions are not automatically copied into observations in this initial operator-import release.
+
+### Local regression corrections — 2026-10-15
+
+Product creation and updates return 400 for Sequelize model-validation failures. Observation history/trends retain soft-deleted market identity; an existing observation can retain its original archived market during correction/exclusion, but new quotes and market reassignment require an active market. Image uploads still accept one image with no extra multipart fields; valid single images now pass the multipart parser. Community tag associations match the existing timestamp-free junction table.

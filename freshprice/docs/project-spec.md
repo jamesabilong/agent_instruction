@@ -24,8 +24,9 @@ FreshPrice is a produce and market price tracking platform with public price bro
 - Feature modules: `fresh-price-front/src/features`.
 - Admin features: product, market, price, user, community moderation, and dashboards.
 - User/public features: product listings, price history, public price trends, budgets, expenses, price submission, contact, auth, and community.
-- Unit tests: `fresh-price-front/tests/unit`.
-- E2E tests: `fresh-price-front/tests/e2e`.
+- Older suites: local workspace `testing/legacy/{frontend,backend,docker}` outside app repositories; app configs/commands point to relocated files.
+- Dedicated ticket tests: `testing/tickets/<TICKET>`, including ticket unit/API checks and real-data E2E. FP-65 temporarily owns a 30-case whole-app group plus its nine observation feature cases.
+- Fixture requirements generate local-only per-group seeders under `testing/.local`; separate fresh databases and reports prevent cross-group state contamination. See `testing/README.md` and `testing/tickets/FP-65/whole-app/COVERAGE.md`.
 
 ## Backend Structure
 
@@ -37,6 +38,7 @@ FreshPrice is a produce and market price tracking platform with public price bro
 - Shared platform routes used by FreshPrice: `platform-backend/src/routes`.
 - Models: `platform-backend/src/models`.
 - Migrations: `platform-backend/src/migrations`.
+- Backend tests now live in `testing/legacy/backend` and dedicated ticket folders; shared Sugilanon/content checks retain their behavior and database gates.
 
 ## Auth And Roles
 
@@ -57,3 +59,9 @@ FP-64 wiki coverage, maintenance readiness and optional external ingestion are f
 - Shared auth/user/community APIs should stay under `/api/platform/*`.
 - Use Sequelize migrations for schema changes.
 - Removed legacy API aliases should not be reintroduced without a migration plan.
+
+## Multiple Price Observations (FP-65, local 2026-10-15)
+
+Operator note imports retain every quoted price as a separate observation, including repeated prices for the same product/market/date/unit. Review supports ISO date headings, name/local-name/alias matching, typo suggestions, optional seller/quality context, explicit units/quantities and a server-normalized statistical preview. Import batches have stable replay identities and same-content warnings. Price History includes paginated observation inspection, corrections and exclusion with revision checks and audit history.
+
+Public/signed-in trends and admin previews offer observation-based Median (default), Mean and Mode, explicit units, daily/weekly grouping, quote counts, market comparisons and tied/no-mode explanations. Published official prices remain separately accessible; existing API clients default to their original official-price basis. Importing/correcting observations does not change official prices or budget estimates. Current operator-only scope deliberately excludes automatic community-submission ingestion; that requires its planned deduplication/review adapter.

@@ -51,7 +51,7 @@ For release, push the fpdocker configuration before the normal app dispatch, as 
 Build the production frontend image from the workspace parent using the existing `frontend-prod` Dockerfile target and `VITE_API_BASE_URL=/api`. Run disposable instances on ports 5183 (normal) and 5184 (`FRESHPRICE_MAINTENANCE=true`), isolated from the application database/API. Run Caddy with the supplied snippet and static file, proxying to an intentionally unreachable upstream, on port 5185.
 
 ```sh
-python3 fpdocker/tests/maintenance.py
+python3 testing/legacy/docker/maintenance.py
 cd fresh-price-front
 npm run test:e2e:chromium -- --config=playwright.production.config.ts
 ```

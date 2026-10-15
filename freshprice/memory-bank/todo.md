@@ -1,5 +1,44 @@
 # FreshPrice Todo
 
+## Requested publication — 2026-10-15
+
+- [x] Commit and push FP-65 frontend/backend changes and current-branch Docker test relocation; preserve local-only testing and generated seeders.
+- [ ] Keep a local backup of the standalone testing folder; remote app checkouts require that sibling workspace to run the relocated suites.
+
+## Seeded regression fixes — 2026-10-15
+
+- [x] Fix idle correction picker, archived observation market identity/correction, image multipart acceptance, tagged-post junction configuration and product validation status handling.
+- [x] Verify adjacent authorization/input limits and persistence through the registered real-data scenarios.
+- [ ] Verify on staging before release; local disposable-data checks do not establish production behavior.
+
+## All-suite local relocation and whole-app coverage — 2026-10-15
+
+- [x] Move all existing suites/support into isolated local testing folders, preserve legacy details and verify rewritten paths/configuration.
+- [x] Create whole-app real-data coverage under FP-65, fixture requirements and local seed generation; strengthen the idle picker regression and invalid-input assertions.
+- [x] Fix the five application regressions and rerun all 39 seeded cases: all pass with zero skips (2026-10-15).
+- [ ] Register future tickets explicitly; whole-app ownership is temporarily FP-65. Back up local `testing/`, which is outside app repositories.
+
+## Local testing isolation — 2026-10-15
+
+- [x] Move ticket E2E infrastructure to workspace `testing/`; retain frontend convenience commands and ticket branch validation.
+- [x] Generate local-only seed scripts from each ticket’s JSON fixture requirements and data-details note; verify recreation/validation (24 checks) and real isolated execution (all nine scenarios; eight pass, archived-market failure remains).
+- [x] Remove the approved unpushed backend seeder-only commit without changing earlier backend work; remove app-repository seeded CI that depends on local assets.
+- [ ] For each future ticket, add local specs, fixture requirements, acceptance mapping and an expected scenario count. Back up the standalone local testing folder as needed.
+- [ ] Resolve archived-market behavior and the now-active idle picker regression before treating FP-65 as fully passing.
+
+## Ticket E2E selection — 2026-10-15
+
+- [x] Make default E2E commands branch-selected, with matching backend ticket validation, explicit ticket spec/seeder registration and no broad fallback.
+- [x] Reject filtered, skipped, missing and incomplete ticket runs; add a Docker-free scope preview and separate full-regression commands/workflow.
+- [x] Verify FP-65 selects only its nine seeded scenarios and preserves the existing archived-market failure; scope/completion guard tests pass.
+- [ ] Register each future ticket’s specs, seeder, scenario count and acceptance matrix before running its branch. Unit suites remain independently configured.
+- [ ] Fix the existing archived-market bug before treating FP-65’s ticket suite as passing. Branch scoping does not establish exhaustive acceptance/code coverage.
+
+## Seeded E2E review follow-up — 2026-10-15
+
+- [x] Strengthen the real-browser corrected-product regression with a settled empty selection and depth-warning capture; it now exposes the confirmed loop. A separate deterministic component regression remains useful when fixing the app.
+- [ ] Fix archived-market identity/exclusion and the picker empty-ID handling, then rerun the complete seeded suite; current result remains eight passed / one failed. See `docs/seeded-e2e-review-2026-10-15.md`.
+
 ## Seeded feature verification — 2026-10-15
 
 - [x] Add a repeatable migrated PostgreSQL seeder and real browser/API feature suite: `npm run test:e2e:seeded` from `fresh-price-front`.
@@ -8,6 +47,36 @@
 - [ ] Fix archived-market identity, rendering and correction/exclusion, then rerun the complete seeded suite to green; retain the prior correction-picker investigation until its React reproduction is resolved.
 - [ ] Publish both matching repository changes before running the new remote workflow; local verification does not establish remote CI or staging success. This suite does not measure 100% code/branch coverage.
 
+## FP-65 sample data verification — 2026-10-15
+
+- [x] Import the supplied notes through the real browser/API into disposable PostgreSQL and verify persistence, replay, normalization, corrections and statistical displays; see `docs/fp-65-sample-data-test-2026-10-15.md`.
+- [ ] Confirm actual dates, quote units/quantities and unclear product names before importing into a real market. Resolve both review bugs and complete staging checks before release.
+
+## FP-65 review fixes — 2026-10-15
+
+- [ ] Preserve an empty correction product selection and regress clear → choose replacement → save without a render loop.
+- [ ] Handle soft-deleted market associations in observation reads/rendering; retain correction/exclusion access and meaningful historical market labels. Add database/UI regressions.
+- [ ] Rerun affected checks after fixes before marking FP-65 release-ready; see `docs/fp-65-review-2026-10-15.md`.
+
+## Multiple prices and statistical trends — FP-65, 2026-10-15
+
+- [x] Inspect existing price storage/trend calculations and write `docs/multiple-price-observations-plan-2026-10-15.md`.
+- [x] Add separate observations and idempotent import/read/correction APIs while preserving official prices/history.
+- [x] Expand note imports to retain every reviewed quote, including repeated prices and optional seller/quality context.
+- [x] Implement daily/weekly/range mean, median and mode statistics, counts, tie/no-mode rules and consistent trend comparisons.
+- [x] Update public/signed-in/admin trend views and verify existing CSV, publication, history and budget workflows.
+- [x] Apply migrations and verify batch retries/statistics against disposable PostgreSQL; complete frontend/backend/browser checks before release.
+
+- [ ] Release migration/backend before frontend; smoke-test real notes/aliases and cache refresh in staging.
+- [ ] Implement the community-submission adapter and source deduplication before including community quotes in observation trends.
+
+## Friendly price-note imports — 2026-10-15
+
+- [x] Add paste/review imports for dated notes with name/alias matching, typo suggestions, explicit price/unit/quantity choices and duplicate protection.
+- [x] Fix shared bulk result-envelope compatibility and preserve existing CSV entry point.
+- [x] Pass frontend lint/build, 252 unit tests and all 18 Chromium flows.
+- [ ] Smoke-test with real product aliases and a dated note batch in staging; confirm individual quote counts and normalized prices. Browser tests use mocked API responses; persistence was separately verified against PostgreSQL.
+- [x] Retain multiple same-day quotes separately from official history (FP-65 initial operator implementation, 2026-10-15).
 
 ## VPS deployment verification — 2026-10-12
 
