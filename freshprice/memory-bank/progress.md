@@ -1,5 +1,22 @@
 # FreshPrice Progress
 
+## FP-59 commits and branch pushes — 2026-10-19
+
+- At the user's request, committed and pushed frontend `101a834` and backend `e4fe0bc` to their existing FP-59 branches. The commits contain the month-end copy fix and repaired test command/configuration wiring; verified scope remains 37 PostgreSQL + 16 real browser checks.
+- Kept local test assets, generated seeders/reports and the 118-file source backup outside app repositories. Publish FP-59 contracts/verification notes on the instruction repository's FP-59 branch; earlier FP-65 review edits remain local. No master/main app push, deployment or app database migration was performed.
+
+## FP-59 database/browser verification — 2026-10-19
+
+- Restored 84 exact historical test/support files, fixed Windows discovery/dependency/temp setup, and rebuilt guarded disposable PostgreSQL/browser commands. Preserved the month-end fix and unrelated local edits; no additional business defect reproduced.
+- Full normal E2E command passes all 53 registered checks: 17 restored PostgreSQL + 20 FP-59 PostgreSQL + 8 desktop + 8 mobile, no failures/skips/retries. Each browser profile has a fresh real API/database; normal rate limits remain enabled. Verified races/revocation/rollback, 205 expenses, recurrence/scheduler/migration safeguards, reload and account isolation. Report: `testing/reports/20261019135335916_d768b0/summary.json`.
+- Frontend 255/backend 173 unit checks, 13 mocked API, 17 mocked Chromium and 23 runner safety checks pass; lint/build pass. Backed up 118 local test assets; unrecoverable later FP-65 local-only coverage remains documented separately. Updated API/schema notes. Staging/ordered release remains open; no commit/push/Jira write/app DB change/deployment. Details: `docs/fp-59-verification-2026-10-19.md`.
+
+## FP-59 continuation — 2026-10-19
+
+- Refreshed remote references and continued existing frontend/backend FP-59 branches (`5dc479f` / `aa86660`) ahead of dependent FP-60. Existing roles, ownership acceptance and monthly templates were reused; Jira remains In Progress.
+- Fixed monthly-copy month-end rollover: January 31–February 1 now copies to February 28–March 1 instead of the invalid March 3–March 1. Frontend lint/build pass; focused checks pass 12 frontend + 45 backend (57 total, no skips). Frontend regression was red before the fix (6 failures).
+- Recreated only focused local `testing/` configs, deterministic fixtures and acceptance maps; historical suites/setup/seeded runner remain missing. Default frontend unit discovery also uses Windows backslash globs; normal unit/E2E and real PostgreSQL/staging gates remain open. No commits, pushes, Jira writes, app DB changes or deployment. Details: `docs/fp-59-continuation-2026-10-19.md`.
+
 ## Whole-app and FP-65 suite audit — 2026-10-15
 
 - Reviewed all 39 real-data cases, fixtures, branch selection/completion guard, auth helpers, reports and isolation. Runner/generator checks: 27 pass. No application or test implementation changes made during this review.

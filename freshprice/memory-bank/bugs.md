@@ -1,5 +1,16 @@
 # FreshPrice Bugs
 
+## FP-59 test setup resolved — 2026-10-19
+
+- Restored historical test files and repaired default unit discovery/setup. The month-end copy fix now passes real persisted form submissions on desktop/mobile; all 53 registered database/browser checks pass. No additional FP-59 business defect reproduced.
+- Corrected new browser harness guide/selector assumptions and isolated each browser profile's API/database after the shared test stack reached the normal request limit. Application rate limits remain enabled. Runner now rejects stale/expected-failure/partial results and verifies child/container cleanup.
+- Later local-only FP-65 coverage remains unrecoverable from Git; staging/ordered rollout remains unverified. Details: `docs/fp-59-verification-2026-10-19.md`. Earlier test-workspace/Docker blockers below describe the pre-repair state.
+
+## FP-59 monthly-copy fix — 2026-10-19
+
+- Resolved locally: native month rollover generated an invalid second date range for January 31–February 1 with two monthly copies (March 3–March 1). The helper now clamps to the target month's last day, producing February 28–March 1 and preserving the original anchor for later copies. Regression evidence: 6 failures before the fix; all 12 focused frontend cases pass afterward.
+- Verification remains limited: historical local suites/setup/seeded runner are absent, frontend default Windows include globs find no tests, and Docker's daemon was unavailable. Focused 45 backend checks use mocked persistence; SQL concurrency and staging are not established. See `docs/fp-59-continuation-2026-10-19.md`.
+
 ## Test-suite confidence gaps — 2026-10-15
 
 - Review found stale report artifacts on pre-Playwright setup failure, weak page-shell assertions in part of whole-app navigation, and FP-65 auth headers that send the literal `cookie-session` marker while real authentication comes from the request context’s cookie jar. No current app regression is established by these findings; they are test/report reliability issues. Evidence and corrective scope: `docs/testing-suite-audit-2026-10-15.md`.

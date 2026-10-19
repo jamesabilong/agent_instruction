@@ -1,5 +1,27 @@
 # FreshPrice Todo
 
+## FP-59 requested publication — 2026-10-19
+
+- [x] Commit and push the verified frontend `101a834` and backend `e4fe0bc` changes on FP-59; retain local test assets and their backup outside app repositories.
+- [x] Prepare the FP-59 contract/verification notes for the instruction repository's FP-59 branch, preserving unrelated FP-65 review edits locally.
+- [ ] Complete staging and ordered-release verification before delivery sign-off; feature-branch pushes do not establish deployment.
+
+## FP-59 verified local scope — 2026-10-19
+
+- [x] Restore all 84 recoverable historical files; repair Windows globs, dependency resolution, writable temp setup and ordinary unit commands. Preserve local-only tests outside app repositories and back up the 118-file source workspace.
+- [x] Run all registered real PostgreSQL and desktop/mobile browser cases: 53/53 pass, no skips/retries, through the normal E2E command. Validate permission/transfer races, rollback, 205 expenses, recurrence and migration guards, real cookies, stale tabs, reload and account switches. API/schema notes updated.
+- [x] Run adjacent restored coverage: 255 frontend/173 backend units, 13 mocked API, 17 mocked Chromium, 23 runner/setup checks; lint/build pass.
+- [ ] Complete staging smoke and schema/backend-before-frontend release verification before closing FP-59; assign owner/estimate in Jira. Evidence and backup: `docs/fp-59-verification-2026-10-19.md`.
+- [ ] Recover the later FP-65 local-only unit/integration/whole-app backup if available. It is absent from Git history and is not silently counted as restored coverage; see `testing/RESTORATION.md`.
+
+## FP-59 continuation — 2026-10-19
+
+- [x] Continue existing FP-59 implementation before starting dependent FP-60/FP-61 work; verify live sprint and existing branch state.
+- [x] Fix monthly-copy end-of-month rollover and verify leap years, original anchors, cross-month ranges and actual React form payloads; 12 frontend regressions pass, lint/build pass.
+- [x] Add 45 local backend service checks for roles, expense permissions, ownership acceptance/retries/expiry and recurring lifecycle/instance isolation. These use mocked persistence.
+- [x] Restore recoverable historical test sources, normalize frontend Windows discovery, run the registered FP-59 database/browser suites and back up local tests. See the verified scope above; later FP-65 local-only additions remain unavailable.
+- [x] Run migrated disposable PostgreSQL concurrency/idempotency/201+ expense checks and real account-switch/reload/invitation browser flows. Staging/ordered release remains a separate open gate above.
+
 ## Suite audit follow-up — 2026-10-15
 
 - [ ] Give test artifacts an execution identity and prevent report commands from showing stale successes after setup failures.

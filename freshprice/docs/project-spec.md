@@ -1,5 +1,7 @@
 # FreshPrice Project Spec
 
+> FP-59 checkout update (2026-10-19): the current frontend/backend FP-59 branches include viewer/contributor roles, explicitly accepted ownership transfer and private monthly recurring budget templates. Full registered local verification passes 37 PostgreSQL and 16 desktop/mobile browser checks, with isolated runner-owned stacks. The monthly-copy month-end fix is verified through persisted form submissions. See `fp-59-verification-2026-10-19.md` for repaired test commands, restored historical coverage and remaining staging/release gates; older checkout caveats below are historical context.
+
 > Checkout update (2026-10-02): current frontend/backend `FP-64` checkouts contain the September budget reliability implementation. FP-56 now covers budget tightening, with remaining fixes implemented locally; see `fp-56-budget-tightening-2026-10-02.md`. Database/staging/production verification remains pending. Earlier master audit notes describe a different checkout.
 
 Last investigated: 2026-09-12 (budget workflow update)

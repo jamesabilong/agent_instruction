@@ -1,5 +1,24 @@
 # FreshPrice API Routes Investigation
 
+## FP-59 local contract — 2026-10-19
+
+The following routes exist on the current frontend/backend FP-59 branches. Real PostgreSQL and cookie-authenticated browser verification are recorded in the FP-59 verification notes; production rollout is not established. All paths below are under `/api/freshprice/user` and require authentication.
+
+| Method and path | Contract |
+| --- | --- |
+| `PATCH /scheduled-budgets/:id/collaborators/:userId/role` | Owner sets `role` to `contributor` or `viewer`; existing members default to contributor. |
+| `GET /scheduled-budgets/:id/ownership-transfer` | Owner/intended recipient can inspect the pending transfer; returns null when no response is needed. |
+| `POST /scheduled-budgets/:id/ownership-transfer` | Owner requests an accepted member using `toUserId`; seven-day expiry. |
+| `POST /scheduled-budgets/:id/ownership-transfer/:transferId` | Intended recipient accepts/declines; current owner can cancel. Successful retries are harmless, stale membership/request IDs cannot execute another transfer. |
+| `GET /budget-recurring-templates` | Lists only the authenticated creator's private monthly templates. |
+| `POST /scheduled-budgets/:id/recurring-template` | Owner snapshots budget/allocations using a client UUID `id`; no expenses or memberships copied. |
+| `PATCH /budget-recurring-templates/:templateId` | Creator sets `status` to active, paused or cancelled; cancellation is permanent. Resume skips missed starts. |
+| `POST /budget-recurring-templates/:templateId/generate` | Creator requests due instances now; future dates are not generated early. |
+
+Lifecycle responses use `{ success: true, data }`. Ownership acceptance changes the single `scheduled_budgets.user_id` owner and makes the former owner an accepted contributor. Viewers can read shared data but expense mutations recheck current role under the parent budget lock. Contributors can mutate only their own expenses while membership remains active. Current daily/monthly budgets remain personal.
+
+Templates remain with their creator if the source is deleted or changes owner. Each monthly instance is private, contains independent allocations and no copied actual expenses, and clamps dates from the original calendar anchors. The hourly due worker can be disabled with `FRESHPRICE_RECURRING_BUDGETS=false`; tests invoke its work against disposable databases with automatic scheduling disabled.
+
 > Checkout caveat (2026-10-02): September budget reliability additions below describe imported implementation notes; the current frontend/backend master checkout still has the older expense ownership/cache/pagination paths. Verify the corresponding implementation commits before relying on those additions as available APIs or schema.
 
 Last investigated: 2026-09-12 (budget reliability additions; other inventory retained)

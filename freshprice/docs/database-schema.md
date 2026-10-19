@@ -1,5 +1,16 @@
 # FreshPrice Database Schema Investigation
 
+## FP-59 additive migrations — 2026-10-19
+
+Current FP-59 branches include three transactional migrations, exercised against disposable PostgreSQL 14. These checks do not establish staging/production migration state.
+
+- `20261019000001-scheduled-budget-member-roles.cjs`: adds required `scheduled_budget_members.role`, default contributor, with a database check allowing contributor/viewer. Down refuses while viewer memberships exist, preventing a rollback from silently granting contributor rights.
+- `20261019000002-budget-transfer-and-templates.cjs`: adds `budget_ownership_transfers` (UUID, source budget, old/new owner, recipient membership identity, status, expiry and timestamps), with one pending transfer per budget; adds private `budget_recurring_templates` snapshots (creator, source identity, original dates, amount/allocations, next occurrence/start and lifecycle status). Active/paused templates are unique by creator/source. Source identity is retained independently of source deletion/transfer.
+- The lifecycle migration adds nullable `scheduled_budgets.recurring_template_id` (template FK with SET NULL) and `recurring_occurrence`; their unique pair deduplicates periods even across soft-deleted instances. Generated instances have independent budget/allocation IDs and no copied expenses or memberships. Down refuses to discard transfer/template history.
+- `20261019000003-preserve-budget-inviter-history.cjs`: changes the inviter FK to nullable SET NULL on user deletion. Down refuses when null inviter history or ownership transfers would be lost by restoring the older cascading reference.
+
+Ownership remains the single `scheduled_budgets.user_id` value; accepted memberships contain contributor/viewer roles, not another owner. Mutations serialize under budget-row locks. A successful ownership acceptance deletes the recipient membership and creates/updates the former owner's contributor membership in the same transaction as activity/notifications. Template row locks and unique occurrence keys serialize manual/worker retries. Migration round-trip, rollback guards, failed-activity rollback and concurrent operations are covered in `testing/tickets/FP-59/backend/integration/database.test.js`.
+
 > Checkout caveat (2026-10-02): September budget reliability additions below describe imported implementation notes; the current frontend/backend master checkout still has the older expense ownership/cache/pagination paths. Verify the corresponding implementation commits before relying on those additions as available APIs or schema.
 
 Last investigated: 2026-09-12 (budget reliability migration; other inventory retained)
