@@ -154,10 +154,22 @@ Budget and expense routes require auth.
 - `POST /scheduled-budget-invitations/:id/decline`
 - `POST /scheduled-budgets/:id/invitations`
 - `DELETE /scheduled-budgets/:id/collaborators/:userId`
+- `PATCH /scheduled-budgets/:id/collaborators/:userId/role` — FP-59 owner-only role change; body `{ role: "contributor" | "viewer" }`. Supports pending/accepted memberships, rejects invalid roles with 400, non-owner members with 403 and unavailable members/budgets with 404. Role updates and expense writes serialize on the scheduled parent; changes record `member_role_changed` activity and notifications transactionally.
 - `POST /scheduled-budgets/:id/leave`
 - `GET /scheduled-budgets/:id/activity`
+- `GET /scheduled-budgets/:id/ownership-transfer` — pending transfer or null; visible only to current owner/recipient with current budget access. Includes `expired`.
+- `POST /scheduled-budgets/:id/ownership-transfer` — owner proposes `{ toUserId }` (accepted member); same live recipient/membership retry returns the existing transfer. Supersedes earlier pending requests.
+- `POST /scheduled-budgets/:id/ownership-transfer/:transferId` — `{ action: "accept" | "decline" | "cancel" }`; recipient accepts/declines, current owner cancels. Seven-day expiry (410); stale/superseded/revoked membership conflicts (409). Same successful outcome retry is harmless. Parent-row locking keeps exactly one owner; acceptance removes the recipient membership and retains the previous owner as an accepted contributor. Historical expense authorship is unchanged. Events/notifications commit atomically.
+- `GET /budget-recurring-templates` — authenticated creator's templates, including cancelled history.
+- `POST /scheduled-budgets/:id/recurring-template` — owner creates monthly snapshot with client UUID `{ id }`; same UUID replays even after cancellation, existing active/paused owner/source template deduplicates a new UUID. A new UUID after cancellation can create a fresh snapshot. Generated instances cannot be used as template sources.
+- `PATCH /budget-recurring-templates/:templateId` — creator-only `{ status: "active" | "paused" | "cancelled" }`. Resume advances past missed start dates. Cancelled templates cannot restart (409).
+- `POST /budget-recurring-templates/:templateId/generate` — creator-only; active templates generate due instances using server Philippine business date, returning `{ generated: string[], template }`. Paused/cancelled return 409. Concurrent workers/retries serialize on the template; existing and soft-deleted periods are not duplicated or resurrected.
+
+Lifecycle responses use `{ success: true, data }` (200); failures use `{ success: false, message }`. Template responses contain `id`, `sourceBudgetId`, `name`, numeric `amount`, `note`, original `anchorStartDate`/`anchorEndDate`, `nextStartDate`, `status`, `frequency=monthly`, `memberPolicy=private`. Scheduled budget responses add nullable `recurringTemplateId`. Templates retain their creator after source deletion/ownership transfer. New generated instances use random UUIDs rather than predictable future IDs; existing generated IDs remain valid. Deleting a historical inviter preserves accepted/pending memberships with a null inviter reference. Instances copy only snapshot budget/allocation values; each has new allocation IDs, no expenses and no members. Each original date anchor shifts independently by calendar months, clamping to the last valid day. Creation starts at the first occurrence at least one month after the source and no earlier than today. Active downtime catches up (24 periods per transaction); pause/resume skips past starts. Generation also runs on backend startup/hourly, all due templates in stable ID-ordered pages of 50, attempting each ID once per sweep and reporting failures after processing later pages. See `fp-59-lifecycle-2026-10-19.md`.
 
 ### Budget contract additions — 2026-09-12
+
+FP-59 viewer increment (local, 2026-10-19): invitation creation accepts optional `role` (default `contributor`). Member/invitation responses expose `role`; scheduled-budget `shareRole` adds `viewer` while retaining legacy `collaborator` for contributors. Owners alone manage invitations, roles and allocations. Viewers can read authorized shared expenses, summaries and activity and may leave; all expense creates/updates/deletes are rejected with 403, including replay of a prior request and moving an existing expense into/out of a viewer budget. A contributor can still change only their own expenses. Deploy the role migration and new backend before exposing viewer controls. Do not roll back to a role-unaware backend while viewer memberships exist; it would grant them contributor rights.
 
 - Expense actor/ownership comes from authentication only. The create controller allowlists fields; supplied body/query `userId` cannot select another actor. Editing/deleting requires the original expense owner and continued access to its shared budget, even when moving the expense elsewhere.
 - `GET /expenses` returns `{ success, data, meta: { total, page, limit } }`; limit is capped at 200. Ordering is date, creation time, then ID. `GET /expenses/summary` returns `{ success, data: { total, count, groups } }`; each group contains category, current/scheduled sub-budget IDs, spent and count. Summary includes every matching row, independent of page/limit.
@@ -206,3 +218,36 @@ Existing official current-price/history/import/publication endpoints and legacy 
 ### Local regression corrections — 2026-10-15
 
 Product creation and updates return 400 for Sequelize model-validation failures. Observation history/trends retain soft-deleted market identity; an existing observation can retain its original archived market during correction/exclusion, but new quotes and market reassignment require an active market. Image uploads still accept one image with no extra multipart fields; valid single images now pass the multipart parser. Community tag associations match the existing timestamp-free junction table.
+
+## FP-60 accounting (local 2026-10-19)
+
+Authenticated prefix `/api/freshprice/user`; shared read/write permissions follow FP-59. Currency PHP. See `fp-60-accounting-2026-10-19.md` for confirmation and correction policy.
+
+| Method | Path | Input / response |
+| --- | --- | --- |
+| GET | `/expenses/:expenseId/split` | Expense revision, confirmed/latest split and current participants/capabilities |
+| PUT | `/expenses/:expenseId/split` | UUID requestId, expectedRevision, payerUserId, whole-peso amount, method equal/explicit, shares[{userId,amount?}], reason; author only |
+| POST | `/scheduled-budgets/:id/splits/:splitId/respond` | action confirm/dispute/cancel, expectedRevision; payer responds, author cancels |
+| GET | `/scheduled-budgets/:id/accounting` | PHP balances in integer cents, current/historical participants, legacy policy |
+| GET | `/scheduled-budgets/:id/accounting/history` | kind splits/settlements, page; 25 rows/page with server-authorized actions |
+| POST | `/scheduled-budgets/:id/settlements` | UUID requestId, toUserId, amount with at most 2 decimal places, date, note; sender is actor |
+| POST | `/scheduled-budgets/:id/settlements/:settlementId/respond` | action, expectedRevision, optional response note; counterparty responds, proposer cancels |
+| POST | `/scheduled-budgets/:id/settlements/:settlementId/reversals` | UUID requestId, 3–200 character note; creates separately confirmed full reversal |
+
+Existing expense responses add `revision`; PUT accepts body `expectedRevision` and DELETE accepts query `expectedRevision`. Required after any split history; optional for untracked legacy clients. Tracked amounts change through split correction controls; tracked moves are rejected. Mutations are transactional/idempotent where keyed; stale/conflicting or revoked participants return 409, permission denials 403/404, invalid centavos/sums 400. Pending/disputed records do not affect balances or expense totals.
+
+FP-60 review fix: settlement POST replay resolves an omitted date from the existing creator/request UUID record, preserving identical retries across Asia/Manila midnight. New records alone default to today's business date. Explicitly changed dates and other changed values still return 409; current write/member authorization applies before replay.
+
+## FP-61 durable expense replay — local 2026-10-20
+
+POST `/api/freshprice/user/expenses` and PUT `/api/freshprice/user/expenses/:id` optionally accept `mutationId` UUID and `draftAccountId` matching the authenticated actor. Current-budget drafts also send the original `expectedBudgetId`; mutation PUT requires `expectedRevision >= 1`. The mutation receipt and expense write commit atomically. Replays reauthorize original/destination/current shared access and return the original saved response; conflicting key reuse returns 409. Structured outcomes include `DRAFT_ACCOUNT_CHANGED` (403), `MUTATION_KEY_REUSED`, `BUDGET_CHANGED`, `REVISION_CONFLICT` plus current expense (409), and deleted committed expense (410 `EXPENSE_DELETED`). Legacy writes remain compatible. See `fp-61-offline-editing-2026-10-20.md` for policy and release gates.
+
+## FP-62 wiki enrichment (local, 2026-10-20)
+
+Product prefix `/api/freshprice/products`: public `GET /wiki/seasonal` (locale/region/month/page/limit) and `GET /:id/wiki/enrichments`; operator `GET /wiki/inventory`; authenticated `POST /:id/wiki/enrichments`, `GET /:id/wiki/enrichments/mine` and author-only `POST /:id/wiki/enrichments/:entryId/withdraw-recognition`; operator `GET /:id/wiki/enrichments/moderation` and `POST /:id/wiki/enrichments/:entryId/review` (approve/reject/retract, reviewed sourceRevisionId; retract requires the exact approved entry revision). Contribution/history lists use page/limit; public enrichment output omits identities and moderation state. Canonical publication/revision changes invalidate public variants until newly reviewed proposals are approved. Existing recipes GET adds literal q, difficulty and maxCookMinutes before pagination, retaining its legacy array contract. See `fp-62-wiki-enrichment-2026-10-20.md`.
+
+FP-62 review fix: proposal POST accepts an optional client UUID `submissionId`; matching author/product/normalized-payload retries return the original operation and current status (including after source changes), while conflicting identity reuse returns 409. Updated editor retains this identity through uncertain responses. Retraction is operator-only, idempotent for the same retracted entry, records separate actor/time and preserves approval history; private lists expose retractedAt, while public lists omit private identity/signature/status fields. See `fp-62-review-fixes-2026-10-20.md`.
+
+## FP-63 shopping lists (local, 2026-10-20)
+
+Authenticated `/api/freshprice/shopping-lists`: GET owned active summaries; POST personal list or published recipe snapshot; GET `/:id` list/items, official market estimates and freshly authorized budget comparison; PATCH `/:id` settings/archive; POST `/:id/items`; PATCH `/:id/items/:itemId` edit/check/remove; POST `/:id/items/:itemId/purchase` explicit actual spending. All writes require UUID operationId, edits/purchases also expectedRevision. Conflicting keys or stale revisions return 409; an already recorded but deleted expense replay returns 410. Ownership is mandatory even for shared-budget members/operators. Readable shared-budget viewers can estimate but cannot purchase. Checking alone never creates an expense. Actual amount uses existing whole-PHP expense storage, quantity at most two decimals, and purchase date must fit the saved linked budget's period. Missing/stale/noncomparable quotes keep full total unknown. See `fp-63-shopping-integration-2026-10-20.md` for full contracts, online/in-memory retry limitations and staging requirements.

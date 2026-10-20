@@ -1,5 +1,245 @@
 # FreshPrice Progress
 
+## Sprint 337 final source review and PR evidence complete — 2026-10-20
+
+- Fresh FP-59 exact-head verification: lint/build, 260 frontend + 7 targeted calendar/server-spending, 166 ordinary backend (23 opt-in skips), 36 enabled DB (zero skips), 41 runner and complete 15+30 Chromium pass; run `2026-10-20T09-48-40-201Z-4bf7489a`. FP-60/61 published fingerprints still match passing reconciliation evidence; re-parsed all final browser JUnit groups.
+- Completed source/integration review with no actionable findings. Published and read back current Validation sections in all six PRs plus one exact-head COMMENT review each; all remain OPEN/CLEAN/MERGEABLE. These author-account agent comments are not independent approval; no hosted checks are reported.
+- Updated final review record and release runbook. Remaining gates: restored-data staging/device/proxy/PWA upgrade, actual VPS migration/image/backup/restore preflight and ordered verified releases. FP-63 branch/head/status/dirty-file hashes unchanged/on hold. No app source change, commit/push, merge/retarget, Jira mutation or deployment. See `docs/sprint-337-final-review-2026-10-20.md`.
+
+## Sprint 337 re-audit after FP-61 publication — 2026-10-20
+
+- Live sprint/board metadata confirms active 337, exactly FP-59/60/61 all In Progress; sprint 338 remains future. All six PRs are OPEN/CLEAN/MERGEABLE with correct published heads. Verified FP-59 → FP-60 → FP-61 ancestry in both repos and clean prospective merges of every head into current master, each yielding the branch's exact tree. FP-60/61 published trees still match tested fingerprints; re-parsed all six saved JUnit groups without rerunning tests.
+- No merge-conflict blocker remains. Confirmed gaps: all six PRs have zero reviews/comments/hosted checks and stale validation heads/reports; FP-59 exact-head follow-up notes need refresh. No staging evidence in checked PR/Jira/local release records (all three Jira comment lists empty); VPS image/migration/restore/tag preflight remains unverified. Hosted-CI absence is an evidence limitation, not a new imposed CI requirement.
+- Public API/nginx readiness and SW no-store/CDN BYPASS plus manifest no-cache/CDN no-store still pass. Deployment history remains October 19; no verified release of these sprint heads established. Rewrote `docs/sprint-337-release-audit-and-runbook-2026-10-20.md` as a coherent current plan, removing obsolete reconciliation blockers and adding the explicit six-stage backend/frontend release table. Raw audit snapshots: `reconciliation/sprint337-release-reaudit-2026-10-20/`.
+- FP-63 primary branches/heads/status/dirty file hashes unchanged and on hold. Audit/documentation only; no app source, PR/Jira/sprint change, merge, commit/push or deployment. Review/evidence, restored-data staging, preflight and ordered verification remain before closeout.
+
+## FP-61 reconciliation committed and pushed — 2026-10-20
+
+- At the user's explicit request, created and pushed proper two-parent merges from current FP-60: frontend `0d100ab525fb3bcbfde2e42b97e56b127c10d30b`, backend `1d1fa16985330b923cca20631d4e7c2a86a37af2`. Verified both parent lists and exact committed trees against tested fingerprints; prior lint/build, 279 frontend / 186 ordinary backend / 173 unit-command / 36 enabled integration / 41 runner / 15+30 browser results apply unchanged.
+- Live refs/PR heads verified, upstream 0/0 and tracked app trees/indexes clean. Frontend #53 and backend #55 now OPEN/CLEAN/MERGEABLE against FP-60. Primary dirty FP-63 branches/heads/status/file hashes unchanged; FP-63 stays on hold. Standalone tests/tooling/reports remain local outside app commits.
+- No master merge, PR retargeting, Jira/sprint edit or deployment. Final release review/FP-59 current-head notes, staging and ordered release remain pending. Exact evidence: `docs/fp-61-reconciliation-2026-10-20.md`, `reconciliation/fp61/publication.json`.
+
+## FP-61 reconciliation verified locally — 2026-10-20
+
+- Prepared both FP-61 resolutions against published FP-60 `3372481b` / `e8b7f78` in isolated `reconciliation/fp61/` sibling worktrees. Retained all ticket test registrations and portable commands/aliases. Only package/config files change; app src is unchanged from FP-61. Primary dirty FP-63 branch/head/status/file hashes preserved exactly; FP-63 stays on hold. No stage/commit/push/PR/Jira/deployment.
+- Lint/build, 279 frontend units, 186 ordinary backend (23 opt-in DB skips), explicit backend-unit command 173, enabled integration 36 (zero skips), runner 41 and complete 15 feature + 30 whole-app Chromium cases pass. Final execution `2026-10-20T09-23-26-688Z-5def1a3c`, zero browser failures/errors/skips. Details/fingerprints/handoff: `docs/fp-61-reconciliation-2026-10-20.md`.
+- Browser reruns exposed test-only HMR/module identity, hidden recovery-selector, asynchronous lease and first-use tutorial assumptions. Fixed the standalone fixed-snapshot harness/setup and strengthened persisted revision assertions; no app source/assertion/timeouts/scenario scope reductions. Earlier failed reports retained; final complete run passes both groups.
+- Proper two-parent FP-60 → FP-61 merge commits/publication remain pending authorization. Source/index preservation evidence is saved; remote PRs retain old heads/conflicts until push. Review, FP-59 current-head notes, restored-data staging and ordered release gates remain open.
+
+## Sprint 337 release audit and runbook — 2026-10-20
+
+- Live Jira contains exactly FP-59/60/61, all In Progress. FP-59 and published FP-60 PR pairs are OPEN/CLEAN; both FP-61 PRs are now DIRTY/CONFLICTING against updated FP-60. Read-only merge-tree reproduces frontend vite.config.ts/backend package.json conflicts. Entire sprint remains a no-go until FP-61 reconciliation/current-source checks, review and staging gates pass.
+- Re-parsed saved JUnit: FP-59 15+30, current FP-60 16+30 and pre-reconciliation FP-61 15+30, all zero failures/errors/skips. Six PRs show no hosted check results/approval decision; FP-59 descriptions still cite old heads. No tests rerun just for the audit; no application/PR/Jira/deployment mutations.
+- Verified live fpdocker workflow and October 19 dispatch history. Master merges auto-deploy mutable/default-branch app sources, so serialize every backend → frontend pair with migration/digest/health/smoke gates in FP-59 → FP-60 → FP-61 order. Public API/nginx health passes; SW no-store/CDN BYPASS and manifest no-cache/CDN no-store are currently correct. These observations do not verify sprint versions or staging.
+- Saved full preflight/backup/staging, ordered five-migration rollout, PWA/data preservation, stop/repair and closeout instructions: `docs/sprint-337-release-audit-and-runbook-2026-10-20.md`. Both primary FP-63 checkouts/dirty file hashes remain unchanged/on hold.
+
+## FP-60 reconciliation committed and pushed — 2026-10-20
+
+- At the user's explicit request, created proper two-parent merge commits incorporating latest FP-59 and pushed FP-60: frontend `3372481b6797b95064e3482ed37b2c95a04e4bf9`, backend `e8b7f78595303546a6f846f8074f9ffcfcfef990`. Exact committed trees match the verified source fingerprints, so the prior passing lint/build, 273 frontend / 184 ordinary backend / 36 enabled DB / 41 runner / 16 feature + 30 whole-app checks apply unchanged.
+- Verified live refs and matching PR heads, upstream 0/0 and clean tracked app trees/indexes. Frontend #52 and backend #54 now OPEN/CLEAN/MERGEABLE against current FP-59. Primary dirty FP-63 branches/heads/file hashes unchanged; FP-63 stays on hold. Tests/tooling/reports remain local outside app commits.
+- No Jira/sprint edits, PR landing/retargeting or deployment. FP-61 propagation, prerequisite landing, staging and ordered release remain pending. Exact evidence: `docs/fp-60-reconciliation-2026-10-20.md` and `reconciliation/fp60/publication.json`.
+
+## FP-60 reconciliation verified locally — 2026-10-20
+
+- Preserved both dirty FP-63 checkouts exactly; FP-63 remains on hold. Prepared FP-60 resolutions against fetched FP-59 101a8342/e4fe0bc in isolated `reconciliation/fp60/{fresh-price-front,platform-backend}` worktrees. Retained monthly calendar clamp, portable commands/aliases and every accounting test registration. App indexes remain unchanged; no stage/commit/push.
+- Restored missing shared unit/database wrappers and added failure/isolation regressions plus seven calendar/accounting cases; original FP-60 helper fails five month-end cases, reconciled helper passes. Fixed the shared legacy pagination assertion's later FP-62 signature dependency without changing app scope.
+- Lint/build, 273 frontend units, 184 ordinary backend checks (23 opt-in DB skips), 36 separately enabled DB checks (zero skips), 41 runner checks and full 16 feature + 30 whole-app Chromium cases pass. Final execution `2026-10-20T08-51-44-309Z-89ef42c2`, zero browser failures/errors/skips. Evidence and exact handoff: `docs/fp-60-reconciliation-2026-10-20.md`.
+- Proper two-parent merge commits/publication remain pending user authorization: no-index prepared resolutions have not changed branch ancestry or remote PR status. Preserve patches, perform real FP-59 merges and restore these verified files when committing is requested. FP-61 propagation, staging and ordered release remain pending.
+
+## Sprint 337 completion audit / priority reset — 2026-10-20
+
+- User directed finishing sprint 337 before more FP-63 work. Preserved FP-63 dirty branches/findings unchanged. Live Jira confirms FP-59/60/61 all In Progress, assigned to james abilong, in active 337; all six app PRs are OPEN with no recorded reviews/comments/hosted checks.
+- Confirmed current integration blocker: frontend FP-60 #52 and backend #54 are DIRTY against latest FP-59. Live compares show missing follow-up commits frontend 101a8342 / backend e4fe0bc; reconcile clamp/test-command changes while preserving FP-60 accounting, then validate and retarget the dependency stack after prerequisites land. FP-61 currently CLEAN only against its old FP-60 base.
+- Re-read Jira plans/PR release requirements and verified stored JUnit evidence: FP-59 15+30, FP-60 16+30, FP-61 15+30, zero failures/errors/skips in their recorded passing groups. Feature/review fixes are implemented, but current-head integration/review, staging and ordered migration/backend/frontend release remain pending. No verified staging/release evidence for these heads in checked records. Full matrix and closeout sequence: `docs/sprint-337-pending-audit-2026-10-20.md`.
+- No source/branch/PR/Jira/sprint/deployment mutation or redundant test rerun. FP-63 must not resume until sprint-337 completion work is addressed.
+
+## FP-63 pre-commit review — 2026-10-20
+
+- Hold commit readiness for two reproduced P2 findings: an open purchase confirmation adopts refreshed list/budget/market context without renewed review, and shared purchase history links open the personal expense scope. Also reproduced a P3 half-cent estimate rounding error (1.00 × 1.005 becomes 1.00, expected 1.01).
+- Added isolated actual Chromium/React controlled-response probes and real migrated disposable PostgreSQL/service probes under `testing/tickets/FP-63/review`; all findings reproduce. Initial market fixture tags omission was corrected before DB assertions passed. Application source/fingerprint unchanged; no stage/commit/push/Jira/deployment. Prior passing acceptance tests miss these cases. Details and needed regressions: `docs/fp-63-precommit-review-2026-10-20.md`.
+
+## FP-63 shopping integration implemented locally — 2026-10-20
+
+- Continued to next planned ticket FP-63. Created clean matching frontend/backend FP-63 branches from reviewed/published FP-62 `2fc10cd7` / `1fcb72d8`. Moved Jira FP-63 to In Progress through authenticated UI and verified it; future sprint 338 remains unchanged. No stage/commit/push/PR/merge/deployment.
+- Implemented the defined first increment: persistent personal list/item CRUD, published recipe snapshots and exact canonical/alias mapping, documented serving scaling, editable unknown units/ingredients, selected-market fresh official estimates and explicit unknown totals, permission-checked current/shared budget comparison, and actual purchase-to-expense confirmation. Checking alone never books spending. Atomic receipts, immutable item purchase markers, exact actor/payload binding and list revisions protect concurrent/lost-response retries and deleted expenses. Private state resets on account changes; offline forms retain in-memory pending fields without automatic expense queuing. Favorites/alerts remain separate follow-up scope.
+- Added migration 20261020000004 with history-preserving rollback guard and internal outer-transaction expense service support. Frontend lint/build and 284 units, backend 224 ordinary checks (23 existing opt-in DB skips), 36 runner checks and complete 12 feature + 30 whole-app execution `2026-10-20T08-18-55-310Z-8cb7f672` pass, zero E2E failures/errors/skips. Both groups use unchanged final source; mobile use, source deletion snapshots, exact schema down/up and used-history guard verified. Policy/API/schema/deploy/test evidence: `docs/fp-63-shopping-integration-2026-10-20.md`, local `testing/tickets/FP-63/COVERAGE.md`.
+- Initial harness runs exposed role method/select-label/async checkbox assumptions; corrected to actual API and server-confirmed state with full groups retained. Tightened serving precision, source/current-budget compatibility, unsaved settings and failed-read field retention before final rerun. Synthetic data does not replace staging. Preserve local testing assets, unmerged FP-59/60/61/62 dependencies and schema/backend-before-frontend release; review/staging remain open.
+
+## FP-62 committed and pushed — 2026-10-20
+
+- At the user’s explicit request, committed frontend `2fc10cd75f0b47241f881acc95cc659b8508a197` and backend `1fcb72d8c4b280a4e1aa9236aab28d1fba71a6d7`, including all three reviewed fixes, and pushed both FP-62 branches to origin with upstream tracking.
+- Verified exact live GitHub refs, clean app working trees and local/upstream counts 0/0. Committed application source matches verified fingerprint `77731ccf52fd57486183cc8a199465a671fd77a4bb7032bd4452ba54ec45008b`; prior passing lint/build, 278 frontend / 206 ordinary backend (23 existing opt-in skips) / 36 runner / 13 feature / 30 whole-app checks apply unchanged.
+- Testing, fixtures, generated seeders, reports and instructions remain local outside app commits. No PR, merge, Jira edit or deployment. Preserve FP-59/60/61 dependencies and both migrations/schema/backend-before-frontend, editorial and staging release gates.
+
+## FP-62 review fixes verified — 2026-10-20
+
+- Fixed all three findings: retain composing/in-flight state across disclosure toggles while clearing account/product state; explicit operator retraction with retained original approval and separate retraction audit; frozen submission identity with atomic author/product/payload deduplication through uncertain retries.
+- Added three registered real API/PostgreSQL/Chromium regressions (feature scope 13), component regressions and malformed-identity/privacy units. Frontend lint/build and 278 units, backend 206 ordinary checks (23 existing opt-in DB skips), 36 runner checks and complete unfiltered 13 feature + 30 whole-app execution `2026-10-20T07-44-39-173Z-1ee9ee93` pass. Zero E2E failures/errors/skips; original probes now assert corrected behavior with separately retained fixed evidence.
+- Added migration 20261020000003 for retry signature/retraction actor/time; both migrations roundtrip empty, and used identities/history block destructive rollback. Schema/backend before frontend remains required. Policy, evidence and fingerprint: `docs/fp-62-review-fixes-2026-10-20.md`. No stage/commit/push/Jira/deployment; actual content/editorial/staging gates remain open.
+
+## FP-62 pre-commit review — 2026-10-20
+
+- Recommend holding commit readiness for two P2 findings: collapsing the reviewed-notes disclosure erases composing form state, and approved variants lack an independent operator retraction/unpublish transition. Also found a P3 duplicate-submission retry gap. Details, fixes and coverage gaps: `docs/fp-62-precommit-review-2026-10-20.md`.
+- Added actual Chromium/React controlled-read probe and real migrated disposable PostgreSQL/service probes under `testing/tickets/FP-62/review`. Confirmed empty form after collapse/reopen, approved rejection 409 with content still public, and two pending rows for repeated identical data. No real HTTP lost-response injection is claimed. Application source/fingerprint unchanged; no stage/commit/push/Jira/deployment. Prior passing tests miss these paths; add registered regressions with fixes.
+
+## FP-62 wiki enrichment implemented locally — 2026-10-20
+
+- Continued to the next planned Jira ticket, FP-62 Wiki enrichment. Created clean matching local FP-62 branches from published reviewed FP-61 heads. Moved FP-62 to In Progress through the authenticated Jira UI (connector remains read-only) and verified it; retained future sprint 338 without changing dates/state. No commit/push/PR/merge/deployment or production content publication.
+- Added separately moderated English/Filipino/Cebuano notes linked to canonical product/source revisions, structured regional calendar provenance, operator environment inventory, source-change re-review, opt-in public names with author withdrawal, seasonal browsing and literal recipe/difficulty/cooking-time filters. Pending/rejected content stays private; imports preserve proposals/canonical drafts; public output omits account/reviewer identity. Immutable proposal review serializes with source edits. Additive migration preserves collected history on rollback; schema/backend must precede frontend.
+- Registered ten real API/PostgreSQL/Chromium feature cases and a separate 30-case whole-app group with FP-62 fixtures. Final complete run `2026-10-20T04-07-38-382Z-3f34d7fb` passes 10/10 + 30/30, zero failures/errors/skips. Frontend lint/build and 275 units (51 files), backend 203 ordinary checks (23 existing opt-in DB skips) and 36 runner checks pass. Source stayed unchanged across final groups; mobile rendering and real schema roundtrip/used-history rollback guard verified.
+- Initial runs exposed/fixed seasonal SQL replacement syntax and empty difficulty handling, and corrected select/login harness setup plus FP-62's inherited offline retry expectation. Complete groups rerun without reduced scope/assertions or increased timeouts. Policy/API/schema/deployment and evidence: `docs/fp-62-wiki-enrichment-2026-10-20.md`, local `testing/tickets/FP-62/COVERAGE.md`.
+- The inventory artifact and synthetic notes demonstrate a disposable local fixture environment, not actual live content quality. Actual-environment inventory, small factual pilot/translation editorial approval and staging/release remain open. Tests/fixtures/generated seeders/reports remain local outside app repositories.
+
+## FP-61 linked PRs created — 2026-10-20
+
+- Created and attached reciprocally linked FP-61 PRs: backend https://github.com/jamesabilong/fresh-price-backend/pull/55 (`a394105d`) and frontend https://github.com/jamesabilong/fresh-price-front/pull/53 (`5e58884f`). Both target FP-60 while prerequisite backend #54/frontend #52 remain open; descriptions require landing FP-59/FP-60 first and retargeting/reconciling the final diff to master before merging.
+- Descriptions include feature/review-fix scope, actual passing 15 feature / 30 whole-app / 272 frontend / 186 ordinary backend (23 opt-in DB skips) / 36 runner and lint/build results, standalone local testing dependencies, staging checks and migration/backend-before-frontend release order. Backend documents receipt-history rollback constraints.
+- Read back exact saved bodies, reciprocal links, bases and committed heads. Both OPEN, ready for review, CLEAN/MERGEABLE with auto-merge disabled. No code edits, merges, Jira changes, deployments, migrations or redundant test reruns.
+
+## FP-61 committed and pushed — 2026-10-20
+
+- At the user's explicit request, committed frontend FP-61 as `5e58884fad6d202609992777ff1ed4f0d1f2ea0d` and backend FP-61 as `a394105d3594f6d47586e48ac27b0db5998ebf68`, including all three reviewed fixes. Pushed both branches to origin and enabled upstream tracking.
+- Verified both working trees clean, local/upstream counts 0/0 and live GitHub refs matching exact committed heads. Committed application content matches verified source fingerprint `c0b3884db6c7b34d66fd5705cbcc57d0e4debe80cc7cc043b088dd1b6f202ffa`; prior passing 272 frontend / 186 ordinary backend (23 opt-in DB skips) / 36 runner / 15 feature / 30 whole-app and lint/build checks apply without a redundant rerun.
+- Standalone testing, fixtures, reports, generated seeders and workspace instructions remain local outside app commits. No PR creation, merge, Jira mutation, deployment or production migration. Retain FP-59/FP-60 dependencies and staging/migration/backend-before-frontend release gates.
+
+## FP-61 review fixes verified — 2026-10-20
+
+- Fixed all three P2 findings: conflict resolution freezes the displayed revision and rejects changed conflicts; replay invalidates old reads and refreshes confirmed state across tabs; durable account-generation markers prevent interrupted logout cleanup from replaying discarded drafts while preserving expiry recovery and fresh same-account work.
+- Added three registered real API/PostgreSQL/browser regressions (feature scope 15), three ordinary disposal units and corrected isolated review assertions. Frontend lint/build and 272 units (49 files), 186 backend ordinary checks (23 existing opt-in DB skips) and 36 runner checks pass. Real browser feature 15/15 (`2026-10-20T02-27-39-587Z-42c59029`) and separate whole-app 30/30 (`2026-10-20T02-18-32-119Z-10045bfc`) pass on unchanged app source, with zero failures/errors/skips in both passing groups.
+- Initial concurrent unit execution hit two unchanged wiki timeouts; full standalone rerun passes. Initial feature run exposed test-only lazy-route/offline setup and nullable requestId inputs; complete corrected feature group passes without reduced scope/assertions or increased timeouts. See `docs/fp-61-review-fixes-2026-10-20.md` for evidence and policy. No known blocker remains from the three-finding review. No stage/commit/push/Jira/deployment; staging/release gates remain open.
+
+## FP-61 pre-commit review — 2026-10-20
+
+- Hold commit readiness for three reproduced P2 defects: conflict resolution adopts an unseen newer revision; a successful queue save joins a stale pre-save hydration; interrupted logout cleanup leaves discarded work available for replay on next login. See `docs/fp-61-precommit-review-2026-10-20.md`.
+- Added isolated Chromium/IndexedDB/React probes and evidence under `testing/tickets/FP-61/review`, using controlled Axios responses. All three reproduce; no real API/DB claim for these probes. Earlier passing suites miss these races. Application source unchanged; no stage/commit/push/Jira/deployment. Fix and register regressions before committing.
+
+## FP-61 durable expense drafts verified locally — 2026-10-20
+
+- Created matching frontend/backend FP-61 branches from published FP-60 heads. Applied the FP-59 monthly calendar clamp follow-up locally. Added versioned account-scoped IndexedDB expense create/edit drafts, tab claims/leases, foreground retries, sync center, explicit revision conflict resolution and separate pending amounts; other mutations remain online.
+- Added transactional durable expense mutation receipts with actor/permission rechecks, expected current-budget identity, deleted-expense protection and guarded rollback migration. Explicit logout/account changes dispose local work; expiry retains hidden account-scoped drafts for same-account reauthentication. Cross-tab auth changes also reset private views.
+- Jira FP-61 is In Progress, verified after explicit user approval. No stage/commit/push, production migration or deployment. Existing FP-59/FP-60 PR/release dependencies remain open.
+- Final verification passes: frontend lint/build and 269 units (48 files), backend 186 ordinary checks (23 existing opt-in DB skips), 36 runner checks, all 12 feature scenarios (`2026-10-20T01-47-42-406Z-0d70bd76`) and all 30 separate whole-app regressions (`2026-10-20T01-34-08-865Z-114aaf1d`) on unchanged app source. Both passing groups have zero failures/errors/skips in JUnit; final invocation is feature-only. Verified full mobile production-PWA browser restart, lost-response/two-tab replay, explicit conflicts, expired-session recovery, revoked/deleted targets, quota/schema failures, leases and migration down/up/rollback guards. Disposable databases and local test servers removed.
+- Initial runs exposed/fixed expiry disposal, outage coupling and confirmation visibility. Test-only preview CORS, offline module warmup, hidden text and tutorial setup corrections are documented in coverage, including an interrupted invalid setup and cleanup of its owned servers. No successful response mocks, narrowed final group, relaxed assertions or increased timeouts. Staging/release verification remains open; Jira stays In Progress.
+- Policy/API/schema/release details: `docs/fp-61-offline-editing-2026-10-20.md`. Local-only fixtures/specs/reports under `testing/tickets/FP-61` must be backed up separately.
+
+## Branch refresh and Jira check — 2026-10-20
+
+- Fetched origin in frontend, platform-backend and fpdocker. Fast-forwarded local FP-59 refs to frontend `101a8342` and backend `e4fe0bc`; all tracked local branches now match their fetched upstreams. Active frontend/backend FP-60 and Docker FP-64 checkouts remain clean and already current with their own upstreams.
+- Jira currently has two FP issues in the In Progress category: FP-60 Expense and settlement tracking, and FP-59 Budget feature update; both Medium and unassigned. FP-60 belongs to active sprint 337, Budget and Expense Management (October 19–November 2), ordered FP-59 → FP-60 → FP-61.
+- FP-60 does not yet include the new FP-59 follow-up commits. No dependency merge/rebase, push, Jira mutation or deployment performed. No application source changed; no test rerun needed for this ref refresh.
+
+## FP-60 linked PRs created — 2026-10-19
+
+- Created and attached reciprocal review PRs: backend https://github.com/jamesabilong/fresh-price-backend/pull/54 (`f5834acf`) and frontend https://github.com/jamesabilong/fresh-price-front/pull/52 (`e0343e56`). Both use FP-59 as their base while dependency PRs backend #53/frontend #51 remain OPEN, keeping FP-60 review scoped to its own commit. Descriptions require landing FP-59 first and retargeting/reconciling FP-60 to master before merging/releasing.
+- Both descriptions include feature/review-fix scope, actual validation (16 seeded feature / 30 whole-app / 266 frontend / 184 backend with 23 opt-in DB skips / 36 runner), local-only testing dependency, staged rehearsal, migration/backend before frontend and financial-history rollback restrictions.
+- Read back and compared exact descriptions, reciprocal links, bases and committed heads. Both OPEN/unmerged with auto-merge disabled. No code edits, merge, deployment, migration or redundant test run.
+
+## FP-60 committed and pushed — 2026-10-19
+
+- At the user’s request, committed backend FP-60 as `f5834acf962ae3a23b9f7bb9f1ef9a04eb8a7227` and frontend FP-60 as `e0343e5604ab952987888e4fe49833f5aca1b99d`, including all three reviewed fixes. Pushed both `FP-60` branches to origin with upstream tracking.
+- Both working trees are clean and local/upstream counts are 0/0. Existing 16 seeded feature / 30 whole-app / 266 frontend / 184 ordinary backend (23 opt-in DB skips) / 36 runner validation applies to unchanged committed source; no redundant test rerun. Standalone testing, fixtures, generated seeds, reports and workspace documentation remain local outside app repositories.
+- No PR creation, merge, migration or deployment. FP-60 builds on FP-59; retain migration/backend-before-frontend release order and complete staging verification separately.
+
+## FP-60 review fixes verified — 2026-10-19
+
+- Fixed all three P2 findings: delete prompts retain reviewed ID/revision/amount through refresh; historical former beneficiaries have explicit removal controls in new correction drafts while confirmed history stays intact; optional-date settlement replay reuses the stored date after authorization, retaining changed-payload conflicts. No schema/data rewrite.
+- Promoted the two React review repros into registered frontend regressions, added five backend replay units and three complete real API/PostgreSQL/browser cases. Feature scope is now 16; separate whole-app scope remains 30.
+- Checks pass: frontend lint, production build and 266 units (47 files); backend 184 ordinary checks (23 existing opt-in DB skips); 36 runner checks; seeded feature 16/16 (`2026-10-19T09-44-06-543Z-a576226b`) and whole-app 30/30 (`2026-10-19T09-41-38-866Z-1d4cbe68`). Final group results have zero skips/failures/errors. The initial feature run hit an ambiguous duplicate-alert selector after proving the stale DELETE returned 409; corrected assertion passes the complete feature group on unchanged app source. Latest invocation is feature-only; evidence details are in coverage.
+- Updated policy/API and review notes in `docs/fp-60-review-fixes-2026-10-19.md`; tests/fixtures/reports remain local outside app repositories. No known blocker remains from the three-finding review. Changes remain uncommitted, with no push, merge, Jira changes, staging migration or deployment. Staging/release verification remains open.
+
+## FP-60 pre-commit review — 2026-10-19
+
+- Hold commit readiness for three confirmed P2 defects: delete confirmation adopts a refreshed revision and can erase an unseen payer correction; split editor retains removed beneficiaries as invisible, unremovable submitted IDs; optional-date settlement retries return a false 409 across the business-date boundary. See `docs/fp-60-precommit-review-2026-10-19.md` for locations, reproductions and fixes.
+- Added two independently failing React review assertions and a real migrated disposable PostgreSQL probe/evidence. Review tests are outside the registered feature/unit groups. Application source unchanged; no stage/commit/push/Jira/deployment. Existing broad passing results do not cover these cases; fix and add registered regressions before committing.
+
+## FP-60 accounting implemented locally — 2026-10-19
+
+- Continued the active Budget and Expense Management sprint with FP-60, then FP-61. Created frontend/backend `FP-60` branches from the unmerged reviewed FP-59 heads; no commit/push/merge/deployment.
+- Added additive accounting migration/models/APIs, separate author/payer/beneficiaries, exact equal/explicit PHP centavo shares, recipient-confirmed manual payments, append-only split corrections/expense voids and separately confirmed full reversals. Pending/disputed records are financially neutral; balances use all persisted history and remain separate from expense spending. Legacy whole-peso expense totals and author-paid/sole-beneficiary policy are preserved.
+- Added split controls in expense history, balances/payment/history controls in scheduled budgets, permission-derived actions, frozen draft revisions, stable request IDs/retries and session-isolated reads. Removal retains liabilities; transfer preserves accounting; recurring instances start empty. Fixed successful-save editor closure found by the first browser run.
+- Documented API/schema/policies/release order and guarded rollback in `docs/fp-60-accounting-2026-10-19.md`. Local assets live under `testing/tickets/FP-60`; final execution is recorded there. Frontend lint/build and 264 unit tests pass; backend 179 ordinary checks pass with 23 opt-in DB checks skipped; 36 runner checks pass. Real PostgreSQL feature suite passes 13/13 (final feature-only execution `2026-10-19T09-29-16-852Z-21f17243`); separate whole-app group passes 30/30 on unchanged app source (`2026-10-19T09-27-19-554Z-9528390e`). Zero seeded skips/failures in these final group results; disposable databases removed. The latest invocation contains only the feature group; see coverage for prior selector-failure history.
+- Connector read access works; transition writes returned insufficient scope. Used the signed-in Jira browser to move FP-60 to In Progress and verified the visible status. Staging/release verification remains pending; FP-59 PRs #53 backend / #51 frontend remain unmerged.
+
+## FP-59 paired PRs created — 2026-10-19
+
+- Created and attached reciprocally linked review PRs: backend https://github.com/jamesabilong/fresh-price-backend/pull/53 (`aa866602`) and frontend https://github.com/jamesabilong/fresh-price-front/pull/51 (`5dc479f9`), both FP-59 → master.
+- Descriptions include scope/review fixes, all three migration names, local validation (45 seeded / 260 frontend / 166 backend with 23 opt-in DB skips / 36 runner), local-only testing dependencies and ordered staging → migration/backend deployment/verification → frontend deployment/smoke checks. Schema/role rollback limits are documented in the backend PR.
+- Re-read both saved PR descriptions and verified exact body, heads and reciprocal links. Both OPEN/unmerged with auto-merge disabled. No application edits, merge, deployment or migration; existing validated committed source unchanged.
+
+## FP-59 committed and pushed — 2026-10-19
+
+- Committed the reviewed frontend changes as `5dc479f953b324b70568d92cc11889ffa09d8a21` and backend changes, including all three migrations/review fixes, as `aa86660278719daaddfb82930bc0b2c85efa6360`. Pushed both FP-59 branches and set origin tracking at the user's explicit request.
+- Verified both working trees clean, local/upstream counts 0/0 and live GitHub branch refs matching the exact commits. Preserved standalone local testing, fixtures, generated seeders, reports and workspace instructions outside app repositories. The existing 45 seeded / 260 frontend / 166 ordinary backend / 36 runner validation applies to the unchanged committed source; no redundant test rerun.
+- No PR creation, merge, deployment or application/production migration. Release requires all three migrations and backend before frontend, plus the documented staging checks. Local testing remains a separate workspace backup requirement.
+
+## FP-59 review defects fixed and verified — 2026-10-19
+
+- Resolved all three review blockers: nullable SET NULL inviter FK/model preserve other members after former-owner deletion; random generated UUIDs eliminate future-ID preclaims while unique period keys retain idempotence; stable keyset paging processes later due work even behind 50 persistent failures. Added transactional inviter migration with safe empty rollback/reapply and a used-history rollback guard.
+- Added three registered real API/PostgreSQL acceptance regressions, including pending/member survival, a cross-account preclaim plus concurrent generation/edit/retry, and 51-template failure isolation/recovery using a temporary trigger removed in finally. Local feature scope is now 15 cases. Details: `docs/fp-59-review-fixes-2026-10-19.md`.
+- Final checks pass: all 45 seeded Chromium cases (15 feature + 30 whole-app), 260 frontend units with two workers, 166 ordinary backend checks (23 opt-in DB skips), 36 runner checks, frontend lint/build and diff whitespace checks. Report `2026-10-19T08-41-22-990Z-cdcf0310` has exact zero-failure/error/skip JUnit counts; disposable databases removed.
+- No known blocker remains from the three-finding review. Changes remain local/uncommitted; no stage, commit, push, Jira update or deployment. Apply all three October 19 migrations before backend/frontend rollout and complete staging separately.
+
+## FP-59 pre-commit review — 2026-10-19
+
+- Hold commit readiness: confirmed three P2 defects against freshly migrated disposable PostgreSQL: former-owner deletion cascades unrelated transferred-budget memberships; an accepted member can preclaim another creator's future recurring ID; 50 failing templates permanently starve healthy later due work. See `docs/fp-59-precommit-review-2026-10-19.md` for locations, fixes and evidence.
+- Added an independent local `testing/tickets/FP-59/review-probes.mjs` harness and JSON evidence; two executions completed with automatic database cleanup. Used real services/models and a process-local date advance for the cross-owner collision. Application source and registered suite remain unchanged; previous 42-case validation does not cover these failures. No stage, commit, push, Jira changes or deployment.
+
+## FP-59 ownership transfer and monthly templates — 2026-10-19
+
+- Implemented parent-locked owner proposals with explicit accepted-recipient acceptance, seven-day expiry, decline/cancel, supersession and safe outcome retries. Acceptance keeps one owner, converts the previous owner to contributor, preserves expense authorship and commits activity/notifications atomically. Exact membership identity prevents stale removal/re-invitation acceptance.
+- Added durable creator-owned monthly snapshots, independent private empty instances, original-date month-end clamping, Philippine business dates, row-locked/idempotent generation and soft-deletion protection. Source transfer/deletion preserves the creator's schedule; pause/resume skips missed starts and cancellation permanently stops future creation. Startup/hourly sweeps and manual creator-only generation share the same service.
+- Added scheduled-budget lifecycle controls with guarded writes, retryable reads, account-switch response isolation and explicit policy copy. A real-browser hydration/recipient reset defect was fixed and covered by a component regression. Added additive lifecycle migration with nonempty-history rollback guard, API/schema/spec/deployment documentation and `docs/fp-59-lifecycle-2026-10-19.md`.
+- Final verification: frontend lint/build, all 260 frontend unit checks (`npm run test:unit -- --maxWorkers=2`), 166 ordinary backend checks (23 opt-in database skips) and 36 runner checks pass. Fresh registered Chromium execution `2026-10-19T07-10-05-532Z-17bc48de` passes all 12 feature + 30 whole-app cases, zero failures/errors/skips; JUnit counts/run identity and removal of disposable PostgreSQL containers verified. Empty lifecycle migration down/up and nonempty rollback guard both pass. An unrestricted parallel frontend rerun hit two existing 5000ms price/wiki timeouts; the complete unchanged suite passes with two workers, without extending timeouts or weakening assertions.
+- Changes remain local/uncommitted on matching FP-59 branches; Jira stays In Progress. No commit, push, application/production migration or deployment. Review migration/backend-before-frontend rollout and complete staging checks before release; no exhaustive concurrency or production timer-passage claim.
+
+## Budget sprint started / FP-59 viewer increment verified — 2026-10-19
+
+- Started sprint 337, Budget and Expense Management, October 19–November 2 (Asia/Manila), two weeks with automatic completion disabled; verified active state through Jira. Moved FP-59 to In Progress through the browser. Other category sprints remain future.
+- Created matching FP-59 frontend/backend branches from clean published FP-65 heads. Implemented contributor/viewer membership roles, owner invitation/role controls, viewer-specific read-only UI and server expense authorization for create/update/delete/replay/source/destination. Existing contributor API role remains `collaborator`. Added transactional role audit/notifications and additive checked migration with unsafe-down guard. See `docs/fp-59-viewer-roles-2026-10-19.md`.
+- Final verification: frontend lint/build and 257 unit checks, 145 backend unit checks, 36 runner/fixture/report checks, five new real PostgreSQL/browser/migration scenarios and all 30 reused whole-app regressions pass. Final default seeded run executes 35/35 with zero failures/errors/skips; runner-owned databases removed. Earlier selector/build diagnostics were corrected before final verification.
+- Viewer increment only: ownership transfer and durable recurring templates remain next, and Jira stays In Progress. Migration/backend-before-frontend staging/release and role-aware rollback remain required. Changes are local and uncommitted; no push, application/production migration or deployment.
+
+## Jira ticket plans published — 2026-10-19
+
+- Added formatted descriptions to all seven FP-57–FP-63 tickets using the Jira browser UI: scope, dependencies, five implementation steps, acceptance criteria/verification and delivery checks, based on `docs/backlog-ticket-plans-2026-10-19.md`.
+- Reopened every ticket in the browser and verified all scope/step/acceptance text persisted. Preserved sprint membership and workflow/assignment/estimate fields. No feature implementation, tests, commits, pushes or deployment.
+
+## Category sprints created — 2026-10-19
+
+- Created future sprints through authenticated Jira UI: 337 Budget and Expense Management (FP-59/60/61), 338 Wiki and Shopping Integration (FP-62/63), 339 Seller and Messaging (FP-57/58). Saved goals and implementation order; left dates unset and did not start sprints. Preserved empty sprint 336.
+- Verified all goals/states through Jira sprint reads, all seven exact memberships through Jira issue reads, and visible setup after browser reload. Ticket status/priority/assignee unchanged; unscheduled backlog now empty. Connector still reports read-only after reconnect, but browser session supports authorized writes. No app code changes or ticket description edits.
+
+## Category-based sprint preparation — 2026-10-19
+
+- User requested sprints by category. Checked all 13 board-1 sprints: 12 closed, no active sprint, and future `Data proliferation 2` (336). Prepared category names, goals and ticket order in `docs/backlog-ticket-plans-2026-10-19.md`: Budget and Expense Management (FP-59/60/61), Wiki and Shopping Integration (FP-62/63), Seller and Messaging (FP-57/58).
+- Jira remains read-only; no sprint creation or ticket assignment occurred. Dates/capacity remain unset; inspect sprint 336 for potential reuse before creating a wiki sprint and split oversized increments before commitment.
+
+## Jira backlog plans — 2026-10-19
+
+- Checked the complete board-1 backlog and full FP-57–FP-63 records: seven open To Do/Medium/unassigned tickets with no descriptions, comments, subtasks or links. Excluded completed tickets, including FP-64/FP-65; Jira Done is not treated as release verification.
+- Created `docs/backlog-ticket-plans-2026-10-19.md` with an individual proposed scope, implementation sequence, dependencies and acceptance/verification plan for every open ticket. Reconciled the September optional roadmap with existing budget/wiki/observation progress to avoid duplicate implementation.
+- Planning documentation only. Jira connection reports read-only access, so no plans were posted and no Jira fields changed. No application edits, tests, commits, pushes or deployment.
+
+## FP-65 fixes published and PRs opened — 2026-10-19
+
+- Committed/pushed frontend `c853c2ff` and backend `1f83d41` to their existing `FP-65` branches. Both working trees are clean and local/remote heads match. Local-only testing assets, generated seeds and reports remain outside app repositories as required.
+- Created and attached paired ready-for-review PRs: frontend https://github.com/jamesabilong/fresh-price-front/pull/50 and backend https://github.com/jamesabilong/fresh-price-backend/pull/52. Descriptions cover the full FP-65 branch scope, validation, local testing dependencies and backend-first rollout.
+- GitHub reports both OPEN, non-draft, CLEAN and MERGEABLE at the published heads; no reviews have been submitted. Both master branch endpoints report protection disabled and no required check contexts. Rules API returns a plan-related 403. Only master-push deployment workflows remain; no PR test workflow is configured in either repository. CI diagnostics connector requires a separate GitHub login, so optional provider check details were not independently certified. Prior complete local validation remains applicable to the committed source.
+- Ready to merge according to GitHub's reported merge state, with the CI visibility limitation above. Merge/release backend and observation migration before frontend; staging/actual-host verification remains a release step. No merge or deployment performed.
+
+## FP-65 remaining gaps fixed and verified — 2026-10-19
+
+- Fixed selected-market propagation in admin observation/published previews; real Carbon/Taboan median/mean/mode and reset-to-All checks pass. DB-gated files now serialize through Vitest config, and the documented DB command enables both gates: 36/36 integration checks pass, including rollback/reapply, with no CLI override.
+- Added execution-specific artifacts and a guarded report command (invalid/setup failures, previews, interrupted/running invocations and omitted groups cannot show old successes); replaced marker bearer headers with captured cookies and independent/cross-login identity checks; replaced weak navigation shells with loaded product/post/profile/contact/moderation assertions.
+- Fresh verification: frontend lint/build/255 unit tests, 152 ordinary backend checks (23 opt-in DB skips), 36 real DB integration checks (zero skips), 35 runner checks, 19 mocked Chromium cases, and all 39 seeded cases (9 feature + 30 whole-app, zero failures/errors/skips) pass. Final report identity/JUnit counts verified; disposable databases removed. Both current branch trees merge unchanged with freshly fetched master.
+- No known code blockers remain from this review. Changes are uncommitted; no PRs exist yet and remote checks/approvals remain a publication step. Preserve backend/migration-before-frontend release ordering and staging checks. Evidence: `docs/fp-65-gap-fixes-2026-10-19.md`. No commits, pushes, merges, Jira writes or deployments.
+
+## FP-65 merge-readiness review — 2026-10-19
+
+- Rechecked Jira acceptance criteria and freshly fetched frontend `9ddf4dc0` / backend `af93cfd`; both match origin and merge cleanly with current master. No FP-65 PR exists in either repository. Earlier picker/archived-market regressions pass.
+- Hold no-gaps sign-off: confirmed in real Chromium that admin preview ignores the selected history market; the three October 15 test-confidence findings remain. Default parallel database integration also hit a migration-test deadlock (35 pass / 1 fail); a separate fresh serialized run passes 36/36.
+- Fresh lint/build/255 frontend unit checks, 152 ordinary backend checks (23 DB skips), 27 runner checks, 19 mocked Chromium cases, all 39 seeded cases (nine feature + 30 whole-app, zero skips/failures) and three deployment parser checks pass. Disposable review containers were removed. Evidence: `docs/fp-65-merge-review-2026-10-19.md`. Review documentation only; no application changes, commits, pushes, Jira writes, merges or deployments.
+
 ## Whole-app and FP-65 suite audit — 2026-10-15
 
 - Reviewed all 39 real-data cases, fixtures, branch selection/completion guard, auth helpers, reports and isolation. Runner/generator checks: 27 pass. No application or test implementation changes made during this review.

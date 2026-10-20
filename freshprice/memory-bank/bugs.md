@@ -1,5 +1,119 @@
 # FreshPrice Bugs
 
+## Sprint 337 re-audit: integration clear, release gates pending — 2026-10-20
+
+- All six published PRs are CLEAN/MERGEABLE; both dependency ancestries are correct and prospective merges into current master introduce no content changes. FP-60/61 source fingerprints and passing JUnit evidence verified. No new application defect or remaining merge-conflict blocker established by this release audit; historical FP-60/61 conflict notes below are resolved.
+- Final review update: fresh FP-59 exact-head checks pass; all six Validation sections and exact-head COMMENT reviews are published/read back. No actionable source/integration findings identified. Author-account comments are not independent approval; no hosted checks are reported. Remaining gaps: no verified current-head restored-data staging/device/proxy/PWA upgrade evidence, and unverified actual VPS image/migration/backup/restore/tag configuration. Production public health/cache headers pass but do not certify sprint features. Review: `docs/sprint-337-final-review-2026-10-20.md`. Current plan: `docs/sprint-337-release-audit-and-runbook-2026-10-20.md`. FP-63 unchanged/on hold.
+
+## FP-61 remote merge-conflict blocker resolved — 2026-10-20
+
+- Published verified two-parent FP-60 → FP-61 merges frontend `0d100ab5` / backend `1d1fa16`. Live FP-61 PRs #53/#55 are OPEN/CLEAN/MERGEABLE against FP-60. This supersedes the remote-conflict/publication-pending notes below. Committed trees match the complete passing reconciliation checks. Final release review/staging/ordered deployment remain pending; FP-63 preserved/on hold. Evidence: `docs/fp-61-reconciliation-2026-10-20.md`.
+
+## FP-61 local reconciliation verified; publication pending — 2026-10-20
+
+- Both app working-file conflicts are resolved against current FP-60 without changing FP-61 src or primary dirty FP-63 work. All 15+30 browser cases, 279 frontend / 186 ordinary backend / 36 enabled integration / 41 runner and lint/build pass. Standalone browser harness fixes address confirmed hot-reload module/context resets, hidden status matching, offline module loading, async lease completion and initial tutorial setup; no new application runtime defect is established by these failures.
+- Remote integration blocker below persists until authorized two-parent commits/push. Final review/staging/ordered release remain required; FP-63 stays on hold. Exact evidence: `docs/fp-61-reconciliation-2026-10-20.md`.
+
+## FP-61 baseline integration blocker confirmed — 2026-10-20
+
+- Updated FP-60 leaves frontend FP-61 #53 and backend #55 DIRTY/CONFLICTING. Read-only merge-tree confirms vite.config.ts/package.json conflicts; resolve while preserving offline registrations and portable test commands, then rerun final-source checks. Historical FP-61 15+30 success does not cover this unresolved integration. No new feature runtime bug claimed by the release audit.
+- Sprint 337 remains blocked for full rollout pending integration, current-head review and restored-data staging; FP-63 remains untouched/on hold. Exact readiness and ordered deployment/rollback guidance: `docs/sprint-337-release-audit-and-runbook-2026-10-20.md`. Public SW/manifest cache headers were verified correct in this audit; prior four-hour-cache observations are historical.
+
+## FP-60 remote merge-conflict blocker resolved — 2026-10-20
+
+- Published verified two-parent reconciliations frontend `3372481b` / backend `e8b7f78`; live FP-60 PRs #52/#54 are CLEAN and MERGEABLE against latest FP-59. This supersedes the local/publication-pending and remote-conflict notes below. Exact committed source matches all passing reconciliation checks. FP-61 propagation and staging/release remain pending; FP-63 preserved/on hold. See `docs/fp-60-reconciliation-2026-10-20.md`.
+
+## FP-60 local reconciliation verified; publication pending — 2026-10-20
+
+- Resolved the frontend config and backend command conflicts in isolated unstaged FP-60 worktrees, retaining FP-59 clamp/command fixes and FP-60 accounting. Restored missing shared `unit.mjs`/disposable database support referenced by published FP-59 commands; removed the shared pagination test dependency on FP-62-only call arguments. Seven new calendar/accounting cases and five runner cases pass alongside the full checks.
+- All 16 feature + 30 whole-app, 273 frontend units, 184 ordinary backend, 36 enabled database and 41 runner checks pass, plus lint/build. No new app defect reproduced. The remote integration blocker below remains until proper merge commits are authorized/pushed; FP-61 propagation and staging remain open. FP-63 unchanged/on hold. See `docs/fp-60-reconciliation-2026-10-20.md`.
+
+## Sprint 337 integration blocker confirmed — 2026-10-20
+
+- Both FP-60 PRs (frontend #52/backend #54) currently report DIRTY against latest FP-59. They omit follow-up commits 101a8342/e4fe0bc and overlap calendar/test command/configuration changes. Resolve and verify the dependency stack before release; FP-61's clean state against old FP-60 is not final integration verification.
+- This is an integration/release blocker, not a newly reproduced FP-59/60/61 runtime defect. Staging/ordered release evidence remains pending in checked records. FP-63 work is on hold per user direction. See `docs/sprint-337-pending-audit-2026-10-20.md`.
+
+## FP-63 confirmed pre-commit findings — 2026-10-20
+
+- P2: an already-composing actual purchase retains its values but sends a newer revision after a refresh changes saved budget/market, permitting the expense to be booked to the replacement target without a new confirmation review.
+- P2: shared-purchase View expense history uses the personal scope URL; the exact recorded shared expense is excluded from that ledger. Navigation must retain the original purchase target when list settings later change.
+- P3: floating-point half-cent estimates misround valid stored price/quantity (1.00 × 1.005 → 1.00 instead of 1.01), affecting estimates rather than actual whole-PHP spending.
+- Reproduced in actual Chromium/React controlled fixtures and real migrated disposable PostgreSQL/services. Prior no-known-blocker implementation note below is superseded. App source remains unchanged; fix/register regressions before committing. See `docs/fp-63-precommit-review-2026-10-20.md`.
+
+## FP-63 implementation edge cases resolved locally — 2026-10-20
+
+- Guarded recipe serving storage precision and sub-resolution quantities (unknown instead of zero); align current-budget comparison with the existing personal-period expense summary, including retained spending after resets. Unsaved market/budget settings block purchase, failed refreshes retain composing fields, and identity changes ignore stale private reads.
+- Final 12 feature + 30 whole-app regressions, 284 frontend / 224 ordinary backend (23 existing opt-in skips) / 36 runner, lint/build pass. No known blocker found in implementation verification; formal review/staging remain open. Evidence: `docs/fp-63-shopping-integration-2026-10-20.md`. Shopping drafts/retry keys are in-memory while the page remains open; durable restart/navigation recovery is outside this online-first increment and the permanent item purchase marker prevents repurchase.
+
+## FP-62 review findings resolved locally — 2026-10-20
+
+- All three findings below are historical and now fixed: collapse retains drafts/in-flight saves, operators can retract a single approved variant with audit history, and stable submission identities deduplicate uncertain retries.
+- Registered real browser/API/PostgreSQL regressions pass with 13/13 feature and 30/30 whole-app, 278 frontend / 206 ordinary backend (23 existing skips) / 36 runner and lint/build. No known blocker remains from this review. Evidence: `docs/fp-62-review-fixes-2026-10-20.md`. Changes remain uncommitted; editorial/staging gates remain open.
+
+## FP-62 confirmed pre-commit findings — 2026-10-20
+
+- P2: `open && ...` unmounts the composing editor on disclosure close; reopening loses translated summary, source URL and geography without warning. Reproduced in actual Chromium/React with controlled read responses.
+- P2 moderation gap: approved enrichments cannot be independently retracted; rejecting an approved row returns 409 and it remains public. Real migrated PostgreSQL/services confirm; only pending decisions and name-only withdrawal exist.
+- P3 retry gap: identical repeated proposal data creates separate pending UUID rows, so a retry after an uncertain commit can duplicate moderation work. Real service/DB repetition reproduced; HTTP loss itself was not injected in this probe.
+- All remain unresolved. Prior 10 feature/30 whole-app passes miss these cases. Application source unchanged; details and evidence: `docs/fp-62-precommit-review-2026-10-20.md` and local `testing/tickets/FP-62/review`.
+
+## FP-62 implementation findings resolved locally — 2026-10-20
+
+- Fixed a seasonal SQL replacement boundary that left an unbound region placeholder and returned 500. Complete real seasonal-filter/pagination/source-invalidation and browser scenarios now pass.
+- Fixed whitespace-only optional recipe difficulty causing a null string operation; added a passing unit. Legacy array responses now filter before local pagination, and composing proposals preserve their reviewed revision through refresh until explicit renewed review.
+- Initial harness issues included exact select-label lookups, reviewer login in an already authenticated shared context, an old pagination call expectation and whole-app queued-save behavior recognized only under FP-61. Corrected setup/expectations while retaining assertions, scope and timeouts. Final complete feature 10/10 and whole-app 30/30 pass with ordinary unit/lint/build checks; no known implementation blocker remains from these findings. Actual factual content review and staging remain release gates.
+
+## FP-61 pre-commit findings resolved locally — 2026-10-20
+
+- Fixed unseen-revision overwrite with a frozen displayed revision and transactional conflict comparison; changed conflicts require renewed review.
+- Fixed stale confirmed totals/history with replay-driven read invalidation and account-scoped cross-tab refreshes.
+- Fixed interrupted logout disposal with durable generation markers checked before replay/completion and resumable physical cleanup; expiry and fresh same-account drafts remain supported.
+- All three registered real API/PostgreSQL/browser regressions pass in the complete 15/15 feature group; separate whole-app 30/30, 272 frontend units, backend/runner/lint/build checks pass. Earlier findings below are historical. Details: `docs/fp-61-review-fixes-2026-10-20.md`. No known blocker remains from this review; changes are uncommitted.
+
+## FP-61 confirmed pre-commit defects — 2026-10-20
+
+- P2: conflict confirmation showing revision 2 submits expectedRevision 3 after another tab updates the stored conflict, allowing an unseen correction to be overwritten.
+- P2: successful queued save can join an older hydration and leave confirmed total/history stale; reproduced server amount 123 with displayed total 0 and no displayed expense.
+- P2: closing the logout tab before blocked IndexedDB purge commits leaves a discarded draft that automatically replays on the next same-account login.
+- Actual Chromium/IndexedDB/React/store reproductions use controlled Axios responses, recorded in `testing/tickets/FP-61/review/evidence.json`. Application source unchanged; all three remain unresolved. Details and fixes: `docs/fp-61-precommit-review-2026-10-20.md`.
+
+## FP-61 implementation findings — 2026-10-20
+
+- Fixed expiry-driven global logout deleting pending local drafts: authentication expiry now retains a hidden account marker and failed drafts for same-account sign-in; explicit logout/account change still purges. Added passing unit and real-browser coverage; final feature 12/12 and whole-app 30/30 pass on unchanged app source.
+- Fixed outage-state suppression of foreground queue replay after reconnection while retaining ordinary recovery behavior, and kept sync confirmations expanded until dismissal. Cross-tab localStorage removal explicitly clears auth instead of relying on rehydration of a missing value.
+- Early browser run failures also included test-only production-preview CORS, canonical module imports attempted after offline transition, and text selectors matching hidden recovery content. Harness corrections preserve real API/DB responses and full group execution.
+
+## FP-59 pre-commit defects resolved locally — 2026-10-19
+
+- Fixed former-owner deletion revoking unrelated members with an additive nullable SET NULL inviter FK and matching model; accepted/pending memberships and existing audit records survive without false inviter reassignment.
+- Fixed recurring ID preclaims with random UUID instance IDs and existing unique period/cursor deduplication; another account's ordinary budget cannot block future generation or be overwritten.
+- Fixed scheduler starvation with stable ID keyset paging across all due batches, one attempt per ID per sweep and deferred error reporting. A real 51-template test verifies failure rollback, healthy progress, retry and recovery.
+- All three registered regressions and all 45 seeded cases pass, alongside unit/runner/lint/build checks. Earlier findings below are historical reproductions; no known blocker remains from this review. Evidence: `docs/fp-59-review-fixes-2026-10-19.md`. No commit/push/deployment.
+
+## FP-59 confirmed pre-commit defects — 2026-10-19
+
+- P2: ownership acceptance leaves other members tied to the former owner's `invited_by_user_id` CASCADE FK. Deleting that account preserves the transferred budget but removes unrelated members; real collaborator access becomes 404.
+- P2: ordinary scheduled-budget creation permits predictable future `recurring:<template>:<occurrence>` IDs. An accepted shared member can preclaim a future ID in their own account and block another creator's generation with a unique-constraint failure.
+- P2: the fixed first-50 due-template query permanently starves later healthy work when those 50 fail repeatedly. Two sweeps reproduced 50 failures each and zero instances for the healthy 51st template.
+- Confirmed using real services against disposable PostgreSQL, including a process-local next-month simulation; app source unchanged. Evidence and reproduction: `docs/fp-59-precommit-review-2026-10-19.md`. These supersede a no-gaps interpretation of the previous 42-case pass and should be fixed before committing.
+
+## FP-59 transfer recipient reset resolved locally — 2026-10-19
+
+- Real Chromium exposed the new transfer form clearing its selected recipient during background budget hydration, leaving submission disabled. Recipient reset now follows budget/account identity changes rather than every revision; a deterministic component regression preserves selection during refresh. Final browser acceptance passes, including viewer-to-owner transfer and owner-control revocation; all 42 seeded scenarios pass. See `docs/fp-59-lifecycle-2026-10-19.md`.
+- Local test timing: unrestricted parallel frontend execution hit two existing 5000ms timeouts in price submission/wiki editing. The entire unchanged suite passes 260/260 with `--maxWorkers=2`; no timeout/assertion was changed. Prefer bounded workers on resource-constrained local runs; no product regression was established by these timing failures.
+
+## FP-65 reviewed gaps resolved locally — 2026-10-19
+
+- Admin preview now propagates its selected market; the real multi-market regression passes for median/mean/mode and All. DB-gated files serialize through config; the documented integration command passes 36/36, including rollback/reapply, without a CLI override.
+- The October 15 report/auth/assertion findings are resolved: execution-specific artifacts and guarded report lookup, captured independently verified session cookies, and persisted feature-specific navigation assertions. Eight report regressions, 35 total runner checks and all 39 seeded cases pass. Current HTML/JUnit identity and database cleanup verified.
+- No known code blockers remain from this review. Earlier entries below preserve historical reproductions. Current evidence: `docs/fp-65-gap-fixes-2026-10-19.md`; changes remain local/uncommitted, with PR/release steps separate.
+
+## FP-65 merge review findings — 2026-10-19
+
+- P2: Price History's selected market is not passed to `TrendPreview`/`ObservationTrends`. Real Chromium confirmed Carbon selection changes history but leaves pooled observation requests unchanged without `marketId`. This misses the ticket's admin-market-filter requirement.
+- P2 test isolation: the observation migration rollback test drops shared tables while other integration files run; the default parallel database run hit a deadlock (35 pass / 1 fail). A fresh serialized run passes 36/36. Forward migrations passed in all disposable databases; no production migration failure established.
+- Existing October 15 report/auth/assertion confidence findings remain. Full evidence: `docs/fp-65-merge-review-2026-10-19.md`. Application/test source unchanged.
+
 ## Test-suite confidence gaps — 2026-10-15
 
 - Review found stale report artifacts on pre-Playwright setup failure, weak page-shell assertions in part of whole-app navigation, and FP-65 auth headers that send the literal `cookie-session` marker while real authentication comes from the request context’s cookie jar. No current app regression is established by these findings; they are test/report reliability issues. Evidence and corrective scope: `docs/testing-suite-audit-2026-10-15.md`.
@@ -121,3 +235,14 @@ Current `FP-64` source contains the prior expense ownership, account isolation a
 - 2026-08-13 FP-53 backend deploy image could not reliably run VPS migrations because `sequelize-cli` and `.sequelizerc` were not included in the production image; fixed by making the CLI a production dependency and copying `.sequelizerc`.
 - 2026-08-13 Admins could stay in persisted `previewAsUser` mode and be redirected away from `/admin`; fixed by clearing preview mode when a session token is stored or cleared.
 - 2026-08-13 Production frontend updates could require a hard refresh because the app cache refresher used a static `APP_CACHE_VERSION` and the generated service worker registration did not reload clients on update; fixed by using `virtual:pwa-register` with the existing `autoUpdate` service worker setup and removing the broad localStorage cache clear.
+
+## FP-60 local regression fixed — 2026-10-19
+
+- Initial seeded browser run reproduced split-editor closure after a successful save because expense-list refresh unmounted the row. Retained expansion in the parent keyed to expense/auth session, while the remounted editor refetches the current revision. The draft never silently adopts a newer revision; component regressions explicitly block stale saves. Final verification is recorded in FP-60 coverage/progress.
+
+## FP-60 review defects — fixed locally 2026-10-19
+
+- P2: open delete confirmation uses the latest refreshed expense revision instead of the reviewed snapshot, allowing a concurrent payer correction to be deleted without a new confirmation.
+- P2: removed beneficiary IDs remain in split drafts but lack editable controls, so normal corrections repeatedly fail 409.
+- P2: omitted-date settlement replay after midnight recalculates the default date, falsely treating unchanged request content as a conflict. Current frontend explicit-date requests are unaffected.
+- Confirmed with focused React assertions and real migrated disposable PostgreSQL services. The three issues are now fixed with registered regressions; see `docs/fp-60-review-fixes-2026-10-19.md`. Original reproduction evidence is retained in the pre-commit review.

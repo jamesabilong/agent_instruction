@@ -40,6 +40,8 @@ task frontend:cmd -- npm run test:unit
 
 ## Environment
 
+FP-59 lifecycle rollout (2026-10-19, local implementation): apply all three October 19 migrations (roles, lifecycle, inviter preservation) before the new backend, then release the frontend. Automatic monthly generation runs on backend startup and hourly; `FRESHPRICE_RECURRING_BUDGETS=false` disables the timer (manual creator-authorized generation remains available). `NODE_ENV=test` always disables the timer. Template row locks and unique period keys support multiple backend instances. Sweeps page through all due IDs, so a failed page cannot block later work. The inviter-preservation migration prevents former-owner deletion from revoking other members; retain its nullable SET NULL FK on rollback. Preserve the additive schema on application rollback; lifecycle down refuses nonempty lifecycle tables, and role-unaware backends must not serve viewer memberships. Verify recipient acceptance, stale owner controls, private generated budgets and pause/cancel on staging before release. See `fp-59-lifecycle-2026-10-19.md`.
+
 Important local variables:
 
 - `API_BASE_URL=/api`
@@ -202,3 +204,25 @@ docker service logs --tail 100 freshprice_frontend
 The frontend now uses `/healthz` for container readiness and supports `FRESHPRICE_MAINTENANCE=true`. See `fp-43-recovery-runbook.md` for the independent Caddy fallback, targeted enable/disable commands, validation and rollback. These changes have been verified locally and are not deployed.
 
 The deployment workflow now exports `FRESHPRICE_MAINTENANCE` from the VPS `.env` before rendering the Swarm stack (2026-10-11 fix). Persist `true` or `false` there when changing the frontend service setting so later frontend/Sugilanon dispatches retain the intended state. An absent flag defaults to false. Verify the parser without a daemon or production access with `node --test fpdocker/tests/deploy-maintenance.test.mjs`; on Windows set `DEPLOY_TEST_SHELL` to the Git Bash executable. The regression executes the workflow's actual parser and renders synthetic enabled, disabled and default settings through `docker stack config`.
+
+## FP-60 release gate — local 2026-10-19
+
+FP-60 depends on FP-59's three migrations and permission/lifecycle release. Apply `20261019000004-budget-accounting.cjs` and FP-60 backend before frontend. Rehearse on restored staging data and confirm neutral legacy balances, centavo shares, concurrent confirmations, ordinary expense CRUD, and viewer/removed-member denials; then release the UI and verify desktop/mobile pending/confirmed/reversal flows. Financial rows block destructive schema rollback. Once accounting is collected, retain FP-60 expense revision/void guards during backend rollback or suspend expense writes; reverting to FP-59's write paths could invalidate financial history. Prefer a forward fix. No staging or production action was performed by local implementation. See `fp-60-accounting-2026-10-19.md`.
+
+## FP-61 offline queue rollout — 2026-10-20
+
+Apply `20261020000001-expense-mutation-receipts.cjs` and deploy the supporting backend before releasing the FP-61 frontend. Retain durable receipts and backward-compatible APIs during rollback; the migration refuses down after receipt creation. PWA cache replacement must retain the separate `freshprice-expense-drafts` IndexedDB database. Queue version 1 creates `drafts` additively; future migrations must preserve pending payloads/keys and reject unsupported versions without resetting data. Foreground operation is sufficient; background sync is optional. Rehearse offline browser restart, upgrade with queued work, expiry/same-account reauthentication, account changes, revoked/deleted targets and uncertain-response retries against staging before release. Local fixture/server verification does not certify production cache/proxy/storage behavior.
+
+## FP-62 wiki enrichment release gate — 2026-10-20
+
+Integrate the unmerged FP-59/60/61 dependency chain, then rehearse both `20261020000002-wiki-enrichments.cjs` and `20261020000003-wiki-enrichment-retry-and-retraction.cjs`, then backend before frontend. Never roll back a used enrichment table by deleting collected proposals/history; down rejects nonempty data. Confirm current-source publication, obsolete-translation hiding, import draft preservation, author-only name withdrawal, scoped seasonal/recipe pagination and private review output in staging. Use the operator inventory against the actual target before selecting a small factual content pilot; review source authority, regional applicability, date and translation quality before publishing it. Local synthetic fixtures and passing browsers are not production content evidence.
+
+FP-62 review fixes also require staging checks for draft collapse/in-flight retention, committed-response loss retry/concurrent deduplication and exact operator retraction from public/seasonal results while preserving canonical/other variants. Migration 00003 refuses rollback once retry identities or retraction history exist; preserve columns/history and use a forward repair. Older clients omitting submissionId remain compatible but do not gain retry deduplication. See `fp-62-review-fixes-2026-10-20.md`.
+
+## FP-63 shopping integration release gate — 2026-10-20
+
+Integrate FP-59/60/61/62 dependencies, then apply `20261020000004-shopping-lists.cjs` and backend before frontend. Used list/purchase/operation history blocks destructive rollback. Rehearse current/shared budget privacy and revocation, exact recipe mapping/serving precision, official unit/market/freshness estimates, missing-price unknown totals, explicit actual purchase, concurrent/lost-response retries, expense deletion preventing recreation, mobile list navigation and account/offline recovery in staging. Lists are personal; shopping forms have in-memory online retries, not durable background expense replay. Favorites/alerts remain separately scoped follow-ups. See `fp-63-shopping-integration-2026-10-20.md` and local ticket coverage for actual verification.
+
+## Sprint 337 release audit/runbook — 2026-10-20
+
+See [the audited sprint 337 deployment runbook](sprint-337-release-audit-and-runbook-2026-10-20.md) for the current PR state, resolved FP-60/61 integration, exact five-migration/six-deployment order, remaining review/staging/backup/digest gates and data-preserving repair. Read-only public checks now confirm healthy API/nginx, `/sw.js` no-store/CDN no-store with Cloudflare BYPASS, and manifest no-cache/CDN no-store; this supersedes the historical four-hour-cache observation above for the checked responses. VPS images/migration state and actual-device staging still require verification before releasing the sprint. No production action was performed by the audit.
