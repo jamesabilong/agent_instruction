@@ -1,5 +1,10 @@
 # FreshPrice Bugs
 
+## Production PostgreSQL is externally reachable — 2026-10-20
+
+- Password-authenticated read-only VPS inventory shows `freshprice_postgres` published as `*:5432->5432/tcp`; a separate external TCP connection to `107.174.250.249:5432` succeeds. The production Compose file's `127.0.0.1` publishing address does not constrain Swarm publishing, as the renderer warning also reports. This confirms external reachability, not unauthorized database access; no database login was attempted by the external probe.
+- Inspect actual firewall and legitimate database consumers before selecting a mitigation. Do not change firewall rules, database credentials or production services as part of a readiness check without a concrete reviewed change. Evidence: `../../../staging-preflight/production/inventory-user-session.log`, `../../../staging-preflight/production/postgres-public-port.json` and production config regression log. No production configuration change has been made.
+
 ## Sprint 337 re-audit: integration clear, release gates pending — 2026-10-20
 
 - All six published PRs are CLEAN/MERGEABLE; both dependency ancestries are correct and prospective merges into current master introduce no content changes. FP-60/61 source fingerprints and passing JUnit evidence verified. No new application defect or remaining merge-conflict blocker established by this release audit; historical FP-60/61 conflict notes below are resolved.

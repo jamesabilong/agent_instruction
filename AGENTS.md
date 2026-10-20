@@ -23,6 +23,16 @@ If the work affects multiple apps, repeat the read/update steps for each affecte
 
 ### FreshPrice
 
+Production topology confirmed by the user on 2026-10-20:
+
+- Public application: `https://freshprice.philwatch.com`.
+- Operator SSH target: `root@107.174.250.249`. Use existing SSH authentication; never store passwords, private keys or database credentials in these instructions.
+- The current operator uses password login; the available local key was rejected. Have the user enter the password directly in the terminal. A user-authenticated terminal is readable by the agent but is not an authenticated session for separate command-tool SSH processes.
+- One VPS runs both the production app and its PostgreSQL database. There is no separate staging environment.
+- Do not treat the public production URL as a staging target. Perform migration/restore rehearsals only in an isolated disposable local database or another explicitly designated non-production target. Disable outbound integrations in a restored copy and keep dumps/credentials out of source control and reports.
+- Label synthetic-fixture checks separately from checks on a restored production backup. Public health responses do not verify app revisions, migration inventory, backups or restore readiness.
+- A readiness check does not authorize merging, deploying, production migration, service restart or configuration changes. Production inventory stays read-only unless the user explicitly requests an operation; never restore into the production database as a rehearsal.
+
 Use this section for:
 
 - `fresh-price-front`

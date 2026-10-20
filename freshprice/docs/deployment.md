@@ -4,6 +4,14 @@ Last investigated: 2026-07-02
 
 VPS deployment verification added: 2026-10-12
 
+## Confirmed production topology — 2026-10-20
+
+The user confirmed a single VPS at `root@107.174.250.249`, serving `https://freshprice.philwatch.com`, with the production application and PostgreSQL on the same host. There is no separate staging environment. Use existing SSH keys or an authenticated operator session; do not copy credentials into documentation or evidence.
+
+Current operator access uses username/password. The local default key is not authorized. The operator can stream a reviewed local script over SSH from PowerShell and enter the password directly in the terminal; strip carriage returns before Bash when streaming from Windows PowerShell, for example `ssh ... "tr -d '\r' | bash -s -- /var/projects/freshprice/fpdocker"`. Do not assume that a manually authenticated SSH terminal grants access to another process.
+
+Pre-merge verification must distinguish read-only inspection of this production host from an isolated migration/restore rehearsal. Restore an approved backup only into a disposable non-production target with outbound integrations disabled. Synthetic fixtures can exercise migration and contract behavior, but do not prove that the actual production backup restores. Preserve production data, deployed services and installed clients throughout preflight. The sprint-337 request authorizes checks and instruction updates; the user will handle merging/deployment.
+
 ## Local Docker Development
 
 Local orchestration is in `fpdocker`.

@@ -1,5 +1,13 @@
 # FreshPrice Progress
 
+## Sprint 337 environment and preflight execution — 2026-10-20/21
+
+- User confirmed one production VPS (`root@107.174.250.249`) hosting app and PostgreSQL, no staging environment, and password-based operator login. Updated agent instructions and deployment notes. The user will merge/deploy personally.
+- Operator streamed the reviewed read-only inventory at October 20 23:46 Asia/Manila: healthy 1/1 services, 33 expected baseline migrations, frontend maintenance false, clean fpdocker `4ea0c538`, unchanged before/after service identities. Latest backup found in the checked directory was July 1; current checkpoint/restore evidence remains pending. Public health/PWA cache checks and 3/3 synthetic production-render checks pass.
+- Exported exact FP-61 frontend `0d100ab5`; production build passes. Eleven new focused PWA/IndexedDB lifecycle checks pass on desktop and the same eleven on mobile emulation (22 overlapping executions). They do not establish live API replay, old-to-new app-version acceptance, physical storage eviction or actual phones. Six pure financial checks pass on each of FP-60/61 (12 overlapping executions). Original FP-60/61 local acceptance assets are absent in this checkout; no old test count is represented as a new run.
+- Local Docker startup/engine access is blocked and no native PostgreSQL binaries exist. Prepared local migration/restore and service probes did not provision any DB or execute DB assertions. A reviewed protected-backup/restored-copy runner is being prepared for the VPS with resource guards, no exposed ports/outbound network and ownership-checked cleanup. Prepared scripts are not passing execution evidence.
+- Confirmed PostgreSQL external TCP reachability on port 5432; recorded the unresolved publishing/firewall concern in bugs. No production merge/deployment/migration/service restart/firewall change, app source change, stage/commit/push or ready label. Current execution record: `docs/sprint-337-preflight-execution-2026-10-20.md`.
+
 ## Sprint 337 final source review and PR evidence complete — 2026-10-20
 
 - Fresh FP-59 exact-head verification: lint/build, 260 frontend + 7 targeted calendar/server-spending, 166 ordinary backend (23 opt-in skips), 36 enabled DB (zero skips), 41 runner and complete 15+30 Chromium pass; run `2026-10-20T09-48-40-201Z-4bf7489a`. FP-60/61 published fingerprints still match passing reconciliation evidence; re-parsed all final browser JUnit groups.
