@@ -15,7 +15,6 @@ Current as of 2026-10-21. Historical checklists are preserved in [the archive](a
 
 ## Operations and retained follow-ups
 
-- [ ] Update Jira ticket/sprint completion only when requested; deployment verification did not close Jira work.
 - [ ] Retain protected production backup, recoverable image digests and enabled PostgreSQL guard; recheck public-interface coverage if networking changes. Off-host/global-role/config redeployment recovery and upload/DB snapshot consistency are not certified by the isolated rehearsal.
 - [ ] Retain local `testing/` backups and register fixture/acceptance/scenario requirements for future tickets. App-only checkouts require the sibling testing workspace. Add guaranteed interrupt cleanup if that runner requirement is adopted.
 - [ ] Reassess historical FP-43/56/wiki/import operational follow-ups in the archived checklist when those areas are touched. Current health/cache checks do not certify every earlier functional scenario or affected-device recovery.
@@ -23,6 +22,7 @@ Current as of 2026-10-21. Historical checklists are preserved in [the archive](a
 
 ## Completed
 
+- [x] 2026-10-21: reviewed sprint 337, marked FP-59/60/61 Done and completed the sprint on user request. Jira confirms 100% completion; sprint 338 remains unstarted with FP-62/63/66.
 - [x] FP-59/60/61 released and final live read-only verification passes; PostgreSQL publication removed and guarded; worker/manifest headers pass.
 - [x] Device/installed-upgrade testing explicitly waived by user, recorded as untested.
 - [x] FP-66 created/verified in future sprint 338; immediate exemption work deferred.

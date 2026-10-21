@@ -1,0 +1,73 @@
+{
+  "verifiedAt": "2026-10-21",
+  "board": {
+    "id": 1,
+    "name": "SCRUM board",
+    "type": "simple",
+    "location": {
+      "projectId": 10000,
+      "projectKey": "FP",
+      "projectName": "Fresh Price",
+      "projectTypeKey": "software"
+    }
+  },
+  "resolvedSprint": {
+    "id": 337,
+    "name": "Budget and Expense Management",
+    "state": "closed",
+    "goal": "Extend shared-budget permissions, reconcile expense splits and manual settlements, and support durable expense drafts with safe synchronization. Implementation order: FP-59 → FP-60 → FP-61. Estimate and split oversized increments before starting.",
+    "startDate": "2026-10-19T06:30:48.362Z",
+    "endDate": "2026-11-02T06:30:08.000Z",
+    "completeDate": "2026-10-21T09:48:14.864Z",
+    "originBoardId": 1
+  },
+  "sprintMetrics": {
+    "totalIssues": 3,
+    "doneIssues": 3,
+    "inProgressIssues": 0,
+    "todoIssues": 0,
+    "assignedToMeCount": 3,
+    "unassignedIssues": 0,
+    "overdueIssues": 0,
+    "atRiskIssueCount": 0,
+    "completionPercentage": 100
+  },
+  "issues": [
+    {
+      "key": "FP-61",
+      "summary": "Durable offline editing",
+      "status": "Done"
+    },
+    {
+      "key": "FP-60",
+      "summary": "Expense and settlement tracking",
+      "status": "Done"
+    },
+    {
+      "key": "FP-59",
+      "summary": "Budget feature update",
+      "status": "Done"
+    }
+  ],
+  "futureSprints": [
+    {
+      "id": 336,
+      "name": "Data proliferation 2",
+      "state": "future"
+    },
+    {
+      "id": 338,
+      "name": "Wiki and Shopping Integration",
+      "state": "future",
+      "goal": "Improve discovery of reviewed local-language product and recipe knowledge, then turn recipes into market-aware shopping lists with explicit purchase-to-expense conversion. Implementation order: FP-62 → FP-63."
+    },
+    {
+      "id": 339,
+      "name": "Seller and Messaging",
+      "state": "future",
+      "goal": "Enable an approved seller profile and offer pilot, followed by private buyer-to-seller text conversations with ownership and participant access controls. Implementation order: FP-57 → FP-58."
+    }
+  ],
+  "deviceTesting": "Explicitly waived by user; untested",
+  "productionChanges": false
+}

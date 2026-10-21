@@ -7,7 +7,7 @@ Last consolidated: 2026-10-21. This file describes current state. Older chronolo
 - FP-59, FP-60 and FP-61 are merged and deployed. Final read-only checks confirm the expected actual running image digests, four healthy services, 38 migrations including mutation receipts, preserved database identity/data volume, fresh private DB connectivity, and passing FreshPrice/PhilWatch health and worker/manifest cache headers. See [final release verification](../docs/fp61-deployment-2026-10-21.md) and its linked evidence.
 - Docker security PR #25 is merged/deployed. PostgreSQL has no published host port; the independent public-interface guard is active/enabled and external 5432 probes time out. Recovery/operation details: [PostgreSQL security](../docs/postgres-security-2026-10-21.md).
 - Protected checkpoint and isolated recovery/migration checks pass; 50 direct-service cases, 34 HTTP groups, 21 overlapping browser groups and 3 proxy-failure checks pass on exact candidates. Live verification was read-only and did not rerun authenticated production feature mutations. Physical-device/installed-upgrade testing was explicitly waived, not passed. Off-host/global-role/config recovery and atomic live-upload snapshots retain their documented limits.
-- Jira FP-59/60/61 completion and sprint closure were not changed by release verification. Sprint 337 remains administratively separate from deployment status.
+- On 2026-10-21, reviewed release/acceptance evidence, marked FP-59/60/61 Done and closed sprint 337 at the user's request. Jira confirms 3/3 complete, no unfinished carryover; sprint 338 remains future. Device-testing waiver remains recorded as untested. See [sprint closeout](../docs/sprint-337-closeout-2026-10-21.md).
 
 ## Current development
 
