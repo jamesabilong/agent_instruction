@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+node_modules/
+.env
+.env.*
+*.dump
+*.sql
+*.pem
+*.key
+*.log
+private-*/
+protected-snapshots/

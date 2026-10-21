@@ -1,0 +1,100 @@
+{
+  "checked_at": "2026-10-21T03:59:53.401299+00:00",
+  "host": "107.174.250.249",
+  "before": {
+    "22": "reachable",
+    "443": "reachable",
+    "5432": "reachable"
+  },
+  "after": [
+    {
+      "port": 22,
+      "state": "reachable",
+      "seconds": 0.25
+    },
+    {
+      "port": 443,
+      "state": "reachable",
+      "seconds": 0.2
+    },
+    {
+      "port": 5432,
+      "state": "timeout",
+      "seconds": 5.02
+    },
+    {
+      "port": 5432,
+      "state": "timeout",
+      "seconds": 5.01
+    }
+  ],
+  "initial_http_attempts": [
+    {
+      "url": "https://freshprice.philwatch.com/api/platform/db/health",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://freshprice.philwatch.com/healthz",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://philwatch.com/health",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "http": [
+    {
+      "url": "https://freshprice.philwatch.com/api/platform/db/health",
+      "status": 200,
+      "body": "{\"status\":\"ok\",\"database\":\"ready\"}",
+      "client": "curl"
+    },
+    {
+      "url": "https://freshprice.philwatch.com/healthz",
+      "status": 200,
+      "body": "{\"status\":\"ok\"}",
+      "client": "curl"
+    },
+    {
+      "url": "https://philwatch.com/health",
+      "status": 200,
+      "body": "ok",
+      "client": "curl"
+    }
+  ],
+  "firewall": {
+    "family": "inet",
+    "table": "freshprice_pg_guard",
+    "hook": "prerouting",
+    "priority": -310,
+    "interface": "eth0",
+    "protocol": "tcp",
+    "destination_port": 5432,
+    "verdict": "drop",
+    "observed_dropped_packets": 11,
+    "boot_service": "freshprice-postgres-guard.service",
+    "enabled": true,
+    "active": true,
+    "syntax_check_passed": true,
+    "reload_idempotence_passed": true,
+    "boot_order_before_docker_verified": true,
+    "reboot_tested": false,
+    "external_ipv6_tested": false
+  },
+  "verification": {
+    "fresh_backend_private_db_connection": true,
+    "origin_freshprice_db_health": true,
+    "origin_freshprice_frontend_health": true,
+    "origin_sugilanon_health": true,
+    "all_service_specs_unchanged": true,
+    "all_container_identities_and_images_unchanged": true,
+    "all_previously_healthy_containers_still_healthy": true,
+    "production_restart": false,
+    "production_migration": false,
+    "production_deployment": false
+  },
+  "protected_inventory": "/var/backups/freshprice/pg-security-20261021T035749Z-1945614",
+  "protected_installation": "/var/backups/freshprice/pg-guard-install-20261021T035931Z-1946354",
+  "compose_port_removal": "Local fpdocker change only; not committed, pushed or deployed. Live Swarm port remains published behind the guard.",
+  "completed_at": "2026-10-21T04:01:10.949732+00:00"
+}

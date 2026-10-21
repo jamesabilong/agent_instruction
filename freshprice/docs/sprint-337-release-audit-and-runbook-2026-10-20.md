@@ -1,5 +1,22 @@
 # Sprint 337 release audit and deployment runbook — 2026-10-20
 
+FP-59/60/61 and Docker security changes are released. Final live read-only verification passes; device/installed-upgrade testing was explicitly waived, not passed. See [the authoritative final release record](fp61-deployment-2026-10-21.md) and [current open work](../memory-bank/todo.md). The shared client-IP/rate-limit issue is separately tracked by FP-66 and is not resolved by the release.
+
+This dated record is retained for audit/recovery context. Older “pending”, “unmerged”, “not ready” and superseding interim statements below describe their original checkpoints. Do not repeat completed merges or deployments from this history.
+
+<details>
+<summary>Historical release audit and recovery procedure</summary>
+
+Final publication update (October 21): security commit `5b42640` is pushed on `fix/postgres-private-networking`; [fpdocker PR #25](https://github.com/jamesabilong/fpdocker/pull/25) must merge before app PRs. Direct master push is prohibited by repository rules. No deployment/dispatch occurred. This supersedes older unpublished-Docker notes. See [the final ordered deployment checklist](sprint-337-final-deployment-2026-10-21.md).
+
+October 21 user waiver: actual-device/installed-PWA upgrade testing is no longer a release prerequisite at the user's explicit request. It remains **untested, not passed**. This supersedes older device-testing blockers below; retain final head/diff/review checks, the enabled PostgreSQL guard, reviewed publication of local Docker corrections and all ordered deployment verification. No merge/deploy/publication is authorized by this waiver.
+
+Latest October 21 security result: [public PostgreSQL exposure is mitigated](postgres-security-2026-10-21.md) with an enabled persistent eth0 TCP 5432 guard. External denial, fresh internal DB connection and public/origin health pass; no production service restart or app deployment. This supersedes older exposure-pending notes. Local fpdocker Compose port removal and guard sources still need reviewed publication when authorized; keep the live guard enabled. Actual-device/installed-version upgrade acceptance remains before full readiness.
+
+Latest October 21 result: [34 HTTP/auth groups, 21 Chromium assertion groups and three backend-down nginx checks pass](http-browser-acceptance-2026-10-21.md), following successful backup/migration and 50 direct-service checks. This supersedes older isolated HTTP/browser/proxy-pending notes below. Actual-device/installed-version upgrades and PostgreSQL exposure disposition remain before readiness; live Caddy/CDN/certificate/image-digest checks remain in the ordered deployment checkpoints. Production unchanged/healthy; all scratch resources cleaned.
+
+October 21 execution update: [backup and isolated migration/recovery checks](backup-restore-check-2026-10-21.md) and [50/50 direct-service acceptance cases](service-acceptance-2026-10-21.md) now pass. Service tests use exact published FP-59/60/61 sources on independent restored copies; all runtime dependency versions, baseline preservation, production health/identity and temporary cleanup verified. The backup contains no scheduled budgets, so shared flows use explicitly synthetic history. These results supersede older unverified backup/migration/direct-service notes below. HTTP/auth/proxy/browser/installed-PWA/device acceptance and PostgreSQL exposure disposition remain open; do not mark the full release ready.
+
 Current environment/preflight execution is tracked in [the execution record](sprint-337-preflight-execution-2026-10-20.md), including the user-confirmed single VPS/no staging topology, actual read-only production inventory and new focused checks. That record supersedes older statements below that VPS inventory has not been inspected; remaining backup/restore and acceptance gates must still be satisfied. The user will merge/deploy personally.
 
 **Current decision: merge conflicts are resolved; production release gates remain open.** Both FP-60 and FP-61 reconciliations are published and their exact committed trees match the passing local test evidence. All six PRs are OPEN/CLEAN/MERGEABLE. Fresh FP-59 exact-head validation and final source/integration review are complete; all six PR Validation sections and exact-head COMMENT reviews are published. No actionable code findings were identified. Restored-data staging and verified production preflight/ordered rollout remain open. Agent comments from the author account do not represent independent approval. See the [final review record](sprint-337-final-review-2026-10-20.md).
@@ -195,3 +212,5 @@ Retain additive schemas and collected data. Never delete financial/receipt/lifec
 Forward repair is preferred. Database restore is a coordinated incident recovery with writes stopped and reconciliation of writes after the checkpoint, not the routine application rollback path.
 
 After all three paired releases and smoke tests pass, record exact app SHAs, image digests, migrations, Actions URLs, backup/restore checkpoint, staging and device results in the release record and Jira. Mark FP-59/60/61 Done and complete sprint 337 only when the actual delivery checks are satisfied. FP-62/63 remain outside this deployment; FP-63 stays on hold until sprint-337 closeout is complete.
+
+</details>

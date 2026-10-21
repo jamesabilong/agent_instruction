@@ -1,8 +1,8 @@
 # FreshPrice Project Spec
 
-> Checkout update (2026-10-02): current frontend/backend `FP-64` checkouts contain the September budget reliability implementation. FP-56 now covers budget tightening, with remaining fixes implemented locally; see `fp-56-budget-tightening-2026-10-02.md`. Database/staging/production verification remains pending. Earlier master audit notes describe a different checkout.
+> Current state (2026-10-21): FP-59/60/61 are released and live read-only verification passes; see [final release record](fp61-deployment-2026-10-21.md). Primary app checkouts are on unpublished-to-production FP-63 feature branches with WIP commits, not FP-64. FP-62 remains unreleased; FP-63 has three review findings; FP-66 is planned for sprint 338. [Current progress](../memory-bank/progress.md) supersedes older implementation/deployment-pending notes below.
 
-Last investigated: 2026-09-12 (budget workflow update)
+Last consolidated: 2026-10-21. Feature descriptions below retain their implementation-date context.
 
 ## Summary
 

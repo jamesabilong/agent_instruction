@@ -1,5 +1,7 @@
 # FP-63 pre-commit review — 2026-10-20
 
+October 21 cleanup update: the user authorized preserving needed repo work. The unchanged source snapshot is now pushed as explicitly WIP FP-63 commits (frontend `0a079583`, backend `acfa1f8`). This supersedes the earlier no-commit action status, not the review findings: both P2 issues and the P3 precision issue remain open and the feature is not merge/release-ready. Fresh lint/build and 291 frontend units pass; backend 224 pass/23 DB-gated skips. The source/config fingerprint still matches the reviewed snapshot. No new DB/browser acceptance run or deployment is claimed.
+
 Hold commit readiness for two P2 findings and fix the P3 estimate precision issue. This review changes no application source and performs no stage/commit/push/Jira/deployment action. It supersedes a no-gaps interpretation of the original passing implementation checks.
 
 ## Findings

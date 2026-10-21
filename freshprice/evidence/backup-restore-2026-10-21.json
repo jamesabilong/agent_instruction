@@ -1,0 +1,125 @@
+{
+  "checkpoint": "/var/backups/freshprice/fp-restore-20261021T011813Z-1873577",
+  "reports": {
+    "verification-result.json": {
+      "databaseRestore": "pass",
+      "copyTables": 37,
+      "rowsCompared": 565,
+      "migrations": 33,
+      "uploadArchive": "pass",
+      "uploadFiles": 48,
+      "uploadBytes": 41566982,
+      "uploadSymlinks": 0,
+      "productionServices": "unchanged and healthy",
+      "temporaryResources": "absent",
+      "checksums": "recorded",
+      "offHostRecovery": "not tested",
+      "globalRoles": "not tested",
+      "liveUploadsAtomicWithDatabase": false
+    },
+    "comparison-result.json": {
+      "equal": true,
+      "original": {
+        "copyBlocks": 37,
+        "rows": 565,
+        "castRewrites": 9
+      },
+      "restored": {
+        "copyBlocks": 37,
+        "rows": 565,
+        "castRewrites": 0
+      },
+      "scope": "schema excluding owners/ACLs, complete COPY row multisets and sequence values"
+    },
+    "candidate-rehearsal/source-manifest.json": [
+      {
+        "name": "20261019000001-scheduled-budget-member-roles.cjs",
+        "head": "e4fe0bc2f0f6c2a5cede18b4bc13ab9691a2ec46",
+        "sha256": "7c6087c2e6e400ae6083f3ddd641e8a0f08935fc11d06dc36b142ef8aa23d357"
+      },
+      {
+        "name": "20261019000002-budget-transfer-and-templates.cjs",
+        "head": "e4fe0bc2f0f6c2a5cede18b4bc13ab9691a2ec46",
+        "sha256": "05809cb016fdd58cb5ec7badeb231d03c52d0a69a8ee6f3df427a8ba837caa26"
+      },
+      {
+        "name": "20261019000003-preserve-budget-inviter-history.cjs",
+        "head": "e4fe0bc2f0f6c2a5cede18b4bc13ab9691a2ec46",
+        "sha256": "3f1e7834c57a5a5f939fdae8b8bc2c4ff1dffd64619d3d68120f60750d5e57a2"
+      },
+      {
+        "name": "20261019000004-budget-accounting.cjs",
+        "head": "e8b7f78595303546a6f846f8074f9ffcfcfef990",
+        "sha256": "7d3995290c3a04f01455277c5375d09906904119f52823e97e23c2d3f1f614dc"
+      },
+      {
+        "name": "20261020000001-expense-mutation-receipts.cjs",
+        "head": "1d1fa16985330b923cca20631d4e7c2a86a37af2",
+        "sha256": "507fdca5a80669295f193ac2846f2e7da737183a8d5f0a0d31700370ec837694"
+      }
+    ],
+    "candidate-rehearsal/migration-result.json": {
+      "pass": true,
+      "migrations": [
+        {
+          "migration": "20261019000001-scheduled-budget-member-roles.cjs",
+          "legacyRowsPreserved": true,
+          "sequencesPreserved": true
+        },
+        {
+          "migration": "20261019000002-budget-transfer-and-templates.cjs",
+          "legacyRowsPreserved": true,
+          "sequencesPreserved": true
+        },
+        {
+          "migration": "20261019000003-preserve-budget-inviter-history.cjs",
+          "legacyRowsPreserved": true,
+          "sequencesPreserved": true
+        },
+        {
+          "migration": "20261019000004-budget-accounting.cjs",
+          "legacyRowsPreserved": true,
+          "sequencesPreserved": true
+        },
+        {
+          "migration": "20261020000001-expense-mutation-receipts.cjs",
+          "legacyRowsPreserved": true,
+          "sequencesPreserved": true
+        }
+      ],
+      "emptyDownUp": true,
+      "baselineTables": 37,
+      "baselineRows": 565,
+      "rollbackGuards": 5,
+      "syntheticHistoryIncludedInRecovery": true
+    },
+    "candidate-rehearsal/recovery-result.json": {
+      "equal": true,
+      "original": {
+        "copyBlocks": 42,
+        "rows": 576,
+        "castRewrites": 8
+      },
+      "restored": {
+        "copyBlocks": 42,
+        "rows": 576,
+        "castRewrites": 0
+      },
+      "scope": "schema excluding owners/ACLs, complete COPY row multisets and sequence values"
+    },
+    "candidate-rehearsal/verification-result.json": {
+      "pass": true,
+      "migrations": 5,
+      "productionRowsPreserved": 565,
+      "baselineTables": 37,
+      "postMigrationTables": 42,
+      "postMigrationRowsIncludingSyntheticAndMigrationRecords": 576,
+      "rollbackGuards": 5,
+      "emptyDownUp": true,
+      "postMigrationRecovery": true,
+      "productionServices": "unchanged and healthy",
+      "temporaryResources": "absent",
+      "scope": "migration/data-preservation and synthetic rollback/recovery checks; not full service or browser acceptance"
+    }
+  }
+}

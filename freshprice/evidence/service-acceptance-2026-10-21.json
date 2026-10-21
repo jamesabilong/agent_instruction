@@ -1,0 +1,271 @@
+{
+  "run": "fp-services-20261021T020324Z-1894192",
+  "checkpoint": "fp-restore-20261021T011813Z-1873577",
+  "scope": "direct services; synthetic shared budgets on restored production snapshot",
+  "tickets": {
+    "FP-59": {
+      "ticket": "FP-59",
+      "head": "e4fe0bc2f0f6c2a5cede18b4bc13ab9691a2ec46",
+      "scope": "direct services on restored production snapshot with synthetic actors",
+      "cases": [
+        {
+          "name": "restored baseline read compatibility and legacy-neutral accounting",
+          "pass": true
+        },
+        {
+          "name": "invitation pending privacy, expiry rejection and renewed acceptance",
+          "pass": true
+        },
+        {
+          "name": "viewer reads totals/history/activity and cannot create edit or delete",
+          "pass": true
+        },
+        {
+          "name": "contributors own CRUD, cross-author denial and source-scope move denial",
+          "pass": true
+        },
+        {
+          "name": "recipient-only ownership acceptance, harmless replay and stale-owner denial",
+          "pass": true
+        },
+        {
+          "name": "expired transfer denied and former-inviter deletion preserves membership",
+          "pass": true
+        },
+        {
+          "name": "monthly anchors, concurrent generation, private empty instances and snapshots",
+          "pass": true
+        },
+        {
+          "name": "template ownership retained after transfer/deletion; pause resume cancel",
+          "pass": true
+        },
+        {
+          "name": "synthetic fixture cleanup restores every baseline table and sequence",
+          "pass": true
+        }
+      ],
+      "baselineTables": 39,
+      "baselineRows": 568,
+      "existingScheduledBudgetsRead": 0,
+      "pass": true,
+      "passed": 9,
+      "failed": 0,
+      "runtime": {
+        "runtimeDependenciesMatched": 263,
+        "node": "v20.20.2"
+      },
+      "gitTree": "0266cffe6f9b484e8a7c35274f253f0c76f630ae",
+      "verifiedSourceFiles": 146
+    },
+    "FP-60": {
+      "ticket": "FP-60",
+      "head": "e8b7f78595303546a6f846f8074f9ffcfcfef990",
+      "scope": "direct services on restored production snapshot with synthetic actors",
+      "cases": [
+        {
+          "name": "restored baseline read compatibility and legacy-neutral accounting",
+          "pass": true
+        },
+        {
+          "name": "invitation pending privacy, expiry rejection and renewed acceptance",
+          "pass": true
+        },
+        {
+          "name": "viewer reads totals/history/activity and cannot create edit or delete",
+          "pass": true
+        },
+        {
+          "name": "contributors own CRUD, cross-author denial and source-scope move denial",
+          "pass": true
+        },
+        {
+          "name": "recipient-only ownership acceptance, harmless replay and stale-owner denial",
+          "pass": true
+        },
+        {
+          "name": "expired transfer denied and former-inviter deletion preserves membership",
+          "pass": true
+        },
+        {
+          "name": "monthly anchors, concurrent generation, private empty instances and snapshots",
+          "pass": true
+        },
+        {
+          "name": "template ownership retained after transfer/deletion; pause resume cancel",
+          "pass": true
+        },
+        {
+          "name": "legacy-neutral spending and exact PHP 100/3 zero-sum shares",
+          "pass": true
+        },
+        {
+          "name": "invalid split identities and sums; viewers read but cannot write",
+          "pass": true
+        },
+        {
+          "name": "different payer confirms; pending corrections keep confirmed spending",
+          "pass": true
+        },
+        {
+          "name": "concurrent split revisions serialize; changed replay and stale edit denied",
+          "pass": true
+        },
+        {
+          "name": "payment needs counterparty; replay and reversal preserve spending",
+          "pass": true
+        },
+        {
+          "name": "competing payment confirmations prevent overpayment",
+          "pass": true
+        },
+        {
+          "name": "removed members keep liabilities and cannot confirm pending payments",
+          "pass": true
+        },
+        {
+          "name": "tracked deletion rejects stale revision and retains void/payment history",
+          "pass": true
+        },
+        {
+          "name": "financial history pagination preserves pending neutrality",
+          "pass": true
+        },
+        {
+          "name": "synthetic fixture cleanup restores every baseline table and sequence",
+          "pass": true
+        }
+      ],
+      "baselineTables": 41,
+      "baselineRows": 569,
+      "existingScheduledBudgetsRead": 0,
+      "pass": true,
+      "passed": 18,
+      "failed": 0,
+      "runtime": {
+        "runtimeDependenciesMatched": 263,
+        "node": "v20.20.2"
+      },
+      "gitTree": "27fbdff3ba58e61a798012ea5cc498e389a83490",
+      "verifiedSourceFiles": 152
+    },
+    "FP-61": {
+      "ticket": "FP-61",
+      "head": "1d1fa16985330b923cca20631d4e7c2a86a37af2",
+      "scope": "direct services on restored production snapshot with synthetic actors",
+      "cases": [
+        {
+          "name": "restored baseline read compatibility and legacy-neutral accounting",
+          "pass": true
+        },
+        {
+          "name": "invitation pending privacy, expiry rejection and renewed acceptance",
+          "pass": true
+        },
+        {
+          "name": "viewer reads totals/history/activity and cannot create edit or delete",
+          "pass": true
+        },
+        {
+          "name": "contributors own CRUD, cross-author denial and source-scope move denial",
+          "pass": true
+        },
+        {
+          "name": "recipient-only ownership acceptance, harmless replay and stale-owner denial",
+          "pass": true
+        },
+        {
+          "name": "expired transfer denied and former-inviter deletion preserves membership",
+          "pass": true
+        },
+        {
+          "name": "monthly anchors, concurrent generation, private empty instances and snapshots",
+          "pass": true
+        },
+        {
+          "name": "template ownership retained after transfer/deletion; pause resume cancel",
+          "pass": true
+        },
+        {
+          "name": "legacy-neutral spending and exact PHP 100/3 zero-sum shares",
+          "pass": true
+        },
+        {
+          "name": "invalid split identities and sums; viewers read but cannot write",
+          "pass": true
+        },
+        {
+          "name": "different payer confirms; pending corrections keep confirmed spending",
+          "pass": true
+        },
+        {
+          "name": "concurrent split revisions serialize; changed replay and stale edit denied",
+          "pass": true
+        },
+        {
+          "name": "payment needs counterparty; replay and reversal preserve spending",
+          "pass": true
+        },
+        {
+          "name": "competing payment confirmations prevent overpayment",
+          "pass": true
+        },
+        {
+          "name": "removed members keep liabilities and cannot confirm pending payments",
+          "pass": true
+        },
+        {
+          "name": "tracked deletion rejects stale revision and retains void/payment history",
+          "pass": true
+        },
+        {
+          "name": "financial history pagination preserves pending neutrality",
+          "pass": true
+        },
+        {
+          "name": "durable create/edit retries serialize; changed keys and stale revisions denied",
+          "pass": true
+        },
+        {
+          "name": "deleted expense retains durable receipt and cannot be recreated",
+          "pass": true
+        },
+        {
+          "name": "replaced or disabled current budget denies original queued identity",
+          "pass": true
+        },
+        {
+          "name": "replay reauthorizes role, revocation and deletion; independent work succeeds",
+          "pass": true
+        },
+        {
+          "name": "mutation keys cannot be reused by another actor",
+          "pass": true
+        },
+        {
+          "name": "synthetic fixture cleanup restores every baseline table and sequence",
+          "pass": true
+        }
+      ],
+      "baselineTables": 42,
+      "baselineRows": 570,
+      "existingScheduledBudgetsRead": 0,
+      "pass": true,
+      "passed": 23,
+      "failed": 0,
+      "runtime": {
+        "runtimeDependenciesMatched": 263,
+        "node": "v20.20.2"
+      },
+      "gitTree": "8004f3d5e52766e3c8467b5403c72850d5f24006",
+      "verifiedSourceFiles": 154
+    }
+  },
+  "harnessSha256": "b4fd3406814b95c7424c1f6ac0d32dcdc72f732980247aaacbe86c3619b33704",
+  "cleanup": {
+    "productionServices": "unchanged and healthy",
+    "temporaryResources": "absent"
+  },
+  "passed": 50,
+  "failed": 0
+}

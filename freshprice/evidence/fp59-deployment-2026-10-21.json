@@ -1,0 +1,61 @@
+{
+  "checked_at": "2026-10-21T06:57:39.588397+00:00",
+  "scope": "Read-only FP-59 post-deployment verification; no authenticated production feature mutations",
+  "merges": {
+    "docker": "5f364defe7202c16e839c58bfc3f35b8ee8221ef",
+    "backend": "89478f124e6b2a43098ca8bbdf90a9319effd56d",
+    "frontend": "bcb53c9c46674a5271447b6b460f5471c49b0ad2"
+  },
+  "runs": {
+    "backend": {
+      "id": 39556505939,
+      "conclusion": "success"
+    },
+    "frontend": {
+      "id": 39556520747,
+      "conclusion": "success"
+    }
+  },
+  "verified_running_digests": {
+    "backend": "sha256:c32fba707882fb3a081e62b10799cf02a6ec8e8bda9aed3aaeb8ea0742c8e92f",
+    "frontend": "sha256:ac62bc8e8fc6c21c506bdedbb2fb295f4194e0f80b54da401b7397ab043bf834"
+  },
+  "service_specs_use_mutable_latest": true,
+  "actual_runtime_image_ids_and_repo_digests_verified": true,
+  "all_four_swarm_services_healthy": true,
+  "migration_count": 36,
+  "fp59_migrations": [
+    "20261019000001-scheduled-budget-member-roles.cjs",
+    "20261019000002-budget-transfer-and-templates.cjs",
+    "20261019000003-preserve-budget-inviter-history.cjs"
+  ],
+  "fp60_fp61_migrations_applied": false,
+  "database_identity_matches_checkpoint": true,
+  "database_volume_preserved": true,
+  "fresh_backend_private_connection": "PASS",
+  "postgres_published_ports": [],
+  "guard_active": true,
+  "guard_enabled": true,
+  "external_5432": "timeout after five seconds",
+  "public_http": {
+    "freshprice_database_health": 200,
+    "freshprice_healthz": 200,
+    "philwatch_health": 200
+  },
+  "worker_headers": {
+    "status": 200,
+    "content_type": "application/javascript",
+    "cache_control": "no-store",
+    "cdn_cache_control": "no-store",
+    "cf_cache_status": "BYPASS"
+  },
+  "manifest_headers": {
+    "status": 200,
+    "content_type": "application/manifest+json",
+    "cache_control": "no-cache",
+    "cdn_cache_control": "no-store",
+    "cf_cache_status": "DYNAMIC"
+  },
+  "physical_device_testing": "waived by user; not performed",
+  "production_mutations_by_this_verification": false
+}

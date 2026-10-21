@@ -1,10 +1,12 @@
 # FreshPrice Deployment And Local Operations
 
-Last investigated: 2026-07-02
+Last deployment verification: 2026-10-21. [Final FP-61 release record](fp61-deployment-2026-10-21.md).
 
 VPS deployment verification added: 2026-10-12
 
 ## Confirmed production topology — 2026-10-20
+
+October 21 security update: Docker PR #25 is merged and deployed; production PostgreSQL has no published host port. The independent `freshprice-postgres-guard.service` nftables guard remains enabled/active on eth0 TCP 5432; private DB access and both apps' health pass. The initial firewall installation did not restart Docker/DB; subsequent app stack reconciliation changed the PostgreSQL task while preserving the original data volume/DB identity. Keep the guard enabled and recheck coverage if networking changes. See [security execution and recovery](postgres-security-2026-10-21.md).
 
 The user confirmed a single VPS at `root@107.174.250.249`, serving `https://freshprice.philwatch.com`, with the production application and PostgreSQL on the same host. There is no separate staging environment. Use existing SSH keys or an authenticated operator session; do not copy credentials into documentation or evidence.
 
@@ -232,5 +234,7 @@ FP-62 review fixes also require staging checks for draft collapse/in-flight rete
 Integrate FP-59/60/61/62 dependencies, then apply `20261020000004-shopping-lists.cjs` and backend before frontend. Used list/purchase/operation history blocks destructive rollback. Rehearse current/shared budget privacy and revocation, exact recipe mapping/serving precision, official unit/market/freshness estimates, missing-price unknown totals, explicit actual purchase, concurrent/lost-response retries, expense deletion preventing recreation, mobile list navigation and account/offline recovery in staging. Lists are personal; shopping forms have in-memory online retries, not durable background expense replay. Favorites/alerts remain separately scoped follow-ups. See `fp-63-shopping-integration-2026-10-20.md` and local ticket coverage for actual verification.
 
 ## Sprint 337 release audit/runbook — 2026-10-20
+
+October 21 execution: backup/migration recovery, 50 direct-service cases and the declared [HTTP/auth/browser/nginx acceptance](http-browser-acceptance-2026-10-21.md) now pass on isolated restored copies of the production backup. Actual-device/installed-version upgrades and PostgreSQL exposure disposition remain before full readiness; public Caddy/CDN/certificate and intended image-digest checks remain part of the serialized deployment. No sprint candidate has been merged or deployed by these checks.
 
 See [the audited sprint 337 deployment runbook](sprint-337-release-audit-and-runbook-2026-10-20.md) for the current PR state, resolved FP-60/61 integration, exact five-migration/six-deployment order, remaining review/staging/backup/digest gates and data-preserving repair. Read-only public checks now confirm healthy API/nginx, `/sw.js` no-store/CDN no-store with Cloudflare BYPASS, and manifest no-cache/CDN no-store; this supersedes the historical four-hour-cache observation above for the checked responses. VPS images/migration state and actual-device staging still require verification before releasing the sprint. No production action was performed by the audit.

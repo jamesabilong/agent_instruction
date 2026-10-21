@@ -1,33 +1,10 @@
 # Sugilanon Todo
 
-## Shared backend test relocation — 2026-10-15
+Current as of 2026-10-21. [Historical checklist](archive/todo-through-2026-10-21.md).
 
-- [x] Relocate existing shared backend suites/support to local `testing/legacy/backend/` and verify ordinary backend checks.
-- [ ] Keep local testing-folder backups; app-only remote checkouts no longer contain these suites.
-
-## Cache recovery — 2026-10-09
-
-- [x] Implement and locally verify the legacy `/sw.js` retirement route and layout update check without clearing user storage or registering a worker for new visitors.
-- [x] Commit the PhilWatch legacy-worker recovery (`b15da39` on `main`, October 9).
-- [ ] Release the Sugilanon fix, purge `https://philwatch.com/sw.js`, and confirm normal revisits recover on an affected device. Coordinate the FreshPrice nginx release and worker/manifest purge; see `docs/cache-recovery-2026-10-09.md`.
-
-## Ongoing
-
-- Keep `instructions/sugilanon/docs/project-spec.md` updated when frontend or content API architecture changes.
-- Keep `instructions/sugilanon/docs/api-routes.md` updated when content routes change.
-- Keep `instructions/sugilanon/docs/deployment.md` updated when environment, Docker, nginx, or deploy flows change.
-- After deploying the 2026-09-15 health-check fix, confirm `freshprice_sugilanon` remains healthy and `https://philwatch.com/` returns 200.
-
-## Suggested Follow-Up
-
-- Confirm the VPS has `/etc/letsencrypt/live/philwatch.com/fullchain.pem` before enabling `nginx.prod.ssl.conf` for Sugilanon.
-- Confirm manual deployment dispatch instructions match any future workflow trigger changes.
-- Confirm the documented manual Sugilanon dispatch flow after the `GH_PAT` secret/token is refreshed.
-- Confirm `philwatch.com` routes through Caddy to `127.0.0.1:3001` after the Sugilanon service publishes `SUGILANON_PORT`.
-- Add per-model field details for content tables if a content schema task is requested.
-- Add known admin workflow notes after the next admin feature change.
-- Confirm the first Sugilanon dispatch builds and pushes `ghcr.io/jamesabilong/sugilanon:latest`.
-
-## Conflict Audit Follow-Up — 2026-10-02
-
-- Verify live deployment state before closing historical production incidents; this documentation merge does not establish production recovery.
+- [ ] Validate PhilWatch's trusted client-IP/auth path during FP-66; preserve normal authentication and exact expiring tester scope.
+- [ ] Verify remaining legacy-worker retirement delivery/purge and affected-device recovery evidence before closing the earlier first-load report. Public health alone does not certify it.
+- [ ] Preserve local shared-backend testing backups; app-only checkouts do not include relocated suites.
+- [ ] Verify live state rather than closing historical incidents from documentation alone. Recheck routing/manual dispatch instructions when those workflows change; keep API/schema documentation current when editing those areas.
+- [x] FP-61 shared-stack verification: healthy unchanged Sugilanon task, public health, preserved database and private connectivity, no database publishing, enabled guard and external denial.
+- [x] Consolidate instructions and preserve historical progress/todo/bugs during authorized cleanup; no Sugilanon app source change.

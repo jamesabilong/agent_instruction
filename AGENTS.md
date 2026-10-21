@@ -111,6 +111,13 @@ Keep current when relevant:
 - Do not stage, commit, or push unless the user explicitly asks.
 - Keep memory-bank entries brief and dated.
 
+## Documentation Maintenance
+
+- Treat each app's current `memory-bank/progress.md`, `todo.md` and `bugs.md` as the current-state summary. Consolidate superseded checklist entries instead of appending contradictory pending/complete claims indefinitely.
+- Preserve old evidence and decisions in dated docs or `memory-bank/archive/`; mark archived status as historical. Read [README.md](README.md) for the current release index and local-only asset boundaries.
+- Keep tests, executable synthetic fixture seeders, generated output, certificates and private runtime snapshots in their designated local/protected locations. Only sanitized release evidence and reviewed operator utilities belong in this repository.
+- Verify the actual PR base before handing off a release. Merging a prerequisite feature branch does not retarget dependent PRs; production app PRs must target master when that is the intended release. Preserve backend-before-frontend ordering and verify each deployment.
+
 ## Production Deployment Triggers
 
 - `fresh-price-front` pushes to `master` dispatch `frontend-updated` to `jamesabilong/fpdocker`.

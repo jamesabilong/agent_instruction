@@ -1,0 +1,128 @@
+{
+  "scope": "Chromium browser acceptance through isolated nginx, SSH and local test HTTPS; not physical-device or public CDN certification",
+  "tickets": {
+    "FP-59": {
+      "pass": true,
+      "cases": [
+        {
+          "name": "secure opaque cookie login through HTTPS",
+          "pass": true
+        },
+        {
+          "name": "UI expense save, reload and exact server total",
+          "pass": true
+        },
+        {
+          "name": "viewer history read-only and mobile layout",
+          "pass": true
+        },
+        {
+          "name": "post-install worker control and no cached API",
+          "pass": true
+        },
+        {
+          "name": "401 redirect clears private history",
+          "pass": true
+        }
+      ],
+      "notes": [
+        "Initial disposable-certificate rejection corrected in isolated Chromium launch.",
+        "Worker control verified after normal post-install reload."
+      ]
+    },
+    "FP-60": {
+      "pass": true,
+      "cases": [
+        {
+          "name": "secure opaque cookie login through HTTPS",
+          "pass": true
+        },
+        {
+          "name": "UI expense save, reload and exact server total",
+          "pass": true
+        },
+        {
+          "name": "UI logout clears cookie",
+          "pass": true
+        },
+        {
+          "name": "viewer history read-only and mobile layout",
+          "pass": true
+        },
+        {
+          "name": "confirmed financial split renders exact amounts without viewer writes",
+          "pass": true
+        },
+        {
+          "name": "post-install worker control and no cached API",
+          "pass": true
+        },
+        {
+          "name": "401 redirect clears private history",
+          "pass": true
+        }
+      ]
+    },
+    "FP-61": {
+      "pass": true,
+      "cases": [
+        {
+          "name": "secure opaque cookie login through HTTPS",
+          "pass": true
+        },
+        {
+          "name": "UI expense save, reload and exact server total",
+          "pass": true
+        },
+        {
+          "name": "offline UI draft survives offline reload without booking",
+          "pass": true
+        },
+        {
+          "name": "same-account reauthentication and explicit retry sync exactly once",
+          "pass": true
+        },
+        {
+          "name": "UI logout clears session and durable local drafts",
+          "pass": true
+        },
+        {
+          "name": "viewer history read-only, mobile layout and private-draft isolation",
+          "pass": true
+        },
+        {
+          "name": "confirmed financial split renders exact amounts without viewer writes",
+          "pass": true
+        },
+        {
+          "name": "post-install worker control and no cached API",
+          "pass": true
+        },
+        {
+          "name": "ordinary 401 redirect clears private history",
+          "pass": true
+        }
+      ],
+      "facts": {
+        "offlineDatabaseRows": 0,
+        "replayedDatabaseRows": 1,
+        "replayReceipts": 1,
+        "confirmedTotal": 433
+      },
+      "notes": [
+        "Queue recovery center reported sign-in required; its visible Try again action led to same-account login. Automatic redirect from the unavailable overlay was not established.",
+        "Responsive hidden sync-center copy required a visible-element selector.",
+        "Logout cookie assertion was checked after its asynchronous server response completed.",
+        "Live list references were refreshed; stable observed summary locator handled recurring hydration."
+      ]
+    }
+  },
+  "passedGroups": 21,
+  "initialHarnessCorrections": [
+    "Local disposable certificate trust in isolated Chromium",
+    "Post-install reload before worker control assertion",
+    "Visible responsive sync-center selector",
+    "Actual recovery action and logout-response timing",
+    "Live list references refreshed"
+  ]
+}

@@ -1,6 +1,19 @@
 # Sprint 337 preflight execution — 2026-10-20
 
+FP-59/60/61 and Docker security changes are released. Final live read-only verification passes; device/installed-upgrade testing was explicitly waived, not passed. See [the authoritative final release record](fp61-deployment-2026-10-21.md) and [current open work](../memory-bank/todo.md). The shared client-IP/rate-limit issue is separately tracked by FP-66 and is not resolved by the release.
+
+This dated record is retained for audit/recovery context. Older “pending”, “unmerged”, “not ready” and superseding interim statements below describe their original checkpoints. Do not repeat completed merges or deployments from this history.
+
+<details>
+<summary>Historical preflight execution record</summary>
+
 Status: **verification in progress; do not tag ready yet**. The user will handle merging and deployment. No PR merge, production migration, application deployment, service restart or firewall change is authorized by this check.
+
+October 21 follow-up: the user authorized protected backup and isolated restore execution. [Backup/migration recovery evidence](backup-restore-check-2026-10-21.md) now confirms a current protected checkpoint, full base restore comparison, uploads archive integrity, exact five-migration row/sequence preservation, five rollback guards and post-migration recovery. This supersedes the backup/migration-pending items below; broader service/device/firewall gates remain open. No production migration or deployment occurred.
+
+October 21 service follow-up: [50/50 declared direct-service cases pass](service-acceptance-2026-10-21.md) across exact FP-59/60/61 candidates on independent fresh restored copies. Fixture cleanup/baseline hashes, runtime dependency identity, production health/identity and temporary cleanup verified. The snapshot has no scheduled budgets; shared-budget scenarios explicitly use synthetic actors/history. HTTP/auth middleware, proxy/browser/installed-device acceptance and PostgreSQL exposure disposition remain open.
+
+October 21 HTTP/browser follow-up: [34 HTTP/auth groups, 21 browser assertion groups and three backend-down nginx checks pass](http-browser-acceptance-2026-10-21.md) on the exact three candidate pairs. Offline reload/recovery/reauthentication/retry, secure cookies, scope/validation/CORS and viewer/mobile controls verified. Baseline preservation, production health/identity and complete cleanup pass. This clears the declared isolated HTTP/browser scope; actual-device/installed-version upgrades, live edge checks and PostgreSQL exposure disposition remain separate.
 
 ## Confirmed environment and current production inventory
 
@@ -39,11 +52,13 @@ PostgreSQL is published as `*:5432->5432/tcp`; an external single TCP connection
 ## Remaining execution
 
 - [ ] Capture actual running image IDs/digests and supplemental runtime/firewall/resource evidence.
-- [ ] Create a protected current database/config/uploads recovery checkpoint and validate the custom dump.
-- [ ] Restore into a bounded disposable PostgreSQL container with no network access/public ports; never restore into production.
-- [ ] Apply the exact FP-59/60/61 migrations only on restored copies, verifying all old data/sequence preservation and rollback guards.
-- [ ] Execute the prepared FP-60/61 service checks on separate isolated restored copies and verify fixture cleanup.
-- [ ] Dump and re-restore the post-migration copy to verify recovery of schema, financial history and durable receipts.
+- [x] Create a protected current database/config/uploads recovery checkpoint and validate the custom dump (October 21; live uploads are not atomic with the DB snapshot).
+- [x] Restore into a bounded disposable PostgreSQL container with no network access/public ports; never restore into production.
+- [x] Apply the exact FP-59/60/61 migrations only on restored copies, verifying all old data/sequence preservation and rollback guards.
+- [x] Execute FP-59/60/61 direct-service acceptance on separate isolated restored copies and verify fixture cleanup (October 21; 9/18/23 cases, zero failures; HTTP/browser/device scope remains separate).
+- [x] Dump and re-restore the post-migration copy to verify recovery of schema and explicitly synthetic financial history/durable receipts (October 21).
 - [ ] Record actual results and disposition of remaining installed-device/proxy/upgrade and external database-port concerns before any ready label.
 
 The protected copy rehearsal is being prepared because local Docker is unavailable and there is no staging host. It will use cached images, no application startup, no outbound integration access, strict container ownership/cleanup and resource guards. Prepared scripts are not passing execution evidence.
+
+</details>

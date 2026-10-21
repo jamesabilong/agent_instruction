@@ -1,0 +1,296 @@
+{
+  "run": "fp-http-20261021T024251Z-1911130",
+  "checkpoint": "fp-restore-20261021T011813Z-1873577",
+  "scope": "real HTTP/auth plus isolated nginx and local HTTPS/SSH browser path",
+  "tickets": {
+    "FP-59": {
+      "http": {
+        "ticket": "FP-59",
+        "scope": "real HTTP through production nginx configuration on isolated restored copy",
+        "cases": [
+          {
+            "name": "proxy readiness, SPA deep link and missing asset boundaries",
+            "pass": true
+          },
+          {
+            "name": "worker manifest HTML and hashed asset cache/MIME headers",
+            "pass": true
+          },
+          {
+            "name": "unauthenticated malformed expired and cookie-precedence auth rejection",
+            "pass": true
+          },
+          {
+            "name": "login validation invalid credentials and secure opaque cookie sessions",
+            "pass": true
+          },
+          {
+            "name": "authenticated identity overrides body identity and prevents cross-account CRUD",
+            "pass": true
+          },
+          {
+            "name": "route validation rejects malformed amounts ids query and roles",
+            "pass": true
+          },
+          {
+            "name": "viewer read responses and mutation denials; outsider scope hidden",
+            "pass": true
+          },
+          {
+            "name": "transfer recipient acceptance contract and prior owner privilege loss",
+            "pass": true
+          },
+          {
+            "name": "allowlisted credentialed CORS preflight and foreign origin rejection",
+            "pass": true
+          },
+          {
+            "name": "logout expires session cookie with production security attributes",
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "passed": 10,
+        "failed": 0
+      },
+      "fixtures": {
+        "pass": true,
+        "baselineTables": 39,
+        "baselineRows": 568,
+        "originalRowsPreserved": true,
+        "syntheticAccountsRemoved": 4,
+        "scratchSequencesRestored": true
+      },
+      "proxyFailure": {
+        "proxyFailureFallback": true,
+        "healthIndependent": true
+      },
+      "runtime": {
+        "runtimeDependenciesMatched": 263,
+        "node": "v20.20.2"
+      },
+      "frontendHead": "101a8342057eba50478d894bee9e77734c1927a2",
+      "backendHead": "e4fe0bc2f0f6c2a5cede18b4bc13ab9691a2ec46",
+      "distIndexSha256": "373bab302ec88a2a5686d1ab67b2f70bc18e9d3f639d4c681f6215a56ecb495a",
+      "verifiedBackendFiles": 146
+    },
+    "FP-60": {
+      "http": {
+        "ticket": "FP-60",
+        "scope": "real HTTP through production nginx configuration on isolated restored copy",
+        "cases": [
+          {
+            "name": "proxy readiness, SPA deep link and missing asset boundaries",
+            "pass": true
+          },
+          {
+            "name": "worker manifest HTML and hashed asset cache/MIME headers",
+            "pass": true
+          },
+          {
+            "name": "unauthenticated malformed expired and cookie-precedence auth rejection",
+            "pass": true
+          },
+          {
+            "name": "login validation invalid credentials and secure opaque cookie sessions",
+            "pass": true
+          },
+          {
+            "name": "authenticated identity overrides body identity and prevents cross-account CRUD",
+            "pass": true
+          },
+          {
+            "name": "route validation rejects malformed amounts ids query and roles",
+            "pass": true
+          },
+          {
+            "name": "viewer read responses and mutation denials; outsider scope hidden",
+            "pass": true
+          },
+          {
+            "name": "transfer recipient acceptance contract and prior owner privilege loss",
+            "pass": true
+          },
+          {
+            "name": "allowlisted credentialed CORS preflight and foreign origin rejection",
+            "pass": true
+          },
+          {
+            "name": "accounting HTTP centavos permissions pending confirmation and spending independence",
+            "pass": true
+          },
+          {
+            "name": "logout expires session cookie with production security attributes",
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "passed": 11,
+        "failed": 0
+      },
+      "fixtures": {
+        "pass": true,
+        "baselineTables": 41,
+        "baselineRows": 569,
+        "originalRowsPreserved": true,
+        "syntheticAccountsRemoved": 4,
+        "scratchSequencesRestored": true
+      },
+      "proxyFailure": {
+        "proxyFailureFallback": true,
+        "healthIndependent": true
+      },
+      "runtime": {
+        "runtimeDependenciesMatched": 263,
+        "node": "v20.20.2"
+      },
+      "frontendHead": "3372481b6797b95064e3482ed37b2c95a04e4bf9",
+      "backendHead": "e8b7f78595303546a6f846f8074f9ffcfcfef990",
+      "distIndexSha256": "7af4ad857a2ae08dd9cf547172e1d871e862594e195a0aae382d84d1bc72842d",
+      "verifiedBackendFiles": 152
+    },
+    "FP-61": {
+      "http": {
+        "ticket": "FP-61",
+        "scope": "real HTTP through production nginx configuration on isolated restored copy",
+        "cases": [
+          {
+            "name": "proxy readiness, SPA deep link and missing asset boundaries",
+            "pass": true
+          },
+          {
+            "name": "worker manifest HTML and hashed asset cache/MIME headers",
+            "pass": true
+          },
+          {
+            "name": "unauthenticated malformed expired and cookie-precedence auth rejection",
+            "pass": true
+          },
+          {
+            "name": "login validation invalid credentials and secure opaque cookie sessions",
+            "pass": true
+          },
+          {
+            "name": "authenticated identity overrides body identity and prevents cross-account CRUD",
+            "pass": true
+          },
+          {
+            "name": "route validation rejects malformed amounts ids query and roles",
+            "pass": true
+          },
+          {
+            "name": "viewer read responses and mutation denials; outsider scope hidden",
+            "pass": true
+          },
+          {
+            "name": "transfer recipient acceptance contract and prior owner privilege loss",
+            "pass": true
+          },
+          {
+            "name": "allowlisted credentialed CORS preflight and foreign origin rejection",
+            "pass": true
+          },
+          {
+            "name": "accounting HTTP centavos permissions pending confirmation and spending independence",
+            "pass": true
+          },
+          {
+            "name": "draftAccountId controller rejects another identity and missing identity",
+            "pass": true
+          },
+          {
+            "name": "receipt HTTP retries conflicts payload codes and deleted replay contract",
+            "pass": true
+          },
+          {
+            "name": "logout expires session cookie with production security attributes",
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "passed": 13,
+        "failed": 0
+      },
+      "fixtures": {
+        "pass": true,
+        "baselineTables": 42,
+        "baselineRows": 570,
+        "originalRowsPreserved": true,
+        "syntheticAccountsRemoved": 4,
+        "scratchSequencesRestored": true
+      },
+      "proxyFailure": {
+        "proxyFailureFallback": true,
+        "healthIndependent": true
+      },
+      "runtime": {
+        "runtimeDependenciesMatched": 263,
+        "node": "v20.20.2"
+      },
+      "frontendHead": "0d100ab525fb3bcbfde2e42b97e56b127c10d30b",
+      "backendHead": "1d1fa16985330b923cca20631d4e7c2a86a37af2",
+      "distIndexSha256": "4c9755bbfbb0a1eb91303a822d8edb079795f78c561f24d2bc051249e2361689",
+      "verifiedBackendFiles": 154
+    }
+  },
+  "nginxSha256": "453a8d163f72e8377a105bd0d44f14974e7780ad04589ab26e2c42412a4a4e0c",
+  "harnessHashes": {
+    "http-fixtures.mjs": "ec4e76e973116fab9ee247c979ccf707a2a7fbd30bebaf276d504bf9e873db02",
+    "http-acceptance.mjs": "9e8b69092a43b3a98ecc252a4610a14dc82f89e510785ddcdc381ec96040fa3a",
+    "service-dependency-check.cjs": "72e5ff79c178d98b0d7b55778e3a72b67f91983805978b5734f895a6b3033680"
+  },
+  "httpPassed": 34,
+  "proxyFailurePassed": 3,
+  "isolation": {
+    "pg": {
+      "networkMode": "none",
+      "networks": [
+        {
+          "name": "none"
+        }
+      ],
+      "portBindings": {},
+      "image": "sha256:10c47ad9dd943cd6fb2ee56fdff62fedbd16b3f758857557c5b135c5161f9aa4",
+      "memoryLimit": 402653184,
+      "cpuNano": 500000000
+    },
+    "backend": {
+      "networkMode": "fp-http-20261021T024251Z-1911130-internal",
+      "networks": [
+        {
+          "name": "fp-http-20261021T024251Z-1911130-internal",
+          "internal": true
+        }
+      ],
+      "portBindings": {},
+      "image": "sha256:9f13929a80298cf505b08957367d1840c877dd7a97aa70522e9c2f2106989a59",
+      "memoryLimit": 402653184,
+      "cpuNano": 500000000,
+      "integrationSchedulersDisabled": true
+    },
+    "proxy": {
+      "networkMode": "fp-http-20261021T024251Z-1911130-internal",
+      "networks": [
+        {
+          "name": "fp-http-20261021T024251Z-1911130-internal",
+          "internal": true
+        }
+      ],
+      "portBindings": {
+        "80/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "18481"
+          }
+        ]
+      },
+      "image": "sha256:a9e1c31ff8a943ffe697aa9b0d50ae4ce27f2c47395a6a770471006d32a676c4",
+      "memoryLimit": 134217728,
+      "cpuNano": 250000000
+    }
+  },
+  "cleanup": {
+    "productionServices": "unchanged and healthy",
+    "temporaryResources": "absent"
+  }
+}
