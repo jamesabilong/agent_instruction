@@ -20,9 +20,9 @@ All three findings have local October 22 fixes and expected-correct regressions.
 
 FP-62 reconciled master: backend #59/frontend #57 are MERGEABLE/CLEAN, with fresh 13 feature + 30 whole-app acceptance and 36 gated database checks passing without skips. Master portable test tooling is retained. Actual target inventory, sourced/editorially approved pilot and target-representative recovery/release evidence remain open; PRs remain drafts. [Record](../docs/fp-62-reconciliation-2026-10-22.md).
 
-## Open: FP-63 dependency refresh and release gates
+## FP-63: dependency/configuration integration resolved; release approval open
 
-FP-63 backend #58/frontend #56 remain unchanged and conflicting with master, pending explicit FP-62 prerequisite PRs backend #59/frontend #57. Refresh FP-63 after the prerequisite, retain master testing commands/aliases and both ticket suites, then test the actual integrated candidate. Existing FP-63 feature-head acceptance and FP-62's newly reconciled acceptance do not certify that future merge. Both descriptions link current prerequisites and remaining content/recovery/deployment gates. No hosted CI checks are attached. [Current gates](../docs/fp-62-reconciliation-2026-10-22.md).
+Refreshed FP-63 now contains reconciled FP-62/current master. Backend #58/frontend #56 are MERGEABLE/CLEAN, with fresh 12 feature + 30 whole-app acceptance, 36 gated DB checks, full lint/unit/build and runner checks passing. Initial 2/298 unit timing failures were corrected with an enabled-action wait; application source, correctness assertions and timeouts were unchanged. FP-62 prerequisite approval, actual target inventory/editorial, target-representative recovery and ordered rollout gates remain open. [Current record](../docs/fp-63-refresh-2026-10-22.md).
 
 ## Operational limits
 

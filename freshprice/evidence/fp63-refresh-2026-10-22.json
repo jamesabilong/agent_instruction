@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-22",
+  "result": "passed",
+  "scope": "FP-63 merged with reconciled FP-62/current master; real local APIs/PostgreSQL/Chromium, synthetic fixtures",
+  "runId": "2026-10-22T03-54-33-485Z-fc83fe26",
+  "sourceFingerprint": "e3bc2450b5d518f0af5e8e70f9254f25e4e878fa3da4351f0438cfa0f5a3fd39",
+  "frontend": {
+    "commit": "befd3c87ddb6eff6f4c983484882d956532ee283",
+    "parentDependency": "2ab9afcecfc66a4718ed863365279efd325ec93d",
+    "pr": "https://github.com/jamesabilong/fresh-price-front/pull/56",
+    "mergeable": "MERGEABLE",
+    "draft": true,
+    "lint": "passed",
+    "build": "passed",
+    "unitsPassed": 298
+  },
+  "backend": {
+    "commit": "dffc65f0e13e49472394585073258716bf87d630",
+    "parentDependency": "cf33ab22e737788e8d187c2ac1b7135e80d19c9a",
+    "pr": "https://github.com/jamesabilong/fresh-price-backend/pull/58",
+    "mergeable": "MERGEABLE",
+    "draft": true,
+    "ordinaryPassed": 232,
+    "ordinaryOptInSkipped": 23,
+    "databaseIntegrationPassed": 36,
+    "databaseIntegrationSkipped": 0
+  },
+  "groups": {
+    "feature": {
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "whole-app": {
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "runnerChecksPassed": 41,
+  "featureSourceChanged": false,
+  "initialFrontendUnitFailures": 2,
+  "unitHarnessCorrection": "Await the enabled purchase action after refreshed settings synchronize; assertions and timeouts unchanged",
+  "releaseApproved": false,
+  "productionMutations": false
+}

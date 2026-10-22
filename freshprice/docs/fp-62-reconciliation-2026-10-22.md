@@ -1,5 +1,7 @@
 # FP-62 reconciliation and FP-63 dependency gates — 2026-10-22
 
+FP-63 refresh update (2026-10-22): FP-63 now includes the reconciled FP-62 branches, is conflict-free and passes full fresh tests. PRs #58/#56 are MERGEABLE/CLEAN. [Current refresh and release gates](fp-63-refresh-2026-10-22.md) supersedes pending-refresh/conflict status below; production release remains unapproved.
+
 Result: FP-62 is reconciled with current master, fully tested and published as paired draft PRs. GitHub confirms both PRs MERGEABLE/CLEAN against master. Content/editorial and production delivery gates remain open; no production merge or deployment was performed.
 
 ## Published candidates

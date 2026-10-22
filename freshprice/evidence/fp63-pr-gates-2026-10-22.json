@@ -5,11 +5,12 @@
     "pr": "https://github.com/jamesabilong/fresh-price-backend/pull/58",
     "base": "master",
     "baseSha": "871acac",
-    "head": "9e78c65e179b1d7608dcc023fa26ea939edfe762",
+    "head": "dffc65f0e13e49472394585073258716bf87d630",
     "draft": true,
-    "mergeable": "CONFLICTING",
+    "mergeable": "MERGEABLE",
     "statusChecks": [],
-    "conflicts": [
+    "conflicts": [],
+    "previousConflicts": [
       "package.json"
     ]
   },
@@ -17,11 +18,12 @@
     "pr": "https://github.com/jamesabilong/fresh-price-front/pull/56",
     "base": "master",
     "baseSha": "699c11ba",
-    "head": "7d8e4be4ce8efc3b60c8dc3c6d5ecf2e93221c73",
+    "head": "befd3c87ddb6eff6f4c983484882d956532ee283",
     "draft": true,
-    "mergeable": "CONFLICTING",
+    "mergeable": "MERGEABLE",
     "statusChecks": [],
-    "conflicts": [
+    "conflicts": [],
+    "previousConflicts": [
       "vite.config.ts"
     ]
   },
@@ -38,6 +40,9 @@
     "frontend": "https://github.com/jamesabilong/fresh-price-front/pull/57"
   },
   "prerequisiteReconciledAndTested": true,
-  "fp63RefreshAndIntegratedAcceptance": "pending",
-  "currentRecord": "../docs/fp-62-reconciliation-2026-10-22.md"
+  "fp63RefreshAndIntegratedAcceptance": "passed",
+  "currentRecord": "../docs/fp-63-refresh-2026-10-22.md",
+  "technicalMergeable": true,
+  "integrationAndLocalAcceptance": "passed",
+  "releaseApproved": false
 }

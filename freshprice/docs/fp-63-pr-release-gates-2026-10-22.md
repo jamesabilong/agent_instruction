@@ -1,5 +1,7 @@
 # FP-63 PR dependency and release gates — 2026-10-22
 
+FP-63 refresh update (2026-10-22): FP-63 now includes the reconciled FP-62 branches, is conflict-free and passes full fresh tests. PRs #58/#56 are MERGEABLE/CLEAN. [Current refresh and release gates](fp-63-refresh-2026-10-22.md) supersedes pending-refresh/conflict status below; production release remains unapproved.
+
 Reconciliation update (2026-10-22): FP-62 conflicts are resolved and full fresh tests pass; paired draft backend #59/frontend #57 are mergeable. FP-63 now explicitly depends on them and still needs its own refresh/retest. [Current reconciliation and gates](fp-62-reconciliation-2026-10-22.md) supersedes earlier FP-62 conflict/no-PR status below. No production release performed.
 
 Status: **draft PRs created; do not merge**. No app source changes, integration commit, merge, production migration or deployment occurred during this check.
