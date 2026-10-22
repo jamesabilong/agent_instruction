@@ -5,8 +5,8 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 ## Active work
 
 - [ ] FP-66: correct trusted end-user IP handling and forwarding-header spoof resistance, then implement admin-managed exact account/IP exemptions with expiry, revocation and audit. Validate FreshPrice and PhilWatch. No gateway/subnet wildcard exemption or password/session/role bypass. [Ticket](https://fresh-price.atlassian.net/browse/FP-66).
-- [ ] FP-63 draft PR backend #58/frontend #56 target master but conflict in backend package.json/frontend vite.config.ts and include unreleased FP-62. Decide prerequisite/combined scope, preserve master test-runner fixes, resolve conflicts and rerun acceptance on the integrated candidate. [Gate audit](../docs/fp-63-pr-release-gates-2026-10-22.md).
-- [ ] FP-62: run target-environment content inventory, select a sourced pilot, obtain editorial/translation approval and verify moderation/import/privacy/rollback before publication.
+- [ ] Land/release approved FP-62 prerequisites [backend #59](https://github.com/jamesabilong/fresh-price-backend/pull/59) then [frontend #57](https://github.com/jamesabilong/fresh-price-front/pull/57) in authorized order, after real inventory/editorial/target-representative recovery gates. Conflicts and fresh local synthetic acceptance are resolved; PRs remain drafts. [Reconciliation](../docs/fp-62-reconciliation-2026-10-22.md).
+- [ ] Refresh FP-63 backend #58/frontend #56 with the approved reconciled prerequisite, resolve remaining config conflicts without losing master test tooling, review the shopping-only master diff and rerun all FP-63 integrated-candidate acceptance. Both PR descriptions now link the exact prerequisites.
 - [ ] FP-63: complete dependency/release review and ordered backend-before-frontend rollout acceptance; local isolated migration/purchase/history/revocation/offline/retry checks now pass. Favorites/price alerts remain separate increments; checkout/orders/payments remain deferred.
 - [ ] Confirm owners and estimates/capacity for active sprint 338 (FP-62/63/66); started on user request October 22 with Jira’s default two-week window ending November 5. FP-57 → FP-58 remains the future seller/messaging sequence.
 
@@ -30,3 +30,7 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 - [x] 2026-10-22: reviewed full FP-63 scope and exact accepted source; no new blocking findings. Committed/pushed frontend `7d8e4be4` and backend `9e78c65` on existing FP-63 branches, without app master changes or deployment. [Review](../docs/fp-63-publication-review-2026-10-22.md).
 
 - [x] 2026-10-22: created/attached paired FP-63 draft PRs against master, verified conflicts/dependencies/checks and documented remaining release gates; checked FP-66 requirements/source and the trusted-IP-first sequence. No merge, release or exemption enabled.
+
+- [x] 2026-10-22: checked FP-62 remote source, critical feature paths, original review fixes and retained acceptance JUnit (13 + 30, zero failures/skips); confirmed master conflicts, absent dedicated PRs and open inventory/editorial/release gates. No app changes or new test execution claimed.
+
+- [x] 2026-10-22: reconciled FP-62 with master, committed/pushed backend `cf33ab2`/frontend `2ab9afce`, passed fresh complete 13+30 acceptance plus 36 gated DB checks and normal lint/unit/build/runner checks, created attached draft PRs #59/#57 and updated FP-63 dependency/release gates. No production merge/deployment.

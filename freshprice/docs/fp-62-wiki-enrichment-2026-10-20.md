@@ -1,5 +1,9 @@
 # FP-62 wiki enrichment — 2026-10-20
 
+Reconciliation update (2026-10-22): FP-62 conflicts are resolved and full fresh tests pass; paired draft backend #59/frontend #57 are mergeable. FP-63 now explicitly depends on them and still needs its own refresh/retest. [Current reconciliation and gates](fp-62-reconciliation-2026-10-22.md) supersedes earlier FP-62 conflict/no-PR status below. No production release performed.
+
+October 22 current-state update: FP-59/60/61 are released and sprint 338 is active. FP-62 feature source/retained acceptance still match, but master integration conflicts, actual inventory/editorial and delivery gates remain open. [Current check](fp-62-current-check-2026-10-22.md) supersedes historical dependency/sprint status below.
+
 Matching local FP-62 frontend/backend branches start from the published reviewed FP-61 heads (`5e58884f` / `a394105d`). That dependency chain remains unmerged. No commit, push, PR, deployment or production content publication is included in this implementation task. Jira FP-62 is In Progress; its future Wiki and Shopping Integration sprint has not been started or rescheduled.
 
 ## Baseline audit and editorial scope

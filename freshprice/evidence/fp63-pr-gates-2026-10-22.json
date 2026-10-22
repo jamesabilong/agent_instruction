@@ -32,5 +32,12 @@
     "sprint": 338,
     "prerequisite": "trusted client-IP forwarding and spoof resistance for FreshPrice and PhilWatch"
   },
-  "productionMutations": false
+  "productionMutations": false,
+  "prerequisitePullRequests": {
+    "backend": "https://github.com/jamesabilong/fresh-price-backend/pull/59",
+    "frontend": "https://github.com/jamesabilong/fresh-price-front/pull/57"
+  },
+  "prerequisiteReconciledAndTested": true,
+  "fp63RefreshAndIntegratedAcceptance": "pending",
+  "currentRecord": "../docs/fp-62-reconciliation-2026-10-22.md"
 }

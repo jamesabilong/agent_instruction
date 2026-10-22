@@ -16,9 +16,13 @@ Resolved historical findings:
 
 All three findings have local October 22 fixes and expected-correct regressions. 298 frontend units, 232 backend tests (23 existing DB-gated skips), lint/build and controlled Chromium checks pass. Real PostgreSQL/API/Chromium acceptance now passes 12 feature + 30 whole-app with zero failures/skips; all 36 gated database integrations and dedicated service/database regressions pass. Docker is restored; the reviewed fixes are committed/pushed (frontend `7d8e4be4`, backend `9e78c65`) and remain unreleased. Older purchases recover their original budget from immutable operation receipts; inaccessible/deleted/moved expenses show unavailable history instead of a misleading link. See [current verification](../docs/fp-63-review-fixes-2026-10-22.md). [Full review and reproduction](../docs/fp-63-precommit-review-2026-10-20.md).
 
-## Open: FP-63 integration/release gates
+## FP-62: integration conflicts resolved; content/release readiness open
 
-Draft backend #58 and frontend #56 target master but both are CONFLICTING/DIRTY: backend package.json and frontend vite.config.ts. Both include unreleased FP-62, and older feature configurations omit master’s reconciled testing commands/module aliases. Preserve those master fixes during integration and rerun tests on the actual result. No CI checks are attached; existing acceptance certifies feature heads, not a resolved merge. Target content/editorial and migration/release gates remain open. [Audit](../docs/fp-63-pr-release-gates-2026-10-22.md).
+FP-62 reconciled master: backend #59/frontend #57 are MERGEABLE/CLEAN, with fresh 13 feature + 30 whole-app acceptance and 36 gated database checks passing without skips. Master portable test tooling is retained. Actual target inventory, sourced/editorially approved pilot and target-representative recovery/release evidence remain open; PRs remain drafts. [Record](../docs/fp-62-reconciliation-2026-10-22.md).
+
+## Open: FP-63 dependency refresh and release gates
+
+FP-63 backend #58/frontend #56 remain unchanged and conflicting with master, pending explicit FP-62 prerequisite PRs backend #59/frontend #57. Refresh FP-63 after the prerequisite, retain master testing commands/aliases and both ticket suites, then test the actual integrated candidate. Existing FP-63 feature-head acceptance and FP-62's newly reconciled acceptance do not certify that future merge. Both descriptions link current prerequisites and remaining content/recovery/deployment gates. No hosted CI checks are attached. [Current gates](../docs/fp-62-reconciliation-2026-10-22.md).
 
 ## Operational limits
 
