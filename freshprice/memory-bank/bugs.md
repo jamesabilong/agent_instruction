@@ -16,6 +16,10 @@ Resolved historical findings:
 
 All three findings have local October 22 fixes and expected-correct regressions. 298 frontend units, 232 backend tests (23 existing DB-gated skips), lint/build and controlled Chromium checks pass. Real PostgreSQL/API/Chromium acceptance now passes 12 feature + 30 whole-app with zero failures/skips; all 36 gated database integrations and dedicated service/database regressions pass. Docker is restored; the reviewed fixes are committed/pushed (frontend `7d8e4be4`, backend `9e78c65`) and remain unreleased. Older purchases recover their original budget from immutable operation receipts; inaccessible/deleted/moved expenses show unavailable history instead of a misleading link. See [current verification](../docs/fp-63-review-fixes-2026-10-22.md). [Full review and reproduction](../docs/fp-63-precommit-review-2026-10-20.md).
 
+## Open: FP-63 integration/release gates
+
+Draft backend #58 and frontend #56 target master but both are CONFLICTING/DIRTY: backend package.json and frontend vite.config.ts. Both include unreleased FP-62, and older feature configurations omit master’s reconciled testing commands/module aliases. Preserve those master fixes during integration and rerun tests on the actual result. No CI checks are attached; existing acceptance certifies feature heads, not a resolved merge. Target content/editorial and migration/release gates remain open. [Audit](../docs/fp-63-pr-release-gates-2026-10-22.md).
+
 ## Operational limits
 
 - Actual app digests were verified against running image IDs; service definitions still use mutable latest tags. Serialize releases and verify the real image after each deployment.

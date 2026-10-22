@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-22",
+  "mergeReady": false,
+  "backend": {
+    "pr": "https://github.com/jamesabilong/fresh-price-backend/pull/58",
+    "base": "master",
+    "baseSha": "871acac",
+    "head": "9e78c65e179b1d7608dcc023fa26ea939edfe762",
+    "draft": true,
+    "mergeable": "CONFLICTING",
+    "statusChecks": [],
+    "conflicts": [
+      "package.json"
+    ]
+  },
+  "frontend": {
+    "pr": "https://github.com/jamesabilong/fresh-price-front/pull/56",
+    "base": "master",
+    "baseSha": "699c11ba",
+    "head": "7d8e4be4ce8efc3b60c8dc3c6d5ecf2e93221c73",
+    "draft": true,
+    "mergeable": "CONFLICTING",
+    "statusChecks": [],
+    "conflicts": [
+      "vite.config.ts"
+    ]
+  },
+  "unreleasedIncludedDependency": "FP-62",
+  "nextTicket": {
+    "key": "FP-66",
+    "status": "To Do",
+    "sprint": 338,
+    "prerequisite": "trusted client-IP forwarding and spoof resistance for FreshPrice and PhilWatch"
+  },
+  "productionMutations": false
+}

@@ -5,7 +5,7 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 ## Active work
 
 - [ ] FP-66: correct trusted end-user IP handling and forwarding-header spoof resistance, then implement admin-managed exact account/IP exemptions with expiry, revocation and audit. Validate FreshPrice and PhilWatch. No gateway/subnet wildcard exemption or password/session/role bypass. [Ticket](https://fresh-price.atlassian.net/browse/FP-66).
-- [ ] Reconcile FP-62/63 against deployed master before release; preserve tested source, review actual PR targets/diffs, and deploy schema/backend before frontend. Do not merge stacked PRs into an old feature branch when a production release is intended.
+- [ ] FP-63 draft PR backend #58/frontend #56 target master but conflict in backend package.json/frontend vite.config.ts and include unreleased FP-62. Decide prerequisite/combined scope, preserve master test-runner fixes, resolve conflicts and rerun acceptance on the integrated candidate. [Gate audit](../docs/fp-63-pr-release-gates-2026-10-22.md).
 - [ ] FP-62: run target-environment content inventory, select a sourced pilot, obtain editorial/translation approval and verify moderation/import/privacy/rollback before publication.
 - [ ] FP-63: complete dependency/release review and ordered backend-before-frontend rollout acceptance; local isolated migration/purchase/history/revocation/offline/retry checks now pass. Favorites/price alerts remain separate increments; checkout/orders/payments remain deferred.
 - [ ] Confirm owners and estimates/capacity for active sprint 338 (FP-62/63/66); started on user request October 22 with Jira’s default two-week window ending November 5. FP-57 → FP-58 remains the future seller/messaging sequence.
@@ -28,3 +28,5 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 - [x] 2026-10-22: started sprint 338; restored local Docker by launching its nested desktop app; full acceptance passes 12 feature + 30 whole-app, 36 database integrations and dedicated service/database regressions. Disposable local databases only; no production changes.
 
 - [x] 2026-10-22: reviewed full FP-63 scope and exact accepted source; no new blocking findings. Committed/pushed frontend `7d8e4be4` and backend `9e78c65` on existing FP-63 branches, without app master changes or deployment. [Review](../docs/fp-63-publication-review-2026-10-22.md).
+
+- [x] 2026-10-22: created/attached paired FP-63 draft PRs against master, verified conflicts/dependencies/checks and documented remaining release gates; checked FP-66 requirements/source and the trusted-IP-first sequence. No merge, release or exemption enabled.
