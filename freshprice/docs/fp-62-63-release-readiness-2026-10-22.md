@@ -1,5 +1,7 @@
 # FP-62/FP-63 release readiness — 2026-10-22
 
+Release execution update: the user accepted the documented limitations and explicitly authorized review, merge/deploy and content publication. All four PRs are merged, all workflows succeeded, and approved content is published. Final remote frontend/host verification and post-release backup await SSH reconnection. [Current release record](fp62-fp63-deployment-2026-10-22.md) supersedes the pre-release approval/status statements below.
+
 Current release gates for FP-62 backend #59/frontend #57 and FP-63 backend #58/frontend #56. This record supersedes their earlier pending inventory/backup/migration gates. No production feature write, migration, merge, restart or deployment was performed. All four PRs still target master, are drafts and report MERGEABLE/CLEAN; no review approvals or hosted checks are attached.
 
 ## Actual production content inventory

@@ -10,6 +10,8 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
+- [FP-62/63 production release](freshprice/docs/fp62-fp63-deployment-2026-10-22.md): four PRs merged/four deployment workflows succeeded; approved content is published. Final FP-63 frontend runtime/host verification and post-release backup await working SSH/provider-console access. This supersedes unreleased/gate-pending status below.
+
 - FP-59/60/61 are released. [Final live read-only verification](freshprice/docs/fp61-deployment-2026-10-21.md) is the authoritative release record; intermediate dated audits are historical checkpoints, not instructions to repeat completed deployments.
 - [PostgreSQL protection/recovery](freshprice/docs/postgres-security-2026-10-21.md) and [deployment operations](freshprice/docs/deployment.md) describe the inspected single-VPS topology.
 - [FP-62 reconciliation](freshprice/docs/fp-62-reconciliation-2026-10-22.md): master conflicts resolved, fresh 13+30 acceptance and 36 gated DB checks pass; paired draft PRs #59/#57 are mergeable. Content/editorial/release gates remain open and FP-63 explicitly depends on these prerequisites.

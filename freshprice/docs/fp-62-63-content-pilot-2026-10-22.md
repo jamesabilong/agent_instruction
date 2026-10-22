@@ -1,6 +1,6 @@
 # FP-62/FP-63 content approval packet — 2026-10-22
 
-**Status: content approved by the user on October 22, 2026; not submitted or published.** Approval covers the six wiki variants and two sourced English recipe records exactly as prepared in documentation commit `9172cbd38e25d305540b661633f33790a1f17a8c`. It does not authorize production content writes or application release. [Readiness and remaining release approvals](fp-62-63-release-readiness-2026-10-22.md).
+**Status: content approved by the user and published on October 22, 2026 during the explicitly authorized rollout.** Approval covers the six wiki variants and two sourced English recipe records exactly as prepared in documentation commit `9172cbd38e25d305540b661633f33790a1f17a8c`. The later user release request explicitly authorized production publication; [execution record](fp62-fp63-deployment-2026-10-22.md). [Readiness and remaining release approvals](fp-62-63-release-readiness-2026-10-22.md).
 
 ## Multilingual wiki pilot
 
@@ -93,8 +93,8 @@ The retained inventory contains source metadata, not each alias string. Before s
 | P1-ceb / P9-ceb | accept exact Cebuano text (user approval; no independent certification claimed) | Approved / user in this chat / 2026-10-22 |
 | R1 | approve source attribution/reuse, measures, approximate timing, instructions and mapping | Approved / user in this chat / 2026-10-22 |
 | R2 | approve source attribution/reuse, 12-serving yield, required chilling, unknown times and mapping | Approved / user in this chat / 2026-10-22 |
-| Publication | execute approved content only after supporting release and production rollout authorization; confirm current source revisions and aliases | Not executed; awaits rollout authorization / — / — |
+| Publication | execute approved content only after supporting release and production rollout authorization; confirm current source revisions and aliases | Published / user-authorized system operation / 2026-10-22 |
 
 Approval evidence: user message, “I approve the multilingual pilot and the two recipes.” Approved packet revision: `9172cbd38e25d305540b661633f33790a1f17a8c`; original file SHA-256: `ff69908bad006720446eec7cb2049beab689fcbb9cf4bb802e7aec17efed2cc6`. This clears the pilot/recipe content approval gate without changing any approved text, measure or instruction.
 
-Seasonal calendars remain outside this pilot: months stay empty until geographically appropriate evidence and review exist. Content approval does not authorize production writes, PR approval, merge/deployment or recovery/device waivers. Source-revision/alias rechecks and publication are rollout tasks, not additional editorial approval of unchanged text. No recipe has been kitchen-tested in this task. Changed content requires renewed approval.
+Seasonal calendars remain outside this pilot: months stay empty until geographically appropriate evidence and review exist. The separate later user request authorized production writes and merge/deployment and accepted recovery/device limitations. Source-revision/alias rechecks and publication are rollout tasks, not additional editorial approval of unchanged text. No recipe has been kitchen-tested in this task. Changed content requires renewed approval.

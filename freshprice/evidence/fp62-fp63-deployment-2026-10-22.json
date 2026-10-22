@@ -1,0 +1,716 @@
+{
+  "date": "2026-10-22",
+  "authorization": {
+    "content": "User approved exact packet from 9172cbd",
+    "limitations": "User explicitly accepts documented recovery and testing limitations",
+    "release": "Review four PRs, merge/deploy FP-62 then FP-63, backend before frontend, publish approved content, verify each step"
+  },
+  "review": {
+    "blockingFindings": 0,
+    "heads": {
+      "fp62Backend": "cf33ab22e737788e8d187c2ac1b7135e80d19c9a",
+      "fp62Frontend": "2ab9afcecfc66a4718ed863365279efd325ec93d",
+      "fp63Backend": "dffc65f0e13e49472394585073258716bf87d630",
+      "fp63Frontend": "befd3c87ddb6eff6f4c983484882d956532ee283"
+    },
+    "fp63ResultingMergeTreesEqualTestedHeads": true
+  },
+  "fp62": {
+    "backendBuild": {
+      "run": 39735829903,
+      "mergeCommit": "5c39b4cb9bd866de848c06040b96432e4919cc78",
+      "checkoutVerified": true,
+      "digest": "sha256:8aa6c1891cdfb46c9167088a2153d6f8c6002a3c0978d00189e26a8da9dbc3d5"
+    },
+    "backendVerification": {
+      "ticket": "FP-62",
+      "services": [
+        {
+          "name": "freshprice_postgres",
+          "image": "postgres:14@sha256:cf736c1b9bd4ef55e74b7b7a21747d6b01b6451bf3284adce27237c98fe2cbbf",
+          "update": null,
+          "ports": []
+        },
+        {
+          "name": "freshprice_backend",
+          "image": "ghcr.io/jamesabilong/platform-backend:latest",
+          "update": "completed",
+          "ports": []
+        },
+        {
+          "name": "freshprice_frontend",
+          "image": "ghcr.io/jamesabilong/fresh-price-frontend:latest",
+          "update": "completed",
+          "ports": [
+            {
+              "Protocol": "tcp",
+              "TargetPort": 80,
+              "PublishedPort": 8081,
+              "PublishMode": "host"
+            }
+          ]
+        },
+        {
+          "name": "freshprice_sugilanon",
+          "image": "ghcr.io/jamesabilong/sugilanon:latest",
+          "update": null,
+          "ports": [
+            {
+              "Protocol": "tcp",
+              "TargetPort": 3000,
+              "PublishedPort": 3001,
+              "PublishMode": "ingress"
+            }
+          ]
+        }
+      ],
+      "containers": [
+        {
+          "service": "freshprice_postgres",
+          "id": "295800ec2380f63ae0eb97cc79e8f9b84983fc7ad1a04881bb1f09308912e995",
+          "image_id": "sha256:a9bc466f3831a4ba264534ff36932b268f529348750b4618558f71943b343d85",
+          "repo_digests": [
+            "postgres@sha256:cf736c1b9bd4ef55e74b7b7a21747d6b01b6451bf3284adce27237c98fe2cbbf",
+            "postgres@sha256:d1bfce2479496ff4060a56031364495cbd60acde3aa6d385cb6be8c49aa2e270"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_backend",
+          "id": "2eb83fee75d027c3a909283534e0f8fa610b99b3eba5086d54cad365f75bc63f",
+          "image_id": "sha256:fee3c389983023c21d42604dabbb9d6e0851340d6286508e55e6fa6f0e9f5ac0",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/platform-backend@sha256:8aa6c1891cdfb46c9167088a2153d6f8c6002a3c0978d00189e26a8da9dbc3d5"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_frontend",
+          "id": "94a951b8154f5eaaabfe89e9ef2bda346985239ca58154199400687f53cd381a",
+          "image_id": "sha256:dfdc4e98640fed610a2abb0205bcb75bceebf284a0009d5a5cc4a7d67875cf7a",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/fresh-price-frontend@sha256:6c8694fe0993158cbff8f8f2a7fe5bb558b6d60d53f23f252452d818be8a59e1"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_sugilanon",
+          "id": "5cc646b5bdb9cbb34ca9e9b16db3f5f0096fa5a993717f39b523f4f72e361976",
+          "image_id": "sha256:411860da2800bffa9c7d028dee62c763ad5742e1a505f97a46ed52ac0d9d815d",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/sugilanon@sha256:3e129e7c497cf2b84da1664e1833dec60dd82ec3c70eb37c0dea7ba6254dcced"
+          ],
+          "health": "healthy"
+        }
+      ],
+      "docker_checkout": "5f364defe7202c16e839c58bfc3f35b8ee8221ef",
+      "guard_active": "active",
+      "guard_enabled": "enabled",
+      "guard_rules": "table inet freshprice_pg_guard {\n\tchain prerouting {\n\t\ttype filter hook prerouting priority raw - 10; policy accept;\n\t\tiifname \"eth0\" tcp dport 5432 counter packets 211 bytes 12148 drop comment \"Block public PostgreSQL; retain overlay and loopback access\"\n\t}\n}",
+      "migrations": {
+        "count": 40,
+        "accounting_applied": true,
+        "receipt_migration_applied": true
+      },
+      "database_identity_matches_checkpoint": true,
+      "database_volume_preserved": true,
+      "fresh_backend_connection": "PASS"
+    },
+    "frontendBuild": {
+      "run": 39736210469,
+      "mergeCommit": "0070ecf58be718bf5d93847c23991972644712cc",
+      "checkoutVerified": true,
+      "digest": "sha256:53f2154b3f3abcb4077337d997617ab623458a1530b7a767958d14d6f9e58d3c"
+    },
+    "frontendVerification": {
+      "ticket": "FP-62",
+      "services": [
+        {
+          "name": "freshprice_postgres",
+          "image": "postgres:14@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+          "update": "completed",
+          "ports": []
+        },
+        {
+          "name": "freshprice_backend",
+          "image": "ghcr.io/jamesabilong/platform-backend:latest",
+          "update": null,
+          "ports": []
+        },
+        {
+          "name": "freshprice_frontend",
+          "image": "ghcr.io/jamesabilong/fresh-price-frontend:latest",
+          "update": "completed",
+          "ports": [
+            {
+              "Protocol": "tcp",
+              "TargetPort": 80,
+              "PublishedPort": 8081,
+              "PublishMode": "host"
+            }
+          ]
+        },
+        {
+          "name": "freshprice_sugilanon",
+          "image": "ghcr.io/jamesabilong/sugilanon:latest",
+          "update": null,
+          "ports": [
+            {
+              "Protocol": "tcp",
+              "TargetPort": 3000,
+              "PublishedPort": 3001,
+              "PublishMode": "ingress"
+            }
+          ]
+        }
+      ],
+      "containers": [
+        {
+          "service": "freshprice_postgres",
+          "id": "d02966a5719cc5c0ecdbbb5797772d8c9593c99198c08dde98906d94e55103ae",
+          "image_id": "sha256:a9bc466f3831a4ba264534ff36932b268f529348750b4618558f71943b343d85",
+          "repo_digests": [
+            "postgres@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+            "postgres@sha256:cf736c1b9bd4ef55e74b7b7a21747d6b01b6451bf3284adce27237c98fe2cbbf",
+            "postgres@sha256:d1bfce2479496ff4060a56031364495cbd60acde3aa6d385cb6be8c49aa2e270"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_backend",
+          "id": "2eb83fee75d027c3a909283534e0f8fa610b99b3eba5086d54cad365f75bc63f",
+          "image_id": "sha256:fee3c389983023c21d42604dabbb9d6e0851340d6286508e55e6fa6f0e9f5ac0",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/platform-backend@sha256:8aa6c1891cdfb46c9167088a2153d6f8c6002a3c0978d00189e26a8da9dbc3d5"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_frontend",
+          "id": "018ae6a355759ed7a15f04e157d223bf822845f2ea48049962bb7750d6a68d60",
+          "image_id": "sha256:f69e1f0071d6536ef513147d7958555d1dca474e409bb8cc373fcfd48776d74f",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/fresh-price-frontend@sha256:53f2154b3f3abcb4077337d997617ab623458a1530b7a767958d14d6f9e58d3c"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_sugilanon",
+          "id": "5cc646b5bdb9cbb34ca9e9b16db3f5f0096fa5a993717f39b523f4f72e361976",
+          "image_id": "sha256:411860da2800bffa9c7d028dee62c763ad5742e1a505f97a46ed52ac0d9d815d",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/sugilanon@sha256:3e129e7c497cf2b84da1664e1833dec60dd82ec3c70eb37c0dea7ba6254dcced"
+          ],
+          "health": "healthy"
+        }
+      ],
+      "docker_checkout": "5f364defe7202c16e839c58bfc3f35b8ee8221ef",
+      "guard_active": "active",
+      "guard_enabled": "enabled",
+      "guard_rules": "table inet freshprice_pg_guard {\n\tchain prerouting {\n\t\ttype filter hook prerouting priority raw - 10; policy accept;\n\t\tiifname \"eth0\" tcp dport 5432 counter packets 228 bytes 13032 drop comment \"Block public PostgreSQL; retain overlay and loopback access\"\n\t}\n}",
+      "migrations": {
+        "count": 40,
+        "accounting_applied": true,
+        "receipt_migration_applied": true
+      },
+      "database_identity_matches_checkpoint": true,
+      "database_volume_preserved": true,
+      "fresh_backend_connection": "PASS"
+    },
+    "publicHealth": {
+      "/api/platform/db/health": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      },
+      "/healthz": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "cache-control": "no-store"
+        }
+      },
+      "/": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/html",
+          "cache-control": "no-store"
+        }
+      },
+      "/sw.js": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/javascript",
+          "cache-control": "no-store",
+          "cdn-cache-control": "no-store"
+        }
+      },
+      "/manifest.webmanifest": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/manifest+json",
+          "cache-control": "no-cache",
+          "cdn-cache-control": "no-store"
+        }
+      },
+      "/api/freshprice/products/1/wiki/enrichments": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        }
+      }
+    }
+  },
+  "contentPublication": {
+    "approvalCommit": "9172cbd38e25d305540b661633f33790a1f17a8c",
+    "actor": "operator-authorized system publication; user FK attribution left null",
+    "variants": [
+      {
+        "id": "d71a29bb-ec62-5839-bfd8-002686482647",
+        "productId": 1,
+        "locale": "en",
+        "sourceRevisionId": 1,
+        "published": true
+      },
+      {
+        "id": "04778a30-fff5-594f-a4eb-ce96b63c39fc",
+        "productId": 1,
+        "locale": "fil",
+        "sourceRevisionId": 1,
+        "published": true
+      },
+      {
+        "id": "3c668346-1a43-5038-8d6e-3ca87b6c8b2a",
+        "productId": 1,
+        "locale": "ceb",
+        "sourceRevisionId": 1,
+        "published": true
+      },
+      {
+        "id": "f8caa774-d062-54a1-bb65-3011827b1812",
+        "productId": 9,
+        "locale": "en",
+        "sourceRevisionId": 9,
+        "published": true
+      },
+      {
+        "id": "17e9528c-a253-5e8d-a6e3-bc379b03eefd",
+        "productId": 9,
+        "locale": "fil",
+        "sourceRevisionId": 9,
+        "published": true
+      },
+      {
+        "id": "de0e334c-322a-5bdc-bab4-8e3d999162a8",
+        "productId": 9,
+        "locale": "ceb",
+        "sourceRevisionId": 9,
+        "published": true
+      }
+    ],
+    "recipes": [
+      {
+        "id": 1,
+        "productId": 7,
+        "slug": "cabbage-comfort-pilot",
+        "servings": 4,
+        "published": true
+      },
+      {
+        "id": 2,
+        "productId": 22,
+        "slug": "tomato-cucumber-salad-pilot",
+        "servings": 12,
+        "published": true
+      }
+    ],
+    "aliases": [
+      {
+        "ingredient": "1 piece Onion",
+        "exactProductIds": [],
+        "unit": "piece"
+      },
+      {
+        "ingredient": "1 tsp Vegetable Oil",
+        "exactProductIds": [
+          104
+        ],
+        "unit": "tsp"
+      },
+      {
+        "ingredient": "4.5 cups Cabbage",
+        "exactProductIds": [
+          7
+        ],
+        "unit": "cups"
+      },
+      {
+        "ingredient": "1/4 tsp Salt",
+        "exactProductIds": [
+          103
+        ],
+        "unit": "tsp"
+      },
+      {
+        "ingredient": "1/4 tsp Black Pepper",
+        "exactProductIds": [],
+        "unit": "tsp"
+      },
+      {
+        "ingredient": "1 tsp Caraway Seeds",
+        "exactProductIds": [],
+        "unit": "tsp"
+      },
+      {
+        "ingredient": "4 pieces Tomato",
+        "exactProductIds": [
+          22
+        ],
+        "unit": "pieces"
+      },
+      {
+        "ingredient": "1 piece Cucumber",
+        "exactProductIds": [
+          23
+        ],
+        "unit": "piece"
+      },
+      {
+        "ingredient": "1 cup Red Onion",
+        "exactProductIds": [
+          34
+        ],
+        "unit": "cup"
+      },
+      {
+        "ingredient": "1 cup Green Pepper",
+        "exactProductIds": [],
+        "unit": "cup"
+      },
+      {
+        "ingredient": "1/3 cup Parsley",
+        "exactProductIds": [],
+        "unit": "cup"
+      },
+      {
+        "ingredient": "1/3 cup Apple Cider Vinegar",
+        "exactProductIds": [],
+        "unit": "cup"
+      },
+      {
+        "ingredient": "1 tbsp Olive Oil",
+        "exactProductIds": [],
+        "unit": "tbsp"
+      },
+      {
+        "ingredient": "2 cloves Garlic",
+        "exactProductIds": [
+          33
+        ],
+        "unit": "cloves"
+      },
+      {
+        "ingredient": "1/2 tsp Salt",
+        "exactProductIds": [
+          103
+        ],
+        "unit": "tsp"
+      },
+      {
+        "ingredient": "1/2 tsp Black Pepper",
+        "exactProductIds": [],
+        "unit": "tsp"
+      },
+      {
+        "ingredient": "1/2 tsp Sugar",
+        "exactProductIds": [],
+        "unit": "tsp"
+      }
+    ],
+    "pass": true
+  },
+  "publicContentVerification": {
+    "variants": [
+      {
+        "productId": 1,
+        "locale": "en",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 1,
+        "locale": "fil",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 1,
+        "locale": "ceb",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 9,
+        "locale": "en",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 9,
+        "locale": "fil",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 9,
+        "locale": "ceb",
+        "exactText": true,
+        "publicPrivacy": true
+      }
+    ],
+    "recipes": [
+      {
+        "id": 1,
+        "productId": 7,
+        "slug": "cabbage-comfort-pilot",
+        "exactFields": true
+      },
+      {
+        "id": 2,
+        "productId": 22,
+        "slug": "tomato-cucumber-salad-pilot",
+        "exactFields": true
+      }
+    ],
+    "filters": [
+      {
+        "productId": 7,
+        "titleSearch": true
+      },
+      {
+        "productId": 22,
+        "titleSearch": true
+      }
+    ],
+    "unknownCookTimeExcluded": true,
+    "noSeasonalMonthsInvented": true,
+    "pass": true
+  },
+  "limitations": [
+    "Accepted by user; not relabeled passed: off-host/global-role/full-server recovery, non-atomic live uploads, restored-data browser/device/installed-upgrade testing",
+    "No authenticated production financial mutations were performed for smoke testing; actual spending/purchase behavior is covered by isolated acceptance",
+    "Existing canonical starter wiki text is unchanged; new enrichment pilot has no regional/seasonal calendar claims"
+  ],
+  "publicationCleanup": "root-owned public payload removed with root after non-root removal was denied; publication not repeated",
+  "httpClientNote": "Edge returned 403 to Python default client; curl public checks and real-browser UI checks passed",
+  "fp63": {
+    "backendBuild": {
+      "run": 39736915451,
+      "mergeCommit": "6110be9a496472df16a340987c868811322f154d",
+      "checkoutVerified": true,
+      "digest": "sha256:b4202249c438c0c74e773dbcf03bf3bd29e1af3077946a6495f37ae2aafe9f44"
+    },
+    "backendVerification": {
+      "ticket": "FP-63",
+      "services": [
+        {
+          "name": "freshprice_postgres",
+          "image": "postgres:14@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+          "update": "completed",
+          "ports": []
+        },
+        {
+          "name": "freshprice_backend",
+          "image": "ghcr.io/jamesabilong/platform-backend:latest",
+          "update": "completed",
+          "ports": []
+        },
+        {
+          "name": "freshprice_frontend",
+          "image": "ghcr.io/jamesabilong/fresh-price-frontend:latest",
+          "update": "completed",
+          "ports": [
+            {
+              "Protocol": "tcp",
+              "TargetPort": 80,
+              "PublishedPort": 8081,
+              "PublishMode": "host"
+            }
+          ]
+        },
+        {
+          "name": "freshprice_sugilanon",
+          "image": "ghcr.io/jamesabilong/sugilanon:latest",
+          "update": null,
+          "ports": [
+            {
+              "Protocol": "tcp",
+              "TargetPort": 3000,
+              "PublishedPort": 3001,
+              "PublishMode": "ingress"
+            }
+          ]
+        }
+      ],
+      "containers": [
+        {
+          "service": "freshprice_postgres",
+          "id": "d02966a5719cc5c0ecdbbb5797772d8c9593c99198c08dde98906d94e55103ae",
+          "image_id": "sha256:a9bc466f3831a4ba264534ff36932b268f529348750b4618558f71943b343d85",
+          "repo_digests": [
+            "postgres@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+            "postgres@sha256:cf736c1b9bd4ef55e74b7b7a21747d6b01b6451bf3284adce27237c98fe2cbbf",
+            "postgres@sha256:d1bfce2479496ff4060a56031364495cbd60acde3aa6d385cb6be8c49aa2e270"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_backend",
+          "id": "667fdfffe2dad28b88df18665fd7981fbd00b28895e07ac12a6bbc3824b7764d",
+          "image_id": "sha256:4e7c3174cf073041a674ff10c7515b3b16cd12f1e204bd20d029f3a9a17533bd",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/platform-backend@sha256:b4202249c438c0c74e773dbcf03bf3bd29e1af3077946a6495f37ae2aafe9f44"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_frontend",
+          "id": "018ae6a355759ed7a15f04e157d223bf822845f2ea48049962bb7750d6a68d60",
+          "image_id": "sha256:f69e1f0071d6536ef513147d7958555d1dca474e409bb8cc373fcfd48776d74f",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/fresh-price-frontend@sha256:53f2154b3f3abcb4077337d997617ab623458a1530b7a767958d14d6f9e58d3c"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_sugilanon",
+          "id": "5cc646b5bdb9cbb34ca9e9b16db3f5f0096fa5a993717f39b523f4f72e361976",
+          "image_id": "sha256:411860da2800bffa9c7d028dee62c763ad5742e1a505f97a46ed52ac0d9d815d",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/sugilanon@sha256:3e129e7c497cf2b84da1664e1833dec60dd82ec3c70eb37c0dea7ba6254dcced"
+          ],
+          "health": "healthy"
+        }
+      ],
+      "docker_checkout": "5f364defe7202c16e839c58bfc3f35b8ee8221ef",
+      "guard_active": "active",
+      "guard_enabled": "enabled",
+      "guard_rules": "table inet freshprice_pg_guard {\n\tchain prerouting {\n\t\ttype filter hook prerouting priority raw - 10; policy accept;\n\t\tiifname \"eth0\" tcp dport 5432 counter packets 228 bytes 13032 drop comment \"Block public PostgreSQL; retain overlay and loopback access\"\n\t}\n}",
+      "migrations": {
+        "count": 41,
+        "accounting_applied": true,
+        "receipt_migration_applied": true
+      },
+      "database_identity_matches_checkpoint": true,
+      "database_volume_preserved": true,
+      "fresh_backend_connection": "PASS"
+    },
+    "frontendBuild": {
+      "run": 39737225193,
+      "mergeCommit": "b4f55921b5ce4542055f94d7e4633ed0e5c96a4e",
+      "checkoutVerified": true,
+      "digest": "sha256:9104acc80d49bbfe5777b7c52a46e60437f59eef44339f67e709bb491ceae1e8"
+    },
+    "frontendVerification": "pending SSH reconnection",
+    "publicHealth": {
+      "https://freshprice.philwatch.com/": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/html",
+          "cache-control": "no-store"
+        }
+      },
+      "publicBundleAssets": [
+        "/assets/index-CdpwjPDS.js",
+        "/assets/react-B2a_P0Pe.js",
+        "/assets/http-CAxH4-Ta.js",
+        "/assets/state-0YgCGEkY.js",
+        "/assets/index-Bh4JbOk3.css"
+      ],
+      "https://freshprice.philwatch.com/healthz": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "cache-control": "no-store"
+        }
+      },
+      "https://freshprice.philwatch.com/api/platform/db/health": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      },
+      "https://freshprice.philwatch.com/sw.js": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/javascript",
+          "cache-control": "no-store",
+          "cdn-cache-control": "no-store"
+        }
+      },
+      "https://freshprice.philwatch.com/manifest.webmanifest": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/manifest+json",
+          "cache-control": "no-cache",
+          "cdn-cache-control": "no-store"
+        }
+      },
+      "https://philwatch.com/api/platform/db/health": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      },
+      "https://freshprice.philwatch.com/api/freshprice/shopping-lists": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        }
+      },
+      "https://freshprice.philwatch.com/api/freshprice/products/wiki/inventory": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        }
+      }
+    }
+  },
+  "finalVerificationStatus": "Final frontend runtime/host verification and post-release backup pending: SSH master broke; direct SSH timed out; user asked about reboot, provider console requested; no reboot performed",
+  "finalBrowserSmoke": {
+    "cebuanoVariantRendered": true,
+    "recipesRendered": true,
+    "recipeShoppingSignInLinkRenderedAfterHardReload": true,
+    "fullInstalledUpgradeTested": false
+  },
+  "allFourWorkflowsSucceeded": true,
+  "sshIncidentPublicHealth": {
+    "checkedAtUTC": "2026-10-22T07:10:27.075113+00:00",
+    "checks": [
+      {
+        "url": "https://freshprice.philwatch.com/api/platform/db/health",
+        "body": {
+          "status": "ok",
+          "database": "ready"
+        }
+      },
+      {
+        "url": "https://freshprice.philwatch.com/healthz",
+        "body": {
+          "status": "ok"
+        }
+      },
+      {
+        "url": "https://philwatch.com/api/platform/db/health",
+        "body": {
+          "status": "ok",
+          "database": "ready"
+        }
+      }
+    ]
+  }
+}

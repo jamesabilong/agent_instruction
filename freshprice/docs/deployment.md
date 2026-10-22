@@ -1,6 +1,6 @@
 # FreshPrice Deployment And Local Operations
 
-Last deployment verification: 2026-10-21. [Final FP-61 release record](fp61-deployment-2026-10-21.md).
+Latest rollout: 2026-10-22, FP-62/63. [Release record](fp62-fp63-deployment-2026-10-22.md): four workflows succeeded and content published; final FP-63 frontend runtime/host and post-release backup checks await SSH/provider-console access. [Fully verified prior FP-61 release](fp61-deployment-2026-10-21.md).
 
 VPS deployment verification added: 2026-10-12
 

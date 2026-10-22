@@ -6,23 +6,11 @@ Current as of 2026-10-22. Historical findings and their original status are pres
 
 A harmless public auth-root GET is logged by Express as Docker gateway `172.19.0.1`, while Cloudflare observes a public client IP. Express trusts one proxy hop; nginx appends its peer and Caddy has no configured trusted client-IP handling. Requests through this route can share authentication/global API rate-limit buckets. PhilWatch's exact public auth path is not independently reproduced yet. No bypass is active. Fix trustworthy client identity/spoof resistance before admin-managed account/IP exemptions. [FP-66](https://fresh-price.atlassian.net/browse/FP-66), [investigation](../docs/auth-testing-exemption-2026-10-21.md).
 
-## FP-63: review fixes verified locally, unreleased
+## FP-62/63 deployed; final host verification interrupted
 
-Resolved historical findings:
+All four reviewed PRs merged and deployment workflows succeeded in authorized backend-before-frontend order. FP-62 runtime/40 migrations and FP-63 backend/41 migrations pass host verification; approved multilingual pilot/two recipes are published and exact public checks pass. Both merged master trees equal the tested FP-63 candidates. Prior FP-63 confirmation/history/centavo findings are resolved and released. [Release record](../docs/fp62-fp63-deployment-2026-10-22.md).
 
-1. P2: an open purchase confirmation can adopt a refreshed list/market/budget/revision without renewed review.
-2. P2: a shared purchase links to personal history instead of its immutable original shared budget context.
-3. P3: binary floating-point multiplication can round valid half-cent estimates incorrectly.
-
-All three findings have local October 22 fixes and expected-correct regressions. 298 frontend units, 232 backend tests (23 existing DB-gated skips), lint/build and controlled Chromium checks pass. Real PostgreSQL/API/Chromium acceptance now passes 12 feature + 30 whole-app with zero failures/skips; all 36 gated database integrations and dedicated service/database regressions pass. Docker is restored; the reviewed fixes are committed/pushed (frontend `7d8e4be4`, backend `9e78c65`) and remain unreleased. Older purchases recover their original budget from immutable operation receipts; inaccessible/deleted/moved expenses show unavailable history instead of a misleading link. See [current verification](../docs/fp-63-review-fixes-2026-10-22.md). [Full review and reproduction](../docs/fp-63-precommit-review-2026-10-20.md).
-
-## FP-62: integration conflicts resolved; content/release readiness open
-
-FP-62 reconciled master: backend #59/frontend #57 are MERGEABLE/CLEAN, with fresh 13 feature + 30 whole-app acceptance and 36 gated database checks passing without skips. Master portable test tooling is retained. Actual target inventory and fresh restored-backup migration/recovery now pass. Production has zero recipes; the exact six multilingual variants and two sourced recipes in the [approval packet](../docs/fp-62-63-content-pilot-2026-10-22.md) are user-approved against `9172cbd`. Publication is still unexecuted; acceptance/recovery-scope and code-review/release approvals remain open. Seasonal calendars remain outside the approved scope; PRs remain drafts. [Current readiness](../docs/fp-62-63-release-readiness-2026-10-22.md). [Record](../docs/fp-62-reconciliation-2026-10-22.md).
-
-## FP-63: dependency/configuration integration resolved; release approval open
-
-Refreshed FP-63 now contains reconciled FP-62/current master. Backend #58/frontend #56 are MERGEABLE/CLEAN, with fresh 12 feature + 30 whole-app acceptance, 36 gated DB checks, full lint/unit/build and runner checks passing. Initial 2/298 unit timing failures were corrected with an enabled-action wait; application source, correctness assertions and timeouts were unchanged. Actual inventory and refreshed protected-backup migration/recovery pass. FP-62 prerequisite approval, acceptance/recovery-scope and code-review/ordered rollout approvals remain open; pilot/recipe content is user-approved. [Current record](../docs/fp-63-refresh-2026-10-22.md).
+Final FP-63 frontend runtime/host verification and post-release backup/restore are incomplete because SSH repeatedly times out/breaks, including after a new master socket appeared. Fresh public app/database health passes. Provider-console diagnosis is pending; no full-VPS reboot/firewall/auth change performed. Do not label workflow success or public health as completed host/backup verification.
 
 ## Operational limits
 

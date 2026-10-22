@@ -1,0 +1,36 @@
+# FP-62/FP-63 production release — October 22, 2026
+
+The user explicitly accepted the documented recovery/testing limitations and authorized review, serialized merge/deployment and approved-content publication. All four PRs were reviewed with no new blocking findings, merged in the requested order and their deployment workflows succeeded. **Final remote frontend image/host verification and the post-release backup are pending SSH reconnection**; do not treat workflow success alone as those checks passing.
+
+## Ordered release record
+
+| Step | PR | Master merge commit | Production workflow | Verification |
+| --- | --- | --- | --- | --- |
+| FP-62 backend | [backend #59](https://github.com/jamesabilong/fresh-price-backend/pull/59) | `5c39b4cb9bd866de848c06040b96432e4919cc78` | [39735829903](https://github.com/jamesabilong/fpdocker/actions/runs/39735829903) | Intended runtime digest, 40 migrations, fresh DB connection, preserved DB identity/volume, four healthy services and PostgreSQL guard pass. |
+| FP-62 frontend | [frontend #57](https://github.com/jamesabilong/fresh-price-front/pull/57) | `0070ecf58be718bf5d93847c23991972644712cc` | [39736210469](https://github.com/jamesabilong/fpdocker/actions/runs/39736210469) | Intended frontend/backend runtime digests, 40 migrations, services/security, public health and worker/manifest cache headers pass. |
+| FP-63 backend | [backend #58](https://github.com/jamesabilong/fresh-price-backend/pull/58) | `6110be9a496472df16a340987c868811322f154d` | [39736915451](https://github.com/jamesabilong/fpdocker/actions/runs/39736915451) | Intended runtime digest, 41 migrations, DB preservation/security/health, shopping auth guard and published content pass. |
+| FP-63 frontend | [frontend #56](https://github.com/jamesabilong/fresh-price-front/pull/56) | `b4f55921b5ce4542055f94d7e4633ed0e5c96a4e` | [39737225193](https://github.com/jamesabilong/fpdocker/actions/runs/39737225193) | Workflow succeeded; public recipe-to-shopping sign-in link verified after hard reload. Final remote runtime/host verification pending SSH. |
+
+Reviewed exact tested heads: backend FP-62 `cf33ab2`, frontend FP-62 `2ab9afce`, backend FP-63 `dffc65f`, frontend FP-63 `befd3c87`. Review covered route authorization/ownership, moderation and public privacy, source locking/invalidation, parameterized filters, retry identities, atomic purchase/expense/receipt writes, financial permissions, preserved history, unit/centavo handling and private UI reset/confirmation behavior. Prior full acceptance and restored-data service/migration evidence remains applicable. No application source changed during release. Both final master trees equal the exact tested FP-63 trees; prerequisite merges leave only shopping changes against the deployed FP-62 trees. No weakened assertion or new synthetic production financial mutation was used as smoke evidence.
+
+## Approved content published after FP-62
+
+Approval references [the exact packet at `9172cbd`](https://github.com/jamesabilong/agent_instruction/blob/9172cbd38e25d305540b661633f33790a1f17a8c/freshprice/docs/fp-62-63-content-pilot-2026-10-22.md). Rechecked both source wikis were published at revisions 1 and 9; checked canonical names and actual exact aliases before publication. Stable proposal IDs permit a bounded resume without replacing another approved variant. A protected fresh DB dump was taken immediately before writing content at `/var/backups/freshprice/fp-restore-20261022T060313Z-2598048/approved-publication/pre-publication.dump`.
+
+Published three English/Filipino/Cebuano variants each for Pechay 1 and Lettuce 9, recognition off, empty geography/months and exact approved tips. Existing canonical wiki text is unchanged. Published [Cabbage Comfort](https://freshprice.philwatch.com/products/7/wiki/recipes/cabbage-comfort-pilot) (recipe 1, Cabbage 7, four servings) and [Tomato and Cucumber Salad](https://freshprice.philwatch.com/products/22/wiki/recipes/tomato-cucumber-salad-pilot) (recipe 2, Tomato 22, twelve servings).
+
+Publication used the deployed validators and review/recipe services through an authorized system operation. Nullable author/reviewer/creator references were left null rather than impersonating an application account; this record and the protected operation retain human approval provenance. No login credentials, fabricated user, expense, settlement or purchase was created. A temporary public payload was root-owned; non-root cleanup was denied, then root removed that exact file. Publication succeeded once and was not rerun for cleanup.
+
+Public API verification confirms all six exact content payloads, revisions, absence of private author/reviewer fields, null recognition and empty months; both recipes match every approved field/ingredient/instruction. Search finds each title, maximum cooking time includes the 35-minute cabbage recipe and excludes the salad's unknown cooking duration. The salad's at-least-one-hour refrigeration instruction is retained as an instruction. New seasonal browsing has no invented Cebu calendars. Actual alias lookup finds Vegetable Oil→Cooking Oil 104; no new alias/substitution was added, and teaspoons remain unsupported for pricing. All other unresolved names remain unresolved as documented.
+
+Real-browser checks verified published Cebuano text/source date and both recipe ingredient/instruction/yield/source views. A returning tab initially retained FP-62's page; hard reload showed FP-63's “Sign in to create a recipe shopping list” link. This is a returning-tab hard-refresh smoke check, not full installed-PWA/device-upgrade certification.
+
+[Sanitized release evidence](../evidence/fp62-fp63-deployment-2026-10-22.json). Full public payload/operation scripts, private output and screenshots remain local/protected, outside this repository.
+
+## Accepted limitations and remaining verification
+
+The user accepted on-VPS-only recovery, global-role/full-server/off-host recovery gaps, non-atomic live DB/uploads capture and the documented restored-data browser/device/installed-upgrade scope. Those unperformed checks remain untested; acceptance is not a passing result. Authenticated financial behavior remains covered by disposable isolated acceptance, not synthetic live purchases.
+
+All approval gates are satisfied for this authorized scope. The outstanding work is verification, not a new approval: reconnect the operator SSH session, verify final actual frontend/backend images/41 migrations/host protections and create/restore a post-release protected backup. The SSH master closed and a direct batch connection timed out during final checks. Do not alter firewall/authentication or infer host verification from public health/workflow status. Prior successful remote checks and exact content publication are retained; no release rollback was requested or attempted.
+
+SSH reconnection follow-up: a new local master socket appeared, but a bounded harmless `true` never returned and the multiplex connection broke again. The queued read-only verification and backup requests were cancelled; no post-release checkpoint is claimed. Fresh uncached public app/database health still passes. Provider console access was requested before considering the user’s reboot suggestion; no whole-VPS restart or firewall/authentication change was performed.

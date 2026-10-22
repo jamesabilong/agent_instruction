@@ -213,16 +213,13 @@
     "off-host/global-role/full-server recovery not certified",
     "restored-copy direct service/import checks; browser evidence uses separate synthetic DBs",
     "no physical device or installed-upgrade test for these tickets",
-    "pilot/recipes user-approved but unpublished; seasonal calendars outside approved scope"
+    "pilot/recipes user-approved and published; seasonal calendars outside approved scope"
   ],
   "initialHarnessFailures": [
     "Sequelize special table-list result conversion corrected",
     "Sequelize virtual purchaseHistory read corrected using model getter"
   ],
-  "remainingApprovals": [
-    "recovery and acceptance/device scope",
-    "PR code review and serialized deployment-triggering master merges including approved-content publication"
-  ],
+  "remainingApprovals": [],
   "contentApproval": {
     "date": "2026-10-22",
     "approver": "user in this chat",
@@ -241,7 +238,20 @@
       "R1",
       "R2"
     ],
-    "published": false,
+    "published": true,
     "independentTranslationCertificationClaimed": false
-  }
+  },
+  "releaseAuthorization": {
+    "date": "2026-10-22",
+    "source": "user in this chat",
+    "acceptedDocumentedRecoveryTestingLimitations": true,
+    "reviewThenMergeDeployOrdered": true,
+    "publishApprovedContent": true,
+    "releaseRecord": "../docs/fp62-fp63-deployment-2026-10-22.md"
+  },
+  "executionVerificationRemaining": [
+    "final FP-63 frontend runtime/host verification via working SSH/provider console",
+    "post-release protected backup and isolated restore"
+  ],
+  "preflightFlagsNote": "productionWrites/mergedOrDeployed above describe the original preflight only; see releaseAuthorization and the separate deployment evidence for executed rollout"
 }

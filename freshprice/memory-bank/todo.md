@@ -4,11 +4,8 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 
 ## Active work
 
-- [ ] During the authorized rollout, recheck current source revisions and exact aliases, publish the [user-approved six multilingual variants and two sourced recipes](../docs/fp-62-63-content-pilot-2026-10-22.md), and verify public content. Editorial approval recorded October 22 against `9172cbd`; no production content inserted.
-
+- [ ] Reconnect the operator SSH session, finish final FP-63 frontend runtime/host checks and take/restore a post-release protected backup. Four PRs are merged, workflows succeeded and approved content is published; [release record](../docs/fp62-fp63-deployment-2026-10-22.md).
 - [ ] FP-66: correct trusted end-user IP handling and forwarding-header spoof resistance, then implement admin-managed exact account/IP exemptions with expiry, revocation and audit. Validate FreshPrice and PhilWatch. No gateway/subnet wildcard exemption or password/session/role bypass. [Ticket](https://fresh-price.atlassian.net/browse/FP-66).
-- [ ] Land/release approved FP-62 prerequisites [backend #59](https://github.com/jamesabilong/fresh-price-backend/pull/59) then [frontend #57](https://github.com/jamesabilong/fresh-price-front/pull/57) in authorized order, after remaining acceptance/recovery-scope and code-review/release approvals in the [readiness packet](../docs/fp-62-63-release-readiness-2026-10-22.md). Actual inventory and fresh restored-backup migration/recovery now pass. Conflicts and fresh local synthetic acceptance are resolved; PRs remain drafts. [Reconciliation](../docs/fp-62-reconciliation-2026-10-22.md).
-- [ ] FP-63: obtain prerequisite FP-62 approval/release and complete acceptance/recovery-scope and code-review/ordered rollout approvals. Actual target inventory and fresh restored-backup migration/recovery now pass. Recheck master/diff after prerequisites land; rerun affected validation if source/config changes. Conflicts, branch dependency integration and fresh local integrated acceptance are complete. [Current gates](../docs/fp-63-refresh-2026-10-22.md). Favorites/price alerts remain separate increments; checkout/orders/payments remain deferred.
 - [ ] Confirm owners and estimates/capacity for active sprint 338 (FP-62/63/66); started on user request October 22 with Jira’s default two-week window ending November 5. FP-57 → FP-58 remains the future seller/messaging sequence.
 
 ## Operations and retained follow-ups
@@ -41,3 +38,5 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 - [x] 2026-10-22: completed actual 113-product inventory (zero recipes), fresh protected backup/full isolated restore, exact 38→40→41 migrations/rollback guards/post-migration recovery and restored-copy service/import checks (10/10 FP-62, 15/15 FP-63). Draft PR release gates updated; content approval is subsequently recorded; recovery/acceptance-scope, code-review and serialized-release approvals remain open.
 
 - [x] 2026-10-22: user approved the exact six multilingual wiki variants and both sourced recipes from documentation commit `9172cbd`; editorial gate closed, production publication and release still unexecuted.
+
+- [x] 2026-10-22: user accepted documented recovery/testing limitations; reviewed/merged FP-62/63 in authorized backend-before-frontend order, all four deployment workflows succeeded and exact approved pilot/recipes published. Final SSH-dependent verification remains tracked above.

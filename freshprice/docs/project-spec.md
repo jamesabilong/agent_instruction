@@ -1,6 +1,6 @@
 # FreshPrice Project Spec
 
-> Current state (2026-10-22): FP-59/60/61 are released and live read-only verification passes; see [final release record](fp61-deployment-2026-10-21.md). Primary app checkouts are on refreshed FP-63 branches containing reconciled FP-62/current master; draft FP-63 PRs backend #58/frontend #56 and FP-62 prerequisites #59/#57 are mergeable. FP-62 remains unreleased with fresh complete acceptance passing; FP-63 review fixes pass local DB/API/browser acceptance; sprint 338 is active October 22–November 5 with FP-62/63/66. [Current progress](../memory-bank/progress.md) supersedes older implementation/deployment-pending notes below.
+> Current state (2026-10-22): FP-59/60/61 are released and verified. FP-62/63 are now merged with four successful deployment workflows and the approved six multilingual variants/two recipes published; actual FP-62 and FP-63 backend host checks pass. Final FP-63 frontend runtime/host and post-release backup verification await working SSH/provider-console access. [Current release record](fp62-fp63-deployment-2026-10-22.md), [progress](../memory-bank/progress.md). Sprint 338 is active October 22–November 5; FP-66 remains the next implementation.
 
 Last consolidated: 2026-10-22. Feature descriptions below retain their implementation-date context.
 
