@@ -1,6 +1,6 @@
 # FP-62 reconciliation and FP-63 dependency gates — 2026-10-22
 
-October 22 readiness update: actual production inventory and fresh isolated restored-backup migration/recovery checks now pass. Production has zero recipes; editorial/recipe, acceptance/recovery-scope and ordered-release approvals remain open. [Current readiness packet](fp-62-63-release-readiness-2026-10-22.md) supersedes the corresponding pending gates below.
+October 22 readiness update: actual production inventory and fresh isolated restored-backup migration/recovery checks now pass. Production still has zero recipes; the user has approved six multilingual variants and two sourced recipe drafts from `9172cbd`, awaiting authorized publication. Acceptance/recovery-scope and code-review/ordered-release approvals remain open. [Current readiness packet](fp-62-63-release-readiness-2026-10-22.md) supersedes the corresponding pending gates below.
 
 FP-63 refresh update (2026-10-22): FP-63 now includes the reconciled FP-62 branches, is conflict-free and passes full fresh tests. PRs #58/#56 are MERGEABLE/CLEAN. [Current refresh and release gates](fp-63-refresh-2026-10-22.md) supersedes pending-refresh/conflict status below; production release remains unapproved.
 

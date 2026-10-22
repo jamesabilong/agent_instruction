@@ -1,6 +1,6 @@
 # FP-62/FP-63 content approval packet — 2026-10-22
 
-**Status: prepared for approval; nothing submitted, approved or published.** This packet proposes six wiki variants and two sourced English recipe records. It does not authorize production content writes or application release. [Readiness and remaining release approvals](fp-62-63-release-readiness-2026-10-22.md).
+**Status: content approved by the user on October 22, 2026; not submitted or published.** Approval covers the six wiki variants and two sourced English recipe records exactly as prepared in documentation commit `9172cbd38e25d305540b661633f33790a1f17a8c`. It does not authorize production content writes or application release. [Readiness and remaining release approvals](fp-62-63-release-readiness-2026-10-22.md).
 
 ## Multilingual wiki pilot
 
@@ -16,11 +16,11 @@ Source for all six proposals: FDA, [Selecting and Serving Produce Safely](https:
 
 For every proposal: `sourceRevisionId` as above, `region=""`, `months=[]`, `sourceUrl` as above, `reviewedOn="2026-10-22"`, `creditConsent=false`, no publicName. Content contains only the exact buyingTips/cookingTips cells. No summary, storage duration, nutrition claim or seasonal text is proposed. Check current publication/revision again before submitting; assign a fresh stable submission UUID per proposal and retain it for retries. Approval must refer to the exact current source revision.
 
-Filipino and Cebuano are editorial drafts, not certified translations. Review register, idiom and fidelity; in particular confirm the intended meanings of damage, raw seafood, rinsing and detergent. Recognition is off and no private identity is included. Approval record below deliberately has no assumed reviewer or sign-off.
+The user explicitly approved the English, Filipino and Cebuano pilot text. This records user editorial acceptance; it does not assert an independently certified translation or an additional reviewer. Recognition remains off and no private identity is included. The exact content cells above are unchanged from the approved revision.
 
 ## Sourced recipe set
 
-Both proposals are paraphrased adaptations of the linked Nutrition.gov records, which credit USDA MyPlate. Ingredient amounts and yields are retained; preparation wording is newly written. Source access/review date is October 22, 2026. The editor must confirm attribution/reuse scope before publication; government hosting is not a blanket license for every contributor asset. No source images, nutrition panels, price claims, health claims or US seasonal tags are copied. Source notes must retain these qualifications and any later approved adaptation.
+Both proposals are paraphrased adaptations of the linked Nutrition.gov records, which credit USDA MyPlate. Ingredient amounts and yields are retained; preparation wording is newly written. Source access/review date is October 22, 2026. The user approved the two sourced adaptations and their documented source/attribution scope; government hosting is not a blanket license for every contributor asset. No source images, nutrition panels, price claims, health claims or US seasonal tags are copied. Source notes must retain these qualifications and any later approved adaptation.
 
 Recipes currently have no locale field in FreshPrice: create **one English recipe per approved proposal**, not three duplicated locale records. Translations above belong to wiki enrichment. Separate translated recipe publication needs a supported locale design and further editorial review.
 
@@ -88,11 +88,13 @@ The retained inventory contains source metadata, not each alias string. Before s
 
 | Item | Decision requested | Status / reviewer / date |
 | --- | --- | --- |
-| P1-en / P9-en | approve factual scope and exact English text | Pending / unassigned / — |
-| P1-fil / P9-fil | fluent Filipino editorial sign-off on exact text | Pending / unassigned / — |
-| P1-ceb / P9-ceb | fluent Cebuano editorial sign-off on exact text | Pending / unassigned / — |
-| R1 | approve source attribution/reuse, measures, approximate timing, instructions and mapping | Pending / unassigned / — |
-| R2 | approve source attribution/reuse, 12-serving yield, required chilling, unknown times and mapping | Pending / unassigned / — |
-| Publication | authorize creation/publication of specifically approved proposals after supporting release; confirm current source revisions and aliases | Pending / unassigned / — |
+| P1-en / P9-en | approve factual scope and exact English text | Approved / user in this chat / 2026-10-22 |
+| P1-fil / P9-fil | accept exact Filipino text (user approval; no independent certification claimed) | Approved / user in this chat / 2026-10-22 |
+| P1-ceb / P9-ceb | accept exact Cebuano text (user approval; no independent certification claimed) | Approved / user in this chat / 2026-10-22 |
+| R1 | approve source attribution/reuse, measures, approximate timing, instructions and mapping | Approved / user in this chat / 2026-10-22 |
+| R2 | approve source attribution/reuse, 12-serving yield, required chilling, unknown times and mapping | Approved / user in this chat / 2026-10-22 |
+| Publication | execute approved content only after supporting release and production rollout authorization; confirm current source revisions and aliases | Not executed; awaits rollout authorization / — / — |
 
-Seasonal calendars remain outside this pilot: months stay empty until geographically appropriate evidence and review exist. Preparing or committing this packet records proposed content; it does not clear editorial, publication, recovery-scope or merge/deployment approvals. No recipe has been kitchen-tested in this task. Record requested edits and approval against this packet's committed revision; re-review changed text rather than transferring approval silently.
+Approval evidence: user message, “I approve the multilingual pilot and the two recipes.” Approved packet revision: `9172cbd38e25d305540b661633f33790a1f17a8c`; original file SHA-256: `ff69908bad006720446eec7cb2049beab689fcbb9cf4bb802e7aec17efed2cc6`. This clears the pilot/recipe content approval gate without changing any approved text, measure or instruction.
+
+Seasonal calendars remain outside this pilot: months stay empty until geographically appropriate evidence and review exist. Content approval does not authorize production writes, PR approval, merge/deployment or recovery/device waivers. Source-revision/alias rechecks and publication are rollout tasks, not additional editorial approval of unchanged text. No recipe has been kitchen-tested in this task. Changed content requires renewed approval.

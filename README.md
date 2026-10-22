@@ -19,7 +19,7 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 - [FP-62/63 readiness packet](freshprice/docs/fp-62-63-release-readiness-2026-10-22.md): actual inventory, fresh protected backup/restored-data migration/recovery, candidate service checks and concrete remaining content/scope/release approvals. Production currently has zero recipes.
 
-- [FP-62/63 content approval packet](freshprice/docs/fp-62-63-content-pilot-2026-10-22.md): six unapproved English/Filipino/Cebuano wiki variants and two sourced English recipe drafts with explicit editorial/publication sign-off.
+- [FP-62/63 content approval packet](freshprice/docs/fp-62-63-content-pilot-2026-10-22.md): six English/Filipino/Cebuano wiki variants and two sourced English recipes approved by the user against `9172cbd`; publication and release remain unexecuted.
 
 ## What belongs here
 

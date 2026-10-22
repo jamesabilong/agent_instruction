@@ -213,16 +213,35 @@
     "off-host/global-role/full-server recovery not certified",
     "restored-copy direct service/import checks; browser evidence uses separate synthetic DBs",
     "no physical device or installed-upgrade test for these tickets",
-    "editorial/recipe/seasonal publication not approved"
+    "pilot/recipes user-approved but unpublished; seasonal calendars outside approved scope"
   ],
   "initialHarnessFailures": [
     "Sequelize special table-list result conversion corrected",
     "Sequelize virtual purchaseHistory read corrected using model getter"
   ],
   "remainingApprovals": [
-    "editorial/source/geography/English-Filipino-Cebuano pilot",
-    "real recipe content or explicit acceptance of zero-recipe launch",
     "recovery and acceptance/device scope",
-    "PR code review and serialized deployment-triggering master merges"
-  ]
+    "PR code review and serialized deployment-triggering master merges including approved-content publication"
+  ],
+  "contentApproval": {
+    "date": "2026-10-22",
+    "approver": "user in this chat",
+    "statement": "I approve the multilingual pilot and the two recipes.",
+    "packetCommit": "9172cbd38e25d305540b661633f33790a1f17a8c",
+    "originalPacketSha256": "ff69908bad006720446eec7cb2049beab689fcbb9cf4bb802e7aec17efed2cc6",
+    "variants": [
+      "P1-en",
+      "P1-fil",
+      "P1-ceb",
+      "P9-en",
+      "P9-fil",
+      "P9-ceb"
+    ],
+    "recipes": [
+      "R1",
+      "R2"
+    ],
+    "published": false,
+    "independentTranslationCertificationClaimed": false
+  }
 }
