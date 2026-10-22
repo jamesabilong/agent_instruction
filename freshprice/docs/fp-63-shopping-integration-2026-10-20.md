@@ -1,5 +1,9 @@
 # FP-63 shopping integration — 2026-10-20
 
+Publication update (2026-10-22): reviewed fixes are committed/pushed on FP-63 as frontend `7d8e4be4` and backend `9e78c65`. [Publication review](fp-63-publication-review-2026-10-22.md) supersedes earlier uncommitted/WIP status below; no release is claimed.
+
+October 22 update: all three findings now have local fixes and expected-correct regressions; full local DB/API/Chromium acceptance now passes 12 feature + 30 whole-app with zero failures/skips, plus 36 database integration checks. [Current fix verification](fp-63-review-fixes-2026-10-22.md) supersedes historical open-finding status below.
+
 October 21 status: preserved/pushed as explicitly WIP FP-63 commits `0a079583` (frontend) and `acfa1f8` (backend), without source changes or deployment. [Three pre-commit review findings](fp-63-precommit-review-2026-10-20.md) remain open; this supersedes older uncommitted/no-gaps interpretations below. FP-59/60/61 are now deployed; FP-62 and FP-63 remain unreleased. Current source fingerprint matches the original reviewed snapshot.
 
 Matching frontend/backend FP-63 branches start from published reviewed FP-62 heads `2fc10cd7` and `1fcb72d8`. Jira FP-63 is In Progress in future sprint 338; the sprint was not started or rescheduled. Application changes remain uncommitted. This implements the ticket's first increment. Favorites, price alerts (including delivery deduplication), orders, checkout and payments remain explicitly separate follow-up work.

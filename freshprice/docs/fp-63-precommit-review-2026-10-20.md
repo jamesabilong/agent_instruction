@@ -1,5 +1,9 @@
 # FP-63 pre-commit review — 2026-10-20
 
+Publication update (2026-10-22): reviewed fixes are committed/pushed on FP-63 as frontend `7d8e4be4` and backend `9e78c65`. [Publication review](fp-63-publication-review-2026-10-22.md) supersedes earlier uncommitted/WIP status below; no release is claimed.
+
+October 22 update: all three findings now have local fixes and expected-correct regressions; full local DB/API/Chromium acceptance now passes 12 feature + 30 whole-app with zero failures/skips, plus 36 database integration checks. [Current fix verification](fp-63-review-fixes-2026-10-22.md) supersedes historical open-finding status below.
+
 October 21 cleanup update: the user authorized preserving needed repo work. The unchanged source snapshot is now pushed as explicitly WIP FP-63 commits (frontend `0a079583`, backend `acfa1f8`). This supersedes the earlier no-commit action status, not the review findings: both P2 issues and the P3 precision issue remain open and the feature is not merge/release-ready. Fresh lint/build and 291 frontend units pass; backend 224 pass/23 DB-gated skips. The source/config fingerprint still matches the reviewed snapshot. No new DB/browser acceptance run or deployment is claimed.
 
 Hold commit readiness for two P2 findings and fix the P3 estimate precision issue. This review changes no application source and performs no stage/commit/push/Jira/deployment action. It supersedes a no-gaps interpretation of the original passing implementation checks.

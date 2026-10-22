@@ -1,0 +1,17 @@
+{
+  "source": "Jira browser start confirmed by getJiraBoardSprintData",
+  "boardId": 1,
+  "sprintId": 338,
+  "name": "Wiki and Shopping Integration",
+  "state": "active",
+  "startDate": "2026-10-22T01:17:21.634Z",
+  "endDate": "2026-11-05T01:17:58.000Z",
+  "timezone": "Asia/Manila",
+  "duration": "Jira default 2 weeks",
+  "issues": [
+    "FP-62",
+    "FP-63",
+    "FP-66"
+  ],
+  "automaticCompletion": false
+}

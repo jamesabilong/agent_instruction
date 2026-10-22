@@ -1,0 +1,32 @@
+{
+  "runId": "2026-10-22T01-22-57-267Z-8b453ff2",
+  "mode": "synthetic local acceptance with real APIs and runner-owned disposable PostgreSQL",
+  "result": "passed",
+  "groups": {
+    "feature": {
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "whole-app": {
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "databaseIntegration": {
+    "passed": 36,
+    "skipped": 0
+  },
+  "dedicatedShoppingServiceDatabaseRegression": "passed",
+  "sourceFingerprint": "a4c53171b0ce757b9b762066156d320cf64afee53255caddbfdc638a30500ab3",
+  "fingerprintScope": "sorted workspace-relative paths, NUL, bytes, NUL: both src trees, package.json and root vite./vitest. configs",
+  "productionMutations": false,
+  "publishedCommits": {
+    "frontend": "7d8e4be4ce8efc3b60c8dc3c6d5ecf2e93221c73",
+    "backend": "9e78c65e179b1d7608dcc023fa26ea939edfe762"
+  },
+  "reviewRecord": "../docs/fp-63-publication-review-2026-10-22.md"
+}

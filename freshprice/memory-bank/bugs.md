@@ -1,18 +1,20 @@
 # FreshPrice Bugs And Risks
 
-Current as of 2026-10-21. Historical findings and their original status are preserved in [the archive](archive/bugs-through-2026-10-21.md). Do not treat old “unfixed” or “not deployed” entries there as current without checking the later resolution.
+Current as of 2026-10-22. Historical findings and their original status are preserved in [the archive](archive/bugs-through-2026-10-21.md). Do not treat old “unfixed” or “not deployed” entries there as current without checking the later resolution.
 
 ## Open: shared gateway authentication limiter identity (FP-66)
 
 A harmless public auth-root GET is logged by Express as Docker gateway `172.19.0.1`, while Cloudflare observes a public client IP. Express trusts one proxy hop; nginx appends its peer and Caddy has no configured trusted client-IP handling. Requests through this route can share authentication/global API rate-limit buckets. PhilWatch's exact public auth path is not independently reproduced yet. No bypass is active. Fix trustworthy client identity/spoof resistance before admin-managed account/IP exemptions. [FP-66](https://fresh-price.atlassian.net/browse/FP-66), [investigation](../docs/auth-testing-exemption-2026-10-21.md).
 
-## Open: FP-63 shopping WIP review findings
+## FP-63: review fixes verified locally, unreleased
+
+Resolved historical findings:
 
 1. P2: an open purchase confirmation can adopt a refreshed list/market/budget/revision without renewed review.
 2. P2: a shared purchase links to personal history instead of its immutable original shared budget context.
 3. P3: binary floating-point multiplication can round valid half-cent estimates incorrectly.
 
-The WIP is backed up on remote FP-63 branches, not released or marked ready. Prior passing suites omit these paths; convert the review probes into expected-correct tests with the fixes. [Full review and reproduction](../docs/fp-63-precommit-review-2026-10-20.md).
+All three findings have local October 22 fixes and expected-correct regressions. 298 frontend units, 232 backend tests (23 existing DB-gated skips), lint/build and controlled Chromium checks pass. Real PostgreSQL/API/Chromium acceptance now passes 12 feature + 30 whole-app with zero failures/skips; all 36 gated database integrations and dedicated service/database regressions pass. Docker is restored; the reviewed fixes are committed/pushed (frontend `7d8e4be4`, backend `9e78c65`) and remain unreleased. Older purchases recover their original budget from immutable operation receipts; inaccessible/deleted/moved expenses show unavailable history instead of a misleading link. See [current verification](../docs/fp-63-review-fixes-2026-10-22.md). [Full review and reproduction](../docs/fp-63-precommit-review-2026-10-20.md).
 
 ## Operational limits
 
