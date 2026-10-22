@@ -12,7 +12,7 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 - [FP-62/63 production release](freshprice/docs/fp62-fp63-deployment-2026-10-22.md): four PRs merged/four deployment workflows succeeded; approved content is published. Final FP-63 runtime/host verification and fresh post-release backup/full isolated restore pass. This supersedes historical unreleased/gate-pending status below.
 
-- [Shared VPS maintenance](freshprice/docs/vps-maintenance-2026-10-22.md): 70 upgrades completed, graceful reboot performed and both public apps/content verified; postboot internal checks await SSH reconnection.
+- [Shared VPS maintenance](freshprice/docs/vps-maintenance-2026-10-22.md): 70 upgrades completed, graceful reboot performed and both public apps/content verified; postboot kernel, database/images, services and guard checks pass after operator SSH reconnection.
 
 - FP-59/60/61 are released. [Final live read-only verification](freshprice/docs/fp61-deployment-2026-10-21.md) is the authoritative release record; intermediate dated audits are historical checkpoints, not instructions to repeat completed deployments.
 - [PostgreSQL protection/recovery](freshprice/docs/postgres-security-2026-10-21.md) and [deployment operations](freshprice/docs/deployment.md) describe the inspected single-VPS topology.

@@ -24,13 +24,13 @@
   },
   "reboot": {
     "scheduledAtUTC": "2026-10-22T07:55:49Z",
-    "internalVerification": "pending operator SSH reconnect; external port 22 times out",
+    "internalVerification": "PASS after operator SSH reconnection",
     "kernelBefore": "6.8.0-86-generic",
     "intendedKernel": "6.8.0-147-generic",
     "fallbackRetained": true
   },
   "postbootPublicHealth": {
-    "checkedAtUTC": "2026-10-22T07:57:30.290323+00:00",
+    "checkedAtUTC": "2026-10-22T08:03:14.364422+00:00",
     "checks": [
       {
         "url": "https://freshprice.philwatch.com/healthz",
@@ -126,5 +126,132 @@
     "noSeasonalMonthsInvented": true,
     "pass": true
   },
-  "postbootPublic5432": "unreachable"
+  "postbootPublic5432": "unreachable",
+  "postbootHost": {
+    "bootIdChanged": true,
+    "kernel": "6.8.0-147-generic",
+    "packageAuditEmpty": true,
+    "sshdConfigValid": true,
+    "grubValid": true,
+    "services": {
+      "docker": {
+        "active": "active",
+        "enabled": "enabled"
+      },
+      "ssh.socket": {
+        "active": "active",
+        "enabled": "enabled"
+      },
+      "caddy": {
+        "active": "active",
+        "enabled": "enabled"
+      },
+      "freshprice-postgres-guard.service": {
+        "active": "active",
+        "enabled": "enabled"
+      }
+    },
+    "changedPackages": 70,
+    "removedPackages": [],
+    "rebootRequired": false,
+    "rootDisk": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/vda2        29G   14G   14G  50% /",
+    "failedUnits": "",
+    "pass": true
+  },
+  "postbootRuntime": {
+    "ticket": "FP-63",
+    "services": [
+      {
+        "name": "freshprice_postgres",
+        "image": "postgres:14@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+        "update": null,
+        "ports": []
+      },
+      {
+        "name": "freshprice_backend",
+        "image": "ghcr.io/jamesabilong/platform-backend:latest",
+        "update": null,
+        "ports": []
+      },
+      {
+        "name": "freshprice_frontend",
+        "image": "ghcr.io/jamesabilong/fresh-price-frontend:latest",
+        "update": "completed",
+        "ports": [
+          {
+            "Protocol": "tcp",
+            "TargetPort": 80,
+            "PublishedPort": 8081,
+            "PublishMode": "host"
+          }
+        ]
+      },
+      {
+        "name": "freshprice_sugilanon",
+        "image": "ghcr.io/jamesabilong/sugilanon:latest",
+        "update": null,
+        "ports": [
+          {
+            "Protocol": "tcp",
+            "TargetPort": 3000,
+            "PublishedPort": 3001,
+            "PublishMode": "ingress"
+          }
+        ]
+      }
+    ],
+    "containers": [
+      {
+        "service": "freshprice_postgres",
+        "id": "4074c36951085b3e577aef1ac19f3fa4c0c98dfb2b3141cd2d4984b86921f2f0",
+        "image_id": "sha256:a9bc466f3831a4ba264534ff36932b268f529348750b4618558f71943b343d85",
+        "repo_digests": [
+          "postgres@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+          "postgres@sha256:cf736c1b9bd4ef55e74b7b7a21747d6b01b6451bf3284adce27237c98fe2cbbf",
+          "postgres@sha256:d1bfce2479496ff4060a56031364495cbd60acde3aa6d385cb6be8c49aa2e270"
+        ],
+        "health": "healthy"
+      },
+      {
+        "service": "freshprice_backend",
+        "id": "196ca1c556dd5b2fe95c211b3562e53752014593edb747aed6e17e80e7ad1358",
+        "image_id": "sha256:4e7c3174cf073041a674ff10c7515b3b16cd12f1e204bd20d029f3a9a17533bd",
+        "repo_digests": [
+          "ghcr.io/jamesabilong/platform-backend@sha256:b4202249c438c0c74e773dbcf03bf3bd29e1af3077946a6495f37ae2aafe9f44"
+        ],
+        "health": "healthy"
+      },
+      {
+        "service": "freshprice_frontend",
+        "id": "94e9fe74f28253c4bb04501cb47c9e0761c048258538af9aa72754378fca944a",
+        "image_id": "sha256:3b9a1cc158d0c60e029e18e4c138a480fe0b3f1fc0aaacd06df2ce96faed0a99",
+        "repo_digests": [
+          "ghcr.io/jamesabilong/fresh-price-frontend@sha256:9104acc80d49bbfe5777b7c52a46e60437f59eef44339f67e709bb491ceae1e8"
+        ],
+        "health": "healthy"
+      },
+      {
+        "service": "freshprice_sugilanon",
+        "id": "b3f6c2fdd225c5e122a6e22443652337f2201c09e10ffcfeb7efc1126b5f07d4",
+        "image_id": "sha256:411860da2800bffa9c7d028dee62c763ad5742e1a505f97a46ed52ac0d9d815d",
+        "repo_digests": [
+          "ghcr.io/jamesabilong/sugilanon@sha256:3e129e7c497cf2b84da1664e1833dec60dd82ec3c70eb37c0dea7ba6254dcced"
+        ],
+        "health": "healthy"
+      }
+    ],
+    "docker_checkout": "5f364defe7202c16e839c58bfc3f35b8ee8221ef",
+    "guard_active": "active",
+    "guard_enabled": "enabled",
+    "guard_rules": "table inet freshprice_pg_guard {\n\tchain prerouting {\n\t\ttype filter hook prerouting priority raw - 10; policy accept;\n\t\tiifname \"eth0\" tcp dport 5432 counter packets 5 bytes 320 drop comment \"Block public PostgreSQL; retain overlay and loopback access\"\n\t}\n}",
+    "migrations": {
+      "count": 41,
+      "accounting_applied": true,
+      "receipt_migration_applied": true
+    },
+    "database_identity_matches_checkpoint": true,
+    "database_volume_preserved": true,
+    "fresh_backend_connection": "PASS"
+  },
+  "maintenanceComplete": true
 }

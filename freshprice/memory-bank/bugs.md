@@ -12,10 +12,6 @@ All four reviewed PRs merged and deployment workflows succeeded in authorized ba
 
 Final frontend/backend runtime/host verification and post-release full isolated restore passed after operator SSH reconnection. Earlier SSH interruptions no longer block release verification. Host maintenance is recorded separately; public health alone was not used to close these gates.
 
-## Open: postboot SSH access verification
-
-After the authorized October 22 package upgrade/graceful reboot, FreshPrice/PhilWatch public app/database health and exact approved content pass. External port 22 probes still time out; operator reconnection or provider-console diagnosis is needed before confirming the new kernel, boot identity and internal postboot guard/runtime checks. No password, SSH/firewall configuration or public PostgreSQL exposure was changed. [Maintenance record](../docs/vps-maintenance-2026-10-22.md).
-
 ## Operational limits
 
 - Actual app digests were verified against running image IDs; service definitions still use mutable latest tags. Serialize releases and verify the real image after each deployment.
@@ -25,6 +21,8 @@ After the authorized October 22 package upgrade/graceful reboot, FreshPrice/Phil
 - Historical wiki/editorial and older device-specific reports need explicit revalidation when revisited; source fixes, synthetic acceptance and live release verification are distinct evidence.
 
 ## Resolved or superseded
+
+- October 22 postboot SSH verification gap closed after operator reconnection. Kernel `6.8.0-147-generic`, services, exact images, 41 migrations, DB preservation/connectivity and active/enabled PostgreSQL guard pass; no failed units or remaining reboot requirement. [Maintenance record](../docs/vps-maintenance-2026-10-22.md).
 
 - Public PostgreSQL publishing removed; independent firewall guard active/enabled, external access blocked and private DB access verified.
 - FP-59/60/61 integration/PR-target/deployment blockers resolved. Final live inventory: 38 migrations and four healthy services. [Release verification](../docs/fp61-deployment-2026-10-21.md).

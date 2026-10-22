@@ -9,4 +9,4 @@ Current as of 2026-10-22. [Historical checklist](archive/todo-through-2026-10-21
 - [x] FP-61 shared-stack verification: healthy unchanged Sugilanon task, public health, preserved database and private connectivity, no database publishing, enabled guard and external denial.
 - [x] Consolidate instructions and preserve historical progress/todo/bugs during authorized cleanup; no Sugilanon app source change.
 
-- [ ] Restore operator SSH access and complete postboot host/kernel, database/image and guard verification (public health/content already pass) for the authorized October 22 VPS maintenance. [Record](../../freshprice/docs/vps-maintenance-2026-10-22.md).
+- [x] October 22 VPS maintenance complete: operator SSH restored; kernel, database/images, public health/content and guard verification pass after reboot. [Record](../../freshprice/docs/vps-maintenance-2026-10-22.md).

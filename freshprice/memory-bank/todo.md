@@ -41,4 +41,4 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 
 - [x] 2026-10-22: user accepted documented recovery/testing limitations; reviewed/merged FP-62/63 in authorized backend-before-frontend order, all four deployment workflows succeeded and exact approved pilot/recipes published. Final SSH-dependent verification and post-release backup/restore subsequently passed.
 
-- [ ] Restore operator SSH access and complete postboot host/kernel, database/image and guard verification (public health/content already pass) for the authorized October 22 VPS maintenance. [Record](../../freshprice/docs/vps-maintenance-2026-10-22.md).
+- [x] October 22 VPS maintenance complete: operator SSH restored; kernel, database/images, public health/content and guard verification pass after reboot. [Record](../../freshprice/docs/vps-maintenance-2026-10-22.md).
