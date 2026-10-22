@@ -18,11 +18,11 @@ All three findings have local October 22 fixes and expected-correct regressions.
 
 ## FP-62: integration conflicts resolved; content/release readiness open
 
-FP-62 reconciled master: backend #59/frontend #57 are MERGEABLE/CLEAN, with fresh 13 feature + 30 whole-app acceptance and 36 gated database checks passing without skips. Master portable test tooling is retained. Actual target inventory, sourced/editorially approved pilot and target-representative recovery/release evidence remain open; PRs remain drafts. [Record](../docs/fp-62-reconciliation-2026-10-22.md).
+FP-62 reconciled master: backend #59/frontend #57 are MERGEABLE/CLEAN, with fresh 13 feature + 30 whole-app acceptance and 36 gated database checks passing without skips. Master portable test tooling is retained. Actual target inventory and fresh restored-backup migration/recovery now pass. Production has zero recipes; six multilingual proposals and two sourced recipe drafts are prepared in the [approval packet](../docs/fp-62-63-content-pilot-2026-10-22.md), but editorial/seasonal/recipe publication and release approvals remain open; PRs remain drafts. [Current readiness](../docs/fp-62-63-release-readiness-2026-10-22.md). [Record](../docs/fp-62-reconciliation-2026-10-22.md).
 
 ## FP-63: dependency/configuration integration resolved; release approval open
 
-Refreshed FP-63 now contains reconciled FP-62/current master. Backend #58/frontend #56 are MERGEABLE/CLEAN, with fresh 12 feature + 30 whole-app acceptance, 36 gated DB checks, full lint/unit/build and runner checks passing. Initial 2/298 unit timing failures were corrected with an enabled-action wait; application source, correctness assertions and timeouts were unchanged. FP-62 prerequisite approval, actual target inventory/editorial, target-representative recovery and ordered rollout gates remain open. [Current record](../docs/fp-63-refresh-2026-10-22.md).
+Refreshed FP-63 now contains reconciled FP-62/current master. Backend #58/frontend #56 are MERGEABLE/CLEAN, with fresh 12 feature + 30 whole-app acceptance, 36 gated DB checks, full lint/unit/build and runner checks passing. Initial 2/298 unit timing failures were corrected with an enabled-action wait; application source, correctness assertions and timeouts were unchanged. Actual inventory and refreshed protected-backup migration/recovery pass. FP-62 prerequisite approval, editorial/recipe content, acceptance/recovery-scope and ordered rollout approvals remain open. [Current record](../docs/fp-63-refresh-2026-10-22.md).
 
 ## Operational limits
 

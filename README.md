@@ -17,6 +17,10 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 - [FP-63 publication review](freshprice/docs/fp-63-publication-review-2026-10-22.md): all three earlier findings are fixed and local database/API/browser acceptance passes. Reviewed commits are pushed to FP-63 feature branches; [draft PR/dependency audit](freshprice/docs/fp-63-pr-release-gates-2026-10-22.md) retains historical conflict evidence and points to current refresh/prerequisite/release gates. Sprint 338 is active October 22–November 5.
 - [FP-66 planned auth exemptions](freshprice/docs/auth-testing-exemption-2026-10-21.md) include the confirmed proxy-client identity issue. No live exemption has been enabled.
 
+- [FP-62/63 readiness packet](freshprice/docs/fp-62-63-release-readiness-2026-10-22.md): actual inventory, fresh protected backup/restored-data migration/recovery, candidate service checks and concrete remaining content/scope/release approvals. Production currently has zero recipes.
+
+- [FP-62/63 content approval packet](freshprice/docs/fp-62-63-content-pilot-2026-10-22.md): six unapproved English/Filipino/Cebuano wiki variants and two sourced English recipe drafts with explicit editorial/publication sign-off.
+
 ## What belongs here
 
 Keep instructions, concise current memory-bank files, dated audit records, sanitized evidence, and reviewed operator utilities. Historical memory-bank snapshots live under each app's `memory-bank/archive/`; old pending statuses there do not override current records.

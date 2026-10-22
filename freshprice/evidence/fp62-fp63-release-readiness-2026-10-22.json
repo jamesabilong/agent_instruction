@@ -1,0 +1,228 @@
+{
+  "backupComparison": {
+    "equal": true,
+    "original": {
+      "copyBlocks": 42,
+      "rows": 570,
+      "castRewrites": 17
+    },
+    "restored": {
+      "copyBlocks": 42,
+      "rows": 570,
+      "castRewrites": 0
+    }
+  },
+  "migration": {
+    "pass": true,
+    "candidate62": "cf33ab22e737788e8d187c2ac1b7135e80d19c9a",
+    "candidate63": "dffc65f0e13e49472394585073258716bf87d630",
+    "baselineMigrations": 38,
+    "fp62Migrations": 40,
+    "fp63Migrations": 41,
+    "migrations": [
+      {
+        "migration": "20261020000002-wiki-enrichments.cjs",
+        "legacyRowsPreserved": true,
+        "sequencesPreserved": true
+      },
+      {
+        "migration": "20261020000003-wiki-enrichment-retry-and-retraction.cjs",
+        "legacyRowsPreserved": true,
+        "sequencesPreserved": true
+      },
+      {
+        "migration": "20261020000004-shopping-lists.cjs",
+        "legacyRowsPreserved": true,
+        "sequencesPreserved": true
+      }
+    ],
+    "emptyDownUp": true,
+    "baselineTables": 42,
+    "baselineRows": 570,
+    "rollbackGuards": 3,
+    "syntheticHistoryIncludedInRecovery": true
+  },
+  "postMigrationRecovery": {
+    "equal": true,
+    "original": {
+      "copyBlocks": 46,
+      "rows": 578,
+      "castRewrites": 0
+    },
+    "restored": {
+      "copyBlocks": 46,
+      "rows": 578,
+      "castRewrites": 0
+    },
+    "scope": "schema excluding owners/ACLs, complete COPY row multisets and sequence values"
+  },
+  "services": {
+    "FP-62": {
+      "ticket": "FP-62",
+      "head": "cf33ab22e737788e8d187c2ac1b7135e80d19c9a",
+      "scope": "exact candidate services on restored production snapshot; synthetic actors and proposals",
+      "cases": [
+        {
+          "name": "actual catalogue inventory and initially empty enrichment/recipe coverage",
+          "pass": true
+        },
+        {
+          "name": "proposal retry identity and pending privacy",
+          "pass": true
+        },
+        {
+          "name": "moderation publication and public privacy whitelist",
+          "pass": true
+        },
+        {
+          "name": "author recognition withdrawal survives retry and rejects other author",
+          "pass": true
+        },
+        {
+          "name": "source unpublication hides existing approved variant",
+          "pass": true
+        },
+        {
+          "name": "changed source hides variant and refuses stale approval",
+          "pass": true
+        },
+        {
+          "name": "operator retraction retains history and removes public variant",
+          "pass": true
+        },
+        {
+          "name": "unknown seasonal months remain absent from seasonal search",
+          "pass": true
+        },
+        {
+          "name": "real wiki import service invalidates approved synthetic variant and retains proposal history",
+          "pass": true
+        },
+        {
+          "name": "every original restored row remains byte-equivalent after service checks",
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "baselineTables": 43,
+      "runtimeDependenciesMatched": 263
+    },
+    "FP-63": {
+      "ticket": "FP-63",
+      "head": "dffc65f0e13e49472394585073258716bf87d630",
+      "scope": "exact candidate services on restored production snapshot; synthetic actors and proposals",
+      "cases": [
+        {
+          "name": "actual catalogue inventory and initially empty enrichment/recipe coverage",
+          "pass": true
+        },
+        {
+          "name": "proposal retry identity and pending privacy",
+          "pass": true
+        },
+        {
+          "name": "moderation publication and public privacy whitelist",
+          "pass": true
+        },
+        {
+          "name": "author recognition withdrawal survives retry and rejects other author",
+          "pass": true
+        },
+        {
+          "name": "source unpublication hides existing approved variant",
+          "pass": true
+        },
+        {
+          "name": "changed source hides variant and refuses stale approval",
+          "pass": true
+        },
+        {
+          "name": "operator retraction retains history and removes public variant",
+          "pass": true
+        },
+        {
+          "name": "unknown seasonal months remain absent from seasonal search",
+          "pass": true
+        },
+        {
+          "name": "manual shopping create and identity replay with account isolation",
+          "pass": true
+        },
+        {
+          "name": "read and check-off do not create expenses; unknown estimate stays unknown",
+          "pass": true
+        },
+        {
+          "name": "revision conflict rejects stale list mutation",
+          "pass": true
+        },
+        {
+          "name": "explicit purchase creates one expense and replays exactly once",
+          "pass": true
+        },
+        {
+          "name": "published synthetic recipe snapshots canonical ingredient and scales servings",
+          "pass": true
+        },
+        {
+          "name": "real wiki import service invalidates approved synthetic variant and retains proposal history",
+          "pass": true
+        },
+        {
+          "name": "every original restored row remains byte-equivalent after service checks",
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "baselineTables": 46,
+      "runtimeDependenciesMatched": 263
+    }
+  },
+  "cleanup": {
+    "productionServices": "unchanged and healthy",
+    "temporaryResources": "absent"
+  },
+  "date": "2026-10-22",
+  "checkpoint": "/var/backups/freshprice/fp-restore-20261022T060313Z-2598048",
+  "serviceRun": "fp-services-20261022T061357Z-2606949",
+  "productionWrites": false,
+  "mergedOrDeployed": false,
+  "inventory": {
+    "products": 113,
+    "aliases": 115,
+    "wikiPages": 113,
+    "publishedWikiPages": 113,
+    "approvedRevisionRecords": 113,
+    "missingPublishedPage": 0,
+    "missingSourceRevision": 0,
+    "missingPrimarySource": 0,
+    "recipes": 0,
+    "publishedRecipes": 0,
+    "migrations": 38,
+    "sourceUpdatedAt": "2026-10-13T02:57:45.608288+00:00",
+    "primarySourceDomains": {
+      "www.fda.gov": 75,
+      "www.foodsafety.gov": 18,
+      "www.fsis.usda.gov": 20
+    }
+  },
+  "limitations": [
+    "on-VPS recovery only",
+    "owners/ACLs excluded from SQL comparison",
+    "live uploads not atomic with DB",
+    "off-host/global-role/full-server recovery not certified",
+    "restored-copy direct service/import checks; browser evidence uses separate synthetic DBs",
+    "no physical device or installed-upgrade test for these tickets",
+    "editorial/recipe/seasonal publication not approved"
+  ],
+  "initialHarnessFailures": [
+    "Sequelize special table-list result conversion corrected",
+    "Sequelize virtual purchaseHistory read corrected using model getter"
+  ],
+  "remainingApprovals": [
+    "editorial/source/geography/English-Filipino-Cebuano pilot",
+    "real recipe content or explicit acceptance of zero-recipe launch",
+    "recovery and acceptance/device scope",
+    "PR code review and serialized deployment-triggering master merges"
+  ]
+}
