@@ -4,7 +4,7 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 
 ## Active work
 
-- [ ] Reconnect the operator SSH session, finish final FP-63 frontend runtime/host checks and take/restore a post-release protected backup. Four PRs are merged, workflows succeeded and approved content is published; [release record](../docs/fp62-fp63-deployment-2026-10-22.md).
+- [x] Final FP-63 runtime/host verification and fresh protected post-release backup/full isolated restore pass after SSH reconnection; [release record](../docs/fp62-fp63-deployment-2026-10-22.md).
 - [ ] FP-66: correct trusted end-user IP handling and forwarding-header spoof resistance, then implement admin-managed exact account/IP exemptions with expiry, revocation and audit. Validate FreshPrice and PhilWatch. No gateway/subnet wildcard exemption or password/session/role bypass. [Ticket](https://fresh-price.atlassian.net/browse/FP-66).
 - [ ] Confirm owners and estimates/capacity for active sprint 338 (FP-62/63/66); started on user request October 22 with Jira’s default two-week window ending November 5. FP-57 → FP-58 remains the future seller/messaging sequence.
 
@@ -39,4 +39,6 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 
 - [x] 2026-10-22: user approved the exact six multilingual wiki variants and both sourced recipes from documentation commit `9172cbd`; editorial gate closed, production publication and release still unexecuted.
 
-- [x] 2026-10-22: user accepted documented recovery/testing limitations; reviewed/merged FP-62/63 in authorized backend-before-frontend order, all four deployment workflows succeeded and exact approved pilot/recipes published. Final SSH-dependent verification remains tracked above.
+- [x] 2026-10-22: user accepted documented recovery/testing limitations; reviewed/merged FP-62/63 in authorized backend-before-frontend order, all four deployment workflows succeeded and exact approved pilot/recipes published. Final SSH-dependent verification and post-release backup/restore subsequently passed.
+
+- [ ] Restore operator SSH access and complete postboot host/kernel, database/image and guard verification (public health/content already pass) for the authorized October 22 VPS maintenance. [Record](../../freshprice/docs/vps-maintenance-2026-10-22.md).

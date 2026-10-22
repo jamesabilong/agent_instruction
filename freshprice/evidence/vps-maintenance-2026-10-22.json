@@ -1,0 +1,130 @@
+{
+  "date": "2026-10-22",
+  "backup": {
+    "checkpoint": "/var/backups/freshprice/fp-restore-20261022T074534Z-2658688",
+    "isolatedRestore": true,
+    "fullNormalizedComparison": true,
+    "copyBlocks": 46,
+    "rows": 581,
+    "checksums": true
+  },
+  "update": {
+    "upgraded": 70,
+    "new": 0,
+    "removed": 0,
+    "deferredPhased": 7,
+    "held": [
+      "fwupd",
+      "linux-firmware"
+    ],
+    "installed": true,
+    "packageAuditPassed": true,
+    "sshdAndGrubPassed": true,
+    "prebootReleaseVerificationPassed": true
+  },
+  "reboot": {
+    "scheduledAtUTC": "2026-10-22T07:55:49Z",
+    "internalVerification": "pending operator SSH reconnect; external port 22 times out",
+    "kernelBefore": "6.8.0-86-generic",
+    "intendedKernel": "6.8.0-147-generic",
+    "fallbackRetained": true
+  },
+  "postbootPublicHealth": {
+    "checkedAtUTC": "2026-10-22T07:57:30.290323+00:00",
+    "checks": [
+      {
+        "url": "https://freshprice.philwatch.com/healthz",
+        "pass": true
+      },
+      {
+        "url": "https://freshprice.philwatch.com/api/platform/db/health",
+        "pass": true
+      },
+      {
+        "url": "https://philwatch.com/health",
+        "pass": true
+      },
+      {
+        "url": "https://philwatch.com/api/platform/db/health",
+        "pass": true
+      },
+      {
+        "path": "/sw.js",
+        "cacheHeaders": true
+      },
+      {
+        "path": "/manifest.webmanifest",
+        "cacheHeaders": true
+      }
+    ],
+    "pass": true
+  },
+  "postbootContent": {
+    "variants": [
+      {
+        "productId": 1,
+        "locale": "en",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 1,
+        "locale": "fil",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 1,
+        "locale": "ceb",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 9,
+        "locale": "en",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 9,
+        "locale": "fil",
+        "exactText": true,
+        "publicPrivacy": true
+      },
+      {
+        "productId": 9,
+        "locale": "ceb",
+        "exactText": true,
+        "publicPrivacy": true
+      }
+    ],
+    "recipes": [
+      {
+        "id": 1,
+        "productId": 7,
+        "slug": "cabbage-comfort-pilot",
+        "exactFields": true
+      },
+      {
+        "id": 2,
+        "productId": 22,
+        "slug": "tomato-cucumber-salad-pilot",
+        "exactFields": true
+      }
+    ],
+    "filters": [
+      {
+        "productId": 7,
+        "titleSearch": true
+      },
+      {
+        "productId": 22,
+        "titleSearch": true
+      }
+    ],
+    "unknownCookTimeExcluded": true,
+    "noSeasonalMonthsInvented": true,
+    "pass": true
+  },
+  "postbootPublic5432": "unreachable"
+}

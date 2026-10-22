@@ -6,11 +6,15 @@ Current as of 2026-10-22. Historical findings and their original status are pres
 
 A harmless public auth-root GET is logged by Express as Docker gateway `172.19.0.1`, while Cloudflare observes a public client IP. Express trusts one proxy hop; nginx appends its peer and Caddy has no configured trusted client-IP handling. Requests through this route can share authentication/global API rate-limit buckets. PhilWatch's exact public auth path is not independently reproduced yet. No bypass is active. Fix trustworthy client identity/spoof resistance before admin-managed account/IP exemptions. [FP-66](https://fresh-price.atlassian.net/browse/FP-66), [investigation](../docs/auth-testing-exemption-2026-10-21.md).
 
-## FP-62/63 deployed; final host verification interrupted
+## FP-62/63 deployed and verified
 
 All four reviewed PRs merged and deployment workflows succeeded in authorized backend-before-frontend order. FP-62 runtime/40 migrations and FP-63 backend/41 migrations pass host verification; approved multilingual pilot/two recipes are published and exact public checks pass. Both merged master trees equal the tested FP-63 candidates. Prior FP-63 confirmation/history/centavo findings are resolved and released. [Release record](../docs/fp62-fp63-deployment-2026-10-22.md).
 
-Final FP-63 frontend runtime/host verification and post-release backup/restore are incomplete because SSH repeatedly times out/breaks, including after a new master socket appeared. Fresh public app/database health passes. Provider-console diagnosis is pending; no full-VPS reboot/firewall/auth change performed. Do not label workflow success or public health as completed host/backup verification.
+Final frontend/backend runtime/host verification and post-release full isolated restore passed after operator SSH reconnection. Earlier SSH interruptions no longer block release verification. Host maintenance is recorded separately; public health alone was not used to close these gates.
+
+## Open: postboot SSH access verification
+
+After the authorized October 22 package upgrade/graceful reboot, FreshPrice/PhilWatch public app/database health and exact approved content pass. External port 22 probes still time out; operator reconnection or provider-console diagnosis is needed before confirming the new kernel, boot identity and internal postboot guard/runtime checks. No password, SSH/firewall configuration or public PostgreSQL exposure was changed. [Maintenance record](../docs/vps-maintenance-2026-10-22.md).
 
 ## Operational limits
 

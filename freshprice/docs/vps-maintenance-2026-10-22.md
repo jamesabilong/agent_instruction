@@ -1,0 +1,17 @@
+# VPS maintenance — October 22, 2026
+
+The user authorized a fresh backup, release verification, package updates and safe restart of the shared FreshPrice/PhilWatch VPS. Existing operator-authenticated SSH was used; no authentication or public PostgreSQL exposure was changed.
+
+Final FP-63 actual image digests, all 41 migrations, database identity/volume, fresh backend database connection, four healthy services and active/enabled PostgreSQL guard pass. All six approved multilingual variants and both recipes pass exact public field/privacy/search/filter checks.
+
+Protected post-release checkpoint: `/var/backups/freshprice/fp-restore-20261022T074534Z-2658688`. Isolated PostgreSQL 14 restore, full normalized schema/data/sequence comparison (46 COPY blocks, 581 rows), checksums and unchanged production health/identity passed; temporary resources removed. Accepted on-VPS/global-role/full-server/off-host and live upload consistency limits remain.
+
+Protected system configuration checkpoint: `/var/backups/freshprice/fp-maintenance-20261022T074950Z-2661369`, including root-only /etc archive, GRUB, package inventory, service configuration and firewall state. Preflight passed disk, package audit, SSH configuration, boot files/GRUB, healthy services and boot enablement. Ubuntu uses enabled/active `ssh.socket`; `ssh.service` being disabled does not indicate broken boot access.
+
+Reviewed update plan after successful package index refresh: 70 upgrades, zero new packages/removals, seven phased updates deferred and fwupd/linux-firmware held. Standard apt-get upgrade preserves existing operator configurations and defers needrestart automatic service restarts for this invocation until the planned reboot. No autoremove, forced phasing or distribution upgrade.
+
+All 70 upgrades completed successfully. Post-install package audit, SSH configuration, GRUB and target boot files pass. Exact runtime images, 41 migrations, DB identity/volume, fresh connection, all four service health checks and guard passed again. Docker, SSH socket, Caddy and PostgreSQL guard are enabled/active. Public FreshPrice/PhilWatch DB/app health and worker/manifest cache headers pass. Root disk remains 50% used with 14 GB available. Graceful reboot was scheduled for 07:55:49 UTC. By 07:57:30 UTC, both public applications/database endpoints and worker/manifest cache headers passed again; exact approved multilingual content/recipes and filters also passed after restart. Public PostgreSQL port 5432 remains unreachable. Direct SSH port 22 has not yet returned on external probes; operator reconnection/provider-console diagnosis is needed to finish internal kernel, boot-ID, service and guard verification. Do not infer these internal results from public recovery.
+
+Running kernel before maintenance: `6.8.0-86-generic`; installed GRUB default target: `6.8.0-147-generic`, with 86 retained as fallback.
+
+[Sanitized evidence](../evidence/vps-maintenance-2026-10-22.json). Private dumps, /etc archive, service environments and maintenance logs remain root-only on the VPS.

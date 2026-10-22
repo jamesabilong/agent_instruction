@@ -10,7 +10,9 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
-- [FP-62/63 production release](freshprice/docs/fp62-fp63-deployment-2026-10-22.md): four PRs merged/four deployment workflows succeeded; approved content is published. Final FP-63 frontend runtime/host verification and post-release backup await working SSH/provider-console access. This supersedes unreleased/gate-pending status below.
+- [FP-62/63 production release](freshprice/docs/fp62-fp63-deployment-2026-10-22.md): four PRs merged/four deployment workflows succeeded; approved content is published. Final FP-63 runtime/host verification and fresh post-release backup/full isolated restore pass. This supersedes historical unreleased/gate-pending status below.
+
+- [Shared VPS maintenance](freshprice/docs/vps-maintenance-2026-10-22.md): 70 upgrades completed, graceful reboot performed and both public apps/content verified; postboot internal checks await SSH reconnection.
 
 - FP-59/60/61 are released. [Final live read-only verification](freshprice/docs/fp61-deployment-2026-10-21.md) is the authoritative release record; intermediate dated audits are historical checkpoints, not instructions to repeat completed deployments.
 - [PostgreSQL protection/recovery](freshprice/docs/postgres-security-2026-10-21.md) and [deployment operations](freshprice/docs/deployment.md) describe the inspected single-VPS topology.
@@ -19,9 +21,9 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 - [FP-63 publication review](freshprice/docs/fp-63-publication-review-2026-10-22.md): all three earlier findings are fixed and local database/API/browser acceptance passes. Reviewed commits are pushed to FP-63 feature branches; [draft PR/dependency audit](freshprice/docs/fp-63-pr-release-gates-2026-10-22.md) retains historical conflict evidence and points to current refresh/prerequisite/release gates. Sprint 338 is active October 22–November 5.
 - [FP-66 planned auth exemptions](freshprice/docs/auth-testing-exemption-2026-10-21.md) include the confirmed proxy-client identity issue. No live exemption has been enabled.
 
-- [FP-62/63 readiness packet](freshprice/docs/fp-62-63-release-readiness-2026-10-22.md): actual inventory, fresh protected backup/restored-data migration/recovery, candidate service checks and concrete remaining content/scope/release approvals. Production currently has zero recipes.
+- [FP-62/63 readiness packet](freshprice/docs/fp-62-63-release-readiness-2026-10-22.md): actual inventory, fresh protected backup/restored-data migration/recovery, candidate service checks and concrete remaining content/scope/release approvals. The inventory had zero recipes at that pre-release checkpoint.
 
-- [FP-62/63 content approval packet](freshprice/docs/fp-62-63-content-pilot-2026-10-22.md): six English/Filipino/Cebuano wiki variants and two sourced English recipes approved by the user against `9172cbd`; publication and release remain unexecuted.
+- [FP-62/63 content approval packet](freshprice/docs/fp-62-63-content-pilot-2026-10-22.md): six English/Filipino/Cebuano wiki variants and two sourced English recipes approved by the user against `9172cbd`; subsequently published in the release above.
 
 ## What belongs here
 

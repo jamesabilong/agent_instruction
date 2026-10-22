@@ -613,7 +613,101 @@
       "checkoutVerified": true,
       "digest": "sha256:9104acc80d49bbfe5777b7c52a46e60437f59eef44339f67e709bb491ceae1e8"
     },
-    "frontendVerification": "pending SSH reconnection",
+    "frontendVerification": {
+      "ticket": "FP-63",
+      "services": [
+        {
+          "name": "freshprice_postgres",
+          "image": "postgres:14@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+          "update": null,
+          "ports": []
+        },
+        {
+          "name": "freshprice_backend",
+          "image": "ghcr.io/jamesabilong/platform-backend:latest",
+          "update": null,
+          "ports": []
+        },
+        {
+          "name": "freshprice_frontend",
+          "image": "ghcr.io/jamesabilong/fresh-price-frontend:latest",
+          "update": "completed",
+          "ports": [
+            {
+              "Protocol": "tcp",
+              "TargetPort": 80,
+              "PublishedPort": 8081,
+              "PublishMode": "host"
+            }
+          ]
+        },
+        {
+          "name": "freshprice_sugilanon",
+          "image": "ghcr.io/jamesabilong/sugilanon:latest",
+          "update": null,
+          "ports": [
+            {
+              "Protocol": "tcp",
+              "TargetPort": 3000,
+              "PublishedPort": 3001,
+              "PublishMode": "ingress"
+            }
+          ]
+        }
+      ],
+      "containers": [
+        {
+          "service": "freshprice_postgres",
+          "id": "d02966a5719cc5c0ecdbbb5797772d8c9593c99198c08dde98906d94e55103ae",
+          "image_id": "sha256:a9bc466f3831a4ba264534ff36932b268f529348750b4618558f71943b343d85",
+          "repo_digests": [
+            "postgres@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+            "postgres@sha256:cf736c1b9bd4ef55e74b7b7a21747d6b01b6451bf3284adce27237c98fe2cbbf",
+            "postgres@sha256:d1bfce2479496ff4060a56031364495cbd60acde3aa6d385cb6be8c49aa2e270"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_backend",
+          "id": "667fdfffe2dad28b88df18665fd7981fbd00b28895e07ac12a6bbc3824b7764d",
+          "image_id": "sha256:4e7c3174cf073041a674ff10c7515b3b16cd12f1e204bd20d029f3a9a17533bd",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/platform-backend@sha256:b4202249c438c0c74e773dbcf03bf3bd29e1af3077946a6495f37ae2aafe9f44"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_frontend",
+          "id": "efcb73b69e841ce2aaa91dcd1a6f955f0cf1907670281033848b1017173ed10b",
+          "image_id": "sha256:3b9a1cc158d0c60e029e18e4c138a480fe0b3f1fc0aaacd06df2ce96faed0a99",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/fresh-price-frontend@sha256:9104acc80d49bbfe5777b7c52a46e60437f59eef44339f67e709bb491ceae1e8"
+          ],
+          "health": "healthy"
+        },
+        {
+          "service": "freshprice_sugilanon",
+          "id": "5cc646b5bdb9cbb34ca9e9b16db3f5f0096fa5a993717f39b523f4f72e361976",
+          "image_id": "sha256:411860da2800bffa9c7d028dee62c763ad5742e1a505f97a46ed52ac0d9d815d",
+          "repo_digests": [
+            "ghcr.io/jamesabilong/sugilanon@sha256:3e129e7c497cf2b84da1664e1833dec60dd82ec3c70eb37c0dea7ba6254dcced"
+          ],
+          "health": "healthy"
+        }
+      ],
+      "docker_checkout": "5f364defe7202c16e839c58bfc3f35b8ee8221ef",
+      "guard_active": "active",
+      "guard_enabled": "enabled",
+      "guard_rules": "table inet freshprice_pg_guard {\n\tchain prerouting {\n\t\ttype filter hook prerouting priority raw - 10; policy accept;\n\t\tiifname \"eth0\" tcp dport 5432 counter packets 228 bytes 13032 drop comment \"Block public PostgreSQL; retain overlay and loopback access\"\n\t}\n}",
+      "migrations": {
+        "count": 41,
+        "accounting_applied": true,
+        "receipt_migration_applied": true
+      },
+      "database_identity_matches_checkpoint": true,
+      "database_volume_preserved": true,
+      "fresh_backend_connection": "PASS"
+    },
     "publicHealth": {
       "https://freshprice.philwatch.com/": {
         "status": 200,
@@ -680,7 +774,7 @@
       }
     }
   },
-  "finalVerificationStatus": "Final frontend runtime/host verification and post-release backup pending: SSH master broke; direct SSH timed out; user asked about reboot, provider console requested; no reboot performed",
+  "finalVerificationStatus": "PASS: final runtime/host verification and post-release protected backup/full isolated restore completed after SSH reconnection",
   "finalBrowserSmoke": {
     "cebuanoVariantRendered": true,
     "recipesRendered": true,
@@ -712,5 +806,14 @@
         }
       }
     ]
+  },
+  "postReleaseBackup": {
+    "checkpoint": "/var/backups/freshprice/fp-restore-20261022T074534Z-2658688",
+    "isolatedRestore": true,
+    "fullNormalizedComparison": true,
+    "copyBlocks": 46,
+    "rows": 581,
+    "checksums": true,
+    "productionUnchanged": true
   }
 }
