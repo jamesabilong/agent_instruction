@@ -1,0 +1,200 @@
+{
+  "date": "2026-10-26",
+  "status": "Merged, deployed and verified; production nonempty search incident resolved",
+  "backendBase": "fc770b40b96f7746c439def836b6d5cc69d4ad1b",
+  "branch": "fix/philwatch-content-search",
+  "changedSource": "platform-backend/src/apps/sugilanon/services/contentService.js",
+  "sourceSha256": "72cde73b78b280dd0bad9e0f5ae68c7ee3f911e437c1d30e2b267546404c8250",
+  "localOnlyRegression": "testing/legacy/backend/integration/contentSearch.api.test.js",
+  "regressionSha256": "f27a834819dd8d44446d78da609f0359f103127e31d40735e4076892c2919c50",
+  "cause": "Sequelize pagination subquery referenced outer category/tag aliases; PostgreSQL reports missing FROM-clause entry for table category",
+  "fix": [
+    "Escaped correlated EXISTS predicates for category/tag search preserve article-level pagination and full association loading",
+    "Clone association options per call so category filters do not persist into later searches"
+  ],
+  "before": {
+    "databasePass": 36,
+    "searchRegressionFailures": 10,
+    "skipped": 0
+  },
+  "after": {
+    "databasePass": 46,
+    "searchRegressionPass": 10,
+    "unitPass": 271,
+    "skipped": 0,
+    "syntaxAndWhitespace": "pass"
+  },
+  "database": "New local runner-owned PostgreSQL 14 database for each run, real migrations through 42; synthetic fixtures only; temporary containers/volumes removed",
+  "coverage": [
+    "Unmatched nonempty query returns empty successful page",
+    "Case-insensitive title/summary/body/category and tag matches",
+    "Draft exclusion and public author field allowlist",
+    "Multiple tags/sources do not duplicate counts or truncate pages/associations",
+    "PublishedAt descending ordering across three pages",
+    "Category and query intersection without state leakage into later searches",
+    "Quoted search input and SQL syntax cannot broaden results",
+    "Public articles?q endpoint compatibility"
+  ],
+  "commands": [
+    "npm --prefix platform-backend run test:integration:db",
+    "npm --prefix platform-backend run test:unit",
+    "node --check platform-backend/src/apps/sugilanon/services/contentService.js",
+    "git -C platform-backend diff --check"
+  ],
+  "exemptions": "Remain disabled; no exemption configuration or identity/auth code changed",
+  "production": "Backend-only image rollout; no schema change, production fixture or exemption mutation; all current protected identity/exemption settings preserved",
+  "testsPublished": false,
+  "authorization": "User explicitly approved committing/pushing the backend fix, opening/merging its PR, deploying and verifying production; exemptions must stay disabled",
+  "candidate": "dc1cd236ff15d3be6c8aa0ed16f51d893a8ff098",
+  "merge": "72861ee0c309ef2c4ef2608803f70d360a633648",
+  "pr": "https://github.com/jamesabilong/fresh-price-backend/pull/61",
+  "workflow": {
+    "id": 40272525191,
+    "conclusion": "success",
+    "sourceCheckout": "72861ee0c309ef2c4ef2608803f70d360a633648",
+    "dockerSource": "6b5ce18c9c6df7db60b01233f180c23046a522e4",
+    "publishedDigest": "sha256:d9c01eccf97abe448a5027bdcfe41ae7d5de65384c7409405b2baa854b458f36"
+  },
+  "runtimeProof": {
+    "searchSourceSha256": "72cde73b78b280dd0bad9e0f5ae68c7ee3f911e437c1d30e2b267546404c8250",
+    "exactShippedSearchSource": true,
+    "otherServiceSpecsUnchanged": true,
+    "backendOnlyImageAndForceUpdateChanged": true,
+    "protectedRuntimeAndCaddyFilesUnchanged": true,
+    "mode": "authenticated-edge",
+    "exemptionsDisabled": true,
+    "database": {
+      "migrations": 42,
+      "rules": 0,
+      "audits": 0,
+      "publishedArticles": 0
+    },
+    "restrictedReader": {
+      "queries": [
+        {
+          "path": "/api/sugilanon/search?q=fp66",
+          "status": 200,
+          "total": 0
+        },
+        {
+          "path": "/api/sugilanon/search?q=PhilWatch",
+          "status": 200,
+          "total": 0
+        },
+        {
+          "path": "/api/sugilanon/articles?q=fp66",
+          "status": 200,
+          "total": 0
+        }
+      ],
+      "readerAuthStatus": 403
+    }
+  },
+  "finalGates": {
+    "exactPublishedRunningDigest": true,
+    "runningBackendDigest": "sha256:d9c01eccf97abe448a5027bdcfe41ae7d5de65384c7409405b2baa854b458f36",
+    "otherRunningImagesUnchanged": true,
+    "healthyServices": 4,
+    "database": {
+      "migrationCount": 42,
+      "shoppingMigrationApplied": true,
+      "fp66MigrationApplied": true,
+      "identityMatchesCheckpoint": true,
+      "volumeMatchesCheckpoint": true,
+      "fp66TablesPresent": 2,
+      "freshBackendConnection": true
+    },
+    "guard": {
+      "active": "active",
+      "enabled": "enabled",
+      "publicInterfaceDropRule": true
+    },
+    "caddyActiveEqualsFile": true,
+    "publicChecks": 15
+  },
+  "publicVerification": [
+    {
+      "host": "freshprice.philwatch.com",
+      "path": "/api/sugilanon/search?q=fp66",
+      "status": 200,
+      "total": 0
+    },
+    {
+      "host": "freshprice.philwatch.com",
+      "path": "/api/sugilanon/search?q=PhilWatch",
+      "status": 200,
+      "total": 0
+    },
+    {
+      "host": "freshprice.philwatch.com",
+      "path": "/api/sugilanon/articles?q=fp66",
+      "status": 200,
+      "total": 0
+    },
+    {
+      "host": "freshprice.philwatch.com",
+      "path": "/api/platform/db/health",
+      "status": 200
+    },
+    {
+      "host": "freshprice.philwatch.com",
+      "path": "/api/platform/auth",
+      "status": 200
+    },
+    {
+      "host": "freshprice.philwatch.com",
+      "path": "/api/platform/auth/testing-exemption",
+      "status": 401
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/api/sugilanon/search?q=fp66",
+      "status": 200,
+      "total": 0
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/api/sugilanon/search?q=PhilWatch",
+      "status": 200,
+      "total": 0
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/api/sugilanon/articles?q=fp66",
+      "status": 200,
+      "total": 0
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/api/platform/db/health",
+      "status": 200
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/api/platform/auth",
+      "status": 200
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/api/platform/auth/testing-exemption",
+      "status": 401
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/search?q=fp66",
+      "status": 200
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "host": "freshprice.philwatch.com",
+      "path": "/healthz",
+      "status": 200
+    }
+  ],
+  "protectedCheckpoint": "/var/backups/freshprice/philwatch-search-20261026T050800Z",
+  "retainedDatabaseBackup": "/var/backups/freshprice/fp-restore-20261026T041156Z-2388254"
+}

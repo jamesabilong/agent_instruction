@@ -6,9 +6,9 @@ Current as of 2026-10-26. Historical findings and their original status are pres
 
 October 26 authorized release is deployed. Caddy 2.11.7 authenticates exact visitor identity on both app proxy paths; two real independent public clients resolve correctly despite forged forwarding/custom headers. Direct Caddy origin uses its socket peer; nginx/Next/backend auth rejects absent/invalid credentials. Migration 42 and scoped service credentials are verified. Exemptions remain disabled with zero rules/audits. [Release/evidence](../docs/fp-66-deployment-2026-10-26.md).
 
-## Open: PhilWatch nonempty content-search query
+## Resolved: PhilWatch nonempty content-search query
 
-GET `/api/sugilanon/search?q=fp66` returns 500; empty-query search returns 200. PhilWatch's helper catches this error and renders empty results, so search-page 200 is insufficient functional evidence. Search service source matches the previous running backend image; this suggests an existing separate defect, but the prior image was not executed against the database and the exact cause is unconfirmed. No FP-66 search source change or repair was made. Add database-backed nonempty-query coverage and repair before claiming working search. Production has zero published articles/categories; no existing live article-detail claim is made. [Release diagnostics](../docs/fp-66-deployment-2026-10-26.md).
+Confirmed invalid joined category/tag aliases inside Sequelize's article pagination subquery. Backend PR #61 uses escaped correlated EXISTS plus per-request include cloning; 10 regressions failed before and all 46 DB/271 unit checks pass after. Authorized merge/deployment `72861ee0` is verified by exact running digest/source, 15 public GET checks, internal reader searches and unchanged protected identity/disabled exemptions. Production search 500 is resolved. [Fix/release/evidence](../../sugilanon/docs/content-search-fix-2026-10-26.md). Empty production content still limits existing article-detail smoke; populated matches were tested only on isolated synthetic PostgreSQL.
 
 ## FP-62/63 deployed and verified
 
@@ -18,7 +18,7 @@ Final frontend/backend runtime/host verification and post-release full isolated 
 
 ## Operational limits
 
-- October 26 FP-66 rollout/identity gates passed with exemptions disabled. Post-release migration-42 backup/full isolated restore and protected runtime checkpoint pass. Existing article-detail inventory and separate nonempty-query search limitations remain as recorded above. [Release](../docs/fp-66-deployment-2026-10-26.md).
+- October 26 FP-66 rollout/identity gates passed with exemptions disabled. Post-release migration-42 backup/full isolated restore and protected runtime checkpoint pass. Existing article-detail inventory limits remain; nonempty-query search is resolved by the subsequent verified backend fix above. [Release](../docs/fp-66-deployment-2026-10-26.md).
 - Actual app digests were verified against running image IDs; service definitions still use mutable latest tags. Serialize releases and verify the real image after each deployment.
 - Device/installed-version upgrades remain user-waived, not passed; live final verification did not mutate authenticated expense/payment/replay flows.
 - Backups are retained on the single VPS; off-host recovery/global-role/config redeployment and atomic uploads/DB capture are not certified by current evidence.

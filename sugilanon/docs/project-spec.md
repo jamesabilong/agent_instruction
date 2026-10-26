@@ -2,7 +2,7 @@
 
 Last investigated: 2026-07-01; FP-66 release updated 2026-10-26.
 
-FP-66 is deployed: PhilWatch #2, shared backend/schema and FreshPrice/Docker counterparts merged in verified order. Browser rewrites preserve Caddy authenticated visitor assertions; server-only public content uses a distinct restricted credential. Two independent public clients, direct-origin checks, scoped credential privacy, migration 42/shared service/DB/guard and post-release backup/full isolated restore pass. Exemptions remain false with zero rules/audits. Nonempty-query content search returns 500 (unchanged search service source); fix remains open. Production inventory is empty, so existing article-detail smoke is unavailable. [Release/evidence/limits](../../freshprice/docs/fp-66-deployment-2026-10-26.md), [policy](../../freshprice/docs/fp-66-controls-2026-10-23.md).
+FP-66 is deployed: PhilWatch #2, shared backend/schema and FreshPrice/Docker counterparts merged in verified order. Browser rewrites preserve Caddy authenticated visitor assertions; server-only public content uses a distinct restricted credential. Two independent public clients, direct-origin checks, scoped credential privacy, migration 42/shared service/DB/guard and post-release backup/full isolated restore pass. Exemptions remain false with zero rules/audits. Nonempty-query search is [fixed and deployed](content-search-fix-2026-10-26.md) through backend PR #61: 46 DB/271 unit checks and both actual public paths/internal reader pass. Production inventory is empty, so existing article-detail smoke is unavailable. [Release/evidence/limits](../../freshprice/docs/fp-66-deployment-2026-10-26.md), [policy](../../freshprice/docs/fp-66-controls-2026-10-23.md).
 
 ## Summary
 

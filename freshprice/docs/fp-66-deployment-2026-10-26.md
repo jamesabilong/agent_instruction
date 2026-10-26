@@ -1,5 +1,6 @@
 # FP-66 production release — October 26, 2026
 
+> Subsequent verified update: the nonempty PhilWatch search finding below is [fixed, merged and deployed through backend PR #61](../../sugilanon/docs/content-search-fix-2026-10-26.md). This record retains the original release checkpoint and its earlier backend digest; the linked update records the current backend image.
 FP-66 is merged, deployed and running in authenticated-edge mode. The user explicitly authorized ordered deployment, accepted the previously documented limits, and required exemptions to stay disabled. `AUTH_TEST_EXEMPTIONS_ENABLED=false`; final database counts are **zero rules and zero audit events**. No live exemption or authenticated feature mutation was created. One separate content-search defect discovered during verification remains open below; this release does not certify every PhilWatch feature.
 
 [Sanitized release evidence](../evidence/fp-66-deployment-2026-10-26.json), [prior backup/Caddy maintenance](fp-66-caddy-maintenance-2026-10-26.md), [policy/recovery](fp-66-controls-2026-10-23.md). Prior publication/readiness records are historical checkpoints, superseded here for current deployment state.

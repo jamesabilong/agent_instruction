@@ -5,7 +5,8 @@ Current as of 2026-10-26. Historical checklists are preserved in [the archive](a
 ## Active work
 
 - [x] October 26: ordered FP-66 merge/deploy, scoped credential parser follow-up, Caddy strict identity/two independent real clients/direct-origin checks and final image/migration 42/DB/guard verification complete; exemptions false, zero rules/audits. Fresh protected post-release full restore passes. [Release](../docs/fp-66-deployment-2026-10-26.md).
-- [ ] Repair nonempty PhilWatch content-search query 500 with database-backed regression coverage; SSR currently swallows it as empty results. Keep article-detail production coverage unavailable until real published content exists.
+- [x] October 26: fix nonempty PhilWatch search locally and add 10 database-backed regressions; all 46 DB/271 unit checks pass. [Record](../../sugilanon/docs/content-search-fix-2026-10-26.md).
+- [x] October 26: user-authorized backend PR #61 merged/deployed; exact new source/digest, both public nonempty search paths/internal reader and preserved exemptions-disabled/DB/guard/runtime pass. [Release](../../sugilanon/docs/content-search-fix-2026-10-26.md). Existing article-detail smoke still requires real published content.
 
 - [x] 2026-10-23: complete FP-66 local forwarding/SSR integration, persistent own-account exemption controls, fresh reauthentication, expiry/revocation/audit/recovery and admin UI. Final 9+30 acceptance, unit/DB/proxy and lint/build checks pass. [Record](../docs/fp-66-controls-2026-10-23.md).
 - [x] 2026-10-26: review exact FP-66 candidate across all four repositories; all 34 hashes/HEADs match accepted source, no blocking finding, fresh 271+303 units/three parser checks and both app lint/build checks pass. [Review](../docs/fp-66-review-2026-10-26.md).
