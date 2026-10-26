@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-26",
+  "status": "local fixes verified; app publication/release pending",
+  "productionAccess": false,
+  "exemptionsEnabled": false,
+  "source": {
+    "platform-backend": {
+      "baseHead": "5b6c4de376be459167f741170d4a32b4f03f7323",
+      "workingFilesSha256": {
+        "src/apps/freshprice/controllers/marketProductPriceController.js": "7d476ed11434249d0ba310c0aab24d6856d9b376cc6274af14378ccbc7c3750f",
+        "src/apps/freshprice/routes/marketPriceRoutes.js": "43f4e1aba287b9dee88ba770cdcf205cee433701f1917aec8f1d30fe1da57699",
+        "src/apps/freshprice/services/marketPriceService.js": "8dd742bde71c490cb7e592ffa49f1657191f5bcf1cbcc61e9a3beead402f04b8"
+      },
+      "snapshotMatchesWorkingFiles": true,
+      "publication": "local uncommitted; not deployed"
+    },
+    "fresh-price-front": {
+      "baseHead": "7d7cfb97683a462a3d617d004bbe5ecd43773a7d",
+      "workingFilesSha256": {
+        "src/constant/marketPrice.ts": "95f5c65378e61168d75d9b96bf202414186eb9fa9b7ffed6b46c55953f24ad41",
+        "src/features/admin/price/PriceListPage.tsx": "bce97d2d9a687d13d1f2226d21622b070ed8874624e6c80b354ce8f504c0f211"
+      },
+      "snapshotMatchesWorkingFiles": true,
+      "publication": "local uncommitted; not deployed"
+    },
+    "sugilanon": {
+      "baseHead": "8dc1a93015b72cd9ae4a7259e4ff52112cecf2ee",
+      "workingFilesSha256": {
+        "src/app/search/page.tsx": "a26d93431230c278e8f76df05b452a1764226e966592cc700f1945e98c1ca56f",
+        "src/lib/publicContentApi.ts": "b052b1337e94f0e5363c70d58da886b0b85cc752c6e350e1f72ccd1b6cdcb48b"
+      },
+      "snapshotMatchesWorkingFiles": true,
+      "publication": "local uncommitted; not deployed"
+    }
+  },
+  "database": {
+    "passed": 71,
+    "failed": 0,
+    "skipped": 0,
+    "logSha256": "ef272c3e45c727a0b610568f165ac25b981fd96c6eabe0d86532c5c07eef0a4d"
+  },
+  "backendUnit": {
+    "passed": 271,
+    "failed": 0,
+    "skipped": 0,
+    "logSha256": "9b06034d5b59dd5d104f0fb4164391add25b236269769f3dbe5c00f7e6ebc732"
+  },
+  "frontendUnit": {
+    "passed": 304,
+    "failed": 0,
+    "skipped": 0,
+    "logSha256": "de935105ab00c088dbecf356743790b8825ed23a3e4e9a0ce76fe2245713af61"
+  },
+  "newDatabaseCases": 9,
+  "preFixDatabase": {
+    "failed": 8,
+    "passed": 63,
+    "skipped": 0
+  },
+  "lintBuild": {
+    "frontend-lint": {
+      "passed": true,
+      "logSha256": "51dd5ed9008c6d7662d4c66a79f0706afadc04fcc8572f99629eadb5f6d83a71"
+    },
+    "frontend-build": {
+      "passed": true,
+      "logSha256": "02f9c2a415bfc2ab2bb2098883a3e5a6506e823cf295d10c6afef12af4b26db3"
+    },
+    "philwatch-lint": {
+      "passed": true,
+      "logSha256": "0ddf8563270065929ddea74919cd1ef43943da5bf1ef0954862ded735227ef0d"
+    },
+    "philwatch-build": {
+      "passed": true,
+      "logSha256": "e75dd6321fa29b9667e7d8b13975aff7b202929220a469d6cd15b85ab0ae8365"
+    }
+  },
+  "browser": {
+    "passed": true,
+    "philwatch": {
+      "uiPages": [
+        12,
+        12,
+        1
+      ],
+      "uniqueMatches": 25,
+      "encodedQueryRetained": true,
+      "newQueryReset": true,
+      "invalidPages": 5,
+      "outOfRangeRecovery": true,
+      "emptyResult": true,
+      "backNavigation": true
+    },
+    "prices": {
+      "offPageMatches": 3,
+      "queryPages": [
+        50,
+        10
+      ],
+      "changedQueryReset": true,
+      "emptyResult": true,
+      "clearRestores": true
+    },
+    "errors": [],
+    "warnings": [
+      "Image with src \"/globe.svg\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading",
+      "Image with src \"/globe.svg\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading",
+      "Image with src \"/globe.svg\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading",
+      "Image with src \"/globe.svg\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading",
+      "Image with src \"/globe.svg\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading"
+    ],
+    "failed": [],
+    "httpErrors": [],
+    "exemptions": false
+  },
+  "priceFiltersAndValidation": {
+    "passed": true,
+    "unitFilteredRows": 20,
+    "queryUnitMarketIntersection": 1,
+    "conflictingProductEmpty": true,
+    "clearingQueryPreservesFilters": true,
+    "restoredPageRows": 50,
+    "expectedInvalidInputStatuses": [
+      400,
+      400
+    ],
+    "exemptions": false
+  },
+  "dependencyOutage": {
+    "passed": true,
+    "localBackendDeliberatelyStopped": true,
+    "visibleSearchError": true,
+    "falseEmptySuccess": false,
+    "exemptions": false
+  },
+  "isolation": {
+    "database": "disposable PostgreSQL 14, synthetic fixtures, migration 42",
+    "listeners": "127.0.0.1 only",
+    "identityMode": "local socket",
+    "outbound": "non-loopback Node sockets/fetch blocked; schedulers/telemetry disabled",
+    "exemptionInventory": {
+      "migrations": 42,
+      "exemptions": 0,
+      "audits": 0
+    }
+  },
+  "cleanup": {
+    "browserClosed": true,
+    "ownedDatabaseRemoved": true,
+    "ownedNetworkRemoved": true,
+    "allLocalListenersStopped": true
+  },
+  "externalRegressionAssetsSha256": {
+    "testing/legacy/backend/integration/searchPagination.api.test.js": "6b852d15fe7605e225663b8a2ab394738e246dc10073104cb31e043c5acf7519",
+    "testing/legacy/frontend/unit/features/admin/price/PriceList.test.tsx": "149d01e19ceb12c8acd4db6a00b5857af578b0bf7140475afadfa9261ba4d286",
+    "testing/operations/search-pagination-2026-10-26/fixtures.json": "03fd11151de83cc7b6f5850347c25a266ba421271d0a751ad3ea3000ec5f219f",
+    "testing/operations/search-pagination-2026-10-26/browser-regression.js": "2a4c92ad0c69332900710a3eaecffb408e380a23c3c85a83ff1be14f89579cd1",
+    "testing/operations/search-pagination-2026-10-26/filter-regression.js": "dddef9515140ff1fbf33693d48d00a1aa03a222fcc5a0b7de65ad265c034db1b",
+    "testing/operations/search-pagination-2026-10-26/outage-regression.js": "e957e463c0b7af604185fbfbd68a7fd4535228dfc3521b150b1b8cf1e521c2ca"
+  },
+  "verificationNotes": [
+    "Initial unit runs hit sandbox HTTP EPERM and concurrent-test timeouts; final bounded runs pass.",
+    "Real HTTP testing exposed ignored controller validation results for malformed input. Final route has an explicit scalar guard; controller now enforces all validation errors. Installed isString() already used scalar checking.",
+    "Initial browser navigation attempts timed out under concurrent builds/database jobs; final fresh-session run after serialization passed.",
+    "Five repeated nonblocking Next development SVG/LCP warnings were retained; no image-policy change.",
+    "Malformed-input browser checks intentionally expect HTTP 400; backend-outage check intentionally stops only the local backend."
+  ]
+}

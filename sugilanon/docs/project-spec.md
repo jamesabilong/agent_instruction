@@ -6,6 +6,8 @@ FP-66 is deployed: PhilWatch #2, shared backend/schema and FreshPrice/Docker cou
 
 October 26 backend follow-up: [pagination PR #62 is deployed and verified](../../freshprice/docs/backend-pagination-deployment-2026-10-26.md), preserving the earlier search fix and disabled exemptions. Community ranking/tag hydration and deterministic content/source/price pages are corrected; live inventory limitations remain explicit.
 
+Local follow-up (2026-10-26): [search pagination/global price search fixes](../../freshprice/docs/search-pagination-fix-2026-10-26.md) are implemented and verified separately from deployed state; app publication/release remains pending. Exemptions stay disabled.
+
 ## Summary
 
 Sugilanon/PhilWatch is a content/news site with public article browsing and admin content management. It has a Next.js frontend in `sugilanon` and content APIs in `platform-backend/src/apps/sugilanon`.

@@ -37,3 +37,7 @@ The initial search assertion treated that warning as an error after its function
 - Keep exemptions disabled. Do not create production fixtures, publish synthetic content, widen proxy trust or enable exemptions to close coverage gaps.
 
 The isolated browser was closed after checking; owned database/network/apps were stopped and removed after verification. Only sanitized results are published. No app PR, app push, merge, deploy or Jira transition was performed.
+
+## Subsequent local fixes
+
+The [search pagination follow-up](search-pagination-fix-2026-10-26.md) fixes both UI gaps locally and records database/browser regressions. Its app publication/release is pending; this audit remains the historical reproduction, and production inventory/device limits still apply.

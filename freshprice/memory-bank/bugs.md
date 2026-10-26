@@ -2,7 +2,7 @@
 
 Current as of 2026-10-26. Historical findings and their original status are preserved in [the archive](archive/bugs-through-2026-10-21.md). Do not treat old “unfixed” or “not deployed” entries there as current without checking the later resolution.
 
-- Confirmed October 26 in isolated populated Chromium: PhilWatch search has no page controls (25 matches, only first 12 reachable in its UI); FreshPrice price search filters only the loaded page (same query returns 0 rows on page 1, 3 on page 2). Backend pages/order/search pass; frontend follow-ups remain open. Next development mode also emitted a nonblocking synthetic-cover image-priority warning. [Reproduction and evidence](../docs/populated-browser-verification-2026-10-26.md).
+- Fixed locally, release pending (October 26): the audit reproduced missing PhilWatch search navigation (25 matches, first 12 only) and page-local price filtering. The local fix adds real result-page navigation and global server-side price search/counting; publication/deployment is still required before calling either resolved in production. [Fix and verification](../docs/search-pagination-fix-2026-10-26.md). The development image-priority warning remains separate.
 
 - Resolved in production (October 26): community page-local hot/top ranking, truncated tag hydration and nonunique content/source/price page order fixed by backend PR #62. Exact image/source, 51 public GET checks, read-only production list/SQL comparisons and shared DB/runtime/guard pass; populated edge cases covered by 16 isolated PostgreSQL regressions. Exemptions disabled with zero rules/audits. [Release](../docs/backend-pagination-deployment-2026-10-26.md).
 

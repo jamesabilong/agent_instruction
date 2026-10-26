@@ -118,6 +118,8 @@ Mutations require auth and operator role.
 
 ### `/api/freshprice/market-prices`
 
+Local follow-up (not yet deployed): `GET /?q=...` filters product names case-insensitively before pagination/counting; trimmed string ≤200 characters, literal `%`/`_`/backslash, combinable market/product/unit filters. Blank/absent query preserves the existing contract. [Verification/release status](search-pagination-fix-2026-10-26.md).
+
 - `GET /`
 - `POST /`
 - `PUT /:marketId/:productId/:unitType`
