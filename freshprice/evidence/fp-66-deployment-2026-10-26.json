@@ -1,0 +1,735 @@
+{
+  "date": "2026-10-26",
+  "authorization": "User explicitly authorized ordered FP-66 merge/deploy, accepted existing documented limits, required exemptions disabled and instruction publication",
+  "status": "FP-66 deployed and identity/security gates verified; separate nonempty PhilWatch search error remains open",
+  "orderedMerges": [
+    {
+      "repository": "fpdocker",
+      "pr": 26,
+      "merge": "16a160bc11790b5de336596b052d9e34476d63e0"
+    },
+    {
+      "repository": "fresh-price-backend",
+      "pr": 60,
+      "workflow": 40266112449,
+      "conclusion": "success",
+      "dockerSource": "16a160bc11790b5de336596b052d9e34476d63e0",
+      "backendSourceCheckoutVerified": true,
+      "mergeCommit": "fc770b40b96f7746c439def836b6d5cc69d4ad1b",
+      "imageDigest": "sha256:33eb7f87ed8db5e73bc6b13db9b2b54d9f6ecad5139942e3e2941de0d503a813"
+    },
+    {
+      "repository": "sugilanon",
+      "pr": 2,
+      "workflow": 40266501721,
+      "conclusion": "success",
+      "sourceCheckoutVerified": true,
+      "mergeCommit": "ec1051d61408eed7af4db1ee44a8f7230ebb5748",
+      "imageDigest": "sha256:2eb786e0d7a38b9a98353447c4f817f539c10b6896101fa33ca6cfb78294e3f9",
+      "dockerSource": "16a160bc11790b5de336596b052d9e34476d63e0"
+    },
+    {
+      "repository": "fresh-price-front",
+      "pr": 58,
+      "workflow": 40267161444,
+      "conclusion": "success",
+      "sourceCheckoutVerified": true,
+      "mergeCommit": "0e80f5c596fc26e787c638b6b5db0cb3c678396d",
+      "imageDigest": "sha256:5befc1dc3584699618194741084290bff0630ec090ce3b4adc2846c76d06d64b",
+      "dockerSource": "16a160bc11790b5de336596b052d9e34476d63e0"
+    }
+  ],
+  "supplementalDockerFix": {
+    "pr": 27,
+    "merge": "6b5ce18c9c6df7db60b01233f180c23046a522e4",
+    "candidate": "16e8b1908c5b9c254d98b8961e19148df31297da",
+    "parserTests": 4,
+    "result": "pass",
+    "reason": "Keep new edge/content credentials out of the shared Compose env_file inherited by PostgreSQL"
+  },
+  "backendStage": {
+    "exactShippedSource": {
+      "files": 10,
+      "mismatches": []
+    },
+    "database": {
+      "migrations": 42,
+      "rules": 0,
+      "auditEvents": 0
+    },
+    "exemptionsDisabled": true,
+    "publishedAndRunningDigestMatch": true,
+    "preservedDatabaseAndHealthyServicesGuard": true,
+    "publicHealthAndCanonicalAuthRoots": [
+      {
+        "url": "https://freshprice.philwatch.com/healthz",
+        "status": 200
+      },
+      {
+        "url": "https://freshprice.philwatch.com/api/platform/db/health",
+        "status": 200
+      },
+      {
+        "url": "https://philwatch.com/health",
+        "status": 200
+      },
+      {
+        "url": "https://philwatch.com/api/platform/db/health",
+        "status": 200
+      },
+      {
+        "url": "https://freshprice.philwatch.com/api/platform/auth",
+        "status": 200
+      },
+      {
+        "url": "https://philwatch.com/api/platform/auth",
+        "status": 200
+      }
+    ],
+    "initialProbeDiagnostic": "Default Python user-agent/trailing-slash probe did not qualify; explicit browser-style canonical requests pass; PhilWatch slash form returns 308"
+  },
+  "philwatchStage": {
+    "publicSmoke": [
+      {
+        "path": "/",
+        "status": 200,
+        "bytes": 27110
+      },
+      {
+        "path": "/search?q=fp66-release-check",
+        "status": 200,
+        "bytes": 13958
+      },
+      {
+        "path": "/articles/fp66-release-check-nonexistent",
+        "status": 404,
+        "bytes": 10373
+      },
+      {
+        "path": "/api/sugilanon/articles?limit=1",
+        "status": 200,
+        "bytes": 64
+      },
+      {
+        "path": "/api/sugilanon/categories",
+        "status": 200,
+        "bytes": 2
+      },
+      {
+        "path": "/health",
+        "status": 200,
+        "bytes": 3
+      },
+      {
+        "path": "/api/platform/auth",
+        "status": 200,
+        "bytes": 22
+      }
+    ],
+    "productionInventory": {
+      "publishedArticles": 0,
+      "categories": 0
+    },
+    "limitation": "Existing article-detail smoke unavailable because production published article inventory is empty; nonexistent detail returns 404; synthetic detail checks previously passed.",
+    "publishedAndRunningDigestMatch": true,
+    "rewriteMatchesCandidate": true,
+    "databaseAndGuardPreserved": true,
+    "exemptionsDisabled": true
+  },
+  "frontendStage": {
+    "publishedAndRunningDigestMatch": true,
+    "healthyServicesAndDatabasePreserved": true,
+    "migrationCount": 42,
+    "exemptionsDisabled": true,
+    "adminRouteAnonymousRedirect": "/login"
+  },
+  "credentialStage": {
+    "phase": "protected-credentials",
+    "pass": true,
+    "backendMode": "socket",
+    "exemptionsDisabled": true,
+    "postgresAndFrontendSpecsPreserved": true,
+    "checkedAtUtc": "2026-10-26T04:07:53.932873+00:00"
+  },
+  "caddyStage": {
+    "phase": "caddy-identity",
+    "pass": true,
+    "officialIPv4Ranges": 15,
+    "officialIPv6Ranges": 7,
+    "onlyExpectedConfigurationChanges": true,
+    "activeEqualsValidated": true,
+    "proxyPaths": 2,
+    "backendMode": "socket",
+    "checkedAtUtc": "2026-10-26T04:08:58.920072+00:00"
+  },
+  "strictStage": {
+    "phase": "authenticated-edge",
+    "pass": true,
+    "exemptionsDisabled": true,
+    "postgresAndFrontendSpecsPreserved": true,
+    "checkedAtUtc": "2026-10-26T04:09:50.098468+00:00"
+  },
+  "identity": {
+    "publicClientCount": 2,
+    "distinctClientNetworks": true,
+    "publicClientAssertions": [
+      {
+        "host": "freshprice.philwatch.com",
+        "forgedHeaders": false,
+        "status": 200,
+        "resolvedIdentityMatchesIndependentTrace": true
+      },
+      {
+        "host": "freshprice.philwatch.com",
+        "forgedHeaders": true,
+        "status": 200,
+        "resolvedIdentityMatchesIndependentTrace": true
+      },
+      {
+        "host": "philwatch.com",
+        "forgedHeaders": false,
+        "status": 200,
+        "resolvedIdentityMatchesIndependentTrace": true
+      },
+      {
+        "host": "philwatch.com",
+        "forgedHeaders": true,
+        "status": 200,
+        "resolvedIdentityMatchesIndependentTrace": true
+      },
+      {
+        "host": "freshprice.philwatch.com",
+        "forgedHeaders": false,
+        "status": 200,
+        "resolvedIdentityMatchesIndependentTrace": true
+      },
+      {
+        "host": "freshprice.philwatch.com",
+        "forgedHeaders": true,
+        "status": 200,
+        "resolvedIdentityMatchesIndependentTrace": true
+      },
+      {
+        "host": "philwatch.com",
+        "forgedHeaders": false,
+        "status": 200,
+        "resolvedIdentityMatchesIndependentTrace": true
+      },
+      {
+        "host": "philwatch.com",
+        "forgedHeaders": true,
+        "status": 200,
+        "resolvedIdentityMatchesIndependentTrace": true
+      }
+    ],
+    "directCaddyOrigin": [
+      {
+        "host": "freshprice.philwatch.com",
+        "status": 200,
+        "forgedHeadersIgnored": true,
+        "resolvedActualSocketPeer": true
+      },
+      {
+        "host": "philwatch.com",
+        "status": 200,
+        "forgedHeadersIgnored": true,
+        "resolvedActualSocketPeer": true
+      }
+    ],
+    "alternateOrigins": [
+      {
+        "port": 8081,
+        "forgedHeaders": false,
+        "status": 403
+      },
+      {
+        "port": 8081,
+        "forgedHeaders": true,
+        "status": 403
+      },
+      {
+        "port": 3001,
+        "forgedHeaders": false,
+        "status": 403
+      },
+      {
+        "port": 3001,
+        "forgedHeaders": true,
+        "status": 403
+      }
+    ],
+    "restrictedContentReader": [
+      {
+        "path": "/api/sugilanon/articles",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "path": "/api/sugilanon/categories",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "path": "/api/sugilanon/search",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "path": "/api/platform/auth",
+        "method": "GET",
+        "status": 403
+      },
+      {
+        "path": "/api/sugilanon/admin/articles",
+        "method": "GET",
+        "status": 403
+      }
+    ],
+    "uncredentialedBackendStatus": 403,
+    "credentialScopesAndProtectedModes": true,
+    "credentialsAbsentFromBrowserAssets": true,
+    "mode": "authenticated-edge",
+    "exemptionsEnabled": false,
+    "liveExemptionsCreated": false,
+    "liveMutationDenialProbe": "Not executed; auto-review rejected production POST; prior isolated coverage retained",
+    "knownSeparateIssue": "Nonempty content search query returns 500; unchanged search service source in prior running backend; SSR helper hides this as empty results",
+    "checkedAtUtc": "2026-10-26T04:13:45.987541+00:00"
+  },
+  "finalBackend": {
+    "exactShippedSource": {
+      "files": 10,
+      "mismatches": []
+    },
+    "database": {
+      "migrations": 42,
+      "rules": 0,
+      "auditEvents": 0
+    },
+    "exemptionsDisabled": true
+  },
+  "finalRuntime": {
+    "checkedAtUtc": "2026-10-26T04:14:31.882512+00:00",
+    "scope": "post-release read-only production verification",
+    "services": [
+      {
+        "name": "freshprice_postgres",
+        "image": "postgres:14@sha256:8ab94f61668dc73bbab4dc13273ff2fc37e635536af62aef5306a49a9682a446",
+        "runningImageId": "sha256:a9bc466f3831a4ba264534ff36932b268f529348750b4618558f71943b343d85",
+        "repoDigests": [
+          "postgres@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+          "postgres@sha256:8ab94f61668dc73bbab4dc13273ff2fc37e635536af62aef5306a49a9682a446",
+          "postgres@sha256:cf736c1b9bd4ef55e74b7b7a21747d6b01b6451bf3284adce27237c98fe2cbbf",
+          "postgres@sha256:d1bfce2479496ff4060a56031364495cbd60acde3aa6d385cb6be8c49aa2e270"
+        ],
+        "running": true,
+        "health": "healthy",
+        "updateState": null,
+        "publishedPorts": []
+      },
+      {
+        "name": "freshprice_backend",
+        "image": "ghcr.io/jamesabilong/platform-backend:latest",
+        "runningImageId": "sha256:89756d8359bc757e8824214094cfd78f037077e0a7cb4a622565acf0b3c1ab8d",
+        "repoDigests": [
+          "ghcr.io/jamesabilong/platform-backend@sha256:33eb7f87ed8db5e73bc6b13db9b2b54d9f6ecad5139942e3e2941de0d503a813"
+        ],
+        "running": true,
+        "health": "healthy",
+        "updateState": "completed",
+        "publishedPorts": []
+      },
+      {
+        "name": "freshprice_frontend",
+        "image": "ghcr.io/jamesabilong/fresh-price-frontend:latest",
+        "runningImageId": "sha256:4f064e4a4ed95001deb47f13e972577c9071dde5005f225daed913202b4c4058",
+        "repoDigests": [
+          "ghcr.io/jamesabilong/fresh-price-frontend@sha256:5befc1dc3584699618194741084290bff0630ec090ce3b4adc2846c76d06d64b"
+        ],
+        "running": true,
+        "health": "healthy",
+        "updateState": "completed",
+        "publishedPorts": [
+          {
+            "Protocol": "tcp",
+            "TargetPort": 80,
+            "PublishedPort": 8081,
+            "PublishMode": "host"
+          }
+        ]
+      },
+      {
+        "name": "freshprice_sugilanon",
+        "image": "ghcr.io/jamesabilong/sugilanon:latest",
+        "runningImageId": "sha256:c0b283296dee7c6b14cfd9d84cd81476cd511d53c3d86b4f2fe2b2addf3b0eb8",
+        "repoDigests": [
+          "ghcr.io/jamesabilong/sugilanon@sha256:2eb786e0d7a38b9a98353447c4f817f539c10b6896101fa33ca6cfb78294e3f9"
+        ],
+        "running": true,
+        "health": "healthy",
+        "updateState": "completed",
+        "publishedPorts": [
+          {
+            "Protocol": "tcp",
+            "TargetPort": 3000,
+            "PublishedPort": 3001,
+            "PublishMode": "ingress"
+          }
+        ]
+      }
+    ],
+    "fp66Environment": {
+      "backendMode": "authenticated-edge",
+      "backendExemptionsEnabled": false,
+      "backendEdgeKeyPresent": true,
+      "backendContentKeyPresent": true,
+      "philwatchContentKeyPresent": true,
+      "philwatchEdgeKeyPresent": false,
+      "philwatchDatabaseCredentialNamesPresent": false
+    },
+    "dockerCheckout": "6b5ce18c9c6df7db60b01233f180c23046a522e4",
+    "postgresGuard": {
+      "active": "active",
+      "enabled": "enabled",
+      "publicInterfaceDropRule": true
+    },
+    "database": {
+      "migrationCount": 42,
+      "shoppingMigrationApplied": true,
+      "fp66MigrationApplied": true,
+      "identityMatchesCheckpoint": true,
+      "volumeMatchesCheckpoint": true,
+      "fp66TablesPresent": 2,
+      "freshBackendConnection": true
+    },
+    "caddy": {
+      "version": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=",
+      "active": "active",
+      "file": {
+        "path": "/etc/caddy/Caddyfile",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0,
+        "sha256": "ab9ad212d41b3c6f78e05da3a9cb06a113de96350c9c45c9a3fbb4d1a0b421b6"
+      },
+      "fileConfig": {
+        "serverCount": 1,
+        "targetDomainsFound": [
+          "freshprice.philwatch.com",
+          "philwatch.com"
+        ],
+        "servers": [
+          {
+            "listen": [
+              ":443"
+            ],
+            "trustedProxyConfigured": true,
+            "trustedProxyStrict": true,
+            "clientIpHeaders": [
+              "X-Forwarded-For"
+            ]
+          }
+        ],
+        "proxies": [
+          {
+            "upstreams": [
+              "127.0.0.1:8080"
+            ],
+            "setsVisitorIp": false,
+            "setsEdgeKey": false,
+            "stripsInternalKey": false
+          },
+          {
+            "upstreams": [
+              "127.0.0.1:8081"
+            ],
+            "setsVisitorIp": true,
+            "setsEdgeKey": true,
+            "stripsInternalKey": true
+          },
+          {
+            "upstreams": [
+              "127.0.0.1:3001"
+            ],
+            "setsVisitorIp": true,
+            "setsEdgeKey": true,
+            "stripsInternalKey": true
+          }
+        ],
+        "adminListen": "localhost:2019 (default)",
+        "adminDisabled": false,
+        "tlsAppPresent": false
+      },
+      "activeConfig": {
+        "serverCount": 1,
+        "targetDomainsFound": [
+          "freshprice.philwatch.com",
+          "philwatch.com"
+        ],
+        "servers": [
+          {
+            "listen": [
+              ":443"
+            ],
+            "trustedProxyConfigured": true,
+            "trustedProxyStrict": true,
+            "clientIpHeaders": [
+              "X-Forwarded-For"
+            ]
+          }
+        ],
+        "proxies": [
+          {
+            "upstreams": [
+              "127.0.0.1:8080"
+            ],
+            "setsVisitorIp": false,
+            "setsEdgeKey": false,
+            "stripsInternalKey": false
+          },
+          {
+            "upstreams": [
+              "127.0.0.1:8081"
+            ],
+            "setsVisitorIp": true,
+            "setsEdgeKey": true,
+            "stripsInternalKey": true
+          },
+          {
+            "upstreams": [
+              "127.0.0.1:3001"
+            ],
+            "setsVisitorIp": true,
+            "setsEdgeKey": true,
+            "stripsInternalKey": true
+          }
+        ],
+        "adminListen": "localhost:2019 (default)",
+        "adminDisabled": false,
+        "tlsAppPresent": false
+      },
+      "activeEqualsAdaptedFile": true
+    },
+    "backups": [
+      {
+        "checkpoint": "fp-restore-20261021T011813Z-1873577",
+        "directoryMode": "0o700",
+        "dumpMode": "0o600",
+        "dumpBytes": 193718,
+        "dumpModifiedUtc": "2026-10-21T01:18:17.387131+00:00",
+        "sha256": "ea9b23a1bf89c9d82a1419671aaa60b7c93a846fae9d9bf44e3650496e796ee1"
+      },
+      {
+        "checkpoint": "fp-restore-20261022T060313Z-2598048",
+        "directoryMode": "0o700",
+        "dumpMode": "0o600",
+        "dumpBytes": 211545,
+        "dumpModifiedUtc": "2026-10-22T06:03:17.082016+00:00",
+        "sha256": "7ed491ce3362dc3f3e2f484a48b22b60a02b128ce2342345349e675bbaa75880"
+      },
+      {
+        "checkpoint": "fp-restore-20261022T074534Z-2658688",
+        "directoryMode": "0o700",
+        "dumpMode": "0o600",
+        "dumpBytes": 226036,
+        "dumpModifiedUtc": "2026-10-22T07:45:38.013428+00:00",
+        "sha256": "148b80951c00a087655057a5a55e2529c770beb966db9020b2fbd633e6e848fc"
+      },
+      {
+        "checkpoint": "fp-restore-20261026T031411Z-2355358",
+        "directoryMode": "0o700",
+        "dumpMode": "0o600",
+        "dumpBytes": 226036,
+        "dumpModifiedUtc": "2026-10-26T03:14:14.665137+00:00",
+        "sha256": "8545c75fa53661d2985e09b6a7a37e57ce862aec0994ee1409d72888b815a5bc"
+      },
+      {
+        "checkpoint": "fp-restore-20261026T041156Z-2388254",
+        "directoryMode": "0o700",
+        "dumpMode": "0o600",
+        "dumpBytes": 231075,
+        "dumpModifiedUtc": "2026-10-26T04:11:59.944908+00:00",
+        "sha256": "8da50acebfa378529377b3ab3a0d43f24b6301f4e3367a0f3e210475a5cdcc99"
+      }
+    ]
+  },
+  "finalPublicSmoke": [
+    {
+      "url": "https://freshprice.philwatch.com/",
+      "status": 200,
+      "bytes": 1017,
+      "headers": {
+        "Content-Type": "text/html",
+        "Cache-Control": "no-store"
+      }
+    },
+    {
+      "url": "https://freshprice.philwatch.com/healthz",
+      "status": 200,
+      "bytes": 15,
+      "headers": {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-store"
+      }
+    },
+    {
+      "url": "https://freshprice.philwatch.com/api/platform/db/health",
+      "status": 200,
+      "bytes": 34,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-store"
+      }
+    },
+    {
+      "url": "https://freshprice.philwatch.com/api/platform/auth",
+      "status": 200,
+      "bytes": 22,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "url": "https://freshprice.philwatch.com/admin/authentication-testing",
+      "status": 200,
+      "bytes": 1017,
+      "headers": {
+        "Content-Type": "text/html",
+        "Cache-Control": "no-store"
+      }
+    },
+    {
+      "url": "https://freshprice.philwatch.com/sw.js",
+      "status": 200,
+      "bytes": 5749,
+      "headers": {
+        "Content-Type": "application/javascript",
+        "Cache-Control": "no-store"
+      }
+    },
+    {
+      "url": "https://freshprice.philwatch.com/manifest.webmanifest",
+      "status": 200,
+      "bytes": 363,
+      "headers": {
+        "Content-Type": "application/manifest+json",
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "url": "https://philwatch.com/",
+      "status": 200,
+      "bytes": 27105,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate"
+      }
+    },
+    {
+      "url": "https://philwatch.com/health",
+      "status": 200,
+      "bytes": 3,
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-store"
+      }
+    },
+    {
+      "url": "https://philwatch.com/api/platform/db/health",
+      "status": 200,
+      "bytes": 34,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-store"
+      }
+    },
+    {
+      "url": "https://philwatch.com/api/platform/auth",
+      "status": 200,
+      "bytes": 22,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "url": "https://philwatch.com/search?q=fp66-release-check",
+      "status": 200,
+      "bytes": 13958,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate"
+      }
+    },
+    {
+      "url": "https://philwatch.com/articles/fp66-release-check-nonexistent",
+      "status": 404,
+      "bytes": 10373,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate"
+      }
+    },
+    {
+      "url": "https://philwatch.com/api/sugilanon/articles?limit=1",
+      "status": 200,
+      "bytes": 64,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    },
+    {
+      "url": "https://philwatch.com/api/sugilanon/categories",
+      "status": 200,
+      "bytes": 2,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    },
+    {
+      "url": "https://jamesabilong.philwatch.com/",
+      "status": 200,
+      "bytes": 1056,
+      "headers": {
+        "Content-Type": "text/html",
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "url": "https://www.philwatch.com/",
+      "status": 200,
+      "bytes": 27105,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate"
+      }
+    }
+  ],
+  "postReleaseBackup": {
+    "checkpoint": "/var/backups/freshprice/fp-restore-20261026T041156Z-2388254",
+    "comparison": {
+      "equal": true,
+      "original": {
+        "copyBlocks": 48,
+        "rows": 582
+      },
+      "restored": {
+        "copyBlocks": 48,
+        "rows": 582
+      }
+    },
+    "migrations": 42,
+    "dumpSha256": "8da50acebfa378529377b3ab3a0d43f24b6301f4e3367a0f3e210475a5cdcc99",
+    "dumpBytes": 231075,
+    "checksumsPass": true,
+    "separateProtectedRuntimeAndCaddyDropinRetained": true,
+    "scratchResourcesRemoved": true
+  },
+  "limits": [
+    "No authenticated production feature/exemption mutation was run; live mutation-denial POST was rejected by auto-review and omitted",
+    "Existing article detail cannot be tested: zero published production articles and categories; missing detail 404 and prior synthetic detail coverage retained",
+    "Nonempty content search query returns 500; same search source hash as previous running image; search page returns 200 with swallowed empty results, which is not proof of working search",
+    "Physical-device and installed-PWA upgrade checks remain waived/untested",
+    "Same-VPS backup; off-host/global-role/config redeployment and atomic uploads/DB snapshot remain uncertified",
+    "No login exemption enabled or created; rules=0, audits=0",
+    "Jira status was not changed during deployment"
+  ]
+}

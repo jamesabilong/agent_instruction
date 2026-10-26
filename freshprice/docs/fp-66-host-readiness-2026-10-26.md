@@ -1,5 +1,6 @@
 # FP-66 authenticated host and restored-backup readiness — October 26, 2026
 
+> Historical pre-release checkpoint. Current deployed state, verification and open follow-ups are in the [FP-66 release record](fp-66-deployment-2026-10-26.md).
 Current state: the user subsequently authorized fresh backup and Caddy maintenance. [Fresh checkpoint, Caddy 2.11.7 and readiness rechecks](fp-66-caddy-maintenance-2026-10-26.md) pass and supersede the version/backup-age blockers below. This document preserves the historical pre-maintenance checkpoint; app PRs remain unmerged/undeployed.
 
 ## Historical pre-maintenance result

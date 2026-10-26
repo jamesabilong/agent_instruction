@@ -1,5 +1,6 @@
 # FP-66 readiness continuation — October 26, 2026
 
+> Historical pre-release checkpoint. Current deployed state, verification and open follow-ups are in the [FP-66 release record](fp-66-deployment-2026-10-26.md).
 The user initially authorized readiness checks and agent-instructions publication without production changes, then separately authorized the fresh backup/Caddy maintenance recorded below. App PR merge/deployment remains unauthorized; all four [feature drafts](fp-66-publication-2026-10-26.md) remain the release candidates. No production app migration/deployment, FP-66 trust activation, exemption or feature mutation was performed.
 
 Current follow-up: the user authorized fresh backup/Caddy maintenance. **Caddy 2.11.7 is running, fresh October 26 backup/full restore and exact FP-66 migration/recovery pass, and installed full-candidate validation passes.** Existing sites/config/app images/live 41-migration database/guard remain healthy. [Maintenance and remaining app gates](fp-66-caddy-maintenance-2026-10-26.md) supersede the earlier version/backup-age blockers and historical checks below. No app PR merge/deployment or FP-66 activation.

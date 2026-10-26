@@ -4,13 +4,15 @@ Current as of 2026-10-26. Historical checklists are preserved in [the archive](a
 
 ## Active work
 
+- [x] October 26: ordered FP-66 merge/deploy, scoped credential parser follow-up, Caddy strict identity/two independent real clients/direct-origin checks and final image/migration 42/DB/guard verification complete; exemptions false, zero rules/audits. Fresh protected post-release full restore passes. [Release](../docs/fp-66-deployment-2026-10-26.md).
+- [ ] Repair nonempty PhilWatch content-search query 500 with database-backed regression coverage; SSR currently swallows it as empty results. Keep article-detail production coverage unavailable until real published content exists.
+
 - [x] 2026-10-23: complete FP-66 local forwarding/SSR integration, persistent own-account exemption controls, fresh reauthentication, expiry/revocation/audit/recovery and admin UI. Final 9+30 acceptance, unit/DB/proxy and lint/build checks pass. [Record](../docs/fp-66-controls-2026-10-23.md).
 - [x] 2026-10-26: review exact FP-66 candidate across all four repositories; all 34 hashes/HEADs match accepted source, no blocking finding, fresh 271+303 units/three parser checks and both app lint/build checks pass. [Review](../docs/fp-66-review-2026-10-26.md).
-- [x] 2026-10-26: user-authorized FP-66 commits/pushes and four attached draft PRs complete, with correct bases and MERGEABLE/CLEAN status. [Publication](../docs/fp-66-publication-2026-10-26.md). No deployment.
+- [x] 2026-10-26: user-authorized FP-66 commits/pushes and four attached draft PRs complete, with correct bases and MERGEABLE/CLEAN status. [Publication](../docs/fp-66-publication-2026-10-26.md). Historical publication checkpoint; the release is recorded above.
 - [x] 2026-10-26 readiness: both sites' public app/DB health pass; all 22 current official Cloudflare ranges pass local Caddy adaptation/validation with strict parsing and both proxy header policies. [Scope/evidence](../docs/fp-66-readiness-2026-10-26.md).
 - [x] October 26: user-authenticated read-only host/runtime/DB/guard/backup inventory and explicitly approved existing-backup FP-66 migration/recovery pass; local raw dumps/resources removed and final production metadata unchanged. [Scope/results](../docs/fp-66-host-readiness-2026-10-26.md).
 - [x] October 26: user-authorized fresh protected backup/full restore, exact FP-66 migration/recovery on that fresh snapshot and safe official Caddy 2.11.7 upgrade complete. Existing sites/config and shared app/DB/guard baseline pass; installed full non-active candidate validates. [Maintenance/evidence](../docs/fp-66-caddy-maintenance-2026-10-26.md).
-- [ ] FP-66 release: obtain separate app merge/deployment authorization; configure protected distinct credentials/targeted environments, verify two independent real public clients/direct origins after rollout and intended final images/migration 42/database/health/guard. Refresh backup freshness if rollout is materially delayed; retain documented recovery/acceptance limits. Follow [remaining gates](../docs/fp-66-caddy-maintenance-2026-10-26.md). Default disabled; no live exemption. Keep Jira In Progress until delivery gates close.
 
 - [x] Final FP-63 runtime/host verification and fresh protected post-release backup/full isolated restore pass after SSH reconnection; [release record](../docs/fp62-fp63-deployment-2026-10-22.md).
 - [ ] Confirm owners and estimates/capacity for active sprint 338 (FP-62/63/66); started on user request October 22 with Jira’s default two-week window ending November 5. FP-57 → FP-58 remains the future seller/messaging sequence.
@@ -27,7 +29,7 @@ Current as of 2026-10-26. Historical checklists are preserved in [the archive](a
 - [x] 2026-10-21: reviewed sprint 337, marked FP-59/60/61 Done and completed the sprint on user request. Jira confirms 100% completion; sprint 338 was subsequently started on October 22 with FP-62/63/66.
 - [x] FP-59/60/61 released and final live read-only verification passes; PostgreSQL publication removed and guarded; worker/manifest headers pass.
 - [x] Device/installed-upgrade testing explicitly waived by user, recorded as untested.
-- [x] FP-66 created/verified in sprint 338; local implementation completed October 23 and review/release remains.
+- [x] FP-66 created/verified in sprint 338; reviewed implementation deployed October 26; exemptions disabled.
 - [x] Review cleanup changes, preserve needed FP-63 work as WIP feature commits, discard already-published Docker duplicates, consolidate instructions and preserve historical evidence.
 - [x] 2026-10-22: implemented the three FP-63 review fixes locally; lint/build, 298 frontend units, 232 backend tests (23 existing DB skips) and controlled Chromium regression pass. Reviewed fixes were subsequently committed/pushed; release gates remain open.
 - [x] 2026-10-22: started sprint 338; restored local Docker by launching its nested desktop app; full acceptance passes 12 feature + 30 whole-app, 36 database integrations and dedicated service/database regressions. Disposable local databases only; no production changes.

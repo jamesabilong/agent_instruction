@@ -1,5 +1,6 @@
 # FP-66 fresh checkpoint and Caddy maintenance — October 26, 2026
 
+> Historical pre-release checkpoint. Current deployed state, verification and open follow-ups are in the [FP-66 release record](fp-66-deployment-2026-10-26.md).
 ## Result and authorization
 
 The user explicitly authorized a fresh protected backup, safe Caddy upgrade, readiness rechecks and agent-instructions publication, while withholding app PR merge/deployment. **Caddy 2.11.7 is installed and running; the earlier 2.6.2 compatibility blocker is resolved.** The fresh-backup and exact FP-66 migration/recovery checks pass. All existing sites, app images, database identity/volume/live 41-migration inventory and PostgreSQL guard pass final checks.

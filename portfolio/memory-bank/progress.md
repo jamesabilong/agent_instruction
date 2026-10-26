@@ -2,6 +2,8 @@
 
 ## 2026-10-26
 
+- FP-66 shared Caddy identity rollout preserved portfolio upstream/TLS/maintenance configuration; only the expected global public-CDN trust settings and FreshPrice/PhilWatch assertion policies changed. Final public portfolio HTTPS passes after the authorized restart; no portfolio source/image change. [Release](../../freshprice/docs/fp-66-deployment-2026-10-26.md).
+
 - Shared VPS Caddy upgraded from 2.6.2 to official signed 2.11.7 under explicit user maintenance authorization. Existing route/config preserved; direct origin HTTPS and public `jamesabilong.philwatch.com` title/status pass before and after. No portfolio source/image/deployment change. Protected rollback package/config/certificate storage and shared-stack backup/restore checks pass. [Maintenance](../../freshprice/docs/fp-66-caddy-maintenance-2026-10-26.md).
 
 ## 2026-09-06

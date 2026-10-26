@@ -1,5 +1,6 @@
 # FP-66 feature publication — October 26, 2026
 
+> Historical pre-release checkpoint. Current deployed state, verification and open follow-ups are in the [FP-66 release record](fp-66-deployment-2026-10-26.md).
 The user explicitly authorized committing/pushing the reviewed FP-66 branches and opening draft PRs, with no deployment. Published only `FP-66`; no release-branch update, merge, dispatch, production migration/configuration operation or live exemption.
 
 | Repository | Commit | Draft PR | Base |

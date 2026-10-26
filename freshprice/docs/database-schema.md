@@ -128,3 +128,7 @@ Additive `20261020000004-shopping-lists.cjs` creates owned shopping_lists (UUID,
 October 22 FP-63: existing shopping_items.purchase_details JSON now also snapshots the purchase-time budgetLink; no migration required. Legacy targets are recovered from immutable shopping_operations result.purchaseBudget. Live expense access is checked before offering history navigation.
 
 FP-66 migration `20261023000001-auth-test-exemptions.cjs` is additive; rollback refuses collected rule/audit history. [Policy and migration gates](fp-66-controls-2026-10-23.md). Not deployed.
+
+## FP-66 production status — 2026-10-26
+
+Additive migration 42 and `/api/platform/auth/testing-exemption` own-account admin controls are deployed. Caddy authenticated-edge identity is verified on both apps; normal authentication/roles/fresh-password rules remain. Exemptions are disabled, with zero rule/audit rows. Schema constraints, audit retention and guarded rollback follow the [policy](fp-66-controls-2026-10-23.md); do not discard collected audit history. [Release/evidence](fp-66-deployment-2026-10-26.md).

@@ -1,10 +1,8 @@
 # Sugilanon Project Spec
 
-Last investigated: 2026-07-01; shared FP-66 publication/readiness updated 2026-10-26.
+Last investigated: 2026-07-01; FP-66 release updated 2026-10-26.
 
-FP-66 published candidate: server-only public content reads use a distinct restricted service credential; browser API rewrites preserve Caddy visitor assertions and production defaults use the Swarm backend. Shared own-account login-throttle controls/admin UI are implemented and local acceptance passes. Four coordinated drafts include PhilWatch [#2](https://github.com/jamesabilong/sugilanon/pull/2) against main. Not merged/deployed; [readiness continuation](../../freshprice/docs/fp-66-readiness-2026-10-26.md), [policy and release gates](../../freshprice/docs/fp-66-controls-2026-10-23.md).
-
-Authorized October 26 maintenance: fresh protected backup/full restore and exact FP-66 migration/recovery pass; Caddy 2.11.7 is running with existing sites preserved and installed candidate validation passing. App images/live DB/guard remain unchanged; app PRs are still unmerged/undeployed and later rollout/public-client gates remain. [Maintenance results](../../freshprice/docs/fp-66-caddy-maintenance-2026-10-26.md).
+FP-66 is deployed: PhilWatch #2, shared backend/schema and FreshPrice/Docker counterparts merged in verified order. Browser rewrites preserve Caddy authenticated visitor assertions; server-only public content uses a distinct restricted credential. Two independent public clients, direct-origin checks, scoped credential privacy, migration 42/shared service/DB/guard and post-release backup/full isolated restore pass. Exemptions remain false with zero rules/audits. Nonempty-query content search returns 500 (unchanged search service source); fix remains open. Production inventory is empty, so existing article-detail smoke is unavailable. [Release/evidence/limits](../../freshprice/docs/fp-66-deployment-2026-10-26.md), [policy](../../freshprice/docs/fp-66-controls-2026-10-23.md).
 
 ## Summary
 
