@@ -53,4 +53,4 @@ Public/admin article and source-draft pages have a final-ID ordering tie-breaker
 
 ## Search UI pagination (local follow-up, 2026-10-26)
 
-The existing `/api/sugilanon/search?q=...&page=...&limit=12` metadata now drives local PhilWatch Previous/Next links and query-preserving page recovery. API query/association semantics remain unchanged; errors are shown instead of empty success. App publication/release remains pending. [Fix and verification](../../freshprice/docs/search-pagination-fix-2026-10-26.md).
+The existing `/api/sugilanon/search?q=...&page=...&limit=12` metadata drives PhilWatch Previous/Next links and query-preserving page recovery. Omit `q` for blank/whitespace-only search: the API rejects an explicitly empty trimmed value. The form bounds input to 120 characters; direct overlong URLs render a specific length error without an API request, while dependency failures show a generic alert. API query/association semantics remain unchanged. Release remains pending. [Current review, verification and PRs](../../freshprice/docs/search-pagination-review-publication-2026-10-26.md).

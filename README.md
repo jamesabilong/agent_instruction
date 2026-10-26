@@ -10,7 +10,7 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
-- [Local search pagination fixes](freshprice/docs/search-pagination-fix-2026-10-26.md): PhilWatch page links and server-side global price search, with database/browser regressions. App publication/release remains pending; backend must precede the new price UI. Production untouched and exemptions disabled.
+- [Search pagination review and publication](freshprice/docs/search-pagination-review-publication-2026-10-26.md): global price search and PhilWatch result-page navigation are reviewed, committed/pushed and open in backend #63, frontend #59 and PhilWatch #3. Blank/long-query, stale-page/recovery and invalid API input findings are fixed with fresh Windows checks. Release remains pending; backend must precede the new price UI. Production untouched and exemptions disabled. [Earlier local checkpoint](freshprice/docs/search-pagination-fix-2026-10-26.md).
 
 - [Isolated populated browser verification](freshprice/docs/populated-browser-verification-2026-10-26.md): ranking/tag/tied pages, current-price UI pages, history/search API pages and populated form/detail checks pass. Historical reproduction of missing PhilWatch page controls and page-local price search; both are now fixed locally in the follow-up above, with app release pending. Exemptions disabled; production untouched.
 

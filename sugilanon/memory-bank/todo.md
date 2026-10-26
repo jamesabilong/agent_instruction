@@ -2,10 +2,13 @@
 
 Current as of 2026-10-26. [Historical checklist](archive/todo-through-2026-10-21.md).
 
+- [x] October 26 Windows continuation: restore missing search source, reverify helper/page/browser/lint/build and shared backend/PostgreSQL behavior, recover Docker startup and correct setup guidance. [Current evidence and limits](../../freshprice/docs/windows-continuation-2026-10-26.md).
+
 - [x] October 26: read-only production Chromium verification completed; checked flows/API statuses and zero console errors/warnings recorded with explicit limits. Keep exemptions disabled. [Results](../../freshprice/docs/browser-verification-2026-10-26.md).
 - [x] October 26: complete isolated populated community ranking/tag/tie pages, current-price UI pages, browser-fetched history/search pages and populated search/detail checks. [Results and limits](../../freshprice/docs/populated-browser-verification-2026-10-26.md).
 - [x] October 26: fix PhilWatch search-page navigation and global price search locally; add real PostgreSQL and isolated UI regressions. [Results](../../freshprice/docs/search-pagination-fix-2026-10-26.md).
-- [ ] Review/publish the local backend and both frontends, then obtain release authorization; deploy backend before FreshPrice frontend and verify production with exemptions disabled. No app publication/deployment performed by this task.
+- [x] October 26: review/fix search gaps, commit/push and create backend #63, frontend #59 and PhilWatch #3 with current exact-head verification. [Review and evidence](../../freshprice/docs/search-pagination-review-publication-2026-10-26.md).
+- [ ] Obtain release authorization, then deploy backend #63 before frontend #59 and verify PhilWatch #3 with exemptions disabled. PR creation did not merge or deploy anything.
 - [ ] Preserve production inventory limits and separate authenticated/admin, cross-browser/device/PWA recovery follow-ups; do not seed production or enable exemptions for coverage.
 
 - [x] October 26: audit backend search/pagination, reproduce/fix ranking/tag/tie findings locally and add 16 database regressions; final 62 database-suite and 271 unit checks pass. [Record](../../freshprice/docs/backend-pagination-audit-2026-10-26.md).
