@@ -10,6 +10,8 @@ FreshPrice uses Sequelize models under `platform-backend/src/models` and migrati
 
 | Model | Table | Domain |
 | --- | --- | --- |
+| `AuthTestExemption` | `auth_test_exemptions` | FP-66 local: one exact-IP/expiry/revision rule per own admin account |
+| `AuthTestExemptionAudit` | `auth_test_exemption_audits` | FP-66 local: redacted transactional lifecycle/use audit |
 | `User` | `users` | Auth, account ownership, admin/operator roles |
 | `Product` | `products` | Product catalog |
 | `Market` | `markets` | Market catalog |
@@ -124,3 +126,5 @@ FP-62 review fix migration `20261020000003-wiki-enrichment-retry-and-retraction.
 Additive `20261020000004-shopping-lists.cjs` creates owned shopping_lists (UUID, optional logical budget_link JSON, market/recipe FK snapshots, revision/archive), shopping_items (UUID, canonical product or unmatched text, quantity/unit, check/remove state, permanent purchase timestamp/details and live expense FK), and shopping_operations (UUID, owner, immutable request hash and original result). Account deletion cascades; deleted market/product/recipe/expense references SET NULL while snapshots/purchase markers remain. Actor/operation locks serialize idempotent writes; purchase shares one outer expense transaction with item/list/receipt updates. A different operation cannot repurchase a marked item after expense deletion. Down locks and refuses collected lists/operations; preserve data and forward-repair used schemas. See `fp-63-shopping-integration-2026-10-20.md`.
 
 October 22 FP-63: existing shopping_items.purchase_details JSON now also snapshots the purchase-time budgetLink; no migration required. Legacy targets are recovered from immutable shopping_operations result.purchaseBudget. Live expense access is checked before offering history navigation.
+
+FP-66 migration `20261023000001-auth-test-exemptions.cjs` is additive; rollback refuses collected rule/audit history. [Policy and migration gates](fp-66-controls-2026-10-23.md). Not deployed.

@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-23",
+  "scope": "Local synthetic implementation and acceptance only; not production or restored-production data",
+  "productionChanged": false,
+  "liveExemptionEnabled": false,
+  "committedOrPushed": false,
+  "source": {
+    "platform-backend": {
+      "branch": "FP-66",
+      "head": "6110be9a496472df16a340987c868811322f154d",
+      "changedFileSha256": {
+        "package.json": "c0497bf0acbc9ef248ee1ae070970ab62718f2ef8b772c7718a62cde2a823279",
+        "src/middleware/clientIdentity.js": "51776aa2884daecbff35421828abef41268b35f6fa2e76cff74dd545b98aa4bd",
+        "src/migrations/20261023000001-auth-test-exemptions.cjs": "43d40c7f48527ed60020c6f0b0724163973a4bad71a9c7a7487908d07e057384",
+        "src/models/authTestExemption.js": "59d6e0b958adc297229971ef067fa2bcad9c42cdb46b037095c0c21f3efaf6c0",
+        "src/models/authTestExemptionAudit.js": "80714599cfa006129456e632d81750f0564ec195aa4f09a1ac558b28430e421e",
+        "src/routes/authRoutes.js": "e892b6800f3bb09dacc8a9c5ba4f3ed1f217dab096fafce60042405d074f4b6d",
+        "src/routes/authTestExemptionRoutes.js": "3117185836ff6802e094035eb797f763ceac7f18b64145c1fbafb5a9f1c2f967",
+        "src/scripts/revoke-auth-test-exemption.js": "d56fcd815368f92130d97b00144a10393d41648088ad22ed69b20ff8650e5fb0",
+        "src/server.js": "4da12658c41a08fea551b0d84d56c33b236e67c9c34c7edb8bb05c4ae735fc0c",
+        "src/services/authTestExemptionService.js": "15716075d78e799ee011cff004c945a021212606c3780cb89e685da741fc0dd7",
+        "vitest.config.js": "ffc1730b858a0b604b565d5adfcb249cc1b8f22c948d787f40fd9609c2342fdc"
+      }
+    },
+    "fresh-price-front": {
+      "branch": "FP-66",
+      "head": "b4f55921b5ce4542055f94d7e4633ed0e5c96a4e",
+      "changedFileSha256": {
+        "src/api/authTestingService.ts": "5028a974d60f8680563d691500f019dae50c4b87d7c648ddacad37cd4e22492c",
+        "src/features/admin/AdminSidebar.tsx": "f341035b400fa902a55fae588100e33a60d95ae3262ca01f4449ed676f85ac7d",
+        "src/features/admin/AuthTestingPage.tsx": "0ffd473cc4539a6d549373f85174722fbd95abe14e118f1b32da7af7b825702a",
+        "src/router/index.tsx": "03f3ae97a2a695fa7d657663a1e84d117aca89f2c31283b181c964a5fc0239f4",
+        "vite.config.ts": "4afd98fbe33ea3a1e1d893417597597dc7a6f84262eb37797558fc656c851e1e"
+      }
+    },
+    "fpdocker": {
+      "branch": "FP-66",
+      "head": "5f364defe7202c16e839c58bfc3f35b8ee8221ef",
+      "changedFileSha256": {
+        ".github/workflows/deploy.yml": "1de0894ca393ba0d42648502a79ce66151e4f4353888347b63975d231a9be7de",
+        "client-identity/Caddyfile.global.snippet": "2d97502d52d0805173d9b910b719964b2235f72669965c9fdc19a7d726beefdf",
+        "client-identity/Caddyfile.proxy.snippet": "8f17c1b689e0299b3575edeb32425002b3babd4ae4b0370ca857d24727c7fb63",
+        "client-identity/README.md": "095f3a47b9421a4100b3e124a0eae6e08f31e1424e55dd541c41e98b6e35bf07",
+        "docker-compose.prod.yml": "83ae373239cdb24a0c6474e63646841ccfff5ad07aac1203213def28a2a6c37e",
+        "nginx.conf": "acd703e47395616925eceb83f8ca0b09836d6531f8ed42cccf1a952602a0574a",
+        "nginx.prod.conf": "2648109d083eda0b1d10f9ea3dc3314d398ace0277c204144d8443fdd1ca0044",
+        "nginx.prod.ssl.conf": "3d699eca21f876e6c67f57222b949224315b932e53775b052fc29e15c317c593",
+        "nginx.share.conf": "596977ff220b52f0665bdf49410e598a168da05b5106985b895ae7573889a5df"
+      }
+    },
+    "sugilanon": {
+      "branch": "FP-66",
+      "head": "f18f244e03f5ca0244a66da1cfc26126e25dd342",
+      "changedFileSha256": {
+        "next.config.ts": "a1ba2118b53f9574511878d0be1d5909f46e8175cb8c057b9d59834a60e7e588",
+        "src/app/articles/[slug]/page.tsx": "20086ee435aff1edb23c0730c38a046153998bf4c26000cceb8f58d6da884582",
+        "src/app/category/[slug]/page.tsx": "bec3730a5cdb7d96f43d3c28b9e8167d54ba82e7aba5b5a0e839204b7a5267b1",
+        "src/app/page.tsx": "fffa83721946501d6f8fd8be96e0e46c9686ec871871ffa1d49159666ec4e864",
+        "src/app/search/page.tsx": "31b564f0e96c2b2380674b4adaf9877b1830dd4c69ce7640da5a72e519ebf875",
+        "src/components/layout/SiteHeader.tsx": "bdbd3d793c084778082488873ddb710c4b1f0c1096cadfbdb04fc8b27aaf5a28",
+        "src/lib/api.ts": "9e44f5e7b8add8aac5bea0571b4db9742fae3642267e484bbcc933a38a94d5ef",
+        "src/lib/internalContentHeaders.ts": "78ebe94a07f4988f1f3ad36399f7378dc8a546f62cfe77127d0a9c5f515ddb9e",
+        "src/lib/publicContentApi.ts": "fac1dbe835a30b4591f3ed722c00f0d0e0368464c7278bf9a1cef91dc8c3ad0d"
+      }
+    }
+  },
+  "verification": {
+    "backendUnits": {
+      "files": 33,
+      "passed": 271,
+      "failed": 0,
+      "skipped": 0,
+      "fp66Checks": 52
+    },
+    "frontendUnits": {
+      "files": 54,
+      "passed": 303,
+      "failed": 0,
+      "skipped": 0,
+      "fp66Checks": 5
+    },
+    "sharedDatabaseIntegration": {
+      "files": 6,
+      "passed": 36,
+      "failed": 0,
+      "skipped": 0
+    },
+    "proxyIntegration": {
+      "passed": 37,
+      "failed": 0,
+      "scope": "Actual local Caddy/nginx/production Next with a synthetic identity/content backend; no live CDN/public clients"
+    },
+    "runnerChecks": 41,
+    "deploymentParserChecks": 3,
+    "freshpriceLintBuild": "PASS",
+    "philwatchLintBuild": "PASS",
+    "philwatchBrowserCredentialScan": "Synthetic server credential absent from static chunks; normal production rewrite restored/verified",
+    "e2e": {
+      "runId": "2026-10-23T02-01-51-147Z-798d7a99",
+      "feature": 9,
+      "wholeApp": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "passed"
+    },
+    "mobileDesktopVisualInspection": "PASS"
+  },
+  "remainingReleaseGates": [
+    "Exact change review and explicit release authorization",
+    "Protected backup/restored-copy migration/recovery as required",
+    "Installed production Caddy/current public CDN configuration validation",
+    "Protected separate credentials and coordinated targeted service environment rollout",
+    "Two independent real public client identities and deployed direct-origin checks",
+    "Final actual runtime image/migration/database/health/guard verification"
+  ],
+  "limits": [
+    "Public proxy identity tests use a synthetic CDN peer and synthetic addresses, not two actual public clients",
+    "Replica/restart rule checks use independent new DB-backed processes; no live multi-replica production test",
+    "No new physical-device or installed-PWA upgrade verification",
+    "FP-66 management intentionally permits the current admin own account only; no delegated test account ownership"
+  ]
+}

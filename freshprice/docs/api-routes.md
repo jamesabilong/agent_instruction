@@ -27,6 +27,10 @@ FreshPrice uses `/api/freshprice/*` for app-owned APIs and `/api/platform/*` for
 - `POST /reset-password`
 - `POST /reset-password/confirm`
 
+### FP-66 local authentication testing controls (2026-10-23)
+
+`GET/PUT /api/platform/auth/testing-exemption` and `POST /api/platform/auth/testing-exemption/revoke` require authenticated current administrator authorization. Changes require a fresh current password, enabled feature, verified public caller identity and expected revision; rules are restricted to that same account. GET is no-store and includes current IP, rule lifecycle and latest 100 audit events. See [FP-66 policy and API](fp-66-controls-2026-10-23.md). Local implementation; not deployed.
+
 ### `/api/platform/users`
 
 All routes require auth. List/create/delete require operator role. Read/update require self or operator.

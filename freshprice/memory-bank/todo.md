@@ -1,11 +1,17 @@
 # FreshPrice Todo
 
-Current as of 2026-10-22. Historical checklists are preserved in [the archive](archive/todo-through-2026-10-21.md); superseded pending release steps there are not current tasks.
+Current as of 2026-10-26. Historical checklists are preserved in [the archive](archive/todo-through-2026-10-21.md); superseded pending release steps there are not current tasks.
 
 ## Active work
 
+- [x] 2026-10-23: complete FP-66 local forwarding/SSR integration, persistent own-account exemption controls, fresh reauthentication, expiry/revocation/audit/recovery and admin UI. Final 9+30 acceptance, unit/DB/proxy and lint/build checks pass. [Record](../docs/fp-66-controls-2026-10-23.md).
+- [x] 2026-10-26: review exact FP-66 candidate across all four repositories; all 34 hashes/HEADs match accepted source, no blocking finding, fresh 271+303 units/three parser checks and both app lint/build checks pass. [Review](../docs/fp-66-review-2026-10-26.md).
+- [x] 2026-10-26: user-authorized FP-66 commits/pushes and four attached draft PRs complete, with correct bases and MERGEABLE/CLEAN status. [Publication](../docs/fp-66-publication-2026-10-26.md). No deployment.
+- [x] 2026-10-26 readiness: both sites' public app/DB health pass; all 22 current official Cloudflare ranges pass local Caddy adaptation/validation with strict parsing and both proxy header policies. [Scope/evidence](../docs/fp-66-readiness-2026-10-26.md).
+- [ ] Resume authenticated read-only host readiness inventory after user SSH login; inspect installed Caddy/active configuration, actual images, DB/migration/guard and protected backup state, then exact FP-66 restored-copy migration/recovery as authorized. Noninteractive SSH rejected; these gates remain unverified.
+- [ ] FP-66 release: obtain separate merge/deployment authorization; validate installed Caddy/current public CDN peers, protected credential/targeted environment rollout, restored-copy migration/recovery as required, two independent real public clients/direct origins and final running images/database/health/guard. Follow the [reviewed delivery sequence](../docs/fp-66-review-2026-10-26.md). Default disabled; no live exemption. Keep Jira In Progress until delivery gates close.
+
 - [x] Final FP-63 runtime/host verification and fresh protected post-release backup/full isolated restore pass after SSH reconnection; [release record](../docs/fp62-fp63-deployment-2026-10-22.md).
-- [ ] FP-66: correct trusted end-user IP handling and forwarding-header spoof resistance, then implement admin-managed exact account/IP exemptions with expiry, revocation and audit. Validate FreshPrice and PhilWatch. No gateway/subnet wildcard exemption or password/session/role bypass. [Ticket](https://fresh-price.atlassian.net/browse/FP-66).
 - [ ] Confirm owners and estimates/capacity for active sprint 338 (FP-62/63/66); started on user request October 22 with Jira’s default two-week window ending November 5. FP-57 → FP-58 remains the future seller/messaging sequence.
 
 ## Operations and retained follow-ups
@@ -20,7 +26,7 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 - [x] 2026-10-21: reviewed sprint 337, marked FP-59/60/61 Done and completed the sprint on user request. Jira confirms 100% completion; sprint 338 was subsequently started on October 22 with FP-62/63/66.
 - [x] FP-59/60/61 released and final live read-only verification passes; PostgreSQL publication removed and guarded; worker/manifest headers pass.
 - [x] Device/installed-upgrade testing explicitly waived by user, recorded as untested.
-- [x] FP-66 created/verified in sprint 338; exemption implementation remains To Do.
+- [x] FP-66 created/verified in sprint 338; local implementation completed October 23 and review/release remains.
 - [x] Review cleanup changes, preserve needed FP-63 work as WIP feature commits, discard already-published Docker duplicates, consolidate instructions and preserve historical evidence.
 - [x] 2026-10-22: implemented the three FP-63 review fixes locally; lint/build, 298 frontend units, 232 backend tests (23 existing DB skips) and controlled Chromium regression pass. Reviewed fixes were subsequently committed/pushed; release gates remain open.
 - [x] 2026-10-22: started sprint 338; restored local Docker by launching its nested desktop app; full acceptance passes 12 feature + 30 whole-app, 36 database integrations and dedicated service/database regressions. Disposable local databases only; no production changes.
@@ -42,3 +48,5 @@ Current as of 2026-10-22. Historical checklists are preserved in [the archive](a
 - [x] 2026-10-22: user accepted documented recovery/testing limitations; reviewed/merged FP-62/63 in authorized backend-before-frontend order, all four deployment workflows succeeded and exact approved pilot/recipes published. Final SSH-dependent verification and post-release backup/restore subsequently passed.
 
 - [x] October 22 VPS maintenance complete: operator SSH restored; kernel, database/images, public health/content and guard verification pass after reboot. [Record](../../freshprice/docs/vps-maintenance-2026-10-22.md).
+
+- [x] 2026-10-22: marked FP-62 and FP-63 Done through the browser and moved FP-66 to In Progress; retained visible board proof locally.

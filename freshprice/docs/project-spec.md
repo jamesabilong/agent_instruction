@@ -1,8 +1,8 @@
 # FreshPrice Project Spec
 
-> Current state (2026-10-22): FP-59/60/61 are released and verified. FP-62/63 are now merged with four successful deployment workflows and the approved six multilingual variants/two recipes published; actual FP-62 and FP-63 backend host checks pass. Final FP-63 frontend runtime/host and post-release backup verification await working SSH/provider-console access. [Current release record](fp62-fp63-deployment-2026-10-22.md), [progress](../memory-bank/progress.md). Sprint 338 is active October 22–November 5; FP-66 remains the next implementation.
+> Current state (2026-10-23): FP-59/60/61 and FP-62/63 are released and verified; FP-62/63 are Done in Jira. All four FP-62/63 deployment workflows, approved six multilingual variants/two recipes, final host checks and protected backup/full isolated restore pass. Shared VPS update/reboot/postboot checks also pass. [Release record](fp62-fp63-deployment-2026-10-22.md), [maintenance](vps-maintenance-2026-10-22.md), [progress](../memory-bank/progress.md). Sprint 338 is active October 22–November 5; FP-66 is In Progress with complete local forwarding/SSR, own-account exemption controls and admin UI; 9+30 acceptance plus unit/database/proxy checks pass. Disabled by default; production release gates remain. [FP-66 implementation](fp-66-controls-2026-10-23.md).
 
-Last consolidated: 2026-10-22. Feature descriptions below retain their implementation-date context.
+Last consolidated: 2026-10-26. FP-66 is published in four coordinated draft PRs; see [publication](fp-66-publication-2026-10-26.md) and [readiness continuation](fp-66-readiness-2026-10-26.md). No merge/deployment authorized. Feature descriptions below retain their implementation-date context.
 
 ## Summary
 

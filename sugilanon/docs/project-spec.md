@@ -1,6 +1,8 @@
 # Sugilanon Project Spec
 
-Last investigated: 2026-07-01
+Last investigated: 2026-07-01; shared FP-66 publication/readiness updated 2026-10-26.
+
+FP-66 published candidate: server-only public content reads use a distinct restricted service credential; browser API rewrites preserve Caddy visitor assertions and production defaults use the Swarm backend. Shared own-account login-throttle controls/admin UI are implemented and local acceptance passes. Four coordinated drafts include PhilWatch [#2](https://github.com/jamesabilong/sugilanon/pull/2) against main. Not merged/deployed; [readiness continuation](../../freshprice/docs/fp-66-readiness-2026-10-26.md), [policy and release gates](../../freshprice/docs/fp-66-controls-2026-10-23.md).
 
 ## Summary
 

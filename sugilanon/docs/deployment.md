@@ -59,3 +59,10 @@ Important variables:
 - Run `npm run build` from `sugilanon` for production-sensitive changes.
 - On the VPS, verify the service probe directly with `curl -fsS http://127.0.0.1:3001/health`.
 - Backend content API changes should run relevant `platform-backend` tests.
+
+
+## FP-66 local shared-auth candidate (2026-10-23)
+
+Public content fetches now use a server-only helper and distinct protected `CONTENT_INTERNAL_API_KEY` for enumerated public GET/HEAD routes. This principal cannot access auth/admin/mutations or qualify for exemptions. Public Caddy/nginx hops strip it; browser API rewrites preserve the separate Caddy visitor assertions. Next's production rewrite defaults to `freshprice_backend:4000`; runtime `CONTENT_API_BASE_URL` remains server-side. Explicit Sugilanon service environment excludes the backend/database/edge assertion secrets.
+
+Production activation requires coordinated backend/schema, proxy and Sugilanon rollout, installed Caddy/current CDN review and both actual proxy/SSR/public-client checks. New variables are not reconciled by image-only updates. Management UI lives in FreshPrice and applies to the same own admin account across both sites. [FP-66 policy and recovery](../../freshprice/docs/fp-66-controls-2026-10-23.md). Not deployed.

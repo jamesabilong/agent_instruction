@@ -1,6 +1,6 @@
 # Authentication testing exemption investigation — 2026-10-21
 
-Status: **deferred by user to next planned sprint; tracked as FP-66**. No bypass or production change applied.
+Status at investigation: deferred to FP-66. **Superseded October 22:** sprint 338 is active and the user requested implementation; FP-66 is now In Progress with a local client-identity starter. [Current implementation](fp-66-implementation-2026-10-22.md). No live exemption or production proxy change applied.
 
 User requested dynamic IP exemptions managed from the admin UI for their own authorized test accounts. Created [FP-66 — Admin-managed dynamic IP exemptions for authentication testing](https://fresh-price.atlassian.net/browse/FP-66), Story, To Do, assigned to future sprint **338 — Wiki and Shopping Integration**. Verified persisted description/status/sprint through Jira read-back. No duplicate found; connector is read-only, so creation/assignment used the authenticated Jira browser UI. Sprint remains future; no dates or other tickets changed.
 

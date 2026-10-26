@@ -1,0 +1,45 @@
+{
+  "jira": {
+    "FP-62": "Done",
+    "FP-63": "Done",
+    "FP-66": "In Progress",
+    "method": "authenticated browser; visible sprint board confirmed"
+  },
+  "localBranches": {
+    "platform-backend": {
+      "branch": "FP-66",
+      "base": "6110be9a496472df16a340987c868811322f154d"
+    },
+    "fpdocker": {
+      "branch": "FP-66",
+      "base": "5f364defe7202c16e839c58bfc3f35b8ee8221ef"
+    }
+  },
+  "scope": "initial client identity prerequisite; not complete FP-66",
+  "tests": {
+    "targeted": {
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0
+    },
+    "sharedBackendUnits": {
+      "files": 31,
+      "passed": 244,
+      "failed": 0,
+      "skipped": 0
+    },
+    "javascriptSyntax": "PASS"
+  },
+  "productionChanged": false,
+  "liveExemptionEnabled": false,
+  "actualProxyPathsTested": false,
+  "fullDatabaseBrowserAcceptance": false,
+  "remaining": [
+    "proxy/SSR integration and safe internal-consumer policy",
+    "persistent own-account/exact-IP rules and migrations",
+    "recent reauthentication and server-side admin authorization",
+    "bounded expiry, explicit IP change, revocation, replica/restart/concurrency enforcement",
+    "redacted audit, admin UI and operator recovery",
+    "full database/API/browser acceptance"
+  ]
+}

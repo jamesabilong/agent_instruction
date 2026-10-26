@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-26",
+  "scope": "Read-only public baseline and local public-CDN/Caddy candidate validation; no live FP-66 rollout or restored-backup rehearsal",
+  "productionChanged": false,
+  "mergedOrDeployed": false,
+  "publicHealth": {
+    "scope": "Read-only public health from one network origin; does not verify revision, migration, identity separation or backups",
+    "checkedAtUtc": "2026-10-26T02:54:31.942989+00:00",
+    "checks": [
+      {
+        "url": "https://freshprice.philwatch.com/healthz",
+        "status": 200,
+        "server": "cloudflare",
+        "contentType": "application/json",
+        "cacheControl": "no-store"
+      },
+      {
+        "url": "https://freshprice.philwatch.com/api/platform/db/health",
+        "status": 200,
+        "server": "cloudflare",
+        "contentType": "application/json; charset=utf-8",
+        "cacheControl": "no-store",
+        "healthy": true,
+        "bodyKeys": [
+          "database",
+          "status"
+        ]
+      },
+      {
+        "url": "https://philwatch.com/health",
+        "status": 200,
+        "server": "cloudflare",
+        "contentType": "text/plain; charset=utf-8",
+        "cacheControl": "no-store"
+      },
+      {
+        "url": "https://philwatch.com/api/platform/db/health",
+        "status": 200,
+        "server": "cloudflare",
+        "contentType": "application/json; charset=utf-8",
+        "cacheControl": "no-store",
+        "healthy": true,
+        "bodyKeys": [
+          "database",
+          "status"
+        ]
+      }
+    ]
+  },
+  "cdnCandidateValidation": {
+    "scope": "Local cached Caddy with official current public CDN ranges; not installed production Caddy/config",
+    "sources": [
+      {
+        "url": "https://www.cloudflare.com/ips-v4",
+        "count": 15,
+        "sha256": "f02c6d83bc01ab0ae8577160e036d700c7455359bce054df884e5d7d9e4e9e7b"
+      },
+      {
+        "url": "https://www.cloudflare.com/ips-v6",
+        "count": 7,
+        "sha256": "9e9d39e3e83bad00c4decafd53c63fa62029f3d95db68de937d2be28234ca0a9"
+      }
+    ],
+    "totalRanges": 22,
+    "caddyVersion": "v2.11.4 h1:XKxkMTgNSizEvKG6QHue6cAsFOteU2qA61w2tKkCWi0=",
+    "imageId": "sha256:8b20b62e1c76d212304053dc6484bd1f2186018e2baa217ce7a35cec0ded404c",
+    "adaptAndValidate": true,
+    "strictRightToLeft": true,
+    "bothProxyHeaderPolicies": true,
+    "configFileSha256": "b649b8712d0fe4ba09a1d3ea276882f28cadff89857a8e303df057bf0ce1ac5d",
+    "liveConfigurationChanged": false
+  },
+  "pullRequests": [
+    {
+      "baseRefName": "master",
+      "headRefName": "FP-66",
+      "headRefOid": "68945dd319bbd583cd6ada52a027ae35970437e7",
+      "isDraft": true,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fresh-price-backend/pull/60"
+    },
+    {
+      "baseRefName": "master",
+      "headRefName": "FP-66",
+      "headRefOid": "7d7cfb97683a462a3d617d004bbe5ecd43773a7d",
+      "isDraft": true,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fresh-price-front/pull/58"
+    },
+    {
+      "baseRefName": "master",
+      "headRefName": "FP-66",
+      "headRefOid": "c4b33711b20074a03526306cd0b1e0457e3f74d6",
+      "isDraft": true,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fpdocker/pull/26"
+    },
+    {
+      "baseRefName": "main",
+      "headRefName": "FP-66",
+      "headRefOid": "8dc1a93015b72cd9ae4a7259e4ff52112cecf2ee",
+      "isDraft": true,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/sugilanon/pull/2"
+    }
+  ],
+  "sshInventory": {
+    "status": "awaiting user authentication",
+    "noninteractiveAuthentication": "rejected",
+    "installedCaddyVerified": false,
+    "liveRuntimeAndDatabaseInventoryVerified": false,
+    "protectedBackupInventoryVerified": false,
+    "fp66RestoredBackupMigrationRecoveryVerified": false
+  },
+  "remainingGates": [
+    "Authenticated installed-Caddy/current-config and host/database/backup inventory",
+    "Exact FP-66 restored-backup migration/recovery before release as required",
+    "Separate merge/deployment authorization",
+    "Protected credentials/targeted service rollout and installed-Caddy validation",
+    "Two independent actual public clients/direct-origin checks after rollout, before activation",
+    "Final actual running images/migration/database/health/guard verification after rollout"
+  ]
+}
