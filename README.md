@@ -10,6 +10,8 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
+- [October 26 browser verification](freshprice/docs/browser-verification-2026-10-26.md): checked public sort/search/trends/empty pagination and anonymous login gate pass, no observed console errors/warnings; populated, authenticated and device/PWA coverage limits remain explicit. Exemptions stay disabled.
+
 - [FP-62/63 production release](freshprice/docs/fp62-fp63-deployment-2026-10-22.md): four PRs merged/four deployment workflows succeeded; approved content is published. Final FP-63 runtime/host verification and fresh post-release backup/full isolated restore pass. This supersedes historical unreleased/gate-pending status below.
 
 - [Shared VPS maintenance](freshprice/docs/vps-maintenance-2026-10-22.md): 70 upgrades completed, graceful reboot performed and both public apps/content verified; postboot kernel, database/images, services and guard checks pass after operator SSH reconnection.
