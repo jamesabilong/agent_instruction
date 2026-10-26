@@ -2,6 +2,8 @@
 
 Current as of 2026-10-26. [Historical reports](archive/bugs-through-2026-10-21.md).
 
+- Confirmed October 26 in isolated populated Chromium: PhilWatch search has no page controls (25 matches, only first 12 reachable in its UI); FreshPrice price search filters only the loaded page (same query returns 0 rows on page 1, 3 on page 2). Backend pages/order/search pass; frontend follow-ups remain open. Next development mode also emitted a nonblocking synthetic-cover image-priority warning. [Reproduction and evidence](../../freshprice/docs/populated-browser-verification-2026-10-26.md).
+
 - Resolved in production (October 26): community page-local hot/top ranking, truncated tag hydration and nonunique content/source/price page order fixed by backend PR #62. Exact image/source, 51 public GET checks, read-only production list/SQL comparisons and shared DB/runtime/guard pass; populated edge cases covered by 16 isolated PostgreSQL regressions. Exemptions disabled with zero rules/audits. [Release](../../freshprice/docs/backend-pagination-deployment-2026-10-26.md).
 
 - Resolved FP-66 shared identity: deployed backend/schema, Caddy/nginx/Next and restricted SSR reader; two independent public clients and spoof/direct-origin checks pass. Scoped keys absent from browser assets and SSR HTML. Exemptions false, zero rules/audits. [Release](../../freshprice/docs/fp-66-deployment-2026-10-26.md).

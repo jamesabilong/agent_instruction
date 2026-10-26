@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-26",
+  "environment": "disposable local synthetic PostgreSQL 14; actual React/Vite and Next.js development servers; Chromium",
+  "productionAccess": false,
+  "source": {
+    "platform-backend": {
+      "head": "5b6c4de376be459167f741170d4a32b4f03f7323",
+      "tree": "782e22291d026bacac55f836692a658ac49d49cc"
+    },
+    "fresh-price-front": {
+      "head": "7d7cfb97683a462a3d617d004bbe5ecd43773a7d",
+      "tree": "385e64ecb3602711d0bf4f1042977ebd83947b40"
+    },
+    "sugilanon": {
+      "head": "8dc1a93015b72cd9ae4a7259e4ff52112cecf2ee",
+      "tree": "93eb950e56d5850b99392ae4e5bc8c2f0e8a4c64"
+    }
+  },
+  "sourceTreesMatchReleasedBranches": true,
+  "identityMode": "socket (local only; production authenticated-edge not retested)",
+  "outboundIntegrations": "source/recurring schedulers disabled; Node socket/fetch guard blocks non-loopback outbound connections; synthetic article images use bundled local SVG",
+  "exemptionsEnabled": false,
+  "database": {
+    "migrations": 42,
+    "exemptions": 0,
+    "audits": 0
+  },
+  "community": {
+    "passed": true,
+    "sorts": [
+      {
+        "sort": "hot",
+        "pages": 4,
+        "rows": 70,
+        "first": 45
+      },
+      {
+        "sort": "top",
+        "pages": 4,
+        "rows": 70,
+        "first": 45
+      },
+      {
+        "sort": "newest",
+        "pages": 4,
+        "rows": 70,
+        "first": 1
+      }
+    ],
+    "tagPages": 3,
+    "tiedSorts": 3,
+    "errors": [],
+    "failed": [],
+    "applicationResponses": 28,
+    "exemptions": false
+  },
+  "prices": {
+    "passed": true,
+    "uiPages": [
+      50,
+      10
+    ],
+    "uniquePrices": 60,
+    "historyBrowserFetchPages": 3,
+    "historyRows": 60,
+    "currentPageSearchMatches": 3,
+    "errors": [],
+    "failed": [],
+    "exemptions": false
+  },
+  "philwatch": {
+    "passed": true,
+    "formCases": [
+      {
+        "query": "FIELDNEEDLETITLE",
+        "matches": 1,
+        "total": 1
+      },
+      {
+        "query": "FieldNeedlesummary",
+        "matches": 1,
+        "total": 1
+      },
+      {
+        "query": "FieldNeedlecontent",
+        "matches": 1,
+        "total": 1
+      },
+      {
+        "query": "CategoryNeedle",
+        "matches": 1,
+        "total": 1
+      },
+      {
+        "query": "TagNeedle",
+        "matches": 12,
+        "total": 25
+      },
+      {
+        "query": "fisher's",
+        "matches": 1,
+        "total": 1
+      },
+      {
+        "query": "MissingBrowserNeedle",
+        "matches": 0,
+        "total": 0
+      },
+      {
+        "query": "') OR TRUE --",
+        "matches": 0,
+        "total": 0
+      }
+    ],
+    "searchBrowserFetchPages": 3,
+    "uniqueArticles": 25,
+    "fullTagsPerArticle": 3,
+    "sourcesPerArticle": 2,
+    "categoryConjunction": 24,
+    "globalAfterCategory": 25,
+    "detail": true,
+    "uiPaginationAvailable": false,
+    "warnings": [
+      "Image with src \"/globe.svg\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading"
+    ],
+    "errors": [],
+    "failed": [],
+    "badResponses": [],
+    "exemptions": false
+  },
+  "priceSearchLimit": {
+    "confirmed": true,
+    "query": "Browser Product 19",
+    "page1Matches": 0,
+    "page2Matches": 3,
+    "scope": "current-page filter"
+  },
+  "browserClosed": true,
+  "cleanup": {
+    "ownedContainerRemoved": true,
+    "ownedNetworkRemoved": true,
+    "localListenersStopped": true
+  },
+  "localHarnessSha256": {
+    "environment.mjs": "2f015632e4cb6fdb07c4c47f2832e3c45d4c6b7013e8d3fdb09c334b2bf52364",
+    "loopback.mjs": "183ab6fcf2d682eee6416517a16f90841f330d68dff99186719f8d25b9b3956f",
+    "seed.mjs": "ccd704b3f56379c41f0a38129e4051793ac5f7c7e822f234ef6c4a01452b9d8b",
+    "community-run.js": "bdeb0293115145afa53d9d57bef72468a472681fe0e1e00eb04953e58974d189",
+    "prices-check.js": "32e439813e46281c96485e67ab7d4b0dc306ed685f3819223fc3d07d7d497b77",
+    "search-check.js": "66a1b1088e2fb759cd66e5ca1d081d332cd6485a98f3b47cc107de7f17cd26a9"
+  }
+}

@@ -21,3 +21,7 @@ Console checks on community, prices, PhilWatch search, trends and the final logi
 - No application source, runtime configuration, deployment or exemption setting changed. **Keep `AUTH_TEST_EXEMPTIONS_ENABLED=false`.** The earlier host verification recorded zero rules/audits; the browser pass did not re-count them. Do not seed production or enable exemptions to fill these gaps without separate explicit authorization. Revisit populated browser cases when suitable real content exists or in an explicitly isolated environment.
 
 Browser snapshots and diagnostics remain local outside Git. Only this sanitized account is published; no cookies, credentials, private content or raw runtime material is included. No new reproducible application bug was found in the checked flows.
+
+## Subsequent isolated coverage
+
+The [populated local follow-up](populated-browser-verification-2026-10-26.md) exercises synthetic ranking/tag/tied-page and populated search/detail cases without production seeding. It does not remove this report's production inventory limits. It confirms two remaining UI gaps (PhilWatch search pagination and global price search) and records a development image-priority warning.

@@ -10,6 +10,8 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
+- [Isolated populated browser verification](freshprice/docs/populated-browser-verification-2026-10-26.md): ranking/tag/tied pages, current-price UI pages, history/search API pages and populated form/detail checks pass. Confirmed open UI limits: no PhilWatch search pagination and page-local price search. Exemptions disabled; production untouched.
+
 - [October 26 browser verification](freshprice/docs/browser-verification-2026-10-26.md): checked public sort/search/trends/empty pagination and anonymous login gate pass, no observed console errors/warnings; populated, authenticated and device/PWA coverage limits remain explicit. Exemptions stay disabled.
 
 - [FP-62/63 production release](freshprice/docs/fp62-fp63-deployment-2026-10-22.md): four PRs merged/four deployment workflows succeeded; approved content is published. Final FP-63 runtime/host verification and fresh post-release backup/full isolated restore pass. This supersedes historical unreleased/gate-pending status below.

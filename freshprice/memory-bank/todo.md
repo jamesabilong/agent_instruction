@@ -5,7 +5,9 @@ Current as of 2026-10-26. Historical checklists are preserved in [the archive](a
 ## Active work
 
 - [x] October 26: read-only production Chromium verification completed; checked flows/API statuses and zero console errors/warnings recorded with explicit limits. Keep exemptions disabled. [Results](../docs/browser-verification-2026-10-26.md).
-- [ ] Revisit populated pagination/ranking/tag/article/price browser cases when suitable real data or an isolated environment is available; do not create production fixtures or enable exemptions for coverage. Authenticated writes and cross-browser/device/PWA recovery remain unverified by this pass.
+- [x] October 26: complete isolated populated community ranking/tag/tie pages, current-price UI pages, browser-fetched history/search pages and populated search/detail checks. [Results and limits](../docs/populated-browser-verification-2026-10-26.md).
+- [ ] Add PhilWatch search page navigation beyond its first 12 results; make price search span the complete result set. Existing limits confirmed in isolated Chromium; no application fix included.
+- [ ] Preserve production inventory limits and separate authenticated/admin, cross-browser/device/PWA recovery follow-ups; do not seed production or enable exemptions for coverage.
 
 - [x] October 26: audit backend search/pagination, reproduce/fix ranking/tag/tie findings locally and add 16 database regressions; final 62 database-suite and 271 unit checks pass. [Record](../docs/backend-pagination-audit-2026-10-26.md).
 - [x] October 26: user-authorized review/commit/push/PR #62 merge/deployment and actual production verification complete; source/digest, read-only query comparison, 51 GET checks and preserved runtime/DB/guard pass. Exemptions false, zero rules/audits. [Release](../docs/backend-pagination-deployment-2026-10-26.md).
