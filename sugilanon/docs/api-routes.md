@@ -46,3 +46,7 @@ Admin routes require platform auth and operator role.
 ## Search correction (deployed, 2026-10-26)
 
 Nonempty `/api/sugilanon/search?q=...`, `/articles?q=...` and category article queries retain their public paginated contracts. The deployed backend correction removes invalid joined-alias references from article pagination and prevents category filters leaking between requests. All 46 DB/271 unit checks pass; backend PR #61 is merged/deployed and both public query paths/internal reader pass. [Fix/evidence](content-search-fix-2026-10-26.md). Exemptions remain disabled.
+
+## Local pagination tie correction — 2026-10-26
+
+Public/admin article and source-draft pages now have a local final-ID ordering tie-breaker. Database-backed tied-page tests pass; the source is uncommitted/unreleased. The existing nonempty-query search fix remains deployed. [Shared audit](../../freshprice/docs/backend-pagination-audit-2026-10-26.md).

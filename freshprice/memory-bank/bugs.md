@@ -2,6 +2,8 @@
 
 Current as of 2026-10-26. Historical findings and their original status are preserved in [the archive](archive/bugs-through-2026-10-21.md). Do not treat old “unfixed” or “not deployed” entries there as current without checking the later resolution.
 
+- Open in production, locally fixed (October 26 audit): community hot/top ranks were page-local; tag filters trimmed other tags; tied content/source/current/history price keys were not uniquely ordered. Database-backed fixes and admin-content tie hardening pass 62 database-suite/271 unit checks; source remains uncommitted/unreleased. Prior PhilWatch nonempty-search 500 stays resolved in deployed PR #61. [Audit](../docs/backend-pagination-audit-2026-10-26.md).
+
 ## Resolved: shared gateway authentication limiter identity (FP-66)
 
 October 26 authorized release is deployed. Caddy 2.11.7 authenticates exact visitor identity on both app proxy paths; two real independent public clients resolve correctly despite forged forwarding/custom headers. Direct Caddy origin uses its socket peer; nginx/Next/backend auth rejects absent/invalid credentials. Migration 42 and scoped service credentials are verified. Exemptions remain disabled with zero rules/audits. [Release/evidence](../docs/fp-66-deployment-2026-10-26.md).

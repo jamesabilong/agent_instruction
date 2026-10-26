@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-26",
+  "scope": "Local backend search/pagination audit; instruction publication only; backend audit fixes are uncommitted and not deployed",
+  "backendBranch": "fix/backend-pagination-audit",
+  "backendBase": "72861ee0c309ef2c4ef2608803f70d360a633648",
+  "sequelizePaginatedCallSitesReviewed": 15,
+  "additionalReview": "Raw seasonal SQL filter/count/pagination plus server-side ILIKE and post-fetch sorting/shared-include use",
+  "findings": [
+    {
+      "issue": "Community top/hot ranking happened after LIMIT/OFFSET over newest posts",
+      "fix": "Select rank expression and order globally in PostgreSQL before pagination; selected alias is valid in inner/outer query; safe age floor handles future timestamps",
+      "databaseRegression": true
+    },
+    {
+      "issue": "Community tag filter removed nonmatching tags from matched posts",
+      "fix": "Correlated EXISTS selects matching posts while the original tag include hydrates every public tag; distinct counts and role visibility retained",
+      "databaseRegression": true
+    },
+    {
+      "issue": "Nonunique page order allowed tied content timestamps/unit price keys to reorder or repeat rows across pages",
+      "fix": "Unique ID tie-breakers for community, published/admin content, source drafts, current prices and history",
+      "databaseRegression": true
+    }
+  ],
+  "sourceSha256": {
+    "src/services/communityService.js": "f767d829ddb6ebda1d659612b2dc4f13a5a98bfb42b8bbae67e9ea7433f54979",
+    "src/apps/sugilanon/services/contentService.js": "1609e2c899de56b1f026dde45bdc9c6ec0909fd6e970b973c1c214a796d462e9",
+    "src/apps/freshprice/services/marketPriceService.js": "e14625a0b0ad5b388ceb1e9568420f79018662088e49488adc5bd5cc10bb450a"
+  },
+  "localOnlyTestSha256": {
+    "legacy/backend/integration/communityPagination.api.test.js": "84af73d98c2abfbb8ac2d3287cdd80c29615b4fbe0846eeefa5eeaa9dfc1a25e",
+    "legacy/backend/integration/paginationOrder.model.test.js": "1b398df5fc3dbb800e2cfabc0b5998edfd9998214e8bf4cb4c90a019d5e8dd95",
+    "legacy/backend/integration/marketProductPrice.api.test.js": "70fa134074804fe4d1c752300ebae74a5930fb208e0eea36ac65d227803e75e9",
+    "legacy/backend/unit/marketProductPriceController.test.js": "ee56655504dc4b8837f3e73c3bddb6d225963e5303338cd934f5f6c36a6d9239"
+  },
+  "validation": {
+    "beforeCorrectedFixture": {
+      "failed": 10,
+      "passed": 51,
+      "skipped": 0,
+      "total": 61
+    },
+    "finalDatabaseSuite": {
+      "passed": 62,
+      "failed": 0,
+      "skipped": 0
+    },
+    "newDatabaseCases": 16,
+    "unitSuite": {
+      "passed": 271,
+      "failed": 0,
+      "skipped": 0
+    },
+    "syntaxAndWhitespace": "pass",
+    "database": "Fresh runner-owned local PostgreSQL 14, real migrations through 42, synthetic fixtures; containers and volumes removed"
+  },
+  "executionDiagnostics": [
+    "Initial ordering fixture omitted the required Market.tags array; corrected before the valid red baseline",
+    "First green implementation run passed all new PostgreSQL cases; one legacy mocked-query expectation still asserted the old two-key price order; updated to the ID tie-breaker and reran the complete suite"
+  ],
+  "unmodifiedReviewedAreas": [
+    "Expense lists",
+    "Own/admin price submissions",
+    "Wiki/recipe suggestions",
+    "Recipe text/filter search",
+    "Enrichment and seasonal browsing",
+    "Budget activity/accounting history",
+    "Price observations"
+  ],
+  "productionChanged": false,
+  "authIdentityOrExemptionSourceChanged": false,
+  "exemptions": "Remain disabled; no production environment, service, credential, exemption or fixture changed",
+  "limits": [
+    "Database regressions use synthetic local data, not restored production or live requests",
+    "Unique ordering applies to a fixed eligible dataset; offset pagination does not supply a snapshot across concurrent edits/votes",
+    "Backend publication, PR and deployment are outside this audit instruction publication and still require an authorized release"
+  ]
+}
