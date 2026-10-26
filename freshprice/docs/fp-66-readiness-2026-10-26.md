@@ -2,6 +2,8 @@
 
 The user authorized remaining release-readiness checks and publishing the agent-instructions repository, explicitly withholding merge/deployment authorization. All four [feature drafts](fp-66-publication-2026-10-26.md) remain the release candidates. No production migration, configuration change, restart, deployment, exemption or feature mutation was performed.
 
+Authenticated follow-up: **installed Caddy 2.6.2 rejects the candidate's global trusted-proxy and strict options, blocking strict-mode release**. Live baseline checks and the explicitly approved October 22 restored-backup migration/recovery now pass; no production change. [Host/restored-copy results and remaining gates](fp-66-host-readiness-2026-10-26.md) supersede the earlier SSH-pending checkpoint.
+
 ## Newly completed checks
 
 - Both public sites pass baseline read-only health: FreshPrice `/healthz`, PhilWatch `/health`, and `/api/platform/db/health` through each domain return 200 with `Cache-Control: no-store`; both database responses report healthy. These four requests come from one network origin. They do not verify app revision, migration count, backup, actual visitor separation or FP-66 deployment.
@@ -11,15 +13,13 @@ The user authorized remaining release-readiness checks and publishing the agent-
 
 The first range fetch using Python's default user-agent was denied; curl retrieved the official lists. Two local adapter assertions initially assumed a JSON boolean and a different expanded placeholder/header casing. Actual adapter output uses strict-mode value `1`, `{http.vars.client_ip}` and case-preserving deletion names; assertions were corrected to test that exact representation and case-insensitive HTTP names. Final adaptation/validation and both policy assertions pass. No application assertion or trust policy was weakened.
 
-## Checks pending authenticated SSH
+## Authenticated host and restored-copy checks
 
-Existing noninteractive SSH authentication was rejected (`Permission denied (publickey,password)`). No app terminal is attached. Requested a user-authenticated, locally protected multiplex connection so command tools can intentionally reuse the user's password-authenticated SSH session without handling the password. Never put the password in chat, files, environment or command arguments.
+The user established an explicitly shared authenticated SSH connection after the initial key-authentication rejection. Read-only inventory confirms four healthy services, exact recorded backend/frontend release digests, 41 live migrations, absent FP-66 schema, preserved DB identity/volume, fresh private connectivity and enabled/active PostgreSQL guard. Active Caddy config matches its file, has the expected FreshPrice/PhilWatch upstreams, a loopback-only admin listener and no FP-66 trust policy. Installed Caddy 2.6.2 fails both candidate global-option probes; upgrading it needs separate authorization.
 
-Until authenticated access is available, these are **unverified**, not passed:
+After automatic review initially rejected an unspecified sensitive-data export, the user explicitly approved copying only the protected October 22 dump locally for the isolated rehearsal. Checksum matched. Exact FP-66 41→42 migration, preservation, empty down/up, three populated rollback guards, account-deletion audit retention and independent post-migration full restore pass. Local raw dumps and temporary containers/volumes were removed; production inventory remains unchanged. [Detailed results](fp-66-host-readiness-2026-10-26.md).
 
-1. Installed Caddy version/modules, active versus file configuration, both exact upstream routes, right-to-left public CDN trust, credential placement, protected admin endpoint/config permissions, and preservation of TLS/maintenance behavior. [Caddy documentation](https://caddyserver.com/docs/caddyfile/options#trusted-proxies-strict) documents strict parsing since v2.8; local v2.11.4 success does not establish installed-version compatibility.
-2. Actual running service/image identities, existing live 41-migration baseline, database identity/volume/private connectivity, PostgreSQL guard and protected backup inventory/age. Public health alone cannot establish these facts.
-3. FP-66 exact migration 41→42 and recovery on an isolated restored production backup. Earlier October 22 recovery certified the then-current 41-migration release, not FP-66. Local synthetic FP-66 migration tests remain passing but do not close the restored-production-data gate. Do not create a new production backup without authorization for that operation; inspect the existing protected backup first and keep its age explicit. Never restore/rehearse into production.
+This proves recovery on that existing snapshot, not a fresh October 26 release-time backup, restored-data browser/device acceptance or full-server/global-role recovery. A supported installed Caddy and fresh checkpoint (or explicit snapshot-age acceptance) remain prerequisites. No new production backup was authorized or created.
 
 ## Later authorized rollout and activation gates
 

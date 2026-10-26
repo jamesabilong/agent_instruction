@@ -4,6 +4,8 @@ Last investigated: 2026-07-01; shared FP-66 publication/readiness updated 2026-1
 
 FP-66 published candidate: server-only public content reads use a distinct restricted service credential; browser API rewrites preserve Caddy visitor assertions and production defaults use the Swarm backend. Shared own-account login-throttle controls/admin UI are implemented and local acceptance passes. Four coordinated drafts include PhilWatch [#2](https://github.com/jamesabilong/sugilanon/pull/2) against main. Not merged/deployed; [readiness continuation](../../freshprice/docs/fp-66-readiness-2026-10-26.md), [policy and release gates](../../freshprice/docs/fp-66-controls-2026-10-23.md).
 
+Authenticated October 26 readiness: shared baseline and approved existing-backup FP-66 migration/recovery pass; installed Caddy 2.6.2 rejects candidate trust/strict options. A separately authorized supported-version maintenance plan remains required. [Host results](../../freshprice/docs/fp-66-host-readiness-2026-10-26.md).
+
 ## Summary
 
 Sugilanon/PhilWatch is a content/news site with public article browsing and admin content management. It has a Next.js frontend in `sugilanon` and content APIs in `platform-backend/src/apps/sugilanon`.

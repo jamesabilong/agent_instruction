@@ -63,6 +63,8 @@ Important variables:
 
 ## FP-66 local shared-auth candidate (2026-10-23)
 
+October 26 installed-host check: active PhilWatch routes to `127.0.0.1:3001`; installed Caddy 2.6.2 rejects the candidate trusted-proxy/strict global options. A separately authorized supported-version upgrade and exact installed configuration validation are required. Shared baseline and approved existing-backup FP-66 migration/recovery pass; no production configuration or deployment changed. [Host readiness](../../freshprice/docs/fp-66-host-readiness-2026-10-26.md).
+
 Public content fetches now use a server-only helper and distinct protected `CONTENT_INTERNAL_API_KEY` for enumerated public GET/HEAD routes. This principal cannot access auth/admin/mutations or qualify for exemptions. Public Caddy/nginx hops strip it; browser API rewrites preserve the separate Caddy visitor assertions. Next's production rewrite defaults to `freshprice_backend:4000`; runtime `CONTENT_API_BASE_URL` remains server-side. Explicit Sugilanon service environment excludes the backend/database/edge assertion secrets.
 
 Production activation requires coordinated backend/schema, proxy and Sugilanon rollout, installed Caddy/current CDN review and both actual proxy/SSR/public-client checks. New variables are not reconciled by image-only updates. Management UI lives in FreshPrice and applies to the same own admin account across both sites. [FP-66 policy and recovery](../../freshprice/docs/fp-66-controls-2026-10-23.md). Not deployed.

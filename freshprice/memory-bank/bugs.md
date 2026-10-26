@@ -14,7 +14,7 @@ Final frontend/backend runtime/host verification and post-release full isolated 
 
 ## Operational limits
 
-- October 26 FP-66 readiness: existing noninteractive SSH authentication rejected; installed Caddy/current host/backup and restored-copy migration gates await user-authenticated access. Both sites' public health and local public-CDN/Caddy validation pass, but do not close these gates. [Readiness](../docs/fp-66-readiness-2026-10-26.md).
+- October 26 FP-66 release blocker: authenticated inventory finds installed Caddy 2.6.2; installed parser rejects both candidate global `trusted_proxies` and `trusted_proxies_strict`. Separately authorized supported-version upgrade/maintenance and installed-config/TLS validation are required. Host/runtime/DB/guard and approved October 22 restored-backup migration/recovery pass; the snapshot is not a fresh release-time checkpoint. [Host readiness](../docs/fp-66-host-readiness-2026-10-26.md). No production change or unsafe compatibility workaround.
 - Actual app digests were verified against running image IDs; service definitions still use mutable latest tags. Serialize releases and verify the real image after each deployment.
 - Device/installed-version upgrades remain user-waived, not passed; live final verification did not mutate authenticated expense/payment/replay flows.
 - Backups are retained on the single VPS; off-host recovery/global-role/config redeployment and atomic uploads/DB capture are not certified by current evidence.
