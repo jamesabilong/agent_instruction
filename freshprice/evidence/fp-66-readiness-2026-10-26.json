@@ -1,8 +1,7 @@
 {
   "date": "2026-10-26",
-  "scope": "Read-only authenticated production baseline plus user-approved existing-backup isolated local migration/recovery; no FP-66 production rollout",
-  "productionChanged": false,
-  "mergedOrDeployed": false,
+  "scope": "Historical initial checks plus authorized fresh-backup/Caddy-maintenance follow-up; app release remains unexecuted",
+  "productionChanged": true,
   "publicHealth": {
     "scope": "Read-only public health from one network origin; does not verify revision, migration, identity separation or backups",
     "checkedAtUtc": "2026-10-26T02:54:31.942989+00:00",
@@ -119,22 +118,24 @@
   "sshInventory": {
     "status": "completed using user-authenticated multiplex session",
     "installedCaddyVerified": true,
-    "installedCaddyCompatible": false,
+    "installedCaddyCompatible": true,
     "liveRuntimeAndDatabaseInventoryVerified": true,
     "protectedBackupInventoryVerified": true,
     "fp66RestoredBackupMigrationRecoveryVerified": true,
-    "restoredBackupDate": "2026-10-22",
-    "freshReleaseTimeBackupVerified": false
+    "restoredBackupDate": "2026-10-26",
+    "freshReleaseTimeBackupVerified": true
   },
   "remainingGates": [
-    "Separately authorized supported Caddy upgrade/maintenance and exact installed-version configuration/TLS/maintenance validation",
-    "Fresh protected release-time checkpoint or explicit acceptance of October 22 backup age/recovery limits",
     "Separate app merge/deployment authorization",
-    "Protected distinct credentials and coordinated targeted service rollout",
-    "Two independent actual public clients/direct-origin checks after rollout, before activation",
-    "Final intended runtime images/migration 42/database/health/guard verification after rollout"
+    "Protected distinct credentials and coordinated targeted service environment rollout",
+    "Two independent actual public clients/direct-origin spoof resistance after rollout, before activation",
+    "Intended actual images/migration 42/database/health/guard verification per rollout stage",
+    "Refresh backup freshness if app release is delayed; retained recovery/acceptance limits remain"
   ],
-  "installedCaddyValidation": {
+  "baselineBackendAndFrontendMatchRecordedRelease": true,
+  "releaseReady": false,
+  "blockingFinding": null,
+  "historicalPreUpgradeCaddyValidation": {
     "installedVersion": "2.6.2",
     "candidateConfigAdaptExitCode": 1,
     "globalTrustedProxiesRejected": true,
@@ -142,7 +143,7 @@
     "strictOptionRejected": true,
     "configurationActivated": false
   },
-  "liveBaseline": {
+  "historicalPreUpgradeLiveBaseline": {
     "checkedAtUtc": "2026-10-26T03:08:06.561676+00:00",
     "scope": "read-only installed production baseline; no FP-66 rollout",
     "services": [
@@ -366,7 +367,7 @@
       }
     ]
   },
-  "liveProxyDetails": {
+  "historicalPreUpgradeLiveProxyDetails": {
     "routes": [
       {
         "hosts": [
@@ -394,8 +395,7 @@
     "packagedCaddyVersion": "2.6.2-6ubuntu0.24.04.3",
     "utc": "2026-10-26T03:07:31.891306+00:00"
   },
-  "baselineBackendAndFrontendMatchRecordedRelease": true,
-  "restoredBackupRehearsal": {
+  "historicalOctober22BackupRehearsal": {
     "scope": "Approved existing October 22 production backup; isolated local migration/recovery only",
     "productionChanged": false,
     "newProductionBackup": false,
@@ -462,14 +462,7 @@
     "temporaryResourcesRemoved": true,
     "checkedAtUtc": "2026-10-26T03:07:12.877630+00:00"
   },
-  "backupExportAuthorization": {
-    "initialAutomaticReview": "rejected sensitive-data export without explicit destination authorization",
-    "userSubsequentlyApprovedExactProtectedLocalCopyAndRehearsal": true,
-    "localCopyChecksumMatched": true,
-    "localRawDumpCopiesRemovedAfterVerification": true,
-    "newProductionBackupCreated": false
-  },
-  "finalProductionComparison": {
+  "historicalPreUpgradeProductionComparison": {
     "productionMetadataUnchanged": true,
     "servicesHealthy": true,
     "migrationCount": 41,
@@ -478,6 +471,20 @@
     "caddyFileHashUnchanged": true,
     "checkedAtUtc": "2026-10-26T03:08:06.561676+00:00"
   },
-  "releaseReady": false,
-  "blockingFinding": "Installed Caddy 2.6.2 rejects global trusted_proxies and trusted_proxies_strict; separately authorized supported-version upgrade/validation required"
+  "historicalOctober22ExportAuthorization": {
+    "initialAutomaticReview": "rejected sensitive-data export without explicit destination authorization",
+    "userSubsequentlyApprovedExactProtectedLocalCopyAndRehearsal": true,
+    "localCopyChecksumMatched": true,
+    "localRawDumpCopiesRemovedAfterVerification": true,
+    "newProductionBackupCreated": false
+  },
+  "productionHostMaintenancePerformed": true,
+  "productionAppDeploymentPerformed": false,
+  "productionDatabaseMigrated": false,
+  "predeploymentBackupAndCaddyGatesPass": true,
+  "appMergeDeploymentAuthorized": false,
+  "currentMaintenanceEvidence": "fp-66-caddy-maintenance-2026-10-26.json",
+  "currentCaddyVersion": "2.11.7",
+  "freshProtectedBackupCheckpoint": "/var/backups/freshprice/fp-restore-20261026T031411Z-2355358",
+  "appPrsMergedOrDeployed": false
 }

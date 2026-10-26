@@ -1,8 +1,8 @@
 # FP-66 readiness continuation — October 26, 2026
 
-The user authorized remaining release-readiness checks and publishing the agent-instructions repository, explicitly withholding merge/deployment authorization. All four [feature drafts](fp-66-publication-2026-10-26.md) remain the release candidates. No production migration, configuration change, restart, deployment, exemption or feature mutation was performed.
+The user initially authorized readiness checks and agent-instructions publication without production changes, then separately authorized the fresh backup/Caddy maintenance recorded below. App PR merge/deployment remains unauthorized; all four [feature drafts](fp-66-publication-2026-10-26.md) remain the release candidates. No production app migration/deployment, FP-66 trust activation, exemption or feature mutation was performed.
 
-Authenticated follow-up: **installed Caddy 2.6.2 rejects the candidate's global trusted-proxy and strict options, blocking strict-mode release**. Live baseline checks and the explicitly approved October 22 restored-backup migration/recovery now pass; no production change. [Host/restored-copy results and remaining gates](fp-66-host-readiness-2026-10-26.md) supersede the earlier SSH-pending checkpoint.
+Current follow-up: the user authorized fresh backup/Caddy maintenance. **Caddy 2.11.7 is running, fresh October 26 backup/full restore and exact FP-66 migration/recovery pass, and installed full-candidate validation passes.** Existing sites/config/app images/live 41-migration database/guard remain healthy. [Maintenance and remaining app gates](fp-66-caddy-maintenance-2026-10-26.md) supersede the earlier version/backup-age blockers and historical checks below. No app PR merge/deployment or FP-66 activation.
 
 ## Newly completed checks
 
@@ -13,7 +13,7 @@ Authenticated follow-up: **installed Caddy 2.6.2 rejects the candidate's global 
 
 The first range fetch using Python's default user-agent was denied; curl retrieved the official lists. Two local adapter assertions initially assumed a JSON boolean and a different expanded placeholder/header casing. Actual adapter output uses strict-mode value `1`, `{http.vars.client_ip}` and case-preserving deletion names; assertions were corrected to test that exact representation and case-insensitive HTTP names. Final adaptation/validation and both policy assertions pass. No application assertion or trust policy was weakened.
 
-## Authenticated host and restored-copy checks
+## Historical initial authenticated host and restored-copy checks
 
 The user established an explicitly shared authenticated SSH connection after the initial key-authentication rejection. Read-only inventory confirms four healthy services, exact recorded backend/frontend release digests, 41 live migrations, absent FP-66 schema, preserved DB identity/volume, fresh private connectivity and enabled/active PostgreSQL guard. Active Caddy config matches its file, has the expected FreshPrice/PhilWatch upstreams, a loopback-only admin listener and no FP-66 trust policy. Installed Caddy 2.6.2 fails both candidate global-option probes; upgrading it needs separate authorization.
 

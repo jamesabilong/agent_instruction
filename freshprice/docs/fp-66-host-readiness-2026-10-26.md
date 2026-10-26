@@ -1,6 +1,8 @@
 # FP-66 authenticated host and restored-backup readiness — October 26, 2026
 
-## Result
+Current state: the user subsequently authorized fresh backup and Caddy maintenance. [Fresh checkpoint, Caddy 2.11.7 and readiness rechecks](fp-66-caddy-maintenance-2026-10-26.md) pass and supersede the version/backup-age blockers below. This document preserves the historical pre-maintenance checkpoint; app PRs remain unmerged/undeployed.
+
+## Historical pre-maintenance result
 
 **Release blocker: installed Caddy 2.6.2 cannot parse the candidate proxy configuration.** The installed parser rejects both the global `trusted_proxies` option and, in a separate minimal probe, `trusted_proxies_strict`. [Strict right-to-left parsing is documented since Caddy v2.8](https://caddyserver.com/docs/caddyfile/options#trusted-proxies-strict). A separately authorized Caddy upgrade/maintenance plan and installed-version validation are required before FP-66 strict-mode rollout. Do not remove strict parsing or broaden trusted peers to work around this gate.
 
@@ -37,7 +39,7 @@ Passing results:
 
 This closes the FP-66 exact migration/recovery rehearsal **for the existing October 22 snapshot**. It does not certify a fresh release-time backup, off-host full-server/global-role/config recovery, atomic live upload/database snapshots, restored-data browser/mobile/PWA acceptance, physical devices or two actual public clients. Earlier synthetic API/browser/proxy evidence retains its stated scope.
 
-## Remaining release gates
+## Historical pre-maintenance release gates
 
 1. Explicit authorization and a reviewed maintenance/recovery plan for upgrading installed Caddy to a supported version with strict proxy parsing; validate the exact candidate against that installed version while preserving both sites' TLS/maintenance behavior. No upgrade/restart is authorized by this readiness work.
 2. Fresh protected release-time backup/recovery checkpoint, or explicit release-owner acceptance of the existing snapshot's age and retained recovery limits. No new production backup was authorized or created here.

@@ -1,0 +1,604 @@
+{
+  "date": "2026-10-26",
+  "authorization": "User explicitly authorized fresh backup, safe Caddy upgrade, readiness rechecks and instruction push; no app PR merge/deployment",
+  "productionHostMaintenancePerformed": true,
+  "productionAppDeploymentPerformed": false,
+  "productionDatabaseMigrated": false,
+  "fp66TrustActivated": false,
+  "liveExemptionEnabled": false,
+  "backupAndRollbackCheckpoints": {
+    "backupCheckpoint": "/var/backups/freshprice/fp-restore-20261026T031411Z-2355358",
+    "backupDirectoryMode": "0o700",
+    "backupDumpMode": "0o600",
+    "fullBackupChecksumsPass": true,
+    "baselineRestoreComparison": {
+      "equal": true,
+      "original": {
+        "copyBlocks": 46,
+        "rows": 581,
+        "castRewrites": 17
+      },
+      "restored": {
+        "copyBlocks": 46,
+        "rows": 581,
+        "castRewrites": 0
+      }
+    },
+    "restoredBaselineMigrations": 41,
+    "caddyRollbackCheckpoint": "/var/backups/freshprice/fp-caddy-20261026T031638Z",
+    "caddyCheckpointMode": "0o700",
+    "oldPackageRetained": true,
+    "configAndCertificateStorageSnapshotRetained": true,
+    "temporaryBackupAndMigrationResourcesRemoved": true,
+    "dpkgAuditEmpty": true
+  },
+  "upgradePreparation": {
+    "prepared": true,
+    "checkpoint": "/var/backups/freshprice/fp-caddy-20261026T031638Z",
+    "oldPackage": "2.6.2-6ubuntu0.24.04.3",
+    "candidatePackage": "2.11.7",
+    "candidateBinaryVersion": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=",
+    "officialSource": "https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt",
+    "signingFingerprints": [
+      "65760C51EDEA2017CEA2CA15155B6D79CA56EA34",
+      "15136FB52CCAE0C37FD951B45884A18B779C85D1",
+      "D59FC5219C50B989D95FCE4E531A6B20FA058A70",
+      "2F5C3BE9886ACD2913299EFBABA1F9B8875A6661"
+    ],
+    "rollbackPackage": "caddy_2.6.2-6ubuntu0.24.04.3_amd64.deb",
+    "candidateDeb": "caddy_2.11.7_amd64.deb",
+    "candidateDebSha256": "a22b914ffd1958da42bc7ab13b7b62c6100634e0798ab594891d2d61d53ba749",
+    "currentConfigValidated": true,
+    "adaptedRoutesEqual": true,
+    "onlyCaddyUpgradeNoRemovals": true,
+    "oldBinaryAndConfigAndCertificateStorageProtected": true,
+    "serviceChanged": false
+  },
+  "caddyUpgrade": {
+    "pass": true,
+    "checkpoint": "/var/backups/freshprice/fp-caddy-20261026T031638Z",
+    "previousPackage": "2.6.2-6ubuntu0.24.04.3",
+    "installedPackage": "2.11.7",
+    "runningBinaryMatchesInstalled": true,
+    "serviceActiveEnabled": true,
+    "explicitRestartNeeded": false,
+    "currentConfigValidated": true,
+    "configurationFileSha256": "da312c829943d99395a7b46c036d219e6ae01613ff7966c4146c11d33729dd59",
+    "configurationFileUnchanged": true,
+    "activeEqualsAdaptedFile": true,
+    "existingRoutesPreserved": true,
+    "originHttpsBefore": [
+      {
+        "host": "freshprice.philwatch.com",
+        "status": 200,
+        "tlsVerified": true
+      },
+      {
+        "host": "philwatch.com",
+        "status": 200,
+        "tlsVerified": true
+      },
+      {
+        "host": "www.philwatch.com",
+        "status": 302,
+        "tlsVerified": true
+      },
+      {
+        "host": "jamesabilong.philwatch.com",
+        "status": 200,
+        "tlsVerified": true
+      }
+    ],
+    "originHttpsAfter": [
+      {
+        "host": "freshprice.philwatch.com",
+        "status": 200,
+        "tlsVerified": true
+      },
+      {
+        "host": "philwatch.com",
+        "status": 200,
+        "tlsVerified": true
+      },
+      {
+        "host": "www.philwatch.com",
+        "status": 302,
+        "tlsVerified": true
+      },
+      {
+        "host": "jamesabilong.philwatch.com",
+        "status": 200,
+        "tlsVerified": true
+      }
+    ],
+    "officialSignedStableSource": true,
+    "rollbackNeeded": false,
+    "appDeploymentPerformed": false,
+    "fp66TrustActivated": false,
+    "utc": "2026-10-26T03:18:59.047842+00:00"
+  },
+  "freshBackupMigrationRecovery": {
+    "scope": "Exact FP-66 migration/recovery on fresh October 26 production backup in isolated on-VPS scratch PostgreSQL",
+    "productionDatabaseMigrated": false,
+    "backupCheckpoint": "/var/backups/freshprice/fp-restore-20261026T031411Z-2355358",
+    "candidateBackend": "68945dd319bbd583cd6ada52a027ae35970437e7",
+    "migrationSha256": "43d40c7f48527ed60020c6f0b0724163973a4bad71a9c7a7487908d07e057384",
+    "migration": {
+      "pass": true,
+      "scope": "Exact FP-66 migration on isolated restored October 26 production backup plus explicit synthetic guard history",
+      "baselineMigrations": 41,
+      "candidateMigrations": 42,
+      "baselineTables": 46,
+      "baselineRows": 581,
+      "originalRowsAndSequencesPreserved": true,
+      "emptyDownUp": true,
+      "oneRulePerUserConstraint": true,
+      "userForeignKeyConstraint": true,
+      "populatedRollbackGuardChecks": 3,
+      "accountDeletionRuleCascade": true,
+      "accountDeletionAuditRetained": true,
+      "syntheticAuditHistoryIncludedInRecovery": true
+    },
+    "postMigrationRecovery": {
+      "equal": true,
+      "original": {
+        "copyBlocks": 48,
+        "rows": 583,
+        "castRewrites": 0
+      },
+      "restored": {
+        "copyBlocks": 48,
+        "rows": 583,
+        "castRewrites": 0
+      },
+      "scope": "full normalized schema excluding owners/ACLs, COPY row multisets and sequences"
+    },
+    "productionServiceSpecsUnchanged": true,
+    "networkNoneNoPorts": true,
+    "pass": true,
+    "temporaryResourcesRemoved": true,
+    "utc": "2026-10-26T03:20:38.793755+00:00"
+  },
+  "installedCandidateValidation": {
+    "pass": true,
+    "installedVersion": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=",
+    "reviewedSnippetsAdapt": true,
+    "strictRightToLeft": true,
+    "publicRangeCount": 22,
+    "bothTargetProxyPolicies": true,
+    "fullBaselinePlusCandidateValidation": true,
+    "allOtherConfigurationPreserved": true,
+    "liveConfigurationUnchanged": true,
+    "candidateActivated": false,
+    "syntheticCredentialOnly": true,
+    "utc": "2026-10-26T03:21:18.817930+00:00",
+    "officialRangeSources": [
+      {
+        "url": "https://www.cloudflare.com/ips-v4",
+        "count": 15,
+        "sha256": "f02c6d83bc01ab0ae8577160e036d700c7455359bce054df884e5d7d9e4e9e7b"
+      },
+      {
+        "url": "https://www.cloudflare.com/ips-v6",
+        "count": 7,
+        "sha256": "9e9d39e3e83bad00c4decafd53c63fa62029f3d95db68de937d2be28234ca0a9"
+      }
+    ]
+  },
+  "finalVerification": {
+    "pass": true,
+    "allFourAppServiceImagesAndSpecsUnchanged": true,
+    "databaseIdentityVolumeAnd41MigrationsPreserved": true,
+    "freshBackendConnection": true,
+    "postgresUnpublishedGuardActive": true,
+    "configurationFileUnchanged": true,
+    "existingProxyPoliciesUnchanged": true,
+    "caddyVersion": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=",
+    "fp66SchemaAbsent": true,
+    "exemptionsNotEnabled": true,
+    "utc": "2026-10-26T03:21:52.039525+00:00"
+  },
+  "publicBefore": [
+    {
+      "url": "https://freshprice.philwatch.com/",
+      "finalUrl": "https://freshprice.philwatch.com/",
+      "status": 200,
+      "title": "FreshPrice",
+      "contentType": "text/html"
+    },
+    {
+      "url": "https://philwatch.com/",
+      "finalUrl": "https://philwatch.com/",
+      "status": 200,
+      "title": "PhilWatch",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://www.philwatch.com/",
+      "finalUrl": "https://philwatch.com/",
+      "status": 200,
+      "title": "PhilWatch",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://jamesabilong.philwatch.com/",
+      "finalUrl": "https://jamesabilong.philwatch.com/",
+      "status": 200,
+      "title": "James Abilong | Full-Stack Developer",
+      "contentType": "text/html"
+    },
+    {
+      "url": "https://freshprice.philwatch.com/healthz",
+      "finalUrl": "https://freshprice.philwatch.com/healthz",
+      "status": 200,
+      "title": null,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://freshprice.philwatch.com/api/platform/db/health",
+      "finalUrl": "https://freshprice.philwatch.com/api/platform/db/health",
+      "status": 200,
+      "title": null,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://philwatch.com/health",
+      "finalUrl": "https://philwatch.com/health",
+      "status": 200,
+      "title": null,
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "url": "https://philwatch.com/api/platform/db/health",
+      "finalUrl": "https://philwatch.com/api/platform/db/health",
+      "status": 200,
+      "title": null,
+      "contentType": "application/json; charset=utf-8"
+    }
+  ],
+  "publicAfter": [
+    {
+      "url": "https://freshprice.philwatch.com/",
+      "finalUrl": "https://freshprice.philwatch.com/",
+      "status": 200,
+      "title": "FreshPrice",
+      "contentType": "text/html"
+    },
+    {
+      "url": "https://philwatch.com/",
+      "finalUrl": "https://philwatch.com/",
+      "status": 200,
+      "title": "PhilWatch",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://www.philwatch.com/",
+      "finalUrl": "https://philwatch.com/",
+      "status": 200,
+      "title": "PhilWatch",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://jamesabilong.philwatch.com/",
+      "finalUrl": "https://jamesabilong.philwatch.com/",
+      "status": 200,
+      "title": "James Abilong | Full-Stack Developer",
+      "contentType": "text/html"
+    },
+    {
+      "url": "https://freshprice.philwatch.com/healthz",
+      "finalUrl": "https://freshprice.philwatch.com/healthz",
+      "status": 200,
+      "title": null,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://freshprice.philwatch.com/api/platform/db/health",
+      "finalUrl": "https://freshprice.philwatch.com/api/platform/db/health",
+      "status": 200,
+      "title": null,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://philwatch.com/health",
+      "finalUrl": "https://philwatch.com/health",
+      "status": 200,
+      "title": null,
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "url": "https://philwatch.com/api/platform/db/health",
+      "finalUrl": "https://philwatch.com/api/platform/db/health",
+      "status": 200,
+      "title": null,
+      "contentType": "application/json; charset=utf-8"
+    }
+  ],
+  "liveBaselineAfter": {
+    "checkedAtUtc": "2026-10-26T03:21:52.039525+00:00",
+    "scope": "read-only installed production baseline; no FP-66 rollout",
+    "services": [
+      {
+        "name": "freshprice_postgres",
+        "image": "postgres:14@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+        "runningImageId": "sha256:a9bc466f3831a4ba264534ff36932b268f529348750b4618558f71943b343d85",
+        "repoDigests": [
+          "postgres@sha256:34afac84a15415ebec6271fa9615e7dfbf96e1aa9783f1af527b7d3fd933f1f2",
+          "postgres@sha256:cf736c1b9bd4ef55e74b7b7a21747d6b01b6451bf3284adce27237c98fe2cbbf",
+          "postgres@sha256:d1bfce2479496ff4060a56031364495cbd60acde3aa6d385cb6be8c49aa2e270"
+        ],
+        "running": true,
+        "health": "healthy",
+        "updateState": null,
+        "publishedPorts": []
+      },
+      {
+        "name": "freshprice_backend",
+        "image": "ghcr.io/jamesabilong/platform-backend:latest",
+        "runningImageId": "sha256:4e7c3174cf073041a674ff10c7515b3b16cd12f1e204bd20d029f3a9a17533bd",
+        "repoDigests": [
+          "ghcr.io/jamesabilong/platform-backend@sha256:b4202249c438c0c74e773dbcf03bf3bd29e1af3077946a6495f37ae2aafe9f44"
+        ],
+        "running": true,
+        "health": "healthy",
+        "updateState": null,
+        "publishedPorts": []
+      },
+      {
+        "name": "freshprice_frontend",
+        "image": "ghcr.io/jamesabilong/fresh-price-frontend:latest",
+        "runningImageId": "sha256:3b9a1cc158d0c60e029e18e4c138a480fe0b3f1fc0aaacd06df2ce96faed0a99",
+        "repoDigests": [
+          "ghcr.io/jamesabilong/fresh-price-frontend@sha256:9104acc80d49bbfe5777b7c52a46e60437f59eef44339f67e709bb491ceae1e8"
+        ],
+        "running": true,
+        "health": "healthy",
+        "updateState": "completed",
+        "publishedPorts": [
+          {
+            "Protocol": "tcp",
+            "TargetPort": 80,
+            "PublishedPort": 8081,
+            "PublishMode": "host"
+          }
+        ]
+      },
+      {
+        "name": "freshprice_sugilanon",
+        "image": "ghcr.io/jamesabilong/sugilanon:latest",
+        "runningImageId": "sha256:411860da2800bffa9c7d028dee62c763ad5742e1a505f97a46ed52ac0d9d815d",
+        "repoDigests": [
+          "ghcr.io/jamesabilong/sugilanon@sha256:3e129e7c497cf2b84da1664e1833dec60dd82ec3c70eb37c0dea7ba6254dcced"
+        ],
+        "running": true,
+        "health": "healthy",
+        "updateState": null,
+        "publishedPorts": [
+          {
+            "Protocol": "tcp",
+            "TargetPort": 3000,
+            "PublishedPort": 3001,
+            "PublishMode": "ingress"
+          }
+        ]
+      }
+    ],
+    "fp66Environment": {
+      "backendMode": "socket (unset)",
+      "backendExemptionsEnabled": false,
+      "backendEdgeKeyPresent": false,
+      "backendContentKeyPresent": false,
+      "philwatchContentKeyPresent": false,
+      "philwatchEdgeKeyPresent": false,
+      "philwatchDatabaseCredentialNamesPresent": true
+    },
+    "dockerCheckout": "5f364defe7202c16e839c58bfc3f35b8ee8221ef",
+    "postgresGuard": {
+      "active": "active",
+      "enabled": "enabled",
+      "publicInterfaceDropRule": true
+    },
+    "database": {
+      "migrationCount": 41,
+      "shoppingMigrationApplied": true,
+      "fp66MigrationApplied": false,
+      "identityMatchesCheckpoint": true,
+      "volumeMatchesCheckpoint": true,
+      "fp66TablesPresent": 0,
+      "freshBackendConnection": true
+    },
+    "caddy": {
+      "version": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=",
+      "active": "active",
+      "file": {
+        "path": "/etc/caddy/Caddyfile",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0,
+        "sha256": "da312c829943d99395a7b46c036d219e6ae01613ff7966c4146c11d33729dd59"
+      },
+      "fileConfig": {
+        "serverCount": 1,
+        "targetDomainsFound": [
+          "freshprice.philwatch.com",
+          "philwatch.com"
+        ],
+        "servers": [
+          {
+            "listen": [
+              ":443"
+            ],
+            "trustedProxyConfigured": false,
+            "trustedProxyStrict": false,
+            "clientIpHeaders": []
+          }
+        ],
+        "proxies": [
+          {
+            "upstreams": [
+              "127.0.0.1:8080"
+            ],
+            "setsVisitorIp": false,
+            "setsEdgeKey": false,
+            "stripsInternalKey": false
+          },
+          {
+            "upstreams": [
+              "127.0.0.1:8081"
+            ],
+            "setsVisitorIp": false,
+            "setsEdgeKey": false,
+            "stripsInternalKey": false
+          },
+          {
+            "upstreams": [
+              "127.0.0.1:3001"
+            ],
+            "setsVisitorIp": false,
+            "setsEdgeKey": false,
+            "stripsInternalKey": false
+          }
+        ],
+        "adminListen": "localhost:2019 (default)",
+        "adminDisabled": false,
+        "tlsAppPresent": false
+      },
+      "activeConfig": {
+        "serverCount": 1,
+        "targetDomainsFound": [
+          "freshprice.philwatch.com",
+          "philwatch.com"
+        ],
+        "servers": [
+          {
+            "listen": [
+              ":443"
+            ],
+            "trustedProxyConfigured": false,
+            "trustedProxyStrict": false,
+            "clientIpHeaders": []
+          }
+        ],
+        "proxies": [
+          {
+            "upstreams": [
+              "127.0.0.1:8080"
+            ],
+            "setsVisitorIp": false,
+            "setsEdgeKey": false,
+            "stripsInternalKey": false
+          },
+          {
+            "upstreams": [
+              "127.0.0.1:8081"
+            ],
+            "setsVisitorIp": false,
+            "setsEdgeKey": false,
+            "stripsInternalKey": false
+          },
+          {
+            "upstreams": [
+              "127.0.0.1:3001"
+            ],
+            "setsVisitorIp": false,
+            "setsEdgeKey": false,
+            "stripsInternalKey": false
+          }
+        ],
+        "adminListen": "localhost:2019 (default)",
+        "adminDisabled": false,
+        "tlsAppPresent": false
+      },
+      "activeEqualsAdaptedFile": true
+    },
+    "backups": [
+      {
+        "checkpoint": "fp-restore-20261021T011813Z-1873577",
+        "directoryMode": "0o700",
+        "dumpMode": "0o600",
+        "dumpBytes": 193718,
+        "dumpModifiedUtc": "2026-10-21T01:18:17.387131+00:00",
+        "sha256": "ea9b23a1bf89c9d82a1419671aaa60b7c93a846fae9d9bf44e3650496e796ee1"
+      },
+      {
+        "checkpoint": "fp-restore-20261022T060313Z-2598048",
+        "directoryMode": "0o700",
+        "dumpMode": "0o600",
+        "dumpBytes": 211545,
+        "dumpModifiedUtc": "2026-10-22T06:03:17.082016+00:00",
+        "sha256": "7ed491ce3362dc3f3e2f484a48b22b60a02b128ce2342345349e675bbaa75880"
+      },
+      {
+        "checkpoint": "fp-restore-20261022T074534Z-2658688",
+        "directoryMode": "0o700",
+        "dumpMode": "0o600",
+        "dumpBytes": 226036,
+        "dumpModifiedUtc": "2026-10-22T07:45:38.013428+00:00",
+        "sha256": "148b80951c00a087655057a5a55e2529c770beb966db9020b2fbd633e6e848fc"
+      },
+      {
+        "checkpoint": "fp-restore-20261026T031411Z-2355358",
+        "directoryMode": "0o700",
+        "dumpMode": "0o600",
+        "dumpBytes": 226036,
+        "dumpModifiedUtc": "2026-10-26T03:14:14.665137+00:00",
+        "sha256": "8545c75fa53661d2985e09b6a7a37e57ce862aec0994ee1409d72888b815a5bc"
+      }
+    ]
+  },
+  "technicalPredeploymentBackupAndCaddyGatesPass": true,
+  "appMergeDeploymentAuthorized": false,
+  "remainingGates": [
+    "Separate app merge/deployment authorization",
+    "Protected distinct credentials and coordinated targeted service environment rollout",
+    "Two independent actual public clients/direct-origin spoof resistance after rollout, before activation",
+    "Intended actual images/migration 42/database/health/guard verification per rollout stage",
+    "Refresh backup freshness if app release is delayed; retained recovery/acceptance limits remain"
+  ],
+  "pullRequests": [
+    {
+      "baseRefName": "master",
+      "headRefName": "FP-66",
+      "headRefOid": "68945dd319bbd583cd6ada52a027ae35970437e7",
+      "isDraft": true,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fresh-price-backend/pull/60"
+    },
+    {
+      "baseRefName": "master",
+      "headRefName": "FP-66",
+      "headRefOid": "7d7cfb97683a462a3d617d004bbe5ecd43773a7d",
+      "isDraft": true,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fresh-price-front/pull/58"
+    },
+    {
+      "baseRefName": "master",
+      "headRefName": "FP-66",
+      "headRefOid": "c4b33711b20074a03526306cd0b1e0457e3f74d6",
+      "isDraft": true,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fpdocker/pull/26"
+    },
+    {
+      "baseRefName": "main",
+      "headRefName": "FP-66",
+      "headRefOid": "8dc1a93015b72cd9ae4a7259e4ff52112cecf2ee",
+      "isDraft": true,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/sugilanon/pull/2"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 > Current state (2026-10-23): FP-59/60/61 and FP-62/63 are released and verified; FP-62/63 are Done in Jira. All four FP-62/63 deployment workflows, approved six multilingual variants/two recipes, final host checks and protected backup/full isolated restore pass. Shared VPS update/reboot/postboot checks also pass. [Release record](fp62-fp63-deployment-2026-10-22.md), [maintenance](vps-maintenance-2026-10-22.md), [progress](../memory-bank/progress.md). Sprint 338 is active October 22–November 5; FP-66 is In Progress with complete local forwarding/SSR, own-account exemption controls and admin UI; 9+30 acceptance plus unit/database/proxy checks pass. Disabled by default; production release gates remain. [FP-66 implementation](fp-66-controls-2026-10-23.md).
 
-Last consolidated: 2026-10-26. FP-66 is published in four coordinated draft PRs; see [publication](fp-66-publication-2026-10-26.md). [Authenticated host and existing-backup migration/recovery](fp-66-host-readiness-2026-10-26.md) pass, but installed Caddy 2.6.2 rejects the candidate trust/strict options. No upgrade/merge/deployment authorized. Feature descriptions below retain their implementation-date context.
+Last consolidated: 2026-10-26. FP-66 is published in four coordinated draft PRs; see [publication](fp-66-publication-2026-10-26.md). [Authorized fresh backup, Caddy 2.11.7 upgrade and readiness rechecks](fp-66-caddy-maintenance-2026-10-26.md) pass; earlier version/backup-age gates are closed at this checkpoint. No app PR merge/deployment or FP-66 activation authorized. Feature descriptions below retain their implementation-date context.
 
 ## Summary
 
