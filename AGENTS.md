@@ -137,7 +137,7 @@ Keep current when relevant:
 
 ## Backend query review (2026-10-26)
 
-- [Pagination audit](freshprice/docs/backend-pagination-audit-2026-10-26.md) records local/uncommitted fixes, not a new production rollout. Keep those findings open in production until a separately authorized release is verified; exemptions must remain disabled.
+- [Pagination release](freshprice/docs/backend-pagination-deployment-2026-10-26.md) is merged/deployed in backend PR #62 with verified source/image, 51 public GET checks and read-only database/service comparisons. The [original audit](freshprice/docs/backend-pagination-audit-2026-10-26.md) is a historical local checkpoint. Keep exemptions disabled and preserve the documented sparse-inventory/offset-pagination limits.
 - Rank/filter the eligible base rows before LIMIT/OFFSET. Avoid sorting only an already fetched page. Select computed ranking aliases when Sequelize must order both its inner page and outer association hydration.
 - Use an existence predicate to select base rows by a many-to-many tag without truncating the association returned to clients. Preserve distinct base-row counts, all public tags and role/owner visibility. Never disable subqueries blindly to avoid an alias error.
 - End paginated orders with a unique key. Regression fixtures should tie timestamps/primary sort values and include multiple children/units; ordinary updates can expose otherwise incidental heap/index order. A unique order does not create a cross-request snapshot under concurrent writes.

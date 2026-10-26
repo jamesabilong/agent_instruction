@@ -4,6 +4,8 @@
 
 Last consolidated: 2026-10-26. Historical feature descriptions below retain their implementation-date context. Sprint 338 remains active; Jira FP-66 was not changed by deployment. [FP-66 policy](fp-66-controls-2026-10-23.md).
 
+October 26 backend follow-up: [pagination PR #62 is deployed and verified](backend-pagination-deployment-2026-10-26.md), preserving the earlier search fix and disabled exemptions. Community ranking/tag hydration and deterministic content/source/price pages are corrected; live inventory limitations remain explicit.
+
 ## Summary
 
 FreshPrice is a produce and market price tracking platform with public price browsing, admin price management, user budget tools, price submissions, and community discussion.

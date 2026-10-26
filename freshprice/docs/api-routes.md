@@ -262,6 +262,6 @@ October 22 FP-63 contract update: GET shopping list items includes `purchaseHist
 
 Additive migration 42 and `/api/platform/auth/testing-exemption` own-account admin controls are deployed. Caddy authenticated-edge identity is verified on both apps; normal authentication/roles/fresh-password rules remain. Exemptions are disabled, with zero rule/audit rows. Schema constraints, audit retention and guarded rollback follow the [policy](fp-66-controls-2026-10-23.md); do not discard collected audit history. [Release/evidence](fp-66-deployment-2026-10-26.md).
 
-## Local pagination audit corrections — 2026-10-26
+## Deployed pagination corrections — 2026-10-26
 
-Community hot/top ranking, full tag hydration under tag filters and deterministic tie orders for community/content/current-price/history lists are corrected locally, with unchanged envelopes/auth/privacy contracts. These are uncommitted/unreleased; production remains on the prior verified release. [Audit/coverage](backend-pagination-audit-2026-10-26.md). Exemptions stay disabled.
+Community hot/top ranking, full tag hydration under tag filters and deterministic tie orders for community/content/current-price/history lists are deployed through backend PR #62, with unchanged envelopes/auth/privacy contracts. Exact image/source, public GETs and read-only SQL comparisons pass. [Release/coverage](backend-pagination-deployment-2026-10-26.md). Exemptions stay disabled.

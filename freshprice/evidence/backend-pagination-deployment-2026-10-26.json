@@ -1,0 +1,565 @@
+{
+  "date": "2026-10-26",
+  "authorization": "User explicitly authorized review, commit/push, PR creation/merge, deployment, production verification and agent instruction publication; exemptions must stay disabled",
+  "status": "Pagination fixes merged/deployed and production verification passed",
+  "release": {
+    "candidate": "5b6c4de376be459167f741170d4a32b4f03f7323",
+    "merge": "51784fa1e9dc51c54828f60e3341e4592c610b86",
+    "pr": 62,
+    "review": "No blocking findings; exact accepted source/test hashes verified; 62 integration and 271 unit checks retained on unchanged source"
+  },
+  "build": {
+    "id": 40274759279,
+    "conclusion": "success",
+    "sourceTrigger": 40274749807,
+    "sourceCheckout": "51784fa1e9dc51c54828f60e3341e4592c610b86",
+    "dockerSource": "6b5ce18c9c6df7db60b01233f180c23046a522e4",
+    "publishedDigest": "sha256:e3449516c4b9763c6c8b733b7b91c72d65b4aeda0dad87a73e8aaca03cab9d82"
+  },
+  "review": {
+    "blockingFindings": 0,
+    "acceptedSourceAndExternalTestHashesMatch": true,
+    "sourceSha256": {
+      "src/services/communityService.js": "f767d829ddb6ebda1d659612b2dc4f13a5a98bfb42b8bbae67e9ea7433f54979",
+      "src/apps/sugilanon/services/contentService.js": "1609e2c899de56b1f026dde45bdc9c6ec0909fd6e970b973c1c214a796d462e9",
+      "src/apps/freshprice/services/marketPriceService.js": "e14625a0b0ad5b388ceb1e9568420f79018662088e49488adc5bd5cc10bb450a"
+    },
+    "localOnlyTestSha256": {
+      "legacy/backend/integration/communityPagination.api.test.js": "84af73d98c2abfbb8ac2d3287cdd80c29615b4fbe0846eeefa5eeaa9dfc1a25e",
+      "legacy/backend/integration/paginationOrder.model.test.js": "1b398df5fc3dbb800e2cfabc0b5998edfd9998214e8bf4cb4c90a019d5e8dd95",
+      "legacy/backend/integration/marketProductPrice.api.test.js": "70fa134074804fe4d1c752300ebae74a5930fb208e0eea36ac65d227803e75e9",
+      "legacy/backend/unit/marketProductPriceController.test.js": "ee56655504dc4b8837f3e73c3bddb6d225963e5303338cd934f5f6c36a6d9239"
+    },
+    "validationOnUnchangedSource": {
+      "beforeCorrectedFixture": {
+        "failed": 10,
+        "passed": 51,
+        "skipped": 0,
+        "total": 61
+      },
+      "finalDatabaseSuite": {
+        "passed": 62,
+        "failed": 0,
+        "skipped": 0
+      },
+      "newDatabaseCases": 16,
+      "unitSuite": {
+        "passed": 271,
+        "failed": 0,
+        "skipped": 0
+      },
+      "syntaxAndWhitespace": "pass",
+      "database": "Fresh runner-owned local PostgreSQL 14, real migrations through 42, synthetic fixtures; containers and volumes removed"
+    }
+  },
+  "protectedCheckpoint": {
+    "checkpoint": "/var/backups/freshprice/pagination-release-20261026T053046Z",
+    "exemptionsDisabled": true,
+    "mode": "authenticated-edge",
+    "preReleaseConfigurationRecorded": true,
+    "database": {
+      "migrations": 42,
+      "rules": 0,
+      "audits": 0
+    },
+    "checkedAtUtc": "2026-10-26T05:30:46.526065+00:00"
+  },
+  "runtimeProof": {
+    "sourceSha256": {
+      "src/services/communityService.js": "f767d829ddb6ebda1d659612b2dc4f13a5a98bfb42b8bbae67e9ea7433f54979",
+      "src/apps/sugilanon/services/contentService.js": "1609e2c899de56b1f026dde45bdc9c6ec0909fd6e970b973c1c214a796d462e9",
+      "src/apps/freshprice/services/marketPriceService.js": "e14625a0b0ad5b388ceb1e9568420f79018662088e49488adc5bd5cc10bb450a"
+    },
+    "exactThreeShippedFiles": true,
+    "otherServiceSpecsUnchanged": true,
+    "backendOnlyImageAndForceUpdateChanged": true,
+    "protectedRuntimeAndCaddyFilesUnchanged": true,
+    "mode": "authenticated-edge",
+    "exemptionsDisabled": true,
+    "database": {
+      "migrations": 42,
+      "rules": 0,
+      "audits": 0,
+      "publishedArticles": 0
+    },
+    "restrictedReader": {
+      "queries": [
+        {
+          "path": "/api/sugilanon/search?q=fp66",
+          "status": 200,
+          "total": 0
+        },
+        {
+          "path": "/api/sugilanon/search?q=PhilWatch",
+          "status": 200,
+          "total": 0
+        },
+        {
+          "path": "/api/sugilanon/articles?q=fp66",
+          "status": 200,
+          "total": 0
+        }
+      ],
+      "readerAuthStatus": 403
+    },
+    "readOnlyQueryVerification": {
+      "readOnlySessionConfirmed": true,
+      "checks": [
+        {
+          "area": "community",
+          "sort": "newest",
+          "total": 1,
+          "rowsChecked": 1,
+          "publicVisibility": true,
+          "globalOrderAndPages": true,
+          "rankPrivate": true
+        },
+        {
+          "area": "community",
+          "sort": "top",
+          "total": 1,
+          "rowsChecked": 1,
+          "publicVisibility": true,
+          "globalOrderAndPages": true,
+          "rankPrivate": true
+        },
+        {
+          "area": "community",
+          "sort": "hot",
+          "total": 1,
+          "rowsChecked": 1,
+          "publicVisibility": true,
+          "globalOrderAndPages": true,
+          "rankPrivate": true
+        },
+        {
+          "area": "community-tag-filter",
+          "available": false,
+          "limitation": "No visible tagged posts; populated tag hydration covered by isolated PostgreSQL regressions"
+        },
+        {
+          "area": "public-content",
+          "total": 0,
+          "rowsChecked": 0,
+          "sqlOrderAndPages": true
+        },
+        {
+          "area": "admin-content",
+          "total": 0,
+          "rowsChecked": 0,
+          "sqlOrderAndPages": true
+        },
+        {
+          "area": "source-drafts",
+          "total": 0,
+          "rowsChecked": 0,
+          "sqlOrderAndPages": true
+        },
+        {
+          "area": "current-prices",
+          "total": 0,
+          "rowsChecked": 0,
+          "sqlOrderAndPages": true
+        },
+        {
+          "area": "price-history",
+          "total": 0,
+          "rowsChecked": 0,
+          "sqlOrderAndPages": true
+        }
+      ],
+      "productionMutationOrFixture": false
+    }
+  },
+  "finalGates": {
+    "publishedRunningDigestMatch": true,
+    "backendDigest": "sha256:e3449516c4b9763c6c8b733b7b91c72d65b4aeda0dad87a73e8aaca03cab9d82",
+    "otherRunningImagesUnchanged": true,
+    "healthyServices": 4,
+    "database": {
+      "migrationCount": 42,
+      "shoppingMigrationApplied": true,
+      "fp66MigrationApplied": true,
+      "identityMatchesCheckpoint": true,
+      "volumeMatchesCheckpoint": true,
+      "fp66TablesPresent": 2,
+      "freshBackendConnection": true
+    },
+    "guard": {
+      "active": "active",
+      "enabled": "enabled",
+      "publicInterfaceDropRule": true
+    },
+    "caddyActiveEqualsFile": true,
+    "exemptionsDisabled": true,
+    "exemptionRules": 0,
+    "exemptionAudits": 0,
+    "publicGetChecks": 51,
+    "productionMutationOrFixture": false
+  },
+  "publicVerification": {
+    "sites": [
+      {
+        "host": "freshprice.philwatch.com",
+        "checks": [
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/community/posts?sort=newest&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/community/posts?sort=newest&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/community/posts?sort=newest&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/community/posts?sort=top&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/community/posts?sort=top&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/community/posts?sort=top&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/community/posts?sort=hot&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/community/posts?sort=hot&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/community/posts?sort=hot&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/freshprice/market-prices?&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/freshprice/market-prices?&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/freshprice/market-prices?&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/freshprice/market-prices/history?&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/freshprice/market-prices/history?&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/freshprice/market-prices/history?&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/sugilanon/articles?&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/sugilanon/articles?&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/sugilanon/articles?&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/sugilanon/search?q=PhilWatch",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/db/health",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/auth",
+            "status": 200
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/api/platform/auth/testing-exemption",
+            "status": 401
+          },
+          {
+            "host": "freshprice.philwatch.com",
+            "path": "/healthz",
+            "status": 200
+          }
+        ],
+        "inventory": [
+          {
+            "area": "community",
+            "sort": "newest",
+            "total": 1,
+            "rowsChecked": 1
+          },
+          {
+            "area": "community",
+            "sort": "top",
+            "total": 1,
+            "rowsChecked": 1
+          },
+          {
+            "area": "community",
+            "sort": "hot",
+            "total": 1,
+            "rowsChecked": 1
+          },
+          {
+            "area": "community-tag-filter",
+            "available": false
+          },
+          {
+            "area": "current-prices",
+            "total": 0,
+            "rowsChecked": 0
+          },
+          {
+            "area": "price-history",
+            "total": 0,
+            "rowsChecked": 0
+          },
+          {
+            "area": "public-articles",
+            "total": 0,
+            "rowsChecked": 0
+          }
+        ],
+        "publicPagesAndPrivacyPass": true
+      },
+      {
+        "host": "philwatch.com",
+        "checks": [
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/community/posts?sort=newest&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/community/posts?sort=newest&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/community/posts?sort=newest&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/community/posts?sort=top&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/community/posts?sort=top&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/community/posts?sort=top&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/community/posts?sort=hot&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/community/posts?sort=hot&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/community/posts?sort=hot&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/freshprice/market-prices?&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/freshprice/market-prices?&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/freshprice/market-prices?&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/freshprice/market-prices/history?&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/freshprice/market-prices/history?&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/freshprice/market-prices/history?&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/sugilanon/articles?&page=1&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/sugilanon/articles?&page=2&limit=2",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/sugilanon/articles?&page=1&limit=4",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/sugilanon/search?q=PhilWatch",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/db/health",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/auth",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/api/platform/auth/testing-exemption",
+            "status": 401
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/health",
+            "status": 200
+          },
+          {
+            "host": "philwatch.com",
+            "path": "/search?q=PhilWatch",
+            "status": 200
+          }
+        ],
+        "inventory": [
+          {
+            "area": "community",
+            "sort": "newest",
+            "total": 1,
+            "rowsChecked": 1
+          },
+          {
+            "area": "community",
+            "sort": "top",
+            "total": 1,
+            "rowsChecked": 1
+          },
+          {
+            "area": "community",
+            "sort": "hot",
+            "total": 1,
+            "rowsChecked": 1
+          },
+          {
+            "area": "community-tag-filter",
+            "available": false
+          },
+          {
+            "area": "current-prices",
+            "total": 0,
+            "rowsChecked": 0
+          },
+          {
+            "area": "price-history",
+            "total": 0,
+            "rowsChecked": 0
+          },
+          {
+            "area": "public-articles",
+            "total": 0,
+            "rowsChecked": 0
+          }
+        ],
+        "publicPagesAndPrivacyPass": true
+      }
+    ],
+    "totalGetChecks": 47,
+    "productionMutationOrFixture": false
+  },
+  "privateRouteGuards": [
+    {
+      "host": "freshprice.philwatch.com",
+      "path": "/api/sugilanon/admin/articles",
+      "status": 401
+    },
+    {
+      "host": "freshprice.philwatch.com",
+      "path": "/api/sugilanon/admin/source-drafts",
+      "status": 401
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/api/sugilanon/admin/articles",
+      "status": 401
+    },
+    {
+      "host": "philwatch.com",
+      "path": "/api/sugilanon/admin/source-drafts",
+      "status": 401
+    }
+  ],
+  "limits": [
+    "One public community post; no visible tagged posts, public articles, current prices or price-history rows in checked production inventory",
+    "Populated global ranking/tag hydration/tied multi-page behavior is demonstrated by the 16 isolated synthetic PostgreSQL regressions, not by inserted production fixtures",
+    "Offset pagination has no cross-request snapshot under concurrent content/vote updates",
+    "No production mutation fixture, login or exemption operation was used",
+    "Previous same-VPS/off-host/global-role/config reconstruction, atomic uploads/DB and waived physical-device/PWA limitations remain"
+  ],
+  "diagnostics": "Read-only comparison harness initially assumed SHOW results used ordinary SELECT nesting; changed to SELECT current_setting, confirmed read-only mode and completed checks. Application source was unchanged during this repair.",
+  "retainedDatabaseBackup": "/var/backups/freshprice/fp-restore-20261026T041156Z-2388254",
+  "productionChanged": true,
+  "schemaChanged": false,
+  "exemptionsEnabled": false
+}

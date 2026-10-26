@@ -3,7 +3,7 @@
 Current as of 2026-10-26. [Historical checklist](archive/todo-through-2026-10-21.md).
 
 - [x] October 26: audit backend search/pagination, reproduce/fix ranking/tag/tie findings locally and add 16 database regressions; final 62 database-suite and 271 unit checks pass. [Record](../../freshprice/docs/backend-pagination-audit-2026-10-26.md).
-- [ ] Review and separately authorize publication/release of the local pagination-audit fixes; verify intended runtime/list behavior and retain disabled exemptions.
+- [x] October 26: user-authorized review/commit/push/PR #62 merge/deployment and actual production verification complete; source/digest, read-only query comparison, 51 GET checks and preserved runtime/DB/guard pass. Exemptions false, zero rules/audits. [Release](../../freshprice/docs/backend-pagination-deployment-2026-10-26.md).
 
 - [x] October 26: ordered FP-66 merge/deploy, scoped credential parser follow-up, Caddy strict identity/two independent real clients/direct-origin checks and final image/migration 42/DB/guard verification complete; exemptions false, zero rules/audits. Fresh protected post-release full restore passes. [Release](../../freshprice/docs/fp-66-deployment-2026-10-26.md).
 - [x] October 26: fix nonempty PhilWatch search locally and add 10 database-backed regressions; all 46 DB/271 unit checks pass. [Record](../docs/content-search-fix-2026-10-26.md).

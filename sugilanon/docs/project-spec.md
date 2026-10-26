@@ -4,6 +4,8 @@ Last investigated: 2026-07-01; FP-66 release updated 2026-10-26.
 
 FP-66 is deployed: PhilWatch #2, shared backend/schema and FreshPrice/Docker counterparts merged in verified order. Browser rewrites preserve Caddy authenticated visitor assertions; server-only public content uses a distinct restricted credential. Two independent public clients, direct-origin checks, scoped credential privacy, migration 42/shared service/DB/guard and post-release backup/full isolated restore pass. Exemptions remain false with zero rules/audits. Nonempty-query search is [fixed and deployed](content-search-fix-2026-10-26.md) through backend PR #61: 46 DB/271 unit checks and both actual public paths/internal reader pass. Production inventory is empty, so existing article-detail smoke is unavailable. [Release/evidence/limits](../../freshprice/docs/fp-66-deployment-2026-10-26.md), [policy](../../freshprice/docs/fp-66-controls-2026-10-23.md).
 
+October 26 backend follow-up: [pagination PR #62 is deployed and verified](../../freshprice/docs/backend-pagination-deployment-2026-10-26.md), preserving the earlier search fix and disabled exemptions. Community ranking/tag hydration and deterministic content/source/price pages are corrected; live inventory limitations remain explicit.
+
 ## Summary
 
 Sugilanon/PhilWatch is a content/news site with public article browsing and admin content management. It has a Next.js frontend in `sugilanon` and content APIs in `platform-backend/src/apps/sugilanon`.

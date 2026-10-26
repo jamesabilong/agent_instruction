@@ -2,7 +2,7 @@
 
 Current as of 2026-10-26. Historical findings and their original status are preserved in [the archive](archive/bugs-through-2026-10-21.md). Do not treat old “unfixed” or “not deployed” entries there as current without checking the later resolution.
 
-- Open in production, locally fixed (October 26 audit): community hot/top ranks were page-local; tag filters trimmed other tags; tied content/source/current/history price keys were not uniquely ordered. Database-backed fixes and admin-content tie hardening pass 62 database-suite/271 unit checks; source remains uncommitted/unreleased. Prior PhilWatch nonempty-search 500 stays resolved in deployed PR #61. [Audit](../docs/backend-pagination-audit-2026-10-26.md).
+- Resolved in production (October 26): community page-local hot/top ranking, truncated tag hydration and nonunique content/source/price page order fixed by backend PR #62. Exact image/source, 51 public GET checks, read-only production list/SQL comparisons and shared DB/runtime/guard pass; populated edge cases covered by 16 isolated PostgreSQL regressions. Exemptions disabled with zero rules/audits. [Release](../docs/backend-pagination-deployment-2026-10-26.md).
 
 ## Resolved: shared gateway authentication limiter identity (FP-66)
 

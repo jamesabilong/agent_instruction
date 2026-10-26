@@ -1,5 +1,6 @@
 # PhilWatch nonempty search fix — October 26, 2026
 
+> Subsequent verified backend update: [pagination PR #62](../../freshprice/docs/backend-pagination-deployment-2026-10-26.md) preserves this search fix and records the current running image. The digest below is the earlier search-release checkpoint.
 The nonempty search 500 is fixed, merged and deployed through [backend PR #61](https://github.com/jamesabilong/fresh-price-backend/pull/61). The user explicitly authorized publishing/merging/deploying the verified fix after the initial local checks. Both public API paths and the internal content reader now return 200 for nonempty queries. Exemptions remain disabled with zero rules and audit events; protected identity configuration is unchanged.
 
 [Sanitized evidence](../evidence/content-search-fix-2026-10-26.json), [production finding](../../freshprice/docs/fp-66-deployment-2026-10-26.md).
