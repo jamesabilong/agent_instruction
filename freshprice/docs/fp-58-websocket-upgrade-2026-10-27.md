@@ -1,5 +1,7 @@
 # FP-58 WebSocket delivery and recovery — October 27, 2026
 
+Later [seller-profile improvements](fp-57-profile-improvements-2026-10-27.md) are integrated into FP-58 and supersede the candidate heads/migration totals/test counts below. Transport contracts and the original production-image checkpoint remain valid historical evidence; current integrated source and regressions are in that follow-up.
+
 The user requested instant messaging, reconnect handling, missed-message recovery and updates to the existing FP-58 PRs. This supersedes the polling-only transport described in the [initial publication](fp-58-review-publication-2026-10-27.md). Existing private REST APIs, saved-message receipts, participant permissions and schema remain compatible; no new migration is needed.
 
 Candidates: backend `33243a06ad59fe37d13f9168192780f4bd0f09fd`, frontend `7c562364c37187a13d29db1189d29a3e307a95e1`, Docker proxy `fa5c15699c99657ee554d227aa03321d320b8a8d`. Application branches remain `FP-58`; Docker uses `FP-58-websocket-proxy`. Documentation is on `FP-58-docs`. No production deployment, service restart, flag change or pilot enablement is authorized by this verification/publication request.

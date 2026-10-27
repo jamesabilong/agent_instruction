@@ -1,0 +1,228 @@
+{
+  "ticket": "FP-57",
+  "recordedAt": "2026-10-27T15:13:14.415Z",
+  "scope": "User-selected seller profile improvement follow-up; no live operation",
+  "source": {
+    "backend": {
+      "commit": "62547612f2383f1b82b28c9794ee9a73d1d9fa13",
+      "previousAcceptedBaseline": "b5fc98a1a2800524363e9ce843012be294029c47",
+      "files": {
+        "src/apps/freshprice/routes/sellerRoutes.js": "bf4e5aa862c9e383e81a38c210046d8f50d09de617f968f7004befe82b13da85",
+        "src/apps/freshprice/services/sellerProfileRules.js": "00141af409312ac139d4149b616cf3a7a5909d4e0fd9a3fcd91c9d2ef7168f05",
+        "src/apps/freshprice/services/sellerRules.js": "a372d81b34f8631424af0ac457a45ee7f8fe724359e2bec09142494967977fb5",
+        "src/apps/freshprice/services/sellerService.js": "d454fea6a8c9e4ebcc137c998af19a9b8159e2b5ec93e9ecb9f1ec5e1369a617",
+        "src/migrations/20261027000003-seller-profile-details.cjs": "1825ffe68eab3432fae3e2a71e7342bdd6a94560ab801af0f9414b3694033837",
+        "src/models/sellerProfile.js": "61091490fa7d802931331b7b650d640a07c179d63b4e0f3010fc6a33100b1a5e",
+        "src/models/sellerProfileDraft.js": "c195669e36a9aec975be8a213e23245bf946fb0907c89b9a28199dbebf034edc",
+        "src/models/sellerProfileMedia.js": "0a4261ee0f6d4e61f6e049fad1468ce220d75da08837a984404dbcf3d7bcd8de"
+      }
+    },
+    "frontend": {
+      "commit": "20104ded2054e87284f29d7c84371828ba89edeb",
+      "previousAcceptedBaseline": "db7e0e8cd04b893ae2daafaaf5085c5f2aeb5322",
+      "files": {
+        "src/api/sellerService.ts": "b28e1b64a24e234fa7b9276b8818243e442cd32fb89624e60ee2fe8a5162cd96",
+        "src/features/sellers/SellerDashboardPage.tsx": "a7af73a2ed557a66f033abe83c5e326c564c58bd0241cb930a5fa67bad776076",
+        "src/features/sellers/SellerDirectoryPage.tsx": "3b8118fd6d5829b5af1f0ad33f03d7a98cbbc10e8f6d184eabfebcfd0281f1ef",
+        "src/features/sellers/SellerIdentity.tsx": "43bcb78774f30d83c06b6f63cfb148ea2d9f4e10fa74ed44ae5b4e7e14a4f252",
+        "src/features/sellers/SellerProfilePage.tsx": "d612d8d70b43a0de3fbd14fc7ad88ee4f614646dac2e813318cfb32915493007",
+        "src/features/sellers/SellerProfileSetup.tsx": "2c83cae793bf3a788b0acf7f0c3b9783d0d034df9c92be0d2b8fc20e6045491f",
+        "src/features/sellers/SellerReviewPage.tsx": "861284113eaf322f19bccf4be9723ed5fb43449db0265d8b829fe83ab62f93f8"
+      }
+    }
+  },
+  "integratedMessagingSource": {
+    "backend": "2bd4fb48253f95e4816b253053a10e7520690b5d",
+    "frontend": "f97e2f8141305202555821e4777003d71142c1fa"
+  },
+  "results": {
+    "sellerBackendUnits": 194,
+    "sellerFrontendUnits": 281,
+    "sellerDatabase": [
+      {
+        "kind": "database",
+        "passed": 45,
+        "skipped": 0,
+        "cleanedUp": true
+      }
+    ],
+    "sellerBrowser": [
+      {
+        "kind": "desktop",
+        "passed": 9,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      },
+      {
+        "kind": "mobile",
+        "passed": 9,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      }
+    ],
+    "sellerAcceptanceTotal": 538,
+    "production": {
+      "identity": "fp57_deploy_1793113530798_8a639b",
+      "scope": "isolated synthetic local deployment; no production operations",
+      "status": "passed",
+      "checks": [
+        "clean committed FP-57 seller-profile candidates",
+        "exported Linux entrypoint equals canonical committed bytes",
+        "production Dockerfiles build exact archived source without local credentials or tests",
+        "migration 42 populated synthetic baseline",
+        "migration 42 to 44 preserves existing synthetic accounts/catalog/official prices",
+        "disabled pilot in built deployment fails closed",
+        "production worker and manifest cache policies",
+        "production-built desktop seller acceptance",
+        "complete backend/nginx cold restart preserves collected synthetic pilot data and disabled state",
+        "private offer history is readable after full service restart",
+        "full synthetic collected-data backup/restore preserves rows and migration inventory",
+        "restored backend serves retained private draft and processed photo while disabled",
+        "production-built mobile seller acceptance",
+        "authentication exemptions remain disabled with zero rules/audits"
+      ],
+      "browser": [
+        {
+          "mobile": false,
+          "passed": 9,
+          "skipped": 0,
+          "pageErrors": 0
+        },
+        {
+          "mobile": true,
+          "passed": 9,
+          "skipped": 0,
+          "pageErrors": 0
+        }
+      ],
+      "sources": {
+        "backend": "62547612f2383f1b82b28c9794ee9a73d1d9fa13",
+        "frontend": "20104ded2054e87284f29d7c84371828ba89edeb",
+        "docker": "fa5c15699c99657ee554d227aa03321d320b8a8d"
+      },
+      "imageIds": {
+        "codex-fp57-backend:fp57_deploy_1793113530798_8a639b": "sha256:d85913d3bfbb5c638fed08441fa346c9bc5c53b6948d2ff7f9ae937c67402a29",
+        "codex-fp57-frontend:fp57_deploy_1793113530798_8a639b": "sha256:f0cc089facd5be711f6302df2cb278e86c8027d14fb0cc1dd3cb7343e0b2be97"
+      },
+      "cleanedUp": true
+    },
+    "integratedBackendUnits": 206,
+    "integratedFrontendUnits": 305,
+    "messagingRegression": [
+      {
+        "kind": "database",
+        "passed": 69,
+        "skipped": 0,
+        "cleanedUp": true
+      },
+      {
+        "kind": "desktop",
+        "passed": 13,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      },
+      {
+        "kind": "mobile",
+        "passed": 13,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      }
+    ],
+    "combinedOrdinaryTotal": 669,
+    "lint": "passed",
+    "frontendBuild": "passed"
+  },
+  "records": {
+    "database": "testing/.local/fp57_1793113436520_39e26b/summary.json",
+    "browser": "testing/.local/fp57_1793113202435_a27a27/summary.json",
+    "deployment": "testing/.local/fp57_deploy_1793113530798_8a639b/summary.json",
+    "messaging": "testing/.local/fp58_1793113616705_4c2208/summary.json",
+    "backendUnits": "testing/.local/fp57-profile-back-final.log",
+    "frontendUnits": "testing/.local/fp57-profile-front-units.log",
+    "frontendBuild": "testing/.local/fp57-profile-front-checks.log",
+    "integratedBackend": "testing/.local/fp57-profile-integrated-back.log",
+    "integratedFrontend": "testing/.local/fp57-profile-integrated-front.log"
+  },
+  "recordHashes": {
+    "testing/.local/fp57_1793113436520_39e26b/summary.json": "af0d7bc10c1c2691c4399d171af56fd8e49752db819f97d362ee4693413dca0a",
+    "testing/.local/fp57_1793113202435_a27a27/summary.json": "77afc04f5923541ab935bf4ccb268b16f09dc4f714da5249c5a0b49da645e468",
+    "testing/.local/fp57_deploy_1793113530798_8a639b/summary.json": "279e6aedf0da1878f0fd2c5f9362d3517de867b9ab1abbc6093a212ea699cd3d",
+    "testing/.local/fp58_1793113616705_4c2208/summary.json": "eaddbd4fc9de714e2994332a9386972934e921847d976a46ba9002a4c3b443b7",
+    "testing/.local/fp57-profile-back-final.log": "42e7457bbc30ac6921bb65703e5fa151c4a2a7cfbabf5670c7c4b12fb24616f4",
+    "testing/.local/fp57-profile-front-units.log": "1b14f729372eddaad71c9142ec9ea7e500d831f1e36479f76b295528cda0f4b5",
+    "testing/.local/fp57-profile-front-checks.log": "6cdc210ddefc01a1be74f6291b39cee74bcc51e1524c10ee7dca3dfa757eea53",
+    "testing/.local/fp57-profile-integrated-back.log": "e848f2a86c2124badd8985054e65710e7566dc638d4b13ef74dfe481cf151dd2",
+    "testing/.local/fp57-profile-integrated-front.log": "cb80f8c61c08afa51890821c093f8e3aa29448a6604d29fd468552bcb632ae36"
+  },
+  "externalRegistration": {
+    "ticket": "FP-57",
+    "backendUnit": {
+      "expected": 21,
+      "specs": [
+        "backend/unit/sellerRules.test.js",
+        "backend/unit/sellerProfileRules.test.js"
+      ]
+    },
+    "database": {
+      "expected": 45,
+      "specs": [
+        "backend/integration/sellers.test.js"
+      ]
+    },
+    "browser": {
+      "expected": 18,
+      "scenariosPerViewport": 9,
+      "viewports": [
+        "desktop",
+        "mobile"
+      ]
+    },
+    "frontendUnit": {
+      "expected": 18,
+      "specs": [
+        "frontend/unit/sellers.test.tsx",
+        "frontend/unit/sellerProfileSetup.test.tsx"
+      ]
+    },
+    "fixtures": "fixtures.json",
+    "runner": "node testing/tickets/FP-57/run.mjs",
+    "completion": "Every registered local case must pass with zero failures or skips. Local QA is separate from deployment/staging acceptance."
+  },
+  "externalTestFiles": {
+    "testing/tickets/FP-57/ACCEPTANCE.md": "417495e2ba4573154c3e3fdce5b88b78eef8a8143517e42bc425e4aa37142e2d",
+    "testing/tickets/FP-57/backend/integration/sellers.test.js": "20a0487cc0a96dbaeed0c3806f360caa35b0a19e3f8a45f4286dcbf54fc4e8b1",
+    "testing/tickets/FP-57/backend/unit/sellerProfileRules.test.js": "01d2920f10e4aafec83dc2971f732bfcb92b53d2143695c19600c7ed8e5a7e43",
+    "testing/tickets/FP-57/backend/unit/sellerRules.test.js": "3fd425ff4396dace470eb1678bbc99abb362fc441992b7dfa0d2a3443e7005f1",
+    "testing/tickets/FP-57/browser.mjs": "54859c839e93e09c3e970845273fe0b9d2441151361707c44f62b148e005d67d",
+    "testing/tickets/FP-57/deployment.mjs": "144008316112cf2965e210d64f68c238ef3467e0a7ab4be5e701c1b80b5d8f8c",
+    "testing/tickets/FP-57/fixtures.json": "49396ad608c47508475610483c0c370985e130480176d011780b00c320f30453",
+    "testing/tickets/FP-57/frontend/unit/sellerProfileSetup.test.tsx": "f39469f2b621e71148fef304ad1298ac1fa6c277d3965d48eff046d38cb0b12c",
+    "testing/tickets/FP-57/frontend/unit/sellers.test.tsx": "ac29a142eb3bfd799b6bb683b6afc07888685654709b306c56983e142813ab8e",
+    "testing/tickets/FP-57/README.md": "0c393bcde7b574ddb48811dfda8e39df5c5e80ecf8269d0e85aede6072bb69a7",
+    "testing/tickets/FP-57/run.mjs": "0eced98d1a2228cc3ac781af93a13b232b9bcc2228ea689417fd37659dc784fc",
+    "testing/tickets/FP-57/suite.json": "79e3fb25621fdfaf0b245be15fe074c30442788b83692f450e5c417f8479d8ee"
+  },
+  "controls": {
+    "pilotAndExemptionsEnabledInProduction": false,
+    "productionChanged": false,
+    "temporaryVerificationResourcesCleanedUp": true,
+    "privateDraftsOwnerOnly": true,
+    "submittedPhotosOperatorReviewed": true,
+    "publicPhotosRequireApprovedCurrentProfileAndAvailableMarket": true,
+    "storedMedia": "Processed WebP BYTEA, max 500000 bytes/image; owner/profile/draft references bound the retained images, included in normal DB backup"
+  },
+  "limits": [
+    "Saving a draft preserves current public profile; submitting still returns the entire profile to pending and hides offers until approval",
+    "No gallery/offer photos, delivery/payment/ratings or separate public phone added",
+    "Photo display crops to fit; no interactive crop editor",
+    "Complete same-day weekly hours in Asia/Manila; no overnight hours or inferred open-now badge",
+    "Isolated synthetic deployment/restore, not actual production or restored production backup",
+    "Physical device/keyboard, other browsers, installed-PWA upgrade and live pilot remain unverified",
+    "Legacy FP-59 E2E branch guard retained; dedicated FP-57 acceptance used",
+    "Integrated FP-58 has 45 migrations; its latest source is covered by database/development browser regression, while the production-image rehearsal here is the FP-57 candidate with 44 migrations"
+  ]
+}

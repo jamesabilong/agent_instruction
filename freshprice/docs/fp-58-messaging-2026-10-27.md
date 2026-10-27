@@ -1,5 +1,7 @@
 # FP-58 private messaging — local implementation, October 27, 2026
 
+Later [seller-profile improvements](fp-57-profile-improvements-2026-10-27.md) are integrated into FP-58 and supersede the candidate heads/migration totals/test counts below. Transport contracts and the original production-image checkpoint remain valid historical evidence; current integrated source and regressions are in that follow-up.
+
 [FP-58](https://fresh-price.atlassian.net/browse/FP-58) remains In Progress. The user requested continued implementation and screenshots, explicitly extending the seller inquiry flow to messages between ordinary users. Both flows are implemented and verified locally. This supersedes the [historical foundation checkpoint](fp-58-messaging-foundation-2026-10-27.md).
 
 Current WebSocket candidates are backend `33243a06ad59fe37d13f9168192780f4bd0f09fd` / frontend `7c562364c37187a13d29db1189d29a3e307a95e1`, in [backend #65](https://github.com/jamesabilong/fresh-price-backend/pull/65) / [frontend #61](https://github.com/jamesabilong/fresh-price-front/pull/61) against master. [WebSocket upgrade, recovery and current verification](fp-58-websocket-upgrade-2026-10-27.md) supersede the polling-only [initial publication](fp-58-review-publication-2026-10-27.md). Docker proxy changes must ship before frontend; FP-57 remains a prerequisite for release. No production data, flags or services changed.
@@ -46,7 +48,7 @@ All endpoints below use `/api/freshprice/messages`, authentication and private/n
 | `GET /admin/reports/:id` | Audited reported case and bounded context |
 | `PATCH /admin/reports/:id` | `{ status, resolutionNote, revision }`; audited resolved/dismissed state |
 
-Migration `20261027000002-private-messaging.cjs` is local migration 44, following FP-57's seller migration 43 and the deployed baseline 42. It adds `message_conversations`, `message_participants`, `message_contact_blocks`, `private_messages`, `message_reports` and `message_moderation_audits`, with their matching models. Unique pairs/receipts/sequences, read/value checks, lookup indexes, data-preserving nullable account/profile references and report audit constraints are enforced in PostgreSQL. The migration uses a transaction. Empty down/reapply passes; down locks all six tables and refuses collected conversations or blocks. Disable messaging rather than rolling back collected private data.
+Migration `20261027000002-private-messaging.cjs` is the original messaging-table migration following the baseline seller schema; the integrated seller-profile follow-up has 45 migrations, while FP-57 alone has 44. It adds `message_conversations`, `message_participants`, `message_contact_blocks`, `private_messages`, `message_reports` and `message_moderation_audits`, with their matching models. Unique pairs/receipts/sequences, read/value checks, lookup indexes, data-preserving nullable account/profile references and report audit constraints are enforced in PostgreSQL. The migration uses a transaction. Empty down/reapply passes; down locks all six tables and refuses collected conversations or blocks. Disable messaging rather than rolling back collected private data.
 
 ## Verification and screenshots
 

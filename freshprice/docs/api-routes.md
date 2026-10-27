@@ -1,5 +1,7 @@
 # FreshPrice API Routes Investigation
 
+FP-57 seller-profile upgrade: own resumable draft GET/PUT/DELETE/submit, revision-bound multipart avatar/cover upload, owner/operator/public processed-photo reads, and optional public business details. Legacy profile PUT preserves omitted details. [Current methods, privacy and verification](fp-57-profile-improvements-2026-10-27.md).
+
 FP-58 unreleased candidate (October 27): participant-only seller/peer private REST APIs plus authenticated `GET /api/freshprice/messages/events` WebSocket upgrade. Origin/session/current-account checks bind the stream; `ready`, `changed`, `inbox` and `sync` frames contain no private bodies or conversation IDs. Persisted sequence REST history recovers missed events; writes retain existing receipts/limits. Inbox GET adds own `unreadCount`/`enabled`; config advertises `realtime: "websocket"`, `pollSeconds: 60`. [Transport/recovery contract and current verification](fp-58-websocket-upgrade-2026-10-27.md), [methods and permissions](fp-58-messaging-2026-10-27.md#apis-and-additive-schema). Flag defaults off; no production change.
 
 October 27 unreleased addition: FP-57 introduces `/api/freshprice/sellers` public discovery, owner application/offers and operator review/report APIs. Published in ready-for-review backend #64/frontend #60 and disabled by default. See the [complete endpoint/access/pagination contract](fp-57-seller-pilot-2026-10-27.md#apis-and-schema) and [publication evidence](fp-57-review-publication-2026-10-27.md); existing production APIs below remain the deployed baseline.
