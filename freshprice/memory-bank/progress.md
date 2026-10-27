@@ -1,6 +1,6 @@
 # FreshPrice Progress
 
-Last consolidated: 2026-10-26. This file describes current state. Older chronological notes are retained in [the history archive](archive/progress-through-2026-10-21.md).
+Last consolidated: 2026-10-27. This file describes current state. Older chronological notes are retained in [the history archive](archive/progress-through-2026-10-21.md).
 
 ## Production release
 
@@ -19,7 +19,7 @@ Last consolidated: 2026-10-26. This file describes current state. Older chronolo
 
 ## Current development
 
-- October 26 review/publication: fixed blank/overlong PhilWatch queries, stale price-page controls/recovery/error clearing and unsafe offsets/identifier/NUL API input. Final 263 frontend/173 backend/27 PhilWatch tests, 34 HTTP/14 PostgreSQL cases (42 migrations), lint/build and expanded desktop/mobile/Next Chromium pass. Committed/pushed backend #63, frontend #59 and PhilWatch #3; all OPEN, non-draft, MERGEABLE/CLEAN with exact reviewed heads. GitHub reports no CI checks. Release pending, backend before FreshPrice UI; exemptions disabled. [Review, PRs and limits](../docs/search-pagination-review-publication-2026-10-26.md).
+- October 27 release: fresh source/contract review found no blocking gap; 263 frontend/173 backend/27 PhilWatch tests, 34 HTTP/14 PostgreSQL cases (42 migrations), lint/build and isolated desktop/mobile/Next Chromium pass. Merged backend #63 → verified its deployment → frontend #59 → verified its deployment → PhilWatch #3. All three deployment workflows and public read-only/API/browser smoke pass. Merged app source equals reviewed candidates. No production fixtures or exemption-setting changes; SSH-host verification and populated production limits remain explicit. Docker startup recovered; recurrence risk retained. [Release and scope](../docs/search-pagination-deployment-2026-10-27.md).
 
 - October 26 Windows continuation checkpoint: live Jira confirmed sprint 338 (October 22–November 5), FP-62/63 Done and only FP-66 In Progress/unassigned; connector is read-only. Restored missing search follow-up source after clean FreshPrice fast-forward to the existing released commits. Initial 259 frontend/173 backend/19 PhilWatch units, 25 HTTP/9 PostgreSQL cases and lint/build/browser checks passed. Docker startup recovered by preserving stale runtime sockets; Compose validation passed. That checkpoint preceded the later gap fixes/publication above. [Historical Windows evidence](../docs/windows-continuation-2026-10-26.md).
 

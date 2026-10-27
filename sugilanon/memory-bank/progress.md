@@ -1,8 +1,8 @@
 # Sugilanon Progress
 
-Current as of 2026-10-26. [Historical notes](archive/progress-through-2026-10-21.md) retain prior checkpoints.
+Current as of 2026-10-27. [Historical notes](archive/progress-through-2026-10-21.md) retain prior checkpoints.
 
-- October 26 review/publication: fixed blank/overlong search input against the actual API contract, preserved server-only reader behavior and verified 27 focused checks, lint/production webpack build and expanded built-Next Chromium scenarios. Shared FreshPrice/backend checks pass. Committed/pushed PhilWatch #3 (`723d5cb`), backend #63 and frontend #59; all OPEN/MERGEABLE/CLEAN, no reported CI checks. Release pending; no production change. [Current review, PRs and limits](../../freshprice/docs/search-pagination-review-publication-2026-10-26.md).
+- October 27 release: fresh source/contract review found no blocking gap; 263 frontend/173 backend/27 PhilWatch tests, 34 HTTP/14 PostgreSQL cases (42 migrations), lint/build and isolated desktop/mobile/Next Chromium pass. Merged backend #63 → verified its deployment → frontend #59 → verified its deployment → PhilWatch #3. All three deployment workflows and public read-only/API/browser smoke pass. Merged app source equals reviewed candidates. No production fixtures or exemption-setting changes; SSH-host verification and populated production limits remain explicit. Docker startup recovered; recurrence risk retained. [Release and scope](../../freshprice/docs/search-pagination-deployment-2026-10-27.md).
 
 - October 26 Windows continuation checkpoint: earlier uncommitted pagination source/assets were absent; restored the server-only metadata helper, links, page recovery and visible failure state. Initial 19 focused checks, lint/webpack build, Next/stub Chromium and shared price/PostgreSQL checks passed; Docker runtime startup recovered. That checkpoint preceded the later input-gap fixes/publication above. [Historical Windows verification](../../freshprice/docs/windows-continuation-2026-10-26.md).
 

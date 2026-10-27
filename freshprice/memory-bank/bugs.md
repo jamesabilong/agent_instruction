@@ -1,10 +1,12 @@
 # FreshPrice Bugs And Risks
 
-Current as of 2026-10-26. Historical findings and their original status are preserved in [the archive](archive/bugs-through-2026-10-21.md). Do not treat old “unfixed” or “not deployed” entries there as current without checking the later resolution.
+Current as of 2026-10-27. Historical findings and their original status are preserved in [the archive](archive/bugs-through-2026-10-21.md). Do not treat old “unfixed” or “not deployed” entries there as current without checking the later resolution.
+
+- October 27 local Docker recurrence: stale inference/secrets runtime sockets again prevented startup. Preserved verified socket-only folders, restarted Docker and passed Engine 28.5.1/Compose/disposable PostgreSQL checks. Current startup recovered; future recurrence remains open. [Evidence and backups](../docs/search-pagination-deployment-2026-10-27.md).
 
 - October 26 Windows reconciliation: the earlier uncommitted search fixes/test assets were missing here and have been reconstructed with fresh available-suite/DB/browser checks. Docker Desktop's preexisting inaccessible inference/secrets runtime sockets prevented engine startup; preserving both runtime-only directories and restarting restored Engine 28.5.1. Compose validation passes; no project database or Docker data reset. [Current evidence, backups and limits](../docs/windows-continuation-2026-10-26.md).
 
-- Published source, release pending (October 26): missing PhilWatch page navigation/global price search and review findings (blank/overlong queries, stale controls/removed pages/error clearing, unsafe offsets/IDs/NUL input) are fixed in backend #63/frontend #59/PhilWatch #3. Fresh local gates pass; no unresolved blocker remains in reviewed paths. Deployment is required before calling these resolved in production. [Review and verification](../docs/search-pagination-review-publication-2026-10-26.md). The earlier development image-priority warning remains separate.
+- Released October 27: global price search, PhilWatch page navigation and the input/race/recovery fixes are merged through backend #63/frontend #59/PhilWatch #3. All deployment workflows, fresh 511 local checks and public API/browser smoke pass; populated production and SSH-host limits remain explicit. [Release and verification](../docs/search-pagination-deployment-2026-10-27.md).
 
 - Resolved in production (October 26): community page-local hot/top ranking, truncated tag hydration and nonunique content/source/price page order fixed by backend PR #62. Exact image/source, 51 public GET checks, read-only production list/SQL comparisons and shared DB/runtime/guard pass; populated edge cases covered by 16 isolated PostgreSQL regressions. Exemptions disabled with zero rules/audits. [Release](../docs/backend-pagination-deployment-2026-10-26.md).
 

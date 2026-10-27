@@ -6,7 +6,7 @@ FP-66 is deployed: PhilWatch #2, shared backend/schema and FreshPrice/Docker cou
 
 October 26 backend follow-up: [pagination PR #62 is deployed and verified](../../freshprice/docs/backend-pagination-deployment-2026-10-26.md), preserving the earlier search fix and disabled exemptions. Community ranking/tag hydration and deterministic content/source/price pages are corrected; live inventory limitations remain explicit.
 
-Search follow-up (2026-10-26): [reviewed pagination/global price search changes](../../freshprice/docs/search-pagination-review-publication-2026-10-26.md) are published in backend #63/frontend #59/PhilWatch #3, separately from deployed state. Release remains pending; backend precedes the new price UI. Exemptions stay disabled.
+Search follow-up released October 27: backend #63 deployed before frontend #59, followed by PhilWatch #3. Fresh 511 local checks, both lint/build gates, isolated browser checks, all deployment workflows and public API/browser smoke pass. Keep existing disabled-exemption instructions and retained host/inventory limits. [Release](../../freshprice/docs/search-pagination-deployment-2026-10-27.md).
 
 ## Summary
 

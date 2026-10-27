@@ -118,7 +118,7 @@ Mutations require auth and operator role.
 
 ### `/api/freshprice/market-prices`
 
-Search follow-up (release pending): `GET /?q=...` filters product names case-insensitively before pagination/counting; trimmed scalar string ≤200 characters, literal `%`/`_`/backslash, combinable market/product/unit filters. Blank/absent query preserves the existing contract. NUL queries, unsafe page/offset values and product/market IDs outside their positive PostgreSQL INTEGER range return 400 before querying. [Current review, verification and PRs](search-pagination-review-publication-2026-10-26.md).
+Search follow-up (released 2026-10-27): `GET /?q=...` filters product names case-insensitively before pagination/counting; trimmed scalar string ≤200 characters, literal `%`/`_`/backslash, combinable market/product/unit filters. Blank/absent query preserves the existing contract. NUL queries, unsafe page/offset values and product/market IDs outside their positive PostgreSQL INTEGER range return 400 before querying. [Release, verification and limits](search-pagination-deployment-2026-10-27.md).
 
 - `GET /`
 - `POST /`

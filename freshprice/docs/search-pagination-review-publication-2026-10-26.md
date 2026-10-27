@@ -1,5 +1,7 @@
 # Search and pagination — review and publication, October 26, 2026
 
+> Historical publication checkpoint. The app PRs were reviewed, merged and deployed on October 27; see the [current release record](search-pagination-deployment-2026-10-27.md).
+
 The user requested a fresh gap review followed by commits, pushes and PRs for global current-price search and PhilWatch search pagination. The [Windows continuation](windows-continuation-2026-10-26.md) records the restored baseline and Docker recovery. This review tests the actual API contracts and concurrent UI behavior beyond that first acceptance pass.
 
 [Sanitized final evidence and ten verified source hashes](../evidence/search-pagination-review-2026-10-26.json).
