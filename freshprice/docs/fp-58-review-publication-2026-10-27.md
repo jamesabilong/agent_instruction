@@ -1,4 +1,6 @@
-# FP-58 final review, verification and publication — October 27, 2026
+# FP-58 initial review, verification and publication — October 27, 2026
+
+Historical polling-only publication checkpoint. The later [WebSocket upgrade and current source/verification](fp-58-websocket-upgrade-2026-10-27.md) supersede the heads, transport and counts below; original evidence is retained.
 
 The user authorized final gap review, remaining verification, commits/pushes and PR creation. Seller inquiries and user-to-user messaging are reviewed and published for review. No blocking code finding remains after the corrections below. Jira stays In Progress; no merge, production deployment, data/configuration change or live pilot enablement occurred.
 

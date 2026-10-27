@@ -10,7 +10,7 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
-- [October 27 FP-58 review/publication](freshprice/docs/fp-58-review-publication-2026-10-27.md): seller/peer messaging published in backend #65/frontend #61 against master, ready for review and dependent on FP-57. Three final corrections; 197 backend/281 frontend units, 51 PostgreSQL and 20 browser scenarios pass, plus lint/build. Exact production-image rehearsal passes 20 browser scenarios and 15 migration/restart/restore checks. Jira In Progress; production deployment/pilot remain open, flags disabled.
+- [October 27 FP-58 WebSocket upgrade](freshprice/docs/fp-58-websocket-upgrade-2026-10-27.md): authenticated instant seller/peer updates, reconnect/backoff and persisted missed-message recovery. Backend #65/frontend #61 plus Docker proxy support; FP-57 remains a prerequisite. 587 ordinary checks pass (197 backend/295 frontend/69 database/26 browser), lint/build pass. Production-image results and exact-source evidence are in the record. Jira In Progress; release/pilot remain open, flags/exemptions disabled.
 
 - [October 27 FP-57 final verification](freshprice/docs/fp-57-final-verification-2026-10-27.md): the user's accepted local staging alternative passes actual production images, 14 browser scenarios, populated migration, cold restart and synthetic restore. No blocking PR gap; merge/deployment/live-pilot authorization remain separate.
 
