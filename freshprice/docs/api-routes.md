@@ -1,5 +1,9 @@
 # FreshPrice API Routes Investigation
 
+FP-57 seller-profile upgrade: own resumable draft GET/PUT/DELETE/submit, revision-bound multipart avatar/cover upload, owner/operator/public processed-photo reads, and optional public business details. Legacy profile PUT preserves omitted details. [Current methods, privacy and verification](fp-57-profile-improvements-2026-10-27.md).
+
+October 27 unreleased addition: FP-57 introduces `/api/freshprice/sellers` public discovery, owner application/offers and operator review/report APIs. Published in draft backend #64/frontend #60 and disabled by default. See the [complete endpoint/access/pagination contract](fp-57-seller-pilot-2026-10-27.md#apis-and-schema) and [publication evidence](fp-57-review-publication-2026-10-27.md); existing production APIs below remain the deployed baseline.
+
 > Checkout caveat (2026-10-02): September budget reliability additions below describe imported implementation notes; the current frontend/backend master checkout still has the older expense ownership/cache/pagination paths. Verify the corresponding implementation commits before relying on those additions as available APIs or schema.
 
 Last investigated: 2026-09-12 (budget reliability additions; other inventory retained)

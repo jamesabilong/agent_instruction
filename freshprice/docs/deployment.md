@@ -1,5 +1,7 @@
 # FreshPrice Deployment And Local Operations
 
+FP-57 seller-profile follow-up: [current verification](fp-57-profile-improvements-2026-10-27.md) passes exact committed production images, populated migration 42→44, restart and synthetic restore including private drafts/photos. Include the new details migration before frontend; media is stored in PostgreSQL and included in database backups, without a public uploads path. FP-58 then includes its messaging migration (45 total) and nginx upgrade dependency. Keep pilot/exemptions disabled pending authorized release.
+
 Latest rollout: 2026-10-22, FP-62/63. [Release record](fp62-fp63-deployment-2026-10-22.md): four workflows succeeded and content published; final FP-63 frontend runtime/host and post-release backup checks await SSH/provider-console access. [Fully verified prior FP-61 release](fp61-deployment-2026-10-21.md).
 
 VPS deployment verification added: 2026-10-12

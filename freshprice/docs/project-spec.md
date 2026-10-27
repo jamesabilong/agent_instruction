@@ -2,7 +2,7 @@
 
 > Current state (2026-10-26): FP-59/60/61, FP-62/63 and FP-66 are released. FP-66 schema/backend/PhilWatch/frontend and Caddy authenticated-edge identity are deployed and verified; exemptions remain disabled with zero rules/audits. Two independent real clients/direct origins and protected post-release restore pass. PhilWatch nonempty-query search is [fixed/deployed and verified](../../sugilanon/docs/content-search-fix-2026-10-26.md) by backend PR #61; no existing article-detail smoke is claimed on empty production inventory. [FP-66 release](fp-66-deployment-2026-10-26.md), [FP-62/63 release](fp62-fp63-deployment-2026-10-22.md), [progress](../memory-bank/progress.md).
 
-Last consolidated: 2026-10-26. Historical feature descriptions below retain their implementation-date context. Sprint 338 remains active; Jira FP-66 was not changed by deployment. [FP-66 policy](fp-66-controls-2026-10-23.md).
+Last consolidated: 2026-10-27. Historical feature descriptions below retain their implementation-date context. User-authorized Jira closeout marked FP-66 Done and completed sprint 338 with all three items Done. Sprint 339 Seller and Messaging is active October 27–November 10, in FP-57 → FP-58 order. [Closeout](sprint-338-closeout-2026-10-27.md), [FP-66 policy](fp-66-controls-2026-10-23.md).
 
 October 26 backend follow-up: [pagination PR #62 is deployed and verified](backend-pagination-deployment-2026-10-26.md), preserving the earlier search fix and disabled exemptions. Community ranking/tag hydration and deterministic content/source/price pages are corrected; live inventory limitations remain explicit.
 

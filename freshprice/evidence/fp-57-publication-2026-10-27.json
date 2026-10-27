@@ -1,0 +1,229 @@
+{
+  "date": "2026-10-27",
+  "ticket": "FP-57",
+  "jiraStatus": "In Progress",
+  "sprint": {
+    "id": 339,
+    "state": "active",
+    "name": "Seller and Messaging",
+    "start": "2026-10-27",
+    "end": "2026-11-10"
+  },
+  "scope": "Reviewed feature-branch publication only; no merge, deployment, production mutation or exemption enablement",
+  "review": {
+    "findingsFixed": [
+      "Reject new seller reports when the associated market is soft-deleted, matching public discovery eligibility"
+    ],
+    "remainingBlockingCodeFindings": []
+  },
+  "verification": {
+    "backendUnits": {
+      "passed": 185,
+      "failed": 0,
+      "skipped": 0
+    },
+    "frontendUnits": {
+      "passed": 271,
+      "failed": 0,
+      "skipped": 0
+    },
+    "frontendLint": "passed",
+    "frontendTypeScriptProductionPwaBuild": "passed",
+    "acceptedRun": "testing/.local/fp57_1793089218720_afa166",
+    "groups": [
+      {
+        "kind": "database",
+        "passed": 30,
+        "skipped": 0,
+        "cleanedUp": true
+      },
+      {
+        "kind": "desktop",
+        "passed": 7,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      },
+      {
+        "kind": "mobile",
+        "passed": 7,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      }
+    ],
+    "totalCases": 500,
+    "limits": [
+      "Existing legacy frontend React act warnings",
+      "Old Browserslist data warning",
+      "No whole historical FP-59 acceptance rerun",
+      "Synthetic local PostgreSQL/Chromium only; no staging, live seller or physical-device acceptance"
+    ]
+  },
+  "repositories": [
+    {
+      "repository": "fresh-price-backend",
+      "branch": "FP-57",
+      "base": "master",
+      "baseCommit": "598e43b66e13f392850d02385af05b9f79372140",
+      "commit": "b5fc98a1a2800524363e9ce843012be294029c47",
+      "pullRequest": "https://github.com/jamesabilong/fresh-price-backend/pull/64",
+      "draft": true,
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "CLEAN",
+      "remoteChecks": [],
+      "files": [
+        {
+          "path": "package.json",
+          "gitBlobSha256": "c321b1001fde09bbd2c517d446b8d998b0296c67e43642c859974214cdc2155a"
+        },
+        {
+          "path": "src/apps/freshprice/routes/freshpriceRoutes.js",
+          "gitBlobSha256": "31d04333efe61da4fecb9b09962f450c3218b6a2849b4a4d95bafe81df38248c"
+        },
+        {
+          "path": "src/apps/freshprice/routes/sellerRoutes.js",
+          "gitBlobSha256": "67f030e2315cf113e230ce5fb0c85eb6b7daf778798a1d8684c1dbb1bee05420"
+        },
+        {
+          "path": "src/apps/freshprice/services/sellerRules.js",
+          "gitBlobSha256": "f4d7f9c0a973c054586d2b3f42cb89600ab36fc5e811573d6c4f84fd896c119a"
+        },
+        {
+          "path": "src/apps/freshprice/services/sellerService.js",
+          "gitBlobSha256": "fa94bbc90afbcab4484cf942cbf17ceeff4af1d49d2acc908c8d7b813d3313f1"
+        },
+        {
+          "path": "src/migrations/20261027000001-seller-pilot.cjs",
+          "gitBlobSha256": "14a4df9c09aad35fdfc8f4a1c3892802480e230ea20de7b0f8a7a1fdcdc3393a"
+        },
+        {
+          "path": "src/models/sellerOffer.js",
+          "gitBlobSha256": "52b93389994b37535f108c6da312e0f002acb7c6868fbad088f785b07a25b1fb"
+        },
+        {
+          "path": "src/models/sellerProfile.js",
+          "gitBlobSha256": "5157dbe3b041a94f26e15e92fff2ea1e3842906ed08b2c9dd8644a6c81d5f89c"
+        },
+        {
+          "path": "src/models/sellerProfileReview.js",
+          "gitBlobSha256": "5c42f8d5d32792c20bfaa7169127324429fcf6be4e4cc7258c64ac5ea74ec4ca"
+        },
+        {
+          "path": "src/models/sellerReport.js",
+          "gitBlobSha256": "63d779ec2d428b75b7224acd100d381af3a5953002bcfddcf8ebeee0715b4db3"
+        },
+        {
+          "path": "vitest.config.js",
+          "gitBlobSha256": "99209bc3941c0f1781eb1740a28f6bcab68caabc0821019744f05079539393f8"
+        }
+      ]
+    },
+    {
+      "repository": "fresh-price-front",
+      "branch": "FP-57",
+      "base": "master",
+      "baseCommit": "9c11937cf3c9776f9801b852d95fc63ecb501e25",
+      "commit": "db7e0e8cd04b893ae2daafaaf5085c5f2aeb5322",
+      "pullRequest": "https://github.com/jamesabilong/fresh-price-front/pull/60",
+      "draft": true,
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "CLEAN",
+      "remoteChecks": [],
+      "files": [
+        {
+          "path": "src/api/sellerService.ts",
+          "gitBlobSha256": "b64ece8a1f9444b1179cd45d1ea9bc2403b2bbb10c6752f13aef702a67b80b09"
+        },
+        {
+          "path": "src/features/admin/AdminSidebar.tsx",
+          "gitBlobSha256": "ff2ddf3b9ca13885398847b0c51f9b68dfe214b1cd71c1f276d264b02d9bfa3d"
+        },
+        {
+          "path": "src/features/public/home/PublicHomePage.tsx",
+          "gitBlobSha256": "64c47e6d8a2c27488483c1d41ce530251d371cd26cad5b5a068467f43139e1ce"
+        },
+        {
+          "path": "src/features/sellers/SellerCommon.tsx",
+          "gitBlobSha256": "60244eedc7e96f38863fcd21c94b621cdbb4a249cbcaf161ba2b6c089ef00632"
+        },
+        {
+          "path": "src/features/sellers/SellerDashboardPage.tsx",
+          "gitBlobSha256": "8d783ee1fe179b5ddcdb9c5c834af863e2e134f7961b3342cc98db4e2bba4e5e"
+        },
+        {
+          "path": "src/features/sellers/SellerDirectoryPage.tsx",
+          "gitBlobSha256": "5b6857759a04526ab117872fb909210edc21b48368ec34a95b84b9d1a1169784"
+        },
+        {
+          "path": "src/features/sellers/SellerProfilePage.tsx",
+          "gitBlobSha256": "af59107b370fe59e4ad7525528e37e890da6237629eb80ee49874e40fb0827d4"
+        },
+        {
+          "path": "src/features/sellers/SellerReviewPage.tsx",
+          "gitBlobSha256": "a9fab5b01c08615b1e891ce7145e728be980f6616f7b9676edf5634b27a6af72"
+        },
+        {
+          "path": "src/features/user/UserSidebar.tsx",
+          "gitBlobSha256": "ac873c305115ce298856de9e04998e1401dac93150a25a1c97271ddfbc79a84d"
+        },
+        {
+          "path": "src/router/index.tsx",
+          "gitBlobSha256": "a0a22913127e724bb9511f942c8981bbb01cf637b2705bbad9e6144acaa98e6a"
+        },
+        {
+          "path": "vite.config.ts",
+          "gitBlobSha256": "86c397ff91585514c8cdfe1b99d1162f4e4409dc209b60bb783157e22a1d5f9d"
+        }
+      ]
+    }
+  ],
+  "externalTestAssets": [
+    {
+      "path": "testing/tickets/FP-57/ACCEPTANCE.md",
+      "sha256": "e9a9b01b826b5ae712ff8f6e3276e9f073d0aa98f4604b813c1381c67677ef5d"
+    },
+    {
+      "path": "testing/tickets/FP-57/backend/integration/sellers.test.js",
+      "sha256": "22bd224d5b99f5caef728c9c1835e470417ba2db97166fd659451ddaff65eedb"
+    },
+    {
+      "path": "testing/tickets/FP-57/backend/unit/sellerRules.test.js",
+      "sha256": "3fd425ff4396dace470eb1678bbc99abb362fc441992b7dfa0d2a3443e7005f1"
+    },
+    {
+      "path": "testing/tickets/FP-57/browser.mjs",
+      "sha256": "4fb5ea24247a41ecefc0eb32ada386feeae98780eeb43e4f2794f2973115c69e"
+    },
+    {
+      "path": "testing/tickets/FP-57/fixtures.json",
+      "sha256": "49396ad608c47508475610483c0c370985e130480176d011780b00c320f30453"
+    },
+    {
+      "path": "testing/tickets/FP-57/frontend/unit/sellers.test.tsx",
+      "sha256": "ac29a142eb3bfd799b6bb683b6afc07888685654709b306c56983e142813ab8e"
+    },
+    {
+      "path": "testing/tickets/FP-57/README.md",
+      "sha256": "f43eadde221af0def7564d711641e0f74d69d0024e8e7118701ad2859c29b883"
+    },
+    {
+      "path": "testing/tickets/FP-57/run.mjs",
+      "sha256": "0eced98d1a2228cc3ac781af93a13b232b9bcc2228ea689417fd37659dc784fc"
+    },
+    {
+      "path": "testing/tickets/FP-57/suite.json",
+      "sha256": "040e66a557d306a2fe9e89974910797a1fb933a097fea902344274aa3c9dadcd"
+    }
+  ],
+  "deliveryGates": [
+    "Staging or explicitly accepted non-production alternative",
+    "Review and separate backend-before-frontend release authorization",
+    "Operator/support readiness before explicit seller-pilot enablement"
+  ],
+  "availability": {
+    "sellerPilotDefault": false,
+    "productionExemptions": false
+  },
+  "rawRuntimeMaterialPublished": false
+}
