@@ -10,7 +10,7 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
-- [October 27 FP-57 final verification](freshprice/docs/fp-57-final-verification-2026-10-27.md): the user's accepted local staging alternative passes actual production images, 14 browser scenarios, populated migration, cold restart and synthetic restore. No blocking PR gap; merge/deployment/live-pilot authorization remain separate.
+- [October 27 FP-57 seller profile improvements](freshprice/docs/fp-57-profile-improvements-2026-10-27.md): private resumable setup, profile/cover photos, preview, hours/landmark and website/Facebook/Instagram. 538 seller cases plus lint/build, 18 production-built browser/14 operational checks pass; FP-58 messaging regressions also pass. Exact source/evidence and remaining release/pilot limits are linked; production flags/exemptions remain disabled.
 
 - [October 27 sprint closeout](freshprice/docs/sprint-338-closeout-2026-10-27.md): FP-66 marked Done; sprint 338 completed with all 3/3 items Done and no carryover. Sprint 339 Seller and Messaging is active October 27–November 10, FP-57 → FP-58.
 

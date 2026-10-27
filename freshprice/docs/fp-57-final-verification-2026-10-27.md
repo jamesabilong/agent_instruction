@@ -1,5 +1,7 @@
 # FP-57 final verification — October 27, 2026
 
+Historical baseline checkpoint. The later [seller-profile improvements](fp-57-profile-improvements-2026-10-27.md) supersede setup/media capabilities, candidate heads, migration totals and acceptance counts below. Original evidence and pilot policy remain available.
+
 The user explicitly accepted an isolated local deployment rehearsal as FP-57's staging check. That check passed on the exact published backend `b5fc98a1a2800524363e9ce843012be294029c47` and frontend `db7e0e8cd04b893ae2daafaaf5085c5f2aeb5322`, using production Dockerfiles/nginx from Docker `6b5ce18c9c6df7db60b01233f180c23046a522e4`. This closes the agreed staging-verification requirement; it does not certify a separate staging server, production deployment, real sellers, physical devices or live pilot operations.
 
 [Sanitized rehearsal evidence](../evidence/fp-57-final-verification-2026-10-27.json), [prior 500-case acceptance/source inventory](fp-57-review-publication-2026-10-27.md), [pilot policy/API/schema](fp-57-seller-pilot-2026-10-27.md).

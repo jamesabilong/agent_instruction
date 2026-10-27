@@ -1,5 +1,7 @@
 # FP-57 review and publication — October 27, 2026
 
+Historical baseline checkpoint. The later [seller-profile improvements](fp-57-profile-improvements-2026-10-27.md) supersede setup/media capabilities, candidate heads, migration totals and acceptance counts below. Original evidence and pilot policy remain available.
+
 Current follow-up: the user accepted the isolated deployment rehearsal as staging verification; [final production-image/restart/recovery checks pass](fp-57-final-verification-2026-10-27.md). App heads below are unchanged. PRs are ready for normal review; merge/deployment/live-pilot authorization remain separate.
 
 The user authorized FP-57 In Progress, a remaining-gap review, fixes, commits/pushes and PR creation when locally ready. The seller candidate is reviewed and published. Originally draft, the three PRs were marked ready for review after the accepted final staging checks. No merge, deployment, production migration/configuration change or live pilot/exemption enablement occurred.

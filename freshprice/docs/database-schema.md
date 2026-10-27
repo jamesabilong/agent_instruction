@@ -1,5 +1,7 @@
 # FreshPrice Database Schema Investigation
 
+FP-57 profile follow-up: additive `20261027000003-seller-profile-details.cjs` adds bounded JSONB public details, private `seller_profile_drafts` and processed BYTEA `seller_profile_media`, with revisions, account-deletion cascades and collected-data rollback refusal. FP-57 has 44 migrations; integrated FP-58 has 45. These remain local candidate inventories. [Schema/privacy/evidence](fp-57-profile-improvements-2026-10-27.md).
+
 October 27 unreleased addition: migration `20261027000001-seller-pilot.cjs` adds `seller_profiles`, `seller_offers`, `seller_profile_reviews` and `seller_reports` after deployed migration 42. User/admin roles and official prices/observations are unchanged. [Relationships, constraints, data-preserving rollback and verification](fp-57-seller-pilot-2026-10-27.md#apis-and-schema). Published in draft backend #64; do not count it in production inventory. [Exact candidate/evidence](fp-57-review-publication-2026-10-27.md).
 
 > Checkout caveat (2026-10-02): September budget reliability additions below describe imported implementation notes; the current frontend/backend master checkout still has the older expense ownership/cache/pagination paths. Verify the corresponding implementation commits before relying on those additions as available APIs or schema.

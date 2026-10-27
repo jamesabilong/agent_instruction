@@ -4,9 +4,9 @@ Current as of 2026-10-27. Historical checklists are preserved in [the archive](a
 
 ## Active work
 
-- [x] October 27: implement FP-57 seller pilot locally, including schema/APIs, approval/suspension, dashboard/public pages, private reports/audits, availability control and external fixture/acceptance registration. Backend 185/frontend 271 unit checks, 30 real PostgreSQL and 14 desktop/mobile browser scenarios pass; frontend lint/build pass. [Record](../docs/fp-57-seller-pilot-2026-10-27.md).
-- [x] October 27: user-authorized FP-57 In Progress, remaining-gap review/fix and fresh 500-case acceptance; commit/push paired backend `b5fc98a1`/frontend `db7e0e8c` and create draft PRs #64/#60 against master. Both MERGEABLE/CLEAN, cross-linked, no remote checks listed. [Publication](../docs/fp-57-review-publication-2026-10-27.md).
-- [x] October 27: final FP-57 PR review and user-accepted isolated deployment/staging verification pass: production images, 14 desktop/mobile scenarios, populated migration, restart, retained history and synthetic backup/restore. [Evidence/operator runbook](../docs/fp-57-final-verification-2026-10-27.md).
+- [ ] Seller follow-ups: gallery/offer photos, optional public phone, interactive crop/assisted uploads and pending public revisions. Current profile/cover uploads and same-day weekly hours are implemented; keep future scope separate. [Scope](../docs/fp-57-profile-improvements-2026-10-27.md).
+
+- [x] October 27: complete FP-57 seller pilot and user-selected profile improvements: private draft/preview setup, owned profile/cover media, hours/landmark and business/social links. 538 seller cases, lint/build, 18 production-image browser and 14 restart/restore/operational checks pass; dependent FP-58 integration/regressions pass. [Current evidence and release limits](../docs/fp-57-profile-improvements-2026-10-27.md).
 - [ ] FP-57 release: separately authorize backend-before-frontend merge/deployment and actual production verification; identify pilot operator/support readiness before explicit enablement/Done. Keep pilot/exemptions disabled. Jira remains In Progress; FP-58 builds on this candidate but requires FP-57 delivery before its own release.
 
 - [x] Full Windows reboot verification: new boot at 1:38:34 PM confirmed; Desktop/Engine start, workload preservation, zero post-boot startup errors and container execution pass. Initial `docker info` timeout is preserved and explained; follow-up succeeds. Both one-time tasks removed. [Evidence](../docs/docker-startup-fix-2026-10-27.md).

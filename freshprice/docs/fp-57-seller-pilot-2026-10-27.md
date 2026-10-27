@@ -1,5 +1,7 @@
 # FP-57 seller pilot — local implementation, October 27, 2026
 
+Historical baseline checkpoint. The later [seller-profile improvements](fp-57-profile-improvements-2026-10-27.md) supersede setup/media capabilities, candidate heads, migration totals and acceptance counts below. Original evidence and pilot policy remain available.
+
 Status: reviewed, committed and pushed on backend/frontend `FP-57` branches, with backend [#64](https://github.com/jamesabilong/fresh-price-backend/pull/64) and frontend [#60](https://github.com/jamesabilong/fresh-price-front/pull/60) ready for review after the [accepted staging verification](fp-57-final-verification-2026-10-27.md). Jira is In Progress; no production deployment is claimed.
 
 ## Jira selection
