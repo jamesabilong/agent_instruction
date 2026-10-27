@@ -1,8 +1,12 @@
 # Sugilanon Progress
 
-Current as of 2026-10-26. [Historical notes](archive/progress-through-2026-10-21.md) retain prior checkpoints.
+Current as of 2026-10-27. [Historical notes](archive/progress-through-2026-10-21.md) retain prior checkpoints.
 
-- October 26 local search fixes: PhilWatch query-preserving Previous/Next navigation and page recovery, plus API product-name search before pagination with matching UI totals/reset/clear behavior. All 71 DB/304 frontend/271 backend checks, both lint/build gates and isolated page/filter/outage browser regressions pass; results are in the [fix record](../../freshprice/docs/search-pagination-fix-2026-10-26.md). Application changes remain local; publication/release pending. Production untouched and exemptions disabled.
+- October 27 release: fresh source/contract review found no blocking gap; 263 frontend/173 backend/27 PhilWatch tests, 34 HTTP/14 PostgreSQL cases (42 migrations), lint/build and isolated desktop/mobile/Next Chromium pass. Merged backend #63 → verified its deployment → frontend #59 → verified its deployment → PhilWatch #3. All three deployment workflows and public read-only/API/browser smoke pass. Merged app source equals reviewed candidates. No production fixtures or exemption-setting changes; SSH-host verification and populated production limits remain explicit. Docker startup recovered; recurrence risk retained. [Release and scope](../../freshprice/docs/search-pagination-deployment-2026-10-27.md).
+
+- October 26 Windows continuation checkpoint: earlier uncommitted pagination source/assets were absent; restored the server-only metadata helper, links, page recovery and visible failure state. Initial 19 focused checks, lint/webpack build, Next/stub Chromium and shared price/PostgreSQL checks passed; Docker runtime startup recovered. That checkpoint preceded the later input-gap fixes/publication above. [Historical Windows verification](../../freshprice/docs/windows-continuation-2026-10-26.md).
+
+- Earlier-environment search checkpoint: original counts and browser evidence are retained in the [historical fix record](../../freshprice/docs/search-pagination-fix-2026-10-26.md). The Windows reconstruction and subsequent review/publication above supersede its local/uncommitted status and test counts for this checkout.
 
 - October 26 isolated populated browser checks: 70 community posts across four pages/all sorts, older winner/hidden exclusion, multi-tag hydration and tied pages pass; 60 current/history rows and eight populated PhilWatch form queries plus three API search pages/full associations/detail pass. Two existing UI limits confirmed: no PhilWatch search pagination and page-local price search. No production access; exemptions false, local rules/audits 0/0. [Evidence, warning and scope](../../freshprice/docs/populated-browser-verification-2026-10-26.md).
 

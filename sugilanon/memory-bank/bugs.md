@@ -1,8 +1,12 @@
 # Sugilanon Bugs And Risks
 
-Current as of 2026-10-26. [Historical reports](archive/bugs-through-2026-10-21.md).
+Current as of 2026-10-27. [Historical reports](archive/bugs-through-2026-10-21.md).
 
-- Fixed locally, release pending (October 26): the audit reproduced missing PhilWatch search navigation (25 matches, first 12 only) and page-local price filtering. The local fix adds real result-page navigation and global server-side price search/counting; publication/deployment is still required before calling either resolved in production. [Fix and verification](../../freshprice/docs/search-pagination-fix-2026-10-26.md). The development image-priority warning remains separate.
+- October 27 local Docker recurrence: stale inference/secrets runtime sockets again prevented startup. Preserved verified socket-only folders, restarted Docker and passed Engine 28.5.1/Compose/disposable PostgreSQL checks. Current startup recovered; future recurrence remains open. [Evidence and backups](../../freshprice/docs/search-pagination-deployment-2026-10-27.md).
+
+- October 26 Windows reconciliation: reconstructed missing local search fixes and added fresh helper/page/browser/lint/build checks. Docker Desktop's preexisting inaccessible runtime sockets were recovered without reset or project-data changes; Engine 28.5.1 responds and isolated PostgreSQL search tests pass. [Current evidence and limits](../../freshprice/docs/windows-continuation-2026-10-26.md).
+
+- Released October 27: global price search, PhilWatch page navigation and the input/race/recovery fixes are merged through backend #63/frontend #59/PhilWatch #3. All deployment workflows, fresh 511 local checks and public API/browser smoke pass; populated production and SSH-host limits remain explicit. [Release and verification](../../freshprice/docs/search-pagination-deployment-2026-10-27.md).
 
 - Resolved in production (October 26): community page-local hot/top ranking, truncated tag hydration and nonunique content/source/price page order fixed by backend PR #62. Exact image/source, 51 public GET checks, read-only production list/SQL comparisons and shared DB/runtime/guard pass; populated edge cases covered by 16 isolated PostgreSQL regressions. Exemptions disabled with zero rules/audits. [Release](../../freshprice/docs/backend-pagination-deployment-2026-10-26.md).
 

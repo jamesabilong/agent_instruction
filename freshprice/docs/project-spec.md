@@ -6,7 +6,7 @@ Last consolidated: 2026-10-26. Historical feature descriptions below retain thei
 
 October 26 backend follow-up: [pagination PR #62 is deployed and verified](backend-pagination-deployment-2026-10-26.md), preserving the earlier search fix and disabled exemptions. Community ranking/tag hydration and deterministic content/source/price pages are corrected; live inventory limitations remain explicit.
 
-Local follow-up (2026-10-26): [search pagination/global price search fixes](search-pagination-fix-2026-10-26.md) are implemented and verified separately from deployed state; app publication/release remains pending. Exemptions stay disabled.
+Search follow-up released October 27: backend #63 deployed before frontend #59, followed by PhilWatch #3. Fresh 511 local checks, both lint/build gates, isolated browser checks, all deployment workflows and public API/browser smoke pass. Keep existing disabled-exemption instructions and retained host/inventory limits. [Release](search-pagination-deployment-2026-10-27.md).
 
 ## Summary
 

@@ -1,5 +1,7 @@
 # Search pagination fixes — local verification, October 26, 2026
 
+> Environment note: this record describes the earlier environment's verification. Its uncommitted app files and local test assets were absent when continuing on Windows. The [Windows continuation](windows-continuation-2026-10-26.md) records the reconstructed source, fresh available-suite results, recovered Docker engine and current release boundary; do not claim the historical counts below as Windows test results.
+
 Fixed both UI gaps found by the [populated browser audit](populated-browser-verification-2026-10-26.md): PhilWatch can navigate all search result pages, and FreshPrice product-name search filters the full price set before pagination. These are local working changes in three app repositories; application publication/release remains pending. Only agent documentation is authorized for publication in this task. Production was not seeded, queried or changed; exemptions remain disabled.
 
 [Sanitized verification evidence](../evidence/search-pagination-fix-2026-10-26.json).

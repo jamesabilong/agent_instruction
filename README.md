@@ -10,9 +10,9 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
-- [Local search pagination fixes](freshprice/docs/search-pagination-fix-2026-10-26.md): PhilWatch page links and server-side global price search, with database/browser regressions. App publication/release remains pending; backend must precede the new price UI. Production untouched and exemptions disabled.
+- [October 27 search pagination release](freshprice/docs/search-pagination-deployment-2026-10-27.md): fresh review found no blocking gap; all 511 local checks, lint/build and isolated browser regressions pass. Backend #63 deployed before frontend #59, followed by PhilWatch #3; all deployment workflows and public search/browser smoke pass. Populated production/SSH-host limits remain explicit. Docker startup recovered again; future recurrence remains a local operational risk. [Historical publication](freshprice/docs/search-pagination-review-publication-2026-10-26.md).
 
-- [Isolated populated browser verification](freshprice/docs/populated-browser-verification-2026-10-26.md): ranking/tag/tied pages, current-price UI pages, history/search API pages and populated form/detail checks pass. Historical reproduction of missing PhilWatch page controls and page-local price search; both are now fixed locally in the follow-up above, with app release pending. Exemptions disabled; production untouched.
+- [Isolated populated browser verification](freshprice/docs/populated-browser-verification-2026-10-26.md): ranking/tag/tied pages, current-price UI pages, history/search API pages and populated form/detail checks pass. Historical reproduction of missing PhilWatch page controls and page-local price search; both subsequently released in the October 27 follow-up above. That isolated checkpoint left production untouched.
 
 - [October 26 browser verification](freshprice/docs/browser-verification-2026-10-26.md): checked public sort/search/trends/empty pagination and anonymous login gate pass, no observed console errors/warnings; populated, authenticated and device/PWA coverage limits remain explicit. Exemptions stay disabled.
 

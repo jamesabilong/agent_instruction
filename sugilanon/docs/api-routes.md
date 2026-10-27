@@ -51,6 +51,6 @@ Nonempty `/api/sugilanon/search?q=...`, `/articles?q=...` and category article q
 
 Public/admin article and source-draft pages have a final-ID ordering tie-breaker deployed through backend PR #62. Database-backed tied-page tests, exact shipped source/digest and read-only production comparisons pass. The earlier nonempty-query search fix remains intact. [Shared release](../../freshprice/docs/backend-pagination-deployment-2026-10-26.md).
 
-## Search UI pagination (local follow-up, 2026-10-26)
+## Search UI pagination (released 2026-10-27)
 
-The existing `/api/sugilanon/search?q=...&page=...&limit=12` metadata now drives local PhilWatch Previous/Next links and query-preserving page recovery. API query/association semantics remain unchanged; errors are shown instead of empty success. App publication/release remains pending. [Fix and verification](../../freshprice/docs/search-pagination-fix-2026-10-26.md).
+The existing `/api/sugilanon/search?q=...&page=...&limit=12` metadata drives PhilWatch Previous/Next links and query-preserving page recovery. Omit `q` for blank/whitespace-only search: the API rejects an explicitly empty trimmed value. The form bounds input to 120 characters; direct overlong URLs render a specific length error without an API request, while dependency failures show a generic alert. API query/association semantics remain unchanged. Released via PhilWatch #3 with successful deployment and public smoke. [Release and retained limits](../../freshprice/docs/search-pagination-deployment-2026-10-27.md).
