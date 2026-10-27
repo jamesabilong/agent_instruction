@@ -4,12 +4,16 @@ Current as of 2026-10-27. Historical checklists are preserved in [the archive](a
 
 ## Active work
 
+- [x] October 27: implement FP-57 seller pilot locally, including schema/APIs, approval/suspension, dashboard/public pages, private reports/audits, availability control and external fixture/acceptance registration. Backend 185/frontend 271 unit checks, 30 real PostgreSQL and 14 desktop/mobile browser scenarios pass; frontend lint/build pass. [Record](../docs/fp-57-seller-pilot-2026-10-27.md).
+- [x] October 27: user-authorized FP-57 In Progress, remaining-gap review/fix and fresh 500-case acceptance; commit/push paired backend `b5fc98a1`/frontend `db7e0e8c` and create draft PRs #64/#60 against master. Both MERGEABLE/CLEAN, cross-linked, no remote checks listed. [Publication](../docs/fp-57-review-publication-2026-10-27.md).
+- [ ] FP-57 delivery: review the published draft PRs, resolve Jira's staging requirement against the single-production-VPS topology, and complete separately authorized backend-before-frontend release/pilot operator readiness before enablement/Done. Keep pilot/exemptions disabled in production. Jira is In Progress; FP-58 remains dependent on FP-57.
+
 - [x] Full Windows reboot verification: new boot at 1:38:34 PM confirmed; Desktop/Engine start, workload preservation, zero post-boot startup errors and container execution pass. Initial `docker info` timeout is preserved and explained; follow-up succeeds. Both one-time tasks removed. [Evidence](../docs/docker-startup-fix-2026-10-27.md).
 
 - [x] October 27: replace recurring manual Docker socket recovery with signed Desktop 4.97.0 update; verify two complete stop/cold-start cycles and preserved workload identities. [Results and reboot limits](../docs/docker-startup-fix-2026-10-27.md).
 
 - [x] October 26 Windows continuation: reconcile actual checkout/Jira, restore missing search changes, pass fresh available units/HTTP/PostgreSQL/browser/lint/build checks, recover Docker runtime sockets and correct Docker setup guidance. [Current evidence and limits](../docs/windows-continuation-2026-10-26.md).
-- [ ] FP-66 administrative closeout: Jira still In Progress/unassigned despite recorded deployment; connected Atlassian access is read-only. Do not describe it as Done until Jira is updated.
+- [x] October 27: user-authorized FP-66 Done transition, sprint 338 closeout (3/3 complete, no carryover) and sprint 339 Seller and Messaging start completed through the signed-in browser; Jira read API confirms states. Two-week window October 27–November 10. [Evidence](../docs/sprint-338-closeout-2026-10-27.md).
 
 - [x] October 26: read-only production Chromium verification completed; checked flows/API statuses and zero console errors/warnings recorded with explicit limits. Keep exemptions disabled. [Results](../docs/browser-verification-2026-10-26.md).
 - [x] October 26: complete isolated populated community ranking/tag/tie pages, current-price UI pages, browser-fetched history/search pages and populated search/detail checks. [Results and limits](../docs/populated-browser-verification-2026-10-26.md).
@@ -33,7 +37,7 @@ Current as of 2026-10-27. Historical checklists are preserved in [the archive](a
 - [x] October 26: user-authorized fresh protected backup/full restore, exact FP-66 migration/recovery on that fresh snapshot and safe official Caddy 2.11.7 upgrade complete. Existing sites/config and shared app/DB/guard baseline pass; installed full non-active candidate validates. [Maintenance/evidence](../docs/fp-66-caddy-maintenance-2026-10-26.md).
 
 - [x] Final FP-63 runtime/host verification and fresh protected post-release backup/full isolated restore pass after SSH reconnection; [release record](../docs/fp62-fp63-deployment-2026-10-22.md).
-- [ ] Confirm owners and estimates/capacity for active sprint 338 (FP-62/63/66); started on user request October 22 with Jira’s default two-week window ending November 5. FP-57 → FP-58 remains the future seller/messaging sequence.
+- [ ] Confirm owners and estimates/capacity for active sprint 339 (FP-57 → FP-58), October 27–November 10. FP-57 is In Progress, FP-58 To Do; both remain unassigned. Prior sprint 338 closed with all items complete.
 
 ## Operations and retained follow-ups
 
