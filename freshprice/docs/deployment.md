@@ -1,6 +1,8 @@
 # FreshPrice Deployment And Local Operations
 
-Latest rollout: 2026-10-22, FP-62/63. [Release record](fp62-fp63-deployment-2026-10-22.md): four workflows succeeded and content published; final FP-63 frontend runtime/host and post-release backup checks await SSH/provider-console access. [Fully verified prior FP-61 release](fp61-deployment-2026-10-21.md).
+October 27 FP-58: [review-ready publication and isolated production-image rehearsal](fp-58-review-publication-2026-10-27.md) pass populated migration 43→44, full database/backend/nginx restart, all-table synthetic restore and actual private-history/disabled-write reads. This is not a live deployment or restored production backup. FP-57 remains a prerequisite; preserve schema/backend-before-frontend order and keep seller/messaging flags and authentication exemptions disabled until explicitly authorized. See the linked record for pilot/recovery handoff and remaining device/live limits.
+
+Latest recorded production rollout: October 27 [search/pagination fixes](search-pagination-deployment-2026-10-27.md), following [FP-66 identity controls](fp-66-deployment-2026-10-26.md) and [FP-62/63](fp62-fp63-deployment-2026-10-22.md). Their release records supersede the earlier pending SSH/host/backup checkpoint. FP-57 and FP-58 remain unreleased review candidates; their isolated rehearsal migrations are not production inventory.
 
 VPS deployment verification added: 2026-10-12
 

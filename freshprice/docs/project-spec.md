@@ -10,6 +10,8 @@ Search follow-up released October 27: backend #63 deployed before frontend #59, 
 
 ## Summary
 
+October 27 development: FP-57 has completed the user-accepted isolated staging verification and its PRs are ready for review, with no production deployment. FP-58 seller inquiries and user-to-user messaging are published for review in backend #65/frontend #61, with private/audited APIs, migration 44 and responsive inbox. 549 ordinary acceptance cases and an exact production-image migration/restart/restore rehearsal pass. Messaging defaults off; prerequisite release, production verification and live pilot remain. [FP-57 final verification](fp-57-final-verification-2026-10-27.md), [FP-58 review/publication](fp-58-review-publication-2026-10-27.md), [API/policy/screenshots](fp-58-messaging-2026-10-27.md).
+
 FreshPrice is a produce and market price tracking platform with public price browsing, admin price management, user budget tools, price submissions, and community discussion.
 
 ## Code Areas

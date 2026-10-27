@@ -1,6 +1,8 @@
 # FreshPrice API Routes Investigation
 
-October 27 unreleased addition: FP-57 introduces `/api/freshprice/sellers` public discovery, owner application/offers and operator review/report APIs. Published in draft backend #64/frontend #60 and disabled by default. See the [complete endpoint/access/pagination contract](fp-57-seller-pilot-2026-10-27.md#apis-and-schema) and [publication evidence](fp-57-review-publication-2026-10-27.md); existing production APIs below remain the deployed baseline.
+FP-58 unreleased candidate (October 27): `/api/freshprice/messages` provides participant-only seller/peer conversation creation, inbox/unread/history, idempotent sends, monotonic read state, account-wide blocking, archive and private reporting; operator endpoints expose only audited reported cases. The flag defaults off. [Complete methods, payloads and permissions](fp-58-messaging-2026-10-27.md#apis-and-additive-schema), [published backend #65 / verification](fp-58-review-publication-2026-10-27.md). Not deployed; FP-57 remains a prerequisite.
+
+October 27 unreleased addition: FP-57 introduces `/api/freshprice/sellers` public discovery, owner application/offers and operator review/report APIs. Published in ready-for-review backend #64/frontend #60 and disabled by default. See the [complete endpoint/access/pagination contract](fp-57-seller-pilot-2026-10-27.md#apis-and-schema) and [publication evidence](fp-57-review-publication-2026-10-27.md); existing production APIs below remain the deployed baseline.
 
 > Checkout caveat (2026-10-02): September budget reliability additions below describe imported implementation notes; the current frontend/backend master checkout still has the older expense ownership/cache/pagination paths. Verify the corresponding implementation commits before relying on those additions as available APIs or schema.
 

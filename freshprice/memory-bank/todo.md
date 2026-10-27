@@ -4,6 +4,9 @@ Current as of 2026-10-27. Historical checklists are preserved in [the archive](a
 
 ## Active work
 
+- [x] October 27: implement/review FP-58 seller and peer messaging; correct three final gaps, commit/push backend `46c31dbd` / frontend `cc78dac3` and open ready-for-review #65/#61 against master. 197 backend/281 frontend units, 51 PostgreSQL and 20 browser scenarios pass; lint/build pass. Exact production-image rehearsal passes 20 browser scenarios and 15 migration/restart/full synthetic restore checks. [Review/publication/evidence](../docs/fp-58-review-publication-2026-10-27.md), [policy/screenshots](../docs/fp-58-messaging-2026-10-27.md).
+- [ ] FP-58 release: review and merge FP-57 prerequisites first, preserve schema/backend-before-frontend deployment order, verify actual production, and establish pilot operator/support readiness before Done/explicit enablement. Jira In Progress; no production change, pilot/exemptions remain disabled. Physical devices/keyboard, other browsers and PWA upgrade remain unverified.
+
 - [x] October 27: implement FP-57 seller pilot locally, including schema/APIs, approval/suspension, dashboard/public pages, private reports/audits, availability control and external fixture/acceptance registration. Backend 185/frontend 271 unit checks, 30 real PostgreSQL and 14 desktop/mobile browser scenarios pass; frontend lint/build pass. [Record](../docs/fp-57-seller-pilot-2026-10-27.md).
 - [x] October 27: user-authorized FP-57 In Progress, remaining-gap review/fix and fresh 500-case acceptance; commit/push paired backend `b5fc98a1`/frontend `db7e0e8c` and create draft PRs #64/#60 against master. Both MERGEABLE/CLEAN, cross-linked, no remote checks listed. [Publication](../docs/fp-57-review-publication-2026-10-27.md).
 - [x] October 27: final FP-57 PR review and user-accepted isolated deployment/staging verification pass: production images, 14 desktop/mobile scenarios, populated migration, restart, retained history and synthetic backup/restore. [Evidence/operator runbook](../docs/fp-57-final-verification-2026-10-27.md).
@@ -38,7 +41,7 @@ Current as of 2026-10-27. Historical checklists are preserved in [the archive](a
 - [x] October 26: user-authorized fresh protected backup/full restore, exact FP-66 migration/recovery on that fresh snapshot and safe official Caddy 2.11.7 upgrade complete. Existing sites/config and shared app/DB/guard baseline pass; installed full non-active candidate validates. [Maintenance/evidence](../docs/fp-66-caddy-maintenance-2026-10-26.md).
 
 - [x] Final FP-63 runtime/host verification and fresh protected post-release backup/full isolated restore pass after SSH reconnection; [release record](../docs/fp62-fp63-deployment-2026-10-22.md).
-- [ ] Confirm owners and estimates/capacity for active sprint 339 (FP-57 → FP-58), October 27–November 10. FP-57 is In Progress, FP-58 To Do; both remain unassigned. Prior sprint 338 closed with all items complete.
+- [ ] Confirm owners and estimates/capacity for active sprint 339 (FP-57 → FP-58), October 27–November 10. Both are In Progress/unassigned; FP-57 is review-ready and FP-58 has started locally. Prior sprint 338 closed with all items complete.
 
 ## Operations and retained follow-ups
 
