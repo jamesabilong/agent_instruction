@@ -1,6 +1,6 @@
 # FP-57 seller pilot — local implementation, October 27, 2026
 
-Status: reviewed, committed and pushed on backend/frontend `FP-57` branches, with draft backend [#64](https://github.com/jamesabilong/fresh-price-backend/pull/64) and frontend [#60](https://github.com/jamesabilong/fresh-price-front/pull/60). [Current review/publication and fresh evidence](fp-57-review-publication-2026-10-27.md). Jira is In Progress; this is not a deployment or staging acceptance record.
+Status: reviewed, committed and pushed on backend/frontend `FP-57` branches, with backend [#64](https://github.com/jamesabilong/fresh-price-backend/pull/64) and frontend [#60](https://github.com/jamesabilong/fresh-price-front/pull/60) ready for review after the [accepted staging verification](fp-57-final-verification-2026-10-27.md). Jira is In Progress; no production deployment is claimed.
 
 ## Jira selection
 
@@ -74,6 +74,6 @@ The historical `test:e2e:chromium` alias routes to the FP-59-only harness and re
 ## Remaining delivery gates
 
 - Reviewed/published at the user's request in paired draft PRs; current exact heads and fresh validation are in the [publication record](fp-57-review-publication-2026-10-27.md). Review/merge/release gates remain open.
-- Jira asks for staging verification. This project has no staging target; the isolated synthetic local checks do not satisfy an unspecified staging signoff. Obtain an explicit designated non-production target or accepted alternative before marking delivery complete.
+- Staging verification is closed using the user's explicitly accepted isolated local deployment alternative; production images, desktop/mobile, populated migration, cold restart and synthetic restore pass. [Final evidence and limits](fp-57-final-verification-2026-10-27.md). Delivery still requires authorized merge/deployment/production verification.
 - Preserve production backup/recovery and deployment checks; enable a limited live pilot only after operator/support readiness and authorization. No production migration, deployment, fixture, flag, exemption or service changed here.
 - Other browsers, physical devices, installed-PWA upgrades, real seller verification and live pilot operations are untested. FP-58 messaging remains pending.

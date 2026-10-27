@@ -1,0 +1,59 @@
+{
+  "identity": "fp57_deploy_1793091079337_9f387d",
+  "scope": "isolated synthetic local deployment; no production operations",
+  "status": "passed",
+  "checks": [
+    "exact FP-57 reviewed source commits",
+    "exported Linux entrypoint equals canonical committed bytes",
+    "production Dockerfiles build exact archived source without local credentials or tests",
+    "migration 42 populated synthetic baseline",
+    "migration 42 to 43 preserves existing synthetic accounts/catalog/official prices",
+    "disabled pilot in built deployment fails closed",
+    "production worker and manifest cache policies",
+    "production-built desktop seller acceptance",
+    "complete backend/nginx cold restart preserves collected synthetic pilot data and disabled state",
+    "private offer history is readable after full service restart",
+    "full synthetic collected-data backup/restore preserves rows and migration inventory",
+    "production-built mobile seller acceptance",
+    "authentication exemptions remain disabled with zero rules/audits"
+  ],
+  "browser": [
+    {
+      "mobile": false,
+      "passed": 7,
+      "skipped": 0,
+      "pageErrors": 0
+    },
+    {
+      "mobile": true,
+      "passed": 7,
+      "skipped": 0,
+      "pageErrors": 0
+    }
+  ],
+  "sources": {
+    "backend": "b5fc98a1a2800524363e9ce843012be294029c47",
+    "frontend": "db7e0e8cd04b893ae2daafaaf5085c5f2aeb5322",
+    "docker": "6b5ce18c9c6df7db60b01233f180c23046a522e4"
+  },
+  "imageIds": {
+    "codex-fp57-backend:fp57_deploy_1793091079337_9f387d": "sha256:d496f5aeab4a9c4f99def4ecbe4e5879dd2e71009103f989d55b0157d509050f",
+    "codex-fp57-frontend:fp57_deploy_1793091079337_9f387d": "sha256:12c03c05a1452dca526c58220cd95989a47b56315954488e410567c7b2a0a708"
+  },
+  "cleanedUp": true,
+  "acceptance": {
+    "stagingAlternative": "User explicitly selected the isolated local deployment rehearsal as the FP-57 staging check",
+    "date": "2026-10-27",
+    "physicalDeviceOrProductionAcceptance": false
+  },
+  "externalHarnessHashes": [
+    {
+      "path": "testing/tickets/FP-57/deployment.mjs",
+      "sha256": "cf52b199b5cdc66c6522c1e543f3ab52714dcad80f0b8b2444e8d502987c2895"
+    },
+    {
+      "path": "testing/tickets/FP-57/browser.mjs",
+      "sha256": "b436379cb3859e08d8de51bd9170bab5da7870ca665b932c0af186190c308599"
+    }
+  ]
+}

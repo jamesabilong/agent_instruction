@@ -1,13 +1,15 @@
 # FP-57 review and publication — October 27, 2026
 
-The user authorized FP-57 In Progress, a remaining-gap review, fixes, commits/pushes and PR creation when locally ready. The seller candidate is reviewed and published as draft PRs. No merge, deployment, production migration/configuration change or live pilot/exemption enablement occurred.
+Current follow-up: the user accepted the isolated deployment rehearsal as staging verification; [final production-image/restart/recovery checks pass](fp-57-final-verification-2026-10-27.md). App heads below are unchanged. PRs are ready for normal review; merge/deployment/live-pilot authorization remain separate.
 
-| Repository | Published branch/commit | Draft PR | Base |
+The user authorized FP-57 In Progress, a remaining-gap review, fixes, commits/pushes and PR creation when locally ready. The seller candidate is reviewed and published. Originally draft, the three PRs were marked ready for review after the accepted final staging checks. No merge, deployment, production migration/configuration change or live pilot/exemption enablement occurred.
+
+| Repository | Published branch/commit | PR | Base |
 | --- | --- | --- | --- |
 | Backend | `FP-57` / `b5fc98a1a2800524363e9ce843012be294029c47` | [#64](https://github.com/jamesabilong/fresh-price-backend/pull/64) | `master` |
 | Frontend | `FP-57` / `db7e0e8cd04b893ae2daafaaf5085c5f2aeb5322` | [#60](https://github.com/jamesabilong/fresh-price-front/pull/60) | `master` |
 
-Both PRs are OPEN/draft, MERGEABLE/CLEAN, correctly based and cross-linked. Exact PR heads equal local and `origin/FP-57` commits. GitHub lists no status checks; this is not a remote CI-pass claim. Each feature branch contains one reviewed commit over the freshly fetched current master. Neither master was updated. The configured Git credential manager supplied existing GitHub authentication to the CLI in memory; credentials were not printed or persisted in project files.
+Both app PRs are OPEN, ready for review, MERGEABLE/CLEAN, correctly based and cross-linked. Exact PR heads equal the accepted `FP-57` commits. GitHub lists no status checks; this is not a remote CI-pass claim. Each feature branch contains one reviewed commit over the fetched master. Neither master was updated. The configured Git credential manager supplied existing GitHub authentication to the CLI in memory; credentials were not printed or persisted in project files.
 
 [Sanitized validation/source manifest](../evidence/fp-57-publication-2026-10-27.json), [implementation/policy/API/schema](fp-57-seller-pilot-2026-10-27.md), [sprint transition](sprint-338-closeout-2026-10-27.md).
 
@@ -40,4 +42,4 @@ The historical `test:e2e:chromium` alias remains guarded to FP-59; this task use
 
 FP-57 is now **In Progress** in active sprint 339 (Seller and Messaging, October 27–November 10), updated through the existing signed-in Jira browser because the connector is read-only. Screenshot proof stays local at `testing/.local/fp57-publication-2026-10-27/jira-in-progress.png`. FP-58 remains pending.
 
-Draft publication does not close Jira's staging-verification requirement. There is no staging target; designate a non-production target or explicitly accept the documented local alternative before delivery completion. Review/release requires separate authorization; migration/schema/backend must precede frontend. Keep the seller flag disabled until operator/support readiness and explicit pilot enablement. Production authentication exemptions remain disabled. Real seller verification, live pilot operations, physical devices, other browsers and installed-PWA upgrade recovery remain untested.
+The user subsequently accepted the isolated local alternative and its final verification passed; the staging-verification gate is closed on that agreed basis. Review/release requires separate authorization; migration/schema/backend must precede frontend. Keep the seller flag disabled until operator/support readiness and explicit pilot enablement. Production authentication exemptions remain disabled. Real seller verification, live pilot operations, physical devices, other browsers and installed-PWA upgrade recovery remain untested.

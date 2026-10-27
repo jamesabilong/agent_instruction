@@ -10,9 +10,11 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
+- [October 27 FP-57 final verification](freshprice/docs/fp-57-final-verification-2026-10-27.md): the user's accepted local staging alternative passes actual production images, 14 browser scenarios, populated migration, cold restart and synthetic restore. No blocking PR gap; merge/deployment/live-pilot authorization remain separate.
+
 - [October 27 sprint closeout](freshprice/docs/sprint-338-closeout-2026-10-27.md): FP-66 marked Done; sprint 338 completed with all 3/3 items Done and no carryover. Sprint 339 Seller and Messaging is active October 27–November 10, FP-57 → FP-58.
 
-- [October 27 FP-57 review/publication](freshprice/docs/fp-57-review-publication-2026-10-27.md): Jira In Progress; reviewed/fixed seller pilot and fresh 500-case validation, lint/build pass. Backend #64/frontend #60 are published draft PRs against master, MERGEABLE/CLEAN. [Policy/API/schema](freshprice/docs/fp-57-seller-pilot-2026-10-27.md). Staging/accepted alternative, review/release and operator pilot readiness remain open; production pilot/exemptions stay disabled.
+- [October 27 FP-57 review/publication](freshprice/docs/fp-57-review-publication-2026-10-27.md): Jira In Progress; reviewed seller pilot and 500-case validation, lint/build pass. Backend #64/frontend #60 are ready for review against master, MERGEABLE/CLEAN. [Policy/API/schema](freshprice/docs/fp-57-seller-pilot-2026-10-27.md). User-accepted staging verification subsequently passed; authorized release and operator pilot readiness remain open, with production pilot/exemptions disabled.
 
 - [October 27 local Docker startup fix](freshprice/docs/docker-startup-fix-2026-10-27.md): signed Desktop 4.97.0 update addresses the known Windows socket-startup defect; two complete stop/cold-start cycles and normal executable launch pass without manual runtime cleanup. Existing containers/volumes/images preserved. Full Windows reboot subsequently passed, with no recurrence of the socket error; the initial checker timeout is preserved alongside successful follow-up evidence.
 
