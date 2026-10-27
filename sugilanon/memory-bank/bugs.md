@@ -2,7 +2,7 @@
 
 Current as of 2026-10-27. [Historical reports](archive/bugs-through-2026-10-21.md).
 
-- October 27 local Docker recurrence: stale inference/secrets runtime sockets again prevented startup. Preserved verified socket-only folders, restarted Docker and passed Engine 28.5.1/Compose/disposable PostgreSQL checks. Current startup recovered; future recurrence remains open. [Evidence and backups](../../freshprice/docs/search-pagination-deployment-2026-10-27.md).
+- October 27 local Docker startup correction: observed socket failures match the vendor's Windows lifecycle defect in old Desktop 4.48. Applied the official signed in-place update to 4.97.0/Engine 29.9.2. Two complete stop/cold-start cycles, including normal executable launch, pass without manual socket cleanup; no new startup errors. All 6 containers/39 volumes/23 images preserved, isolated image execution and Compose validation pass. Full Windows reboot at 1:38 PM also verified: original socket issue did not recur; initial info-query timeout cleared on follow-up, and both one-time tasks were removed. Abrupt-power-loss recovery remains untested. [Fix and evidence](../../freshprice/docs/docker-startup-fix-2026-10-27.md).
 
 - October 26 Windows reconciliation: reconstructed missing local search fixes and added fresh helper/page/browser/lint/build checks. Docker Desktop's preexisting inaccessible runtime sockets were recovered without reset or project-data changes; Engine 28.5.1 responds and isolated PostgreSQL search tests pass. [Current evidence and limits](../../freshprice/docs/windows-continuation-2026-10-26.md).
 

@@ -30,6 +30,8 @@ Local accepted evidence: `testing/.local/search-pagination-20261026/reports/sear
 
 ## Recurring local Docker startup issue
 
+> Historical recovery checkpoint. A later [Docker Desktop update and repeated cold-start verification](docker-startup-fix-2026-10-27.md) supersedes the unresolved recurrence status below.
+
 The user again reported Docker Desktop's inaccessible `dockerInference` socket. Inspection found socket reparse files only in the two ordinary runtime directories. After validating Docker executable paths, the runtime folders were preserved as `Docker/run.recovery-20261027-115600` and `docker-secrets-engine.recovery-20261027-115600` beneath the user's local application-data folder, empty replacements created, and Docker restarted. Engine 28.5.1 and Compose validation passed, followed by the isolated PostgreSQL suite. No factory reset, WSL unregister, project database change, or unrelated image/volume removal occurred. This repairs the current startup; recurrence after future shutdowns remains an unresolved local operational risk.
 
 ## Verification limits

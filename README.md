@@ -10,7 +10,9 @@ Read [AGENTS.md](AGENTS.md) first, then only the documentation for the affected 
 
 ## Current release and planning
 
-- [October 27 search pagination release](freshprice/docs/search-pagination-deployment-2026-10-27.md): fresh review found no blocking gap; all 511 local checks, lint/build and isolated browser regressions pass. Backend #63 deployed before frontend #59, followed by PhilWatch #3; all deployment workflows and public search/browser smoke pass. Populated production/SSH-host limits remain explicit. Docker startup recovered again; future recurrence remains a local operational risk. [Historical publication](freshprice/docs/search-pagination-review-publication-2026-10-26.md).
+- [October 27 local Docker startup fix](freshprice/docs/docker-startup-fix-2026-10-27.md): signed Desktop 4.97.0 update addresses the known Windows socket-startup defect; two complete stop/cold-start cycles and normal executable launch pass without manual runtime cleanup. Existing containers/volumes/images preserved. Full Windows reboot subsequently passed, with no recurrence of the socket error; the initial checker timeout is preserved alongside successful follow-up evidence.
+
+- [October 27 search pagination release](freshprice/docs/search-pagination-deployment-2026-10-27.md): fresh review found no blocking gap; all 511 local checks, lint/build and isolated browser regressions pass. Backend #63 deployed before frontend #59, followed by PhilWatch #3; all deployment workflows and public search/browser smoke pass. Populated production/SSH-host limits remain explicit. The subsequent Docker startup correction is linked above. [Historical publication](freshprice/docs/search-pagination-review-publication-2026-10-26.md).
 
 - [Isolated populated browser verification](freshprice/docs/populated-browser-verification-2026-10-26.md): ranking/tag/tied pages, current-price UI pages, history/search API pages and populated form/detail checks pass. Historical reproduction of missing PhilWatch page controls and page-local price search; both subsequently released in the October 27 follow-up above. That isolated checkpoint left production untouched.
 

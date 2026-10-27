@@ -4,6 +4,10 @@ Current as of 2026-10-27. Historical checklists are preserved in [the archive](a
 
 ## Active work
 
+- [x] Full Windows reboot verification: new boot at 1:38:34 PM confirmed; Desktop/Engine start, workload preservation, zero post-boot startup errors and container execution pass. Initial `docker info` timeout is preserved and explained; follow-up succeeds. Both one-time tasks removed. [Evidence](../docs/docker-startup-fix-2026-10-27.md).
+
+- [x] October 27: replace recurring manual Docker socket recovery with signed Desktop 4.97.0 update; verify two complete stop/cold-start cycles and preserved workload identities. [Results and reboot limits](../docs/docker-startup-fix-2026-10-27.md).
+
 - [x] October 26 Windows continuation: reconcile actual checkout/Jira, restore missing search changes, pass fresh available units/HTTP/PostgreSQL/browser/lint/build checks, recover Docker runtime sockets and correct Docker setup guidance. [Current evidence and limits](../docs/windows-continuation-2026-10-26.md).
 - [ ] FP-66 administrative closeout: Jira still In Progress/unassigned despite recorded deployment; connected Atlassian access is read-only. Do not describe it as Done until Jira is updated.
 

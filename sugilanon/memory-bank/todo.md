@@ -2,6 +2,10 @@
 
 Current as of 2026-10-27. [Historical checklist](archive/todo-through-2026-10-21.md).
 
+- [x] October 27 full Windows reboot: new boot timestamp, normal Desktop launch, ready engine, zero startup errors and preserved workloads verified; both temporary tasks removed. [Record](../../freshprice/docs/docker-startup-fix-2026-10-27.md).
+
+- [x] October 27: shared local Docker updated to 4.97.0; two stop/cold starts, normal Desktop launch, workload preservation and isolated image execution pass. [Results and reboot limits](../../freshprice/docs/docker-startup-fix-2026-10-27.md).
+
 - [x] October 26 Windows continuation: restore missing search source, reverify helper/page/browser/lint/build and shared backend/PostgreSQL behavior, recover Docker startup and correct setup guidance. [Current evidence and limits](../../freshprice/docs/windows-continuation-2026-10-26.md).
 
 - [x] October 26: read-only production Chromium verification completed; checked flows/API statuses and zero console errors/warnings recorded with explicit limits. Keep exemptions disabled. [Results](../../freshprice/docs/browser-verification-2026-10-26.md).
