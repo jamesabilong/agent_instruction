@@ -4,6 +4,8 @@ Current as of 2026-10-27. Historical checklists are preserved in [the archive](a
 
 ## Active work
 
+- [ ] Seller profile enrichment follow-up: turn the [October 27 researched proposal](../docs/seller-profile-design-research-2026-10-27.md) into agreed implementation scope for draft/preview setup, owned photos, hours/location and optional Website/Facebook/Instagram. Define image ownership/publication and pending edits before implementation; preserve current approval, private contact and messaging contracts. No new ticket or implementation yet.
+
 - [x] October 27: upgrade FP-58 seller/peer messaging to authenticated WebSockets; verify instant delivery, reconnect, multi-page missed-message recovery, cross-instance delivery and privacy limits. 587 ordinary checks and lint/build pass; production-image evidence and PR/source details are in the [upgrade record](../docs/fp-58-websocket-upgrade-2026-10-27.md).
 - [ ] FP-58 release: review and merge FP-57 prerequisites first, include Docker WebSocket proxy support before frontend, preserve schema/backend-before-frontend deployment order, verify actual production, and establish pilot operator/support readiness before Done/explicit enablement. Jira In Progress; no production change, pilot/exemptions remain disabled. Physical devices/keyboard, other browsers and PWA upgrade remain unverified.
 
