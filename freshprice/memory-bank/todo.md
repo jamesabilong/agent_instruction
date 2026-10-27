@@ -4,12 +4,20 @@ Current as of 2026-10-27. Historical checklists are preserved in [the archive](a
 
 ## Active work
 
+- [ ] Seller follow-ups: gallery/offer photos, optional public phone, interactive crop/assisted uploads and pending public revisions. Current profile/cover uploads and same-day weekly hours are implemented; keep future scope separate. [Scope](../docs/fp-57-profile-improvements-2026-10-27.md).
+
+- [x] October 27: implement authenticated WebSockets with reconnect/missed-message recovery, then integrate the improved seller profiles. Fresh 206/305 units, 69 messaging database and 26 messaging browser cases pass; 669 ordinary cases across seller/messaging candidates without unit double counting. [Current integrated source/evidence](../docs/fp-57-profile-improvements-2026-10-27.md), [earlier transport evidence](../docs/fp-58-websocket-upgrade-2026-10-27.md).
+- [ ] FP-58 release: review and merge FP-57 prerequisites first, include Docker WebSocket proxy support before frontend, preserve schema/backend-before-frontend deployment order, verify actual production, and establish pilot operator/support readiness before Done/explicit enablement. Jira In Progress; no production change, pilot/exemptions remain disabled. Physical devices/keyboard, other browsers and PWA upgrade remain unverified.
+
+- [x] October 27: complete FP-57 seller pilot and user-selected profile improvements: private draft/preview setup, owned profile/cover media, hours/landmark and business/social links. 538 seller cases, lint/build, 18 production-image browser and 14 restart/restore/operational checks pass; dependent FP-58 integration/regressions pass. [Current evidence and release limits](../docs/fp-57-profile-improvements-2026-10-27.md).
+- [ ] FP-57 release: separately authorize backend-before-frontend merge/deployment and actual production verification; identify pilot operator/support readiness before explicit enablement/Done. Keep pilot/exemptions disabled. Jira remains In Progress; FP-58 builds on this candidate but requires FP-57 delivery before its own release.
+
 - [x] Full Windows reboot verification: new boot at 1:38:34 PM confirmed; Desktop/Engine start, workload preservation, zero post-boot startup errors and container execution pass. Initial `docker info` timeout is preserved and explained; follow-up succeeds. Both one-time tasks removed. [Evidence](../docs/docker-startup-fix-2026-10-27.md).
 
 - [x] October 27: replace recurring manual Docker socket recovery with signed Desktop 4.97.0 update; verify two complete stop/cold-start cycles and preserved workload identities. [Results and reboot limits](../docs/docker-startup-fix-2026-10-27.md).
 
 - [x] October 26 Windows continuation: reconcile actual checkout/Jira, restore missing search changes, pass fresh available units/HTTP/PostgreSQL/browser/lint/build checks, recover Docker runtime sockets and correct Docker setup guidance. [Current evidence and limits](../docs/windows-continuation-2026-10-26.md).
-- [ ] FP-66 administrative closeout: Jira still In Progress/unassigned despite recorded deployment; connected Atlassian access is read-only. Do not describe it as Done until Jira is updated.
+- [x] October 27: user-authorized FP-66 Done transition, sprint 338 closeout (3/3 complete, no carryover) and sprint 339 Seller and Messaging start completed through the signed-in browser; Jira read API confirms states. Two-week window October 27–November 10. [Evidence](../docs/sprint-338-closeout-2026-10-27.md).
 
 - [x] October 26: read-only production Chromium verification completed; checked flows/API statuses and zero console errors/warnings recorded with explicit limits. Keep exemptions disabled. [Results](../docs/browser-verification-2026-10-26.md).
 - [x] October 26: complete isolated populated community ranking/tag/tie pages, current-price UI pages, browser-fetched history/search pages and populated search/detail checks. [Results and limits](../docs/populated-browser-verification-2026-10-26.md).
@@ -33,7 +41,7 @@ Current as of 2026-10-27. Historical checklists are preserved in [the archive](a
 - [x] October 26: user-authorized fresh protected backup/full restore, exact FP-66 migration/recovery on that fresh snapshot and safe official Caddy 2.11.7 upgrade complete. Existing sites/config and shared app/DB/guard baseline pass; installed full non-active candidate validates. [Maintenance/evidence](../docs/fp-66-caddy-maintenance-2026-10-26.md).
 
 - [x] Final FP-63 runtime/host verification and fresh protected post-release backup/full isolated restore pass after SSH reconnection; [release record](../docs/fp62-fp63-deployment-2026-10-22.md).
-- [ ] Confirm owners and estimates/capacity for active sprint 338 (FP-62/63/66); started on user request October 22 with Jira’s default two-week window ending November 5. FP-57 → FP-58 remains the future seller/messaging sequence.
+- [ ] Confirm owners and estimates/capacity for active sprint 339 (FP-57 → FP-58), October 27–November 10. Both are In Progress/unassigned; FP-57 is review-ready and FP-58 WebSocket PR updates are verified. Prior sprint 338 closed with all items complete.
 
 ## Operations and retained follow-ups
 

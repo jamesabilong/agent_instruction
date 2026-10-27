@@ -1,6 +1,10 @@
 # FreshPrice Deployment And Local Operations
 
-Latest rollout: 2026-10-22, FP-62/63. [Release record](fp62-fp63-deployment-2026-10-22.md): four workflows succeeded and content published; final FP-63 frontend runtime/host and post-release backup checks await SSH/provider-console access. [Fully verified prior FP-61 release](fp61-deployment-2026-10-21.md).
+FP-57 seller-profile follow-up: [current verification](fp-57-profile-improvements-2026-10-27.md) passes exact committed production images, populated migration 42→44, restart and synthetic restore including private drafts/photos. Include the new details migration before frontend; media is stored in PostgreSQL and included in database backups, without a public uploads path. FP-58 then includes its messaging migration (45 total) and nginx upgrade dependency. Keep pilot/exemptions disabled pending authorized release.
+
+October 27 FP-58: [WebSocket upgrade and exact production-image verification](fp-58-websocket-upgrade-2026-10-27.md) supersede polling-only readiness. Include Docker nginx WebSocket proxy support before the frontend image/deploy; FP-57 remains prerequisite, then migration/backend before frontend. Dedicated event location preserves Origin/cookie and trusted identity policy, upgrades HTTP/1.1, disables buffering and uses 75-second timeouts with 25-second heartbeats. Synthetic local migration 43→44, restart and restore checks are separate from production inventory/backups. Preserve disabled seller/messaging flags and authentication exemptions until authorized; no live operations occurred.
+
+Latest recorded production rollout: October 27 [search/pagination fixes](search-pagination-deployment-2026-10-27.md), following [FP-66 identity controls](fp-66-deployment-2026-10-26.md) and [FP-62/63](fp62-fp63-deployment-2026-10-22.md). Their release records supersede the earlier pending SSH/host/backup checkpoint. FP-57 and FP-58 remain unreleased review candidates; their isolated rehearsal migrations are not production inventory.
 
 VPS deployment verification added: 2026-10-12
 

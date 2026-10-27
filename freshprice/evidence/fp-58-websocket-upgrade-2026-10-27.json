@@ -1,0 +1,277 @@
+{
+  "ticket": "FP-58",
+  "recordedAt": "2026-10-27T14:44:41.576Z",
+  "scope": "WebSocket upgrade to unreleased seller/peer messaging; synthetic isolated verification",
+  "source": {
+    "backend": {
+      "repository": "jamesabilong/fresh-price-backend",
+      "branch": "FP-58",
+      "commit": "33243a06ad59fe37d13f9168192780f4bd0f09fd",
+      "previousAcceptedBaseline": "46c31dbd76ddd4e94876d2dd2145f606ab5ea7dc",
+      "files": {
+        "package-lock.json": "4594332d073990b84d0c0da95dd14dc8b06b54b458a920d14570e37864e8c43b",
+        "package.json": "9da9e8e79abbbd6124e36ea8dff34ddee2beb7dc62807cf441c6a71c798c25de",
+        "src/apps/freshprice/routes/messagingRoutes.js": "cffa5de87c45f253f0c47b8d7278aef8dbc195d6eed9fe7110afd8cd19b1b8fb",
+        "src/apps/freshprice/services/messagingEvents.js": "eb68c0c0ee7671827223a4fcd0f31b3361388b19671d18a5260f2fc6e47f03bc",
+        "src/apps/freshprice/services/messagingRealtime.js": "0b11c26ad621f75482a8f6a96374aaf32d4ad4801a007d80592286d737e0f652",
+        "src/apps/freshprice/services/messagingService.js": "aea1ec747fa192488eeb6d31fc0b6cfd4d403fcb6faa2affa93774294e5b65ad",
+        "src/apps/freshprice/services/sellerService.js": "00f5509eeecf5d20c81d804cdf04b732be5caaba05a7070e2cdd3926a1c131d4",
+        "src/server.js": "dd359526b1d493239c4afd486986b22236ee8322c9f832399aa76dd43301495e"
+      }
+    },
+    "frontend": {
+      "repository": "jamesabilong/fresh-price-front",
+      "branch": "FP-58",
+      "commit": "7c562364c37187a13d29db1189d29a3e307a95e1",
+      "previousAcceptedBaseline": "cc78dac391970a171b34b9176f3a15c4ba26f7d9",
+      "files": {
+        "src/api/messagingRealtime.ts": "55aab7aabc08560f5767142ff637fe411b44e2acf4569a963e8577f34e5a1f40",
+        "src/api/messagingService.ts": "06b94d19d54112a41cd0c273b8d579d1ad169827c642e2aaae463fdde2ab6936",
+        "src/features/messaging/MessagingPage.tsx": "96255edbc931d57475395e9e69d72ae0bb813b4b84638f97eb22ab8c77016350",
+        "vite.config.ts": "4f63f8fca6cc02b7f046f9679b8d13ab38ff647f517045b317fc2f7dbc9b239c"
+      }
+    },
+    "docker": {
+      "repository": "jamesabilong/fpdocker",
+      "branch": "FP-58-websocket-proxy",
+      "commit": "fa5c15699c99657ee554d227aa03321d320b8a8d",
+      "previousAcceptedBaseline": "6b5ce18c9c6df7db60b01233f180c23046a522e4",
+      "files": {
+        "nginx.conf": "0e1edf855b7b5ac0730c9d67dd380613fb5030541734bd8d8bb4d5d5fa6e7996",
+        "nginx.prod.conf": "5938d46c544f68b99f3dc1abd40373ef9ad42e409b45fe36efb1e7ef7c5cdd40"
+      }
+    }
+  },
+  "pullRequests": [
+    {
+      "repository": "jamesabilong/fresh-price-backend",
+      "baseRefName": "master",
+      "headRefOid": "33243a06ad59fe37d13f9168192780f4bd0f09fd",
+      "isDraft": false,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "number": 65,
+      "reviews": [],
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fresh-price-backend/pull/65"
+    },
+    {
+      "repository": "jamesabilong/fresh-price-front",
+      "baseRefName": "master",
+      "headRefOid": "7c562364c37187a13d29db1189d29a3e307a95e1",
+      "isDraft": false,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "number": 61,
+      "reviews": [],
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fresh-price-front/pull/61"
+    },
+    {
+      "repository": "jamesabilong/fpdocker",
+      "baseRefName": "master",
+      "headRefOid": "fa5c15699c99657ee554d227aa03321d320b8a8d",
+      "isDraft": false,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "number": 28,
+      "reviews": [],
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fpdocker/pull/28"
+    }
+  ],
+  "prerequisites": [
+    "https://github.com/jamesabilong/fresh-price-backend/pull/64",
+    "https://github.com/jamesabilong/fresh-price-front/pull/60",
+    "https://github.com/jamesabilong/agent_instruction/pull/2"
+  ],
+  "results": {
+    "backendUnit": {
+      "passed": 197,
+      "skipped": 0
+    },
+    "frontendUnit": {
+      "passed": 295,
+      "skipped": 0,
+      "ticketCases": 24
+    },
+    "database": {
+      "kind": "database",
+      "passed": 69,
+      "skipped": 0,
+      "cleanedUp": true
+    },
+    "developmentBrowser": [
+      {
+        "kind": "desktop",
+        "passed": 13,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      },
+      {
+        "kind": "mobile",
+        "passed": 13,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      }
+    ],
+    "ordinaryTotal": 587,
+    "lint": "passed",
+    "frontendBuild": "passed",
+    "production": {
+      "identity": "fp58_deploy_1793111979377_57a669",
+      "scope": "isolated production-built synthetic rehearsal; no production operations",
+      "status": "passed",
+      "checks": [
+        "clean committed FP-58 application candidates",
+        "canonical committed Linux entrypoint bytes",
+        "production Dockerfiles build committed source without local credentials/tests",
+        "populated synthetic seller migration-43 baseline",
+        "migration 43 to 44 preserves accounts/catalog/official prices/seller profiles/offers",
+        "built private API denies anonymous reads",
+        "production worker and manifest cache policies",
+        "production-built desktop messaging acceptance",
+        "database/backend/nginx cold restart preserves all collected synthetic data",
+        "post-restart real login/private history and disabled-write denial",
+        "full synthetic backup/restore matches every public table and all 44 migrations",
+        "restored database serves real private history and disabled-write denial",
+        "zero authentication exemption rules/audits desktop",
+        "production-built mobile messaging acceptance",
+        "zero authentication exemption rules/audits mobile"
+      ],
+      "browser": [
+        {
+          "mobile": false,
+          "passed": 13,
+          "skipped": 0,
+          "pageErrors": 0
+        },
+        {
+          "mobile": true,
+          "passed": 13,
+          "skipped": 0,
+          "pageErrors": 0
+        }
+      ],
+      "sources": {
+        "backend": "33243a06ad59fe37d13f9168192780f4bd0f09fd",
+        "frontend": "7c562364c37187a13d29db1189d29a3e307a95e1",
+        "docker": "fa5c15699c99657ee554d227aa03321d320b8a8d"
+      },
+      "imageIds": {
+        "codex-fp58-backend:fp58_deploy_1793111979377_57a669": "sha256:5d3a1a7958c79c0a0037ef6f85bbd73d3c9d554b780f459a716154b228f831ad",
+        "codex-fp58-frontend:fp58_deploy_1793111979377_57a669": "sha256:1dfbee4ca50e50b8dd22df43579f9f07dbcdf3be059251c18fcbe598bf33dda7"
+      },
+      "cleanedUp": true
+    }
+  },
+  "records": {
+    "database": "testing/.local/fp58_1793111888072_1d93e6/summary.json",
+    "developmentBrowser": "testing/.local/fp58_1793111900141_e9b141/summary.json",
+    "deployment": "testing/.local/fp58_deploy_1793111979377_57a669/summary.json",
+    "backend": "testing/.local/fp58-ws-final-back2.log",
+    "frontend": "testing/.local/fp58-ws-final-front2.log"
+  },
+  "recordHashes": {
+    "testing/.local/fp58_1793111888072_1d93e6/summary.json": "66b52a46a7257a108779acaa40873e7fadef674376878fe61af8542e567e1c7c",
+    "testing/.local/fp58_1793111900141_e9b141/summary.json": "5ddc20647bf7957c339b1a63b8089287d6db573cce5225e9c69760e8d8348eb2",
+    "testing/.local/fp58_deploy_1793111979377_57a669/summary.json": "fee938aed1da6f6464482747eba0101c1b08b3954cad648f6160e3266403509d",
+    "testing/.local/fp58-ws-final-back2.log": "7389937e510e7b9e87928ec05cac89fb1d588234bcee6f2d764fc74c1b7886f4",
+    "testing/.local/fp58-ws-final-front2.log": "e8d2d3cb95b918daed901be365bc7dd60201a4f158b234720844fa69a32f0c1e"
+  },
+  "externalRegistration": {
+    "ticket": "FP-58",
+    "backendUnit": {
+      "expected": 12,
+      "specs": [
+        "backend/unit/messagingRules.test.js"
+      ]
+    },
+    "database": {
+      "expected": 69,
+      "specs": [
+        "backend/integration/messages.test.js",
+        "backend/integration/realtime.test.js"
+      ]
+    },
+    "browser": {
+      "expected": 26,
+      "scenariosPerViewport": 13,
+      "viewports": [
+        "desktop",
+        "mobile"
+      ]
+    },
+    "frontendUnit": {
+      "expected": 24,
+      "specs": [
+        "frontend/unit/messaging.test.tsx",
+        "frontend/unit/messagingRealtime.test.ts"
+      ]
+    },
+    "fixtures": "fixtures.json",
+    "deployment": {
+      "runner": "node testing/tickets/FP-58/deployment.mjs",
+      "operationalChecks": 15,
+      "browserScenarios": 26,
+      "scope": "Production images, populated migration 43 to 44, desktop/mobile, database/backend/nginx restart and full synthetic dump/restore; no production operations."
+    },
+    "runner": "node testing/tickets/FP-58/run.mjs",
+    "completion": "All registered cases must pass without skips. Synthetic local acceptance is separate from deployment and production verification."
+  },
+  "externalTestFiles": {
+    "testing/tickets/FP-58/ACCEPTANCE.md": "e608d39ef115d2ce2394035b067f08c51237bc9cec35fd9946e279dcfe15fdce",
+    "testing/tickets/FP-58/backend/integration/messages.test.js": "07b35f884ac83095d1b5e408511d004fec9811644e2611a443ff1d94ebb46da5",
+    "testing/tickets/FP-58/backend/integration/realtime.test.js": "d72cf97e72c849f0ed6a0dddb9bad8aca467e80ec6f5eb9eae559771a1d81ebe",
+    "testing/tickets/FP-58/backend/unit/messagingRules.test.js": "854d7fa8b0fdd419451335075e07e1e7036f79bedaee45c08b2279c4dcb97b39",
+    "testing/tickets/FP-58/browser.mjs": "0012e73df2b3b08a6f97093a2039be99fe24a0d07773dbb99a5620b12ef3b8b9",
+    "testing/tickets/FP-58/deployment.mjs": "8f82187e9f5ad0689db8a82edb54f419401f9060b2ef0c81c83c8718ae69ff53",
+    "testing/tickets/FP-58/fixtures.json": "c611c9a3b7892c7517c65da2143e957c53e632c82405e74e7cb8a271eb572e67",
+    "testing/tickets/FP-58/frontend/unit/messaging.test.tsx": "2120b4daa3ee331bd95da4cf08b4c1a6164d74bb9a75c9aa9e1550ce2dfbb245",
+    "testing/tickets/FP-58/frontend/unit/messagingRealtime.test.ts": "2ebe8a7a11dd0abbe2d16ce56b40693683992eab81771fdaa2b8d28abd6ed4dd",
+    "testing/tickets/FP-58/README.md": "2ad315a77a744d33ba8dd78ab2368106c874fcaa489589d5b4fa4a65b059eb26",
+    "testing/tickets/FP-58/run.mjs": "ab03539740e7e8276fca80f1f04e3b603a4cfb40477a06abf08e0ba0c6268414",
+    "testing/tickets/FP-58/suite.json": "2d49b87d42ef35813394802ddb293d2e05fe8464fac7d6e48e964180e1296c74"
+  },
+  "transport": {
+    "endpoint": "/api/freshprice/messages/events",
+    "authentication": "Existing HttpOnly session plus configured Origin and current database account",
+    "events": [
+      "ready",
+      "changed",
+      "inbox",
+      "sync"
+    ],
+    "writes": "Existing authenticated idempotent REST transaction",
+    "routing": "Transaction-bound PostgreSQL LISTEN/NOTIFY across API instances",
+    "recovery": "Persisted ordered message sequences after reconnect; bounded batches continue immediately; racing fetch invalidations retained",
+    "controls": "25-second ping/pong; expiry/removal close; six sockets/account; bounded upgrade/frame/buffer limits; no private content in routing events"
+  },
+  "correctedFindings": [
+    "Production rehearsal exposed redundant read/history refreshes under unchanged HTTP ceiling; scope inbox-only invalidations, include inbox summary fields, suppress no-op read updates",
+    "Real database suite caught SQL placeholder boundary in optimized read query; corrected before final 69-case acceptance"
+  ],
+  "controls": {
+    "productionChanged": false,
+    "pilotEnabledInProduction": false,
+    "exemptionsEnabled": false,
+    "existingHttpLimitsPreserved": true,
+    "temporaryVerificationResourcesCleanedUp": true,
+    "retainedUserDemoIsSeparate": true,
+    "unrelatedSellerResearchAndDockerReadmeExcluded": true
+  },
+  "limits": [
+    "Isolated synthetic production-image rehearsal, not a staging server or restored production backup",
+    "Physical devices/on-screen keyboards, other browsers and installed-PWA upgrade not verified",
+    "Expected denied/offline requests produce console errors; zero page errors is not zero console errors",
+    "Legacy FP-59 branch guard preserved; dedicated FP-58 acceptance used",
+    "Alternate legacy TLS/LAN proxy variants not certified",
+    "FP-57 prerequisites and Docker proxy support must precede frontend release",
+    "Production deployment/verification and live pilot/operator readiness remain open"
+  ]
+}

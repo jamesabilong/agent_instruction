@@ -2,13 +2,15 @@
 
 > Current state (2026-10-26): FP-59/60/61, FP-62/63 and FP-66 are released. FP-66 schema/backend/PhilWatch/frontend and Caddy authenticated-edge identity are deployed and verified; exemptions remain disabled with zero rules/audits. Two independent real clients/direct origins and protected post-release restore pass. PhilWatch nonempty-query search is [fixed/deployed and verified](../../sugilanon/docs/content-search-fix-2026-10-26.md) by backend PR #61; no existing article-detail smoke is claimed on empty production inventory. [FP-66 release](fp-66-deployment-2026-10-26.md), [FP-62/63 release](fp62-fp63-deployment-2026-10-22.md), [progress](../memory-bank/progress.md).
 
-Last consolidated: 2026-10-26. Historical feature descriptions below retain their implementation-date context. Sprint 338 remains active; Jira FP-66 was not changed by deployment. [FP-66 policy](fp-66-controls-2026-10-23.md).
+Last consolidated: 2026-10-27. Historical feature descriptions below retain their implementation-date context. User-authorized Jira closeout marked FP-66 Done and completed sprint 338 with all three items Done. Sprint 339 Seller and Messaging is active October 27–November 10, in FP-57 → FP-58 order. [Closeout](sprint-338-closeout-2026-10-27.md), [FP-66 policy](fp-66-controls-2026-10-23.md).
 
 October 26 backend follow-up: [pagination PR #62 is deployed and verified](backend-pagination-deployment-2026-10-26.md), preserving the earlier search fix and disabled exemptions. Community ranking/tag hydration and deterministic content/source/price pages are corrected; live inventory limitations remain explicit.
 
 Search follow-up released October 27: backend #63 deployed before frontend #59, followed by PhilWatch #3. Fresh 511 local checks, both lint/build gates, isolated browser checks, all deployment workflows and public API/browser smoke pass. Keep existing disabled-exemption instructions and retained host/inventory limits. [Release](search-pagination-deployment-2026-10-27.md).
 
 ## Summary
+
+October 27 development: FP-57 has completed the user-accepted isolated staging verification and its PRs are ready for review, with no production deployment. FP-58 seller inquiries and user-to-user messaging are published for review in backend #65/frontend #61, with private/audited APIs, migration 44 and responsive inbox. 549 ordinary acceptance cases and an exact production-image migration/restart/restore rehearsal pass. Messaging defaults off; prerequisite release, production verification and live pilot remain. [FP-57 final verification](fp-57-final-verification-2026-10-27.md), [FP-58 review/publication](fp-58-review-publication-2026-10-27.md), [API/policy/screenshots](fp-58-messaging-2026-10-27.md).
 
 FreshPrice is a produce and market price tracking platform with public price browsing, admin price management, user budget tools, price submissions, and community discussion.
 

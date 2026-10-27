@@ -1,0 +1,190 @@
+{
+  "ticket": "FP-58",
+  "recordedAt": "2026-10-27T10:59:28.544Z",
+  "source": {
+    "platform-backend": {
+      "branch": "FP-58",
+      "commit": "46c31dbd76ddd4e94876d2dd2145f606ab5ea7dc",
+      "prerequisite": "b5fc98a1a2800524363e9ce843012be294029c47",
+      "files": {
+        "package.json": "1746169710935a16c757491b03140b358fbfa7d8bb81c6e7ba58c101cc8ee986",
+        "src/apps/freshprice/routes/freshpriceRoutes.js": "85623344ce41d8758bb5084356add2d617c391e1d8fc22b255d63c954ca923d7",
+        "src/apps/freshprice/routes/messagingRoutes.js": "9d4be2692f2398401a92549a0e7517f0aa2796bff31b7058cddac85d1a60c089",
+        "src/apps/freshprice/services/messagingRules.js": "689f4afd73450c09071c91b5d707889c31c65d53081f6f9476cfaf09d031cf2c",
+        "src/apps/freshprice/services/messagingService.js": "36cd1518f8cf8bd3b58672326aa0cf1f4e3e53ac7ecb3dd27ead48f12559cd9b",
+        "src/migrations/20261027000002-private-messaging.cjs": "9cc84092b2ccc0c012f5ec450b5112adb74534910dab7bb8c93bf0f7fcfe930c",
+        "src/models/messageContactBlock.js": "3db21e865cc6a97ae8b7a4c9398e8470f9b1ba1378adce7defae66628f0fa5c5",
+        "src/models/messageConversation.js": "eafe6bc51e34acb63240792248333b3aefbcb5d535f9be715178c5cd03af08fa",
+        "src/models/messageModerationAudit.js": "29a59ef714076cc19f566147eab797cb626cf828650933b014c8761477245fcd",
+        "src/models/messageParticipant.js": "04c7e3696ed24f79bd3f26c5a6bd581d9fd9cb84474899fd9006f513c12c5eae",
+        "src/models/messageReport.js": "b451639a9d20025d8f780d266707d40f7f43605def2b14b7cd3428c7f367f508",
+        "src/models/privateMessage.js": "72952156033e98de17a4d4466a4de2ae836b18b6cee8aacf0d835689b07d0c14",
+        "src/services/notificationService.js": "5846944a259f6bb5de263b4664b2c5f265c71faa2ff7c7cd814e7182d94c7aa8",
+        "vitest.config.js": "69bafe27ec853ec5d1ab8e754fe20ec46570372f00fbe4a5a3c24d4f4d27957f"
+      }
+    },
+    "fresh-price-front": {
+      "branch": "FP-58",
+      "commit": "cc78dac391970a171b34b9176f3a15c4ba26f7d9",
+      "prerequisite": "db7e0e8cd04b893ae2daafaaf5085c5f2aeb5322",
+      "files": {
+        "src/api/messagingService.ts": "7021a878d85646759ac8994a803258df211a9ec36e73ad6ab8f6a77514b3739f",
+        "src/features/admin/AdminSidebar.tsx": "ea7f20b69a0fc27601e41848bf5f462307bd0a575aed9957f274786c9625e513",
+        "src/features/messaging/MessageReportsPage.tsx": "46878adb7b5bf89893f54873fa0a4a747dcc8fd628a2a967601e1344529dac3d",
+        "src/features/messaging/MessageSellerButton.tsx": "8cd6b51cef0951181872078dd987c4aa5c8760b2c8b34f34c09321102149006c",
+        "src/features/messaging/MessagingPage.tsx": "449797d8481af911f83ee23416b12703a15bedb77f148c412cffe7989679a993",
+        "src/features/sellers/SellerProfilePage.tsx": "0f7cf0bcb3fcbf18b8f5146d2618803eb2d3a183d226f36381bc7f2290714d1e",
+        "src/features/user/UserSidebar.tsx": "971a68d66d3c7d84d878c0b7e84f510de5ee6597ab9d06b02077c22d09902d7e",
+        "src/router/index.tsx": "ead1c8ab1bd909eee2dc2333d5ec88d02d59f2b47fe855db6dcc3ad21590e888",
+        "vite.config.ts": "fcda9de6433961a45e8b235aacc1220f71bb8d8b99c66d0a101cc1e331288d41"
+      }
+    }
+  },
+  "prerequisitePRs": [
+    "https://github.com/jamesabilong/fresh-price-backend/pull/64",
+    "https://github.com/jamesabilong/fresh-price-front/pull/60",
+    "https://github.com/jamesabilong/agent_instruction/pull/2"
+  ],
+  "pullRequests": [
+    {
+      "repo": "jamesabilong/fresh-price-backend",
+      "baseRefName": "master",
+      "headRefOid": "46c31dbd76ddd4e94876d2dd2145f606ab5ea7dc",
+      "isDraft": false,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "number": 65,
+      "reviews": [],
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fresh-price-backend/pull/65"
+    },
+    {
+      "repo": "jamesabilong/fresh-price-front",
+      "baseRefName": "master",
+      "headRefOid": "cc78dac391970a171b34b9176f3a15c4ba26f7d9",
+      "isDraft": false,
+      "mergeStateStatus": "CLEAN",
+      "mergeable": "MERGEABLE",
+      "number": 61,
+      "reviews": [],
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/jamesabilong/fresh-price-front/pull/61"
+    }
+  ],
+  "reviewCorrections": [
+    "Ignore stale seller/offer response after navigation",
+    "Stop follow-on private history request after conversation unmount",
+    "Canonicalize valid uppercase seller profile UUID"
+  ],
+  "results": {
+    "backendUnit": {
+      "passed": 197,
+      "skipped": 0
+    },
+    "frontendUnit": {
+      "passed": 281,
+      "skipped": 0
+    },
+    "database": {
+      "kind": "database",
+      "passed": 51,
+      "skipped": 0,
+      "cleanedUp": true
+    },
+    "developmentBrowser": {
+      "passed": 20,
+      "skipped": 0,
+      "pageErrors": 0,
+      "record": "testing/.local/fp58_1793098104033_80e57f/summary.json",
+      "note": "Database phase preceded final two cases; final 51-case database report is separate. Exact final application source is additionally verified by production-image browser run."
+    },
+    "acceptanceTotal": 549,
+    "deployment": {
+      "identity": "fp58_deploy_1793098436018_4abfaa",
+      "scope": "isolated production-built synthetic rehearsal; no production operations",
+      "status": "passed",
+      "checks": [
+        "clean committed FP-58 application candidates",
+        "canonical committed Linux entrypoint bytes",
+        "production Dockerfiles build committed source without local credentials/tests",
+        "populated synthetic seller migration-43 baseline",
+        "migration 43 to 44 preserves accounts/catalog/official prices/seller profiles/offers",
+        "built private API denies anonymous reads",
+        "production worker and manifest cache policies",
+        "production-built desktop messaging acceptance",
+        "database/backend/nginx cold restart preserves all collected synthetic data",
+        "post-restart real login/private history and disabled-write denial",
+        "full synthetic backup/restore matches every public table and all 44 migrations",
+        "restored database serves real private history and disabled-write denial",
+        "zero authentication exemption rules/audits desktop",
+        "production-built mobile messaging acceptance",
+        "zero authentication exemption rules/audits mobile"
+      ],
+      "browser": [
+        {
+          "mobile": false,
+          "passed": 10,
+          "skipped": 0,
+          "pageErrors": 0
+        },
+        {
+          "mobile": true,
+          "passed": 10,
+          "skipped": 0,
+          "pageErrors": 0
+        }
+      ],
+      "sources": {
+        "backend": "46c31dbd76ddd4e94876d2dd2145f606ab5ea7dc",
+        "frontend": "cc78dac391970a171b34b9176f3a15c4ba26f7d9",
+        "docker": "6b5ce18c9c6df7db60b01233f180c23046a522e4"
+      },
+      "imageIds": {
+        "codex-fp58-backend:fp58_deploy_1793098436018_4abfaa": "sha256:4a3e4f0d528de64f1da7eff86db16f6f89d958907654b16ab6cb9980b1ecbde2",
+        "codex-fp58-frontend:fp58_deploy_1793098436018_4abfaa": "sha256:df362e7a47ada2908e996de3fe0997d0b272048cb7f6f648abfa4d6ff2d42d91"
+      },
+      "cleanedUp": true
+    },
+    "lint": "passed",
+    "frontendBuild": "passed",
+    "targetedFinalUI": {
+      "passed": 10,
+      "skipped": 0
+    }
+  },
+  "records": {
+    "database": "testing/.local/fp58_1793098172142_07434c/summary.json",
+    "deployment": "testing/.local/fp58_deploy_1793098436018_4abfaa/summary.json",
+    "backend": "testing/.local/fp58-review-backend-checks.log",
+    "frontend": "testing/.local/fp58-review-frontend-checks.log"
+  },
+  "externalTestFiles": {
+    "testing/tickets/FP-58/ACCEPTANCE.md": "11dfdb53c411005b81a592756bff4331a002b7e0f048a58cc2e7ccc6c720d410",
+    "testing/tickets/FP-58/backend/integration/messages.test.js": "07b35f884ac83095d1b5e408511d004fec9811644e2611a443ff1d94ebb46da5",
+    "testing/tickets/FP-58/backend/unit/messagingRules.test.js": "854d7fa8b0fdd419451335075e07e1e7036f79bedaee45c08b2279c4dcb97b39",
+    "testing/tickets/FP-58/browser.mjs": "07f20f14f11c5965b91dc11554a291fd05e84ccbad83c14268808c5938794df7",
+    "testing/tickets/FP-58/deployment.mjs": "8339f6ce7d65e902869620a78bd409c46a576d91f3472990369a458e40c4e841",
+    "testing/tickets/FP-58/fixtures.json": "c611c9a3b7892c7517c65da2143e957c53e632c82405e74e7cb8a271eb572e67",
+    "testing/tickets/FP-58/frontend/unit/messaging.test.tsx": "698eb740a7989fb5b8e649b85d4ea3ce88447593d1e6eb81db741db865020e3d",
+    "testing/tickets/FP-58/README.md": "a9b3fca9d4c48085bbbd5a312c2143a015a1c35ca656711f0c5a86343dd2eb1c",
+    "testing/tickets/FP-58/run.mjs": "619d3e6f336895152a697b1639b1811f59a4efea9d9bc12862ecc69d43b5d25a",
+    "testing/tickets/FP-58/suite.json": "8a47cef8f1b918a7679b0c8f1cbbcf009a6b37f0209cea9a6fbb3df5363c52aa"
+  },
+  "controls": {
+    "productionChanged": false,
+    "pilotEnabledInProduction": false,
+    "exemptionsEnabled": false,
+    "temporaryResourcesCleanedUp": true
+  },
+  "limits": [
+    "Synthetic isolated production-image rehearsal, not a staging server or restored production backup",
+    "Physical devices/on-screen keyboard, other browsers and installed-PWA upgrade not verified",
+    "Expected denied/network scenarios produce console errors; pageErrors=0 is not consoleErrors=0",
+    "Legacy FP-59 E2E branch guard preserved; dedicated FP-58 runner used",
+    "Prerequisite FP-57 PRs still open; release must preserve schema/backend-before-frontend order",
+    "Actual production deployment and live pilot/operator readiness remain open"
+  ],
+  "harnessCorrection": "Initial production rehearsal used a non-browser helper that omitted Secure cookies on HTTP loopback; switched history/unread verification to signed-in browser fetch, retained Secure/HttpOnly cookie settings and reran. Earlier temporary resources cleaned up."
+}

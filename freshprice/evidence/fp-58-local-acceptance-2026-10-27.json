@@ -1,0 +1,132 @@
+{
+  "ticket": "FP-58",
+  "recordedAt": "2026-10-27T10:04:23.290Z",
+  "state": "local implementation accepted; uncommitted/unpublished; Jira In Progress",
+  "scope": [
+    "approved seller inquiries and replies",
+    "user-to-user exact-username conversations"
+  ],
+  "source": {
+    "platform-backend": {
+      "branch": "FP-58",
+      "baseCommit": "b5fc98a1a2800524363e9ce843012be294029c47",
+      "uncommitted": true,
+      "files": {
+        "src/apps/freshprice/routes/messagingRoutes.js": "9d4be2692f2398401a92549a0e7517f0aa2796bff31b7058cddac85d1a60c089",
+        "src/apps/freshprice/services/messagingRules.js": "689f4afd73450c09071c91b5d707889c31c65d53081f6f9476cfaf09d031cf2c",
+        "src/apps/freshprice/services/messagingService.js": "91ded9ec6666c5b0130d06398b8a61a8a3901a381798be3b297b8b352bd1271c",
+        "src/migrations/20261027000002-private-messaging.cjs": "9cc84092b2ccc0c012f5ec450b5112adb74534910dab7bb8c93bf0f7fcfe930c",
+        "src/models/messageContactBlock.js": "3db21e865cc6a97ae8b7a4c9398e8470f9b1ba1378adce7defae66628f0fa5c5",
+        "src/models/messageConversation.js": "eafe6bc51e34acb63240792248333b3aefbcb5d535f9be715178c5cd03af08fa",
+        "src/models/messageModerationAudit.js": "29a59ef714076cc19f566147eab797cb626cf828650933b014c8761477245fcd",
+        "src/models/messageParticipant.js": "04c7e3696ed24f79bd3f26c5a6bd581d9fd9cb84474899fd9006f513c12c5eae",
+        "src/models/messageReport.js": "b451639a9d20025d8f780d266707d40f7f43605def2b14b7cd3428c7f367f508",
+        "src/models/privateMessage.js": "72952156033e98de17a4d4466a4de2ae836b18b6cee8aacf0d835689b07d0c14",
+        "package.json": "73073122d6c4f6932b85ebce6cfa9f9d8a661d1ddd1759e2734bf600ab5d7394",
+        "src/apps/freshprice/routes/freshpriceRoutes.js": "8cc08638ea18c8784d49fd8548f641a1bbb4303c633cf3dc2dcf0f8e953e91ac",
+        "src/services/notificationService.js": "06e06ef87656084d24fb9d7f3ab35c8433570132146f90a1dc6efb73f42356a8",
+        "vitest.config.js": "7d626e66733b880dd0d6e2fe1833a5b4fc5dc25b9d0bbe31eb48e5cdf2d33aa8"
+      }
+    },
+    "fresh-price-front": {
+      "branch": "FP-58",
+      "baseCommit": "db7e0e8cd04b893ae2daafaaf5085c5f2aeb5322",
+      "uncommitted": true,
+      "files": {
+        "src/api/messagingService.ts": "7021a878d85646759ac8994a803258df211a9ec36e73ad6ab8f6a77514b3739f",
+        "src/features/messaging/MessageReportsPage.tsx": "46878adb7b5bf89893f54873fa0a4a747dcc8fd628a2a967601e1344529dac3d",
+        "src/features/messaging/MessageSellerButton.tsx": "25bf7ac4e99b6df8c2b2513bcaf750e0167111bebcd9e1ef56715c714494e650",
+        "src/features/messaging/MessagingPage.tsx": "aa2e040615f398413ed8cd8372f8c72b0b7cec43649e7a42ac9f7b59f1313e34",
+        "src/features/admin/AdminSidebar.tsx": "77dd6e9b91a5a730d969c70272bded5c766b3859555a63d4d226f4b8959a65dc",
+        "src/features/sellers/SellerProfilePage.tsx": "0f7cf0bcb3fcbf18b8f5146d2618803eb2d3a183d226f36381bc7f2290714d1e",
+        "src/features/user/UserSidebar.tsx": "570b10eba716745801fb814c877de025a6bf6bb95a20f4287494b9b0be5a5894",
+        "src/router/index.tsx": "4d76e46de63538ae1fbbf124bedb4f11a90a00e1829b83a9b04aa2fac6a043de",
+        "vite.config.ts": "2e609328d1b2443432d289500b2d6048d4e17719582fc9ba1c68c20238147167"
+      }
+    }
+  },
+  "results": {
+    "backendUnit": {
+      "passed": 197,
+      "skipped": 0
+    },
+    "frontendUnit": {
+      "passed": 279,
+      "skipped": 0
+    },
+    "database": {
+      "kind": "database",
+      "passed": 49,
+      "skipped": 0,
+      "cleanedUp": true
+    },
+    "browser": [
+      {
+        "kind": "desktop",
+        "passed": 10,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      },
+      {
+        "kind": "mobile",
+        "passed": 10,
+        "skipped": 0,
+        "pageErrors": 0,
+        "cleanedUp": true
+      }
+    ],
+    "total": 545,
+    "frontendLint": "passed",
+    "frontendProductionBuild": "passed"
+  },
+  "records": {
+    "database": "testing/.local/fp58_1793094597949_df3a26/summary.json",
+    "browser": "testing/.local/fp58_1793094851000_3f8974/summary.json",
+    "backendUnit": "testing/.local/fp58-final-backend-checks.log",
+    "frontendChecks": "testing/.local/fp58-final-frontend-checks.log"
+  },
+  "cleanup": "All accepted groups record cleanedUp=true; final docker ps -a filtered by codex.fp58.run returned no containers.",
+  "flags": {
+    "messagingDefault": false,
+    "sellerDefault": false,
+    "authenticationTestExemptionsDuringAcceptance": false,
+    "productionChanged": false
+  },
+  "preservedLegacyGate": "npm run test:e2e:chromium refused FP-58 because its existing runner requires FP-59; dedicated FP-58 real browser/database suite passed instead.",
+  "limits": [
+    "Synthetic local PostgreSQL and Vite/Node application only; no production-built staging/restore rehearsal for FP-58",
+    "Mobile Chromium viewport emulation; physical on-screen keyboard/device and other browsers not tested",
+    "No installed-PWA upgrade verification",
+    "Expected denied/network requests produce console errors; zero page errors is not zero console errors",
+    "Existing React test warnings and Browserslist age warning retained",
+    "FP-57 delivery remains a release prerequisite; no pilot enablement or deployment"
+  ],
+  "externalTestFiles": {
+    "testing/tickets/FP-58/ACCEPTANCE.md": "f7e4f277f3d423533a3cc2ac810169af07481868faea03e9336a1c395021ade2",
+    "testing/tickets/FP-58/backend/integration/messages.test.js": "9a2fb7ca8a954747c2cdc206115cb7930f8e5cdd166b7d3acef17b50cf3bb56c",
+    "testing/tickets/FP-58/backend/unit/messagingRules.test.js": "854d7fa8b0fdd419451335075e07e1e7036f79bedaee45c08b2279c4dcb97b39",
+    "testing/tickets/FP-58/browser.mjs": "1226b4e366de1c1df07cae4546169eb4e68c660c09bf370eddf575c3a5c8a6a6",
+    "testing/tickets/FP-58/fixtures.json": "c611c9a3b7892c7517c65da2143e957c53e632c82405e74e7cb8a271eb572e67",
+    "testing/tickets/FP-58/frontend/unit/messaging.test.tsx": "f998223d2d2d5513bdfcbb5ab9fc3bd8ca5de6ffe364431b819cc2cfacbfdf30",
+    "testing/tickets/FP-58/README.md": "3b580218b16312239aed892cb62f21c6bb5f411bea6b7e0f4cfb2ff6a7752a8c",
+    "testing/tickets/FP-58/run.mjs": "619d3e6f336895152a697b1639b1811f59a4efea9d9bc12862ecc69d43b5d25a",
+    "testing/tickets/FP-58/suite.json": "7523597c11153c1c8f6c3a516f1958ef92fb25892585bbe1b946c374e18b5316"
+  },
+  "screenshots": {
+    "testing/.local/fp58_1793094851000_3f8974/desktop/browser-01-seller-entry.png": "b6235a76206fe2023bb7bd4992ce41aa0bf4ae6eafe5e729a73dfbd8fe1fb166",
+    "testing/.local/fp58_1793094851000_3f8974/desktop/browser-02-seller-inbox.png": "908e32c6c6dac225f99ffc37d2547ef49254ac7fd79393a0c98c88a984595a99",
+    "testing/.local/fp58_1793094851000_3f8974/desktop/browser-03-seller-reply.png": "0ce41d459b83487dcd165bb7ca7d1fc49359908f86d55b3d6a46a7ad96ea663e",
+    "testing/.local/fp58_1793094851000_3f8974/desktop/browser-04-buyer-seller-chat.png": "3b90d763cd0961e0ef8a2322bdbcc3b5465e826c7e9e0538130ef950dc8d58c4",
+    "testing/.local/fp58_1793094851000_3f8974/desktop/browser-05-new-user-message.png": "e9b501e04e70ae1ca032a691537a80acb77dcaabc98223aefafcd8f8bc487157",
+    "testing/.local/fp58_1793094851000_3f8974/desktop/browser-06-user-reply.png": "6244b3cf9a8207d7b7b7c0a0b6452efba892bfbf65255477ad2c5c4a89b928d9",
+    "testing/.local/fp58_1793094851000_3f8974/desktop/browser-07-user-to-user-chat.png": "22ca30958d1bc6992ef4a3c381d19b373edcb29b6d7ae33f8357729cd41a1582",
+    "testing/.local/fp58_1793094851000_3f8974/mobile/browser-01-seller-entry.png": "623a247fe41b83aa7817068da559174a8667af1abdd7a997be2ed9acc897c04a",
+    "testing/.local/fp58_1793094851000_3f8974/mobile/browser-02-seller-inbox.png": "c6bfc40f2cd93357cda00e49be55e38c0dfeff706ac512ca54351aee5288d808",
+    "testing/.local/fp58_1793094851000_3f8974/mobile/browser-03-seller-reply.png": "664a66f8cdf75d19fa274d5cb47e311167c3bf9857998855f0ef0bd507677f62",
+    "testing/.local/fp58_1793094851000_3f8974/mobile/browser-04-buyer-seller-chat.png": "7d4d1830840b38a12e6af121f402d25d489fac56fb146c50be23113e2befb259",
+    "testing/.local/fp58_1793094851000_3f8974/mobile/browser-05-new-user-message.png": "9a5b1dfe73dc22bb641bf30a16b4d57eeb2b8db31010959a0e160e51b016d4b3",
+    "testing/.local/fp58_1793094851000_3f8974/mobile/browser-06-user-reply.png": "e39410b4ee957303951e812eac0b283c6eb56c21521d1b73829114c1bd4a68c4",
+    "testing/.local/fp58_1793094851000_3f8974/mobile/browser-07-user-to-user-chat.png": "d24dd3132f0ed4370e7992913a1f6477ebfee91ae3256b6010978b9d759358c2"
+  }
+}
